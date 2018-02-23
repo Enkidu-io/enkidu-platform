@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	before_action :set_project, only: [:show]
+	before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 	def index
 		# Add search functionality
@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
-
+		
 	end
 
 	def destroy
