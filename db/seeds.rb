@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Resolution.create(name: "Add new Collaborator")
+Resolution.create(name: "Remove Collaborator")
+Resolution.create(name: "Dilute")
