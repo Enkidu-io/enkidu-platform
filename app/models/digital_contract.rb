@@ -1,0 +1,2 @@
+class DigitalContract < ApplicationRecord
+end

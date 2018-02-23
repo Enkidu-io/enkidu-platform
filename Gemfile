@@ -39,6 +39,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'modernizr-rails', '~> 2.7', '>= 2.7.1'
 
 gem 'bootstrap-will_paginate'
+
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

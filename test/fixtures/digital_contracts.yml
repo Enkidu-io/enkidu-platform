@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eth_address: MyText
+  project_id: 1
+  leader_vote: false
+  user_vote: false
+
+two:
+  eth_address: MyText
+  project_id: 1
+  leader_vote: false
+  user_vote: false
