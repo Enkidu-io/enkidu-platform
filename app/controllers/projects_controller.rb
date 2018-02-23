@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+		
 	end
 
 	def create
@@ -23,11 +24,23 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
-		
+		if @project.update!(project_params)
+			flash[:notice] = "Updated project"
+			redirect_to @project
+		else
+			flash[:notice] = "Failed to update project"
+			redirect_to request.referer
+		end
 	end
 
 	def destroy
-
+		if @project.destroy
+			flash[:notice] = "Deleted project"
+			redirect_to projects_path
+		else
+			flash[:notice] = "Failed to delete project"
+			redirect_to request.referer
+		end
 	end
 
 	private
