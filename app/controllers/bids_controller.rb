@@ -9,9 +9,8 @@ class BidsController < ApplicationController
   end
 
   def create
-      @bid = Bid.new(bid_params)
-      @bid.save
 
+      @bid = Bid.new(bid_params)
       if @bid.save
        flash[:notice] = 'done'
      else
@@ -19,6 +18,23 @@ class BidsController < ApplicationController
      end
 
   end
+
+  def destroy
+    @bid.destroy
+		redirect_to root_path
+  end
+
+  def update
+
+		if @bid.update(params[:bid_percentage].permit(:user_id, :project_id,:resolution_id))
+      flash[:success]="Bid Updated"
+			redirect_to root_path
+		else
+      flash[:success]="Bid Not Updated"
+      redirect_to root_path
+		end
+	end
+
 
   def show
   end
