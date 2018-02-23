@@ -31,6 +31,8 @@ gem 'devise'
 gem 'figaro'
 
 gem 'ransack'
+
+gem 'simple_form'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
