@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		
+		@users = @projects.users
 	end
 
 	def create
