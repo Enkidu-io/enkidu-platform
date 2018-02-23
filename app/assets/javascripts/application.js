@@ -11,5 +11,11 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+// require turbolinks
+//= require jquery
+//= require modernizr
+//= require js.storage.min
+//= require vendor
+//= require app.bundle
+
 //= require_tree .

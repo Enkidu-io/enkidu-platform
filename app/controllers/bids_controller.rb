@@ -1,4 +1,5 @@
 class BidsController < ApplicationController
+  before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
   def index
     @bids=current_user.bids
@@ -40,6 +41,10 @@ class BidsController < ApplicationController
   end
 
   private
+
+  def set_project
+        @bid = Bid.find(params[:id])
+    end
 
   def bid_params
     params.require(:bid).permit(:bid_percentage).merge(user_id: current_user.id ,project_id: project_id,resolution_id: resolution_id)

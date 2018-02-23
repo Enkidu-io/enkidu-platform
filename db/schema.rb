@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223101008) do
+ActiveRecord::Schema.define(version: 20180223142825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180223101008) do
     t.float "approval_percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "has_voted", default: false
   end
 
   create_table "bids", force: :cascade do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180223101008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "resolution_id"
+    t.integer "initiater_id"
   end
 
   create_table "payment_gateways", force: :cascade do |t|
@@ -52,10 +54,10 @@ ActiveRecord::Schema.define(version: 20180223101008) do
     t.text "title"
     t.text "description"
     t.integer "ip_ownership_id"
-    t.string "unallocated_percentage"
-    t.string "float"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "unallocated_percentage"
+    t.integer "leader_id"
   end
 
   create_table "resolutions", force: :cascade do |t|
