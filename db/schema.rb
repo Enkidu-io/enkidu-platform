@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223111430) do
+ActiveRecord::Schema.define(version: 20180223113628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 20180223111430) do
     t.text "title"
     t.text "description"
     t.integer "ip_ownership_id"
-    t.string "unallocated_percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "unallocated_percentage"
   end
 
   create_table "resolutions", force: :cascade do |t|
