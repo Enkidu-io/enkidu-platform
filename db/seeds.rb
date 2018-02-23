@@ -10,3 +10,8 @@
 Resolution.create(name: "Add new Collaborator")
 Resolution.create(name: "Remove Collaborator")
 Resolution.create(name: "Dilute")
+
+NotificationType.create(notification_content: "Smart Contract")
+NotificationType.create(notification_content: "Add Collaborator")
+NotificationType.create(notification_content: "Remove Collaborator")
+NotificationType.create(notification_content: "Dilute")

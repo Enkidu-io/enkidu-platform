@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  notification_type_id: 1
+  last_clicked: 2018-02-23 21:08:36
+
+two:
+  user_id: 1
+  notification_type_id: 1
+  last_clicked: 2018-02-23 21:08:36
