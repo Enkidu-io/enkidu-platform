@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  description: MyText
+  ip_ownership_id: 1
+  unallocated_percentage: MyString
+  float: MyString
+
+two:
+  title: MyText
+  description: MyText
+  ip_ownership_id: 1
+  unallocated_percentage: MyString
+  float: MyString

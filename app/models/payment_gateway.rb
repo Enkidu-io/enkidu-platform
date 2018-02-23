@@ -1,0 +1,2 @@
+class PaymentGateway < ApplicationRecord
+end

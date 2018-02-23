@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bid_id: 1
+  user_id: 1
+  approval_percentage: 1.5
+
+two:
+  bid_id: 1
+  user_id: 1
+  approval_percentage: 1.5
