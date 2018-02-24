@@ -1,8 +1,9 @@
 class Bid < ApplicationRecord
   belongs_to :project
-  belongs_to :user
+  belongs_to :user, :class_name => 'User', :foreign_key => 'initiator_id'
   belongs_to :resolution
   has_many :bid_details
+  belongs_to :initiator, :class_name => 'User', :foreign_key => 'initiator_id'
 
   after_commit :create_bid_details, on: :create
 
