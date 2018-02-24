@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@users = @projects.users
+		@project_users = @project.users
 	end
 
 	def create

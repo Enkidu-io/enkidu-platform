@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :project_users, dependent: :destroy
   has_many :projects, through: :project_users
+  has_many :notifications
   has_many :bids
   has_many :bid_details
   has_many :notifications
