@@ -9,7 +9,7 @@ class BidsController < ApplicationController
     @bid = Bid.new
   end
 
-  # add new collaborator to be added
+  # add new collaborator to be added by email (check for add collab 2 ways)
   def create
       @bid = Bid.new(bid_params)
       if @bid.save
@@ -53,7 +53,7 @@ class BidsController < ApplicationController
     end
 
     def bid_params
-      params.require(:bid).permit(:bid_percentage, :project_id, ).merge(user_id: current_user.id)
+      params.require(:bid).permit(:bid_percentage, :project_id).merge(user_id: current_user.id)
     end
 
 

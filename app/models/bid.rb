@@ -1,6 +1,7 @@
 class Bid < ApplicationRecord
   belongs_to :project
   belongs_to :user
+  belongs_to :resolution
 
   after_commit :create_bid_details, on: create
 

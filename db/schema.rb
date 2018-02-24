@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20180224072744) do
   end
 
   create_table "bids", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id" 
     t.integer "project_id"
     t.float "bid_percentage"
     t.datetime "created_at", null: false
