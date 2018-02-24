@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224072744) do
+ActiveRecord::Schema.define(version: 20180224103513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20180224072744) do
   create_table "digital_contracts", force: :cascade do |t|
     t.text "eth_address"
     t.integer "project_id"
-    t.boolean "leader_vote"
-    t.boolean "user_vote"
+    t.boolean "leader_signed", default: false
+    t.boolean "user_signed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "bid_id"

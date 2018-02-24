@@ -1,5 +1,11 @@
 class BidDetail < ApplicationRecord
+	belongs_to :bid
+	belongs_to :user
 	after_commit :create_digital_contract, :on => [:update] 
+	
+	validates_presence_of :bid_id, :user_id, :approval_percentage, :has_voted
+	validates :approval_percentage, numericality: { only_float: true, greater_than: 0.0, less_than: 100.0 }
+
 	def create_digital_contract
 		total_votes_cast = 0
 		approval_weight = 0.0
