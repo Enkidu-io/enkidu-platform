@@ -7,6 +7,48 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class="">
+     <div class="modal fade" id="Modal" role="dialog" style="background-color:#263238;">
+          <div class="modal-dialog">
+    <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #512DA8">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Create New Project  </h4>
+          </div>
+          <div class="modal-body">
+            <%= form_for :project, class: "form-horizontal"  do |f| %>
+
+             <div class="form-group modal-form-index">
+               <p>
+               <%= f.label :Title ,class: "control-label"%><br>
+               <%= f.text_field :title,:placeholder => "Enter Title" ,class: "form-control" %>
+               </p>
+             </div>
+             <div class="form-group modal-form-index">
+               <p>
+               <%= f.label :Description %><br>
+               <%= f.text_field :description,:placeholder => "Enter Description" ,class: "form-control" %>
+               </p>
+             </div>
+             <div class="form-group modal-form-index">
+               <p>
+               <%= f.label :Leader_allocation %><br>
+               <%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
+               </p>
+             </div>
+              <p>
+                <%= f.submit "Submit" , class: "btn btn-primary btn-cons btn-round"%>
+              </p>
+
+              <%end%>
+            </div>
+          </div>
+        </div>
+     </div>
+
+
+
+    
     <div id="app_wrapper">
       <header id="app_topnavbar-wrapper">
         <nav role="navigation" class="navbar topnavbar">
@@ -25,7 +67,7 @@
                 </a>
               </li>
               <li class="dropdown dropdown-lg app_menu_launcher hidden-xs">
-                <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown" aria-expanded="false">
+                <a href="javascript:void(0)" class="nav-link" data-toggle="modal" data-target="#Modal" aria-expanded="false">
                   <span>Create Project</span>
                 </a>
               </li>
@@ -38,7 +80,7 @@
                       <img src="assets/img/profiles/02.jpg" alt="" class="img-circle max-w-35">
                       <i class="badge mini success status"></i>
                     </span>
-                    <span class="name">Enkidu Dev Team</span>
+                    <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
                     <span class="caret"></span>
                   </span>
                 </a>
