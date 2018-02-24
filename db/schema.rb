@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180224072744) do
     t.datetime "last_clicked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "notification_description"
   end
 
   create_table "payment_gateways", force: :cascade do |t|
