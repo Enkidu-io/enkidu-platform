@@ -52,7 +52,7 @@ class BidsController < ApplicationController
     end
 
     def bid_params
-      params.require(:bid).permit(:bid_percentage).merge(user_id: current_user.id ,project_id: project_id,resolution_id: resolution_id)
+      params.require(:bid).permit(:bid_percentage, :project_id, ).merge(user_id: current_user.id)
     end
 
 
