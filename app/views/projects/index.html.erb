@@ -1,20 +1,16 @@
-<script type="text/javascript">
-	 
-
-
-</script>
 <div class="row">
-	<div class="col-sm-6">
-		 <div class="input-group" id="adv-search">
-                <input type="text" class="form-control" placeholder="Search for snippets" />
-                <div class="input-group-btn">
-                    <div class="btn-group" role="group">
-                        <div class="dropdown dropdown-lg" style="margin-top: 10px;">
-                            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <form class="form-horizontal" role="form"  >
-                                  <div class="form-group">
-                                    <label for="filter" style="margin-top: 15px;">Filter by</label><br/>
+    <div class="col-sm-6">
+        <div class="input-group" id="adv-search">
+            <input type="text" class="form-control" placeholder="Search for snippets" />
+            <div class="input-group-btn">
+                <div class="btn-group" role="group">
+                    <div class="dropdown dropdown-lg" style="margin-top: 10px;">
+                        <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="filter">Filter by</label>
+                                    <br/>
                                     <select class="form-control">
                                         <option value="0" selected>All Snippets</option>
                                         <option value="1">Featured</option>
@@ -22,116 +18,37 @@
                                         <option value="3">Top rated</option>
                                         <option value="4">Most commented</option>
                                     </select>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="contain">Author</label><br/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contain">Author</label>
+                                    <br/>
                                     <input class="form-control" type="text" />
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="contain">Contains the words</label><br/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contain">Contains the words</label>
+                                    <br/>
                                     <input class="form-control" type="text" />
-                                  </div>
-                                  <button type="submit" class="btn btn-sm btn-primary">Search</button>
-                                </form>
-                            </div>
+                                </div>
+                                <button type="submit" class="btn btn-sm btn-primary">Search</button>
+                            </form>
                         </div>
-                        <button type="button" class="btn btn-sm btn-success" style="margin-top: 10px;">Search</button>
                     </div>
+                    <button type="button" class="btn btn-sm btn-success" style="margin-top: 10px;">Search</button>
                 </div>
             </div>
-      </div>
-
-	<div class="col-sm-6">
-<div class="card card-purple">
-                            <header class="card-heading">
-                              <h2 class="card-title">Project Title</h2>
-                            </header>
-                            <div class="card-body">
-                              <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"></div>
-                              	<h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                              	</h5>
-
-                              </div>
-                              <div class="card-footer border-top-trans">
-                                <ul class="card-actions icons right-bottom">
-                                  <li>
-                                    	
-                                    	<button type="button"  class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal" style="font-size: 15px;margin-top: -5px; width: 80px;" >Apply</button>
-                                  </li>
-                                  
-                                </ul>
-                              </div>
-                            </div></h4>
-
-
-
-</div>
-
-  <!-- Trigger the modal with a button -->
-  
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog" style="background-color: #263238;">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-    
-      <!-- Modal content-->
-      <div class="modal-content" style="margin-top: 250px;">
-        <div class="modal-header" style="background-color: #512DA8;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
         </div>
-        <div class="modal-body">
-          <%= form_for @bid do |f| %>
-	<p>
-	<%= f.label :Bid_Percentage%>
-	<%= f.number_field :bid_percentage %>
-	</p>
-
-
-        </div>
-        <div class="modal-footer">
-          <%=f.submit "Submit" , class: 'btn btn-success btn-block', style: "width:75px;"%>
-                <%end%>
-        </div>
-      </div>
-      
     </div>
-  </div>
-
-
-
-
-
-
-<!-- <div class="modal fade in" id="basic_modal" tabindex="-1" role="dialog" aria-labelledby="basic_modal" style="display: block;">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header" style="background-color: #42a5f5">
-              
-              <h4 class="modal-title" id="myModalLabel-2">Enter bid here</h4>
-              <ul class="card-actions icons right-top">
-                
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              
-            </ul>
-          </div>
-          <div class="modal-body">
-              <%=form_for @bid do |f|%>
-              
-
-                              	
+    <div class="col-sm-6">
+        <div class="card">
+            <header class="card-heading">
+                <h2 class="card-title">Project Title</h2>
+            </header>
+            <div class="card-body">
+                <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"></div>
+                <h5>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </h5>
             </div>
-            <div class="modal-footer">
-            	<%=f.submit "Submit" , class: 'btn btn-success btn-block', style: "width:75px;"%>
-                <%end%>
-             
-            </div>
-          </div>
-          <!-- modal-content -->
         </div>
-        <!-- modal-dialog -->
-      </div> 
-
-<!--  -->
-
-
+    </div>
+</div>
