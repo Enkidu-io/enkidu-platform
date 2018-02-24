@@ -3,6 +3,7 @@
   <head>
     <title>Enkidu</title>
     <%= csrf_meta_tags %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class="">
@@ -25,95 +26,8 @@
               </li>
               <li class="dropdown dropdown-lg app_menu_launcher hidden-xs">
                 <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown" aria-expanded="false">
-                  <span>Dropdown</span>
-                  <span class="caret"></span>
+                  <span>Create Project</span>
                 </a>
-                <ul class="dropdown-menu dropdown-lg-menu dropdown-menu-left btn-primary p-15 text-center">
-                  <li>
-                    <ul>
-                      <li><a href="app-mail.html"><i class="zmdi zmdi-email"></i><span>Mail</span></a></li>
-                      <li><a href="javascript:void(0)"><i class="zmdi zmdi-accounts-list"></i><span>Contacts</span></a></li>
-                      <li><a href="javascript:void(0)"><i class="zmdi zmdi-comment-text"></i><span>Chat</span></a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <ul>
-                      <li><a href="app-notes.html"><i class="mdi mdi-lightbulb"></i><span>Notes</span></a></li>
-                      <li><a href="app-taskboard.html"><i class="zmdi zmdi-view-column"></i><span>Taskboard</span></a></li>
-                      <li><a href="javascript:void(0)"><i class="zmdi zmdi-calendar-note"></i><span>Calendar</span></a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown mega">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link" aria-expanded="false">
-                  <span>Mega</span>
-                  <span class="caret"></span>
-                </a>
-                <div class="dropdown-menu full-width p-l-10">
-                  <div class="row">
-                    <div class="col-22 col-sm-2 col-md-4">
-                      <h3>Pages <span class="badge status info">10</span></h3>
-                      <div class="row">
-                        <div class="col-sm-12 col-md-6">
-                          <ul>
-                            <li>
-                              <a href="page-profile.html" class="btn-primary-hover"><i class="zmdi zmdi-chevron-right m-r-5"></i> Profile</a>
-                            </li>
-                            <li>
-                              <a href="page-invoice.html" class="btn-primary-hover"><i class="zmdi zmdi-chevron-right m-r-5"></i>  Invoice</a>
-                            </li>
-                            <li>
-                              <a href="page-timeline.html" class="btn-primary-hover"><i class="zmdi zmdi-chevron-right m-r-5"></i>  Timeline</a>
-                            </li>
-                            <li>
-                              <a href="page-locations.html" class="btn-primary-hover"><i class="zmdi zmdi-chevron-right m-r-5"></i>  Locations</a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                          <ul>
-                            <li>
-                              <a href="page-pricing-tables.html" class="btn-primary-hover"><i class="zmdi zmdi-chevron-right m-r-5"></i>  Pricing Tables</a>
-                            </li>
-                            <li>
-                              <a href="page-gallery.html" class="btn-primary-hover"><i class="zmdi zmdi-chevron-right m-r-5"></i>  Gallery</a>
-                            </li>
-                            <li>
-                              <a href="login.html" class="btn-primary-hover"><i class="zmdi zmdi-chevron-right m-r-5"></i>  Login</a>
-                            </li>
-                            <li>
-                              <a href="lock-screen.html" class="btn-primary-hover"><i class="zmdi zmdi-chevron-right m-r-5"></i>  Lock Screen</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-10 col-md-8">
-                      <div class="col-12 col-sm-6 col-md-6">
-                        <h3 class="p-t-15 p-b-15">New Arrivals</h3>
-                        <div class="col-12">
-                          <div id="new_arrivals_megamenu" class="row">
-                            <div><img src="assets/img/ecom/products/39_Ie8T.jpeg" class="col-sm-6 col-md-4 max-h-200" alt=""></div>
-                            <div><img src="assets/img/ecom/products/39_8wMD.jpeg" class="col-sm-6 col-md-4 max-h-200" alt=""></div>
-                            <div><img src="assets/img/ecom/products/39_JnFC.jpeg" class="col-sm-6 col-md-4 max-h-200" alt=""></div>
-                            <div><img src="assets/img/ecom/products/2830_S4ql.jpeg" class="col-sm-6 col-md-4 max-h-200" alt=""></div>
-                            <div><img src="assets/img/ecom/products/4107_PPxC.jpeg" class="col-sm-6 col-md-4 max-h-200" alt=""></div>
-                            <div><img src="assets/img/ecom/products/5764_YK7g.jpeg" class="col-sm-6 col-md-4 max-h-200" alt=""></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-sm-6 col-md-6">
-                        <h3 class="p-t-15 p-b-15">Today's Analysis</h3>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="ct-chart ct-golden-section " id="chartist_megaMenu"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"><line y1="170.1875" y2="170.1875" x1="50" x2="317" class="ct-grid ct-vertical"></line><line y1="144.32291666666666" y2="144.32291666666666" x1="50" x2="317" class="ct-grid ct-vertical"></line><line y1="118.45833333333334" y2="118.45833333333334" x1="50" x2="317" class="ct-grid ct-vertical"></line><line y1="92.59375" y2="92.59375" x1="50" x2="317" class="ct-grid ct-vertical"></line><line y1="66.72916666666667" y2="66.72916666666667" x1="50" x2="317" class="ct-grid ct-vertical"></line><line y1="40.86458333333334" y2="40.86458333333334" x1="50" x2="317" class="ct-grid ct-vertical"></line><line y1="15" y2="15" x1="50" x2="317" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><path d="M50,92.594L50,66.729C62.714,58.108,75.429,49.486,88.143,40.865C100.857,32.243,113.571,15,126.286,15C139,15,151.714,46.038,164.429,66.729C177.143,87.421,189.857,144.323,202.571,144.323C215.286,144.323,228,104.089,240.714,92.594C253.429,81.098,266.143,66.729,278.857,66.729C291.571,66.729,304.286,83.972,317,92.594L317,92.594Z" class="ct-area"></path></g><g class="ct-series ct-series-b"><path d="M50,92.594L50,144.323C62.714,135.701,75.429,118.458,88.143,118.458C100.857,118.458,113.571,144.323,126.286,144.323C139,144.323,151.714,118.458,164.429,118.458C177.143,118.458,189.857,157.255,202.571,157.255C215.286,157.255,228,118.458,240.714,118.458C253.429,118.458,266.143,144.323,278.857,144.323C291.571,144.323,304.286,127.08,317,118.458L317,92.594Z" class="ct-area"></path></g><g class="ct-series ct-series-c"><path d="M50,92.594L50,92.594C62.714,92.594,75.429,92.594,88.143,92.594C100.857,92.594,113.571,92.594,126.286,92.594C139,92.594,151.714,75.351,164.429,66.729C177.143,58.108,189.857,46.612,202.571,40.865C215.286,35.117,228,27.932,240.714,27.932C253.429,27.932,266.143,35.117,278.857,40.865C291.571,46.612,304.286,58.108,317,66.729L317,92.594Z" class="ct-area"></path></g><g class="ct-series ct-series-d"><path d="M50,92.594L50,27.932C62.714,32.243,75.429,35.117,88.143,40.865C100.857,46.612,113.571,60.981,126.286,66.729C139,72.477,151.714,79.661,164.429,79.661C177.143,79.661,189.857,66.729,202.571,66.729C215.286,66.729,228,73.195,240.714,79.661C253.429,86.128,266.143,105.526,278.857,118.458C291.571,131.391,304.286,144.323,317,157.255L317,92.594Z" class="ct-area"></path></g></g><g class="ct-labels"><foreignObject style="overflow: visible;" y="144.32291666666666" x="10" height="25.864583333333332" width="30"><span class="ct-label ct-vertical ct-start" style="height: 26px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">-3</span></foreignObject><foreignObject style="overflow: visible;" y="118.45833333333333" x="10" height="25.864583333333332" width="30"><span class="ct-label ct-vertical ct-start" style="height: 26px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">-2</span></foreignObject><foreignObject style="overflow: visible;" y="92.59375" x="10" height="25.864583333333336" width="30"><span class="ct-label ct-vertical ct-start" style="height: 26px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">-1</span></foreignObject><foreignObject style="overflow: visible;" y="66.72916666666667" x="10" height="25.86458333333333" width="30"><span class="ct-label ct-vertical ct-start" style="height: 26px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">0</span></foreignObject><foreignObject style="overflow: visible;" y="40.86458333333334" x="10" height="25.86458333333333" width="30"><span class="ct-label ct-vertical ct-start" style="height: 26px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">1</span></foreignObject><foreignObject style="overflow: visible;" y="15" x="10" height="25.864583333333343" width="30"><span class="ct-label ct-vertical ct-start" style="height: 26px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">2</span></foreignObject><foreignObject style="overflow: visible;" y="-15" x="10" height="30" width="30"><span class="ct-label ct-vertical ct-start" style="height: 30px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">3</span></foreignObject></g></svg></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </li>
             </ul>
             <ul class="nav navbar-nav pull-right">
@@ -139,11 +53,7 @@
                   </li>
                 </ul>
               </li>
-              <li>
-                <a href="javascript:void(0)" data-navsearch-open="">
-                  <i class="zmdi zmdi-search"></i>
-                <div class="ripple-container"></div></a>
-              </li>
+             
               <li class="dropdown hidden-xs hidden-sm">
                 <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
                   <span class="badge mini status danger"></span>
@@ -270,7 +180,7 @@
       </aside>
       <section id="content_outer_wrapper" class="">
             <div id="content_wrapper" class="rightnav_v2">
-              <div id="header_wrapper" class="header-sm" style="width: 130%; background-color: #42a5f5; margin-top: -49px;" >
+              <div id="header_wrapper" class="header-sm" style="width: 130%; background-color: #512DA8;" >
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-xs-12">

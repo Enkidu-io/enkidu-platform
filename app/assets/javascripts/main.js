@@ -1,9 +1,10 @@
-$(document).ready(function(e){
 
+$(document).ready(function(e){
+$.fn.modal.Constructor.prototype._enforceFocus = function () {};
 	
 	$("#basic_modal").modal('hide');
 
-	$("#modal-project-index").modal('show');
+	// $("#modal-project-index").modal('show');
 
 
 
