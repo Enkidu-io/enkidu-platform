@@ -39,16 +39,16 @@
         </div>
     </div>
     <div class="col-sm-6">
-        <div class="card">
+      <%@projects.each do |project|%>
+        <div class="card card-index">
             <header class="card-heading">
-                <h2 class="card-title">Project Title</h2>
+                <h2 class="card-title"><%=project.title%></h2>
             </header>
             <div class="card-body">
-                <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"></div>
-                <h5>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          </h5>
+              <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"></div>
+              <h5><%=project.description%></h5>
             </div>
         </div>
+      <%end%>
     </div>
 </div>
