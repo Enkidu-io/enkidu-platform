@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
 	def index
 		# Add search functionality
 		@projects = Project.all.order(created_at: :desc)
+		@bids=Bid.new
 	end
 
 	def show

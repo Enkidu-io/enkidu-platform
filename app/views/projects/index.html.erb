@@ -1,0 +1,95 @@
+
+<div class="row">
+	<div class="col-md-6">
+		 <div class="input-group" id="adv-search">
+                <input type="text" class="form-control" placeholder="Search for snippets" />
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form class="form-horizontal" role="form">
+                                  <div class="form-group">
+                                    <label for="filter">Filter by</label>
+                                    <select class="form-control">
+                                        <option value="0" selected>All Snippets</option>
+                                        <option value="1">Featured</option>
+                                        <option value="2">Most popular</option>
+                                        <option value="3">Top rated</option>
+                                        <option value="4">Most commented</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="contain">Author</label>
+                                    <input class="form-control" type="text" />
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="contain">Contains the words</label>
+                                    <input class="form-control" type="text" />
+                                  </div>
+                                  <button type="submit" class="btn btn-info"><img src="/search.png" style="width:20px; height:20px;"></button>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info"><img src="/search.png" style="width: 10px; height: 10px;"></button>
+                    </div>
+                </div>
+            </div>
+      </div>
+
+	<div class="col-md-5">
+<div class="card card-purple">
+                            <header class="card-heading">
+                              <h2 class="card-title">Card Title</h2>
+                            </header>
+                            <div class="card-body">
+                              <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"></div>
+
+
+
+                              </div>
+                              <div class="card-footer border-top-trans">
+                                <ul class="card-actions icons right-bottom">
+                                  <li>
+                                    	<button type="submit" id="modal-project-index" class="btn btn-danger" style="font-size: 15px;margin-top: -5px; width: 80px;" > Apply</button>
+                                  </li>
+                                  
+                                </ul>
+                              </div>
+                            </div></h4>
+
+</div>
+
+
+<div class="modal fade in" id="basic_modal" tabindex="-1" role="dialog" aria-labelledby="basic_modal" style="display: block;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #42a5f5">
+              
+              <h4 class="modal-title" id="myModalLabel-2">Enter bid here</h4>
+              <ul class="card-actions icons right-top">
+                
+                <a href="javascript:void(0)" data-dismiss="modal" class="text-white" aria-label="Close">
+                  <i class="zmdi zmdi-close"></i>
+                </a>
+              
+            </ul>
+          </div>
+          <div class="modal-body">
+              <%=form_for @bids do |f|%>
+              <%=f.label :bid_Percentage,'Bid Percentage:',class: 'font-montserrat all-caps', style: 'margin-bottom: 5ppx;font-weight:bold;'%>
+              <%=f.text_field :bid_percentage ,:label => false, input_html: {style: "border: 1px solid #d3d3d3;"}, wrapper_html: {style: 'padding-bottom:2px;'}%>
+                              	
+            </div>
+            <div class="modal-footer">
+            	<%=f.submit "Submit" , class: 'btn btn-success btn-block', style: "width:75px;"%>
+                <%end%>
+             
+            </div>
+          </div>
+          <!-- modal-content -->
+        </div>
+        <!-- modal-dialog -->
+      </div>
+
+
