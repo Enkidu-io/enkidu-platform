@@ -2,7 +2,7 @@ class NotificationDescription
 	def getDescription(type, to_leader, user_email, project_title)
 		if(type == 1)
 			if(to_leader == true)
-				"A smart contract for user #{user_email} is awaiting your approaval."
+				"A smart contract for user #{user_email} is awaiting your approval."
 			else
 				"Please confirm you would like to sign this smart contract."
 			end

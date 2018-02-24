@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :set_notifications
   layout :layout_by_resource
 
   def layout_by_resource
@@ -9,5 +10,8 @@ class ApplicationController < ActionController::Base
     else
       "application"
     end
+  end
+  def set_notifications
+    @notifications = current_user.notifications
   end
 end
