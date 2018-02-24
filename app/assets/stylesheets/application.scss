@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ .relative-div{
+ position: relative;
+ }
+
+.apply-btn-index{
+	position:absolute ;
+	right: 10px;
+	top: 5px;
+}
