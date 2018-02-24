@@ -4,6 +4,9 @@ class DigitalContract < ApplicationRecord
 	belongs_to :project
 	after_commit :check_if_two_way, on: :update
 
+	validates_presence_of :project_id, :bid_id, :user_signed, :leader_signed
+	validates_presence_of :eth_address, if: proc { user_signed == true }
+
 	def leader
 		User.find(self.project.leader_id)
 	end
@@ -13,7 +16,7 @@ class DigitalContract < ApplicationRecord
 	end
 
 	def check_if_two_way
-		if self.user_vote && self.leader_vote
+		if self.user_signed && self.leader_signed
 			ProjectUser.create(project_id: self.project.id, user_id: self.bid.user_id, ownership_percentage: self.bid.bid_percentage)
 			prev_unalloc = self.project.unallocated_percentage
 			self.project.update!(unallocated_percentage: prev_unalloc-self.bid.bid_percentage)

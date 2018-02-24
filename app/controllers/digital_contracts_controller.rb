@@ -22,9 +22,9 @@ class DigitalContractsController < ApplicationController
 				flash[:notice] = "You do not have enough permissions."
 				redirect_to request.referer
 			elsif current_user.id == @dc.leader.id
-				@dc.leader_vote = true
+				@dc.leader_signed = true
 			elsif current_user.id == @dc.new_employee.id
-				@dc.user_vote = true
+				@dc.user_signed = true
 			end
 		end
 
