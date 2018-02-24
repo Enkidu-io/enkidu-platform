@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 		# Add search functionality
 		@projects = Project.all.order(created_at: :desc)
 		@project = Project.new
+		@bid = Bid.new
 	end
 
 	def show
