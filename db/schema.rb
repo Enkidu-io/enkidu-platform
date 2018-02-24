@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223154032) do
+ActiveRecord::Schema.define(version: 20180224072744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180223154032) do
   create_table "bid_details", force: :cascade do |t|
     t.integer "bid_id"
     t.integer "user_id"
-    t.float "approval_percentage"
+    t.float "approval_percentage", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "has_voted", default: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180223154032) do
     t.boolean "user_vote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "bid_id"
   end
 
   create_table "notification_types", force: :cascade do |t|
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180223154032) do
     t.datetime "last_clicked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "notification_description"
   end
 
   create_table "payment_gateways", force: :cascade do |t|

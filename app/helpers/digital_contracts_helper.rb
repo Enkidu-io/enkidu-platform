@@ -1,0 +1,2 @@
+module DigitalContractsHelper
+end
