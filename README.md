@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Enkidu - World's First Decentralized Global Collaboration Platform
+NEXT GENERATION TEAMS AND PAYMENT SPLITTING. POSSIBLE ONLY ON THE BLOCKCHAIN.
 
-Things you may want to cover:
+*	BUILD YOUR DIGITAL TEAM
 
-* Ruby version
+*	INSTANT PAYMENT SPLIT and SMART CONTRACTS
 
-* System dependencies
+*	RESOLUTIONS
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*	SMART VESTING
