@@ -4,7 +4,7 @@ class Bid < ApplicationRecord
   belongs_to :resolution
   has_many :bid_details
 
-  after_commit :create_bid_details, on: create
+  after_commit :create_bid_details, on: :create
 
   validates_presence_of :bid_percentage, :project_id, :user_id, :resolution_id, :initiator_id
   validates :bid_percentage, numericality: { only_float: true, greater_than: 0.0, less_than: 100.0 }
