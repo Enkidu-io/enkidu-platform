@@ -9,6 +9,7 @@ class BidsController < ApplicationController
     @bid = Bid.new
   end
 
+  # add new collaborator to be added
   def create
       @bid = Bid.new(bid_params)
       if @bid.save

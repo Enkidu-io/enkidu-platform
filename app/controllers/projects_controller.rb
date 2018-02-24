@@ -13,7 +13,6 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
-		@project.ip_ownership_id = current_user.id
 		@project.unallocated_percentage = (100 - params[:project][:leader_allocation])
 		if @project.save
 			flash[:notice] = "Project created successfully."
@@ -52,6 +51,6 @@ class ProjectsController < ApplicationController
 
 	    # Never trust parameters from the scary internet, only allow the white list through.
 	    def project_params
-	      params.require(:project).permit(:title, :description)
+	      params.require(:project).permit(:title, :description).merge(leader_id: current_user.id, ip_ownership_id: current_user.id)
 	  	end
 end
