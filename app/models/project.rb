@@ -2,6 +2,9 @@ class Project < ApplicationRecord
 
 	has_many :project_users, dependent: :destroy
 	has_many :users, through: :project_users
+	has_many :bids, dependent: :destroy
+	has_many :digital_contracts, dependent: :destroy
+	has_many :payment_gateways, dependent: :destroy
 	acts_as_taggable_on :tags
 	
 	attr_accessor :leader_allocation
