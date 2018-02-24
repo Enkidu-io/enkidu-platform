@@ -1,4 +1,5 @@
 class BidDetail < ApplicationRecord
+	belongs_to :bid
 	after_commit :create_digital_contract, :on => [:update] 
 	def create_digital_contract
 		total_votes_cast = 0
