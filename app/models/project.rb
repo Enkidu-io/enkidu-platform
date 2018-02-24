@@ -5,7 +5,7 @@ class Project < ApplicationRecord
 	acts_as_taggable_on :tags
 	
 	attr_accessor :leader_allocation
-	after_commit :create_project_leader, on: create
+	after_commit :create_project_leader, :on => :create
 
 	validates_presence_of :title, :description, :unallocated_percentage
 
