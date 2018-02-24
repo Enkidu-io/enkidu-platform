@@ -7,7 +7,7 @@ class BidsController < ApplicationController
   end
 
   def create
-      @bid = Bid.new(bid_params)
+      @bid = Bid.new(bid_params) 
       if params[:bid][:email].present?
         project = Project.find(params[:bid][:project_id])
         if project.is_an_employee?(current_user.id)
