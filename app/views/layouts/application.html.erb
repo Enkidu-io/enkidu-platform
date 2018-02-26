@@ -3,7 +3,7 @@
   <head>
     <title>Enkidu</title>
     <%= csrf_meta_tags %>
-
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class="">
@@ -48,7 +48,7 @@
 
 
 
-    
+
     <div id="app_wrapper">
       <header id="app_topnavbar-wrapper">
         <nav role="navigation" class="navbar topnavbar">
@@ -62,9 +62,7 @@
             </ul>
             <ul class="nav navbar-nav left-menu hidden-xs">
               <li>
-                <a href="javascript:void(0)" class="nav-link">
-                  <span>Home</span>
-                </a>
+                  <%= link_to "Home", root_path %>
               </li>
               <li class="dropdown dropdown-lg app_menu_launcher hidden-xs">
                 <a href="javascript:void(0)" class="nav-link" data-toggle="modal" data-target="#Modal" aria-expanded="false">
@@ -160,7 +158,7 @@
               <li class="sidebar-header">NAVIGATION</li>
               <li class="active"><a href="index.html"><i class="zmdi zmdi-view-dashboard"></i>Browse Projects</a></li>
               <li>
-                <a href="#"><span></span><i class="zmdi zmdi-view-quilt"></i>Dashboard</a>
+                <a href="<%=project_users_path%>"><span></span><i class="zmdi zmdi-view-quilt"></i>Dashboard</a>
               </li>
               <li><a href="#"><span></span><i class="zmdi zmdi-widgets"></i>Resolution History</a>
               </li> 

@@ -38,9 +38,6 @@
             </div>
         </div>
     </div>
-
-
-
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog" style="background-color:#263238;padding-top:140px;">
     <div class="modal-dialog">
@@ -60,14 +57,9 @@
             <%end%>
         </div>
       </div>
-
     </div>
   </div>
-
-
-
-    <div class="col-sm-6">
-
+  <div class="col-sm-6">
       <div class="relative-div">
         <%@projects.each do |project|%>
         <div class="card card-index">
@@ -75,16 +67,88 @@
               <button type="button" class="btn btn-sm btn-primary btn-round btn-cons apply-btn-index" data-toggle="modal" data-target="#myModal" i>
                   Apply
               </button>
-                <h2 class="card-title"><%=project.title%></h2>
+              <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div>
+                <h2><%=project.title%>Enkidu</h2>
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                </fieldset> 
+
             </header>
             <div class="card-body">
-                <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"></div>
-                <h5><%=project.description%></h5> 
-          </div>
+                <h4 >About the project</h4>
+                <div class="card" style="margin-top: 20px;">
+                    <div class="card-heading" >
+                      <h5 style="text-align: left; ">PROJECT INFO</h5>
+                    </div>
+                <div class="card-body" style="display: block; background-color: #f5f5f5;">
+                   <h5><%=project.description%> Your Project description</h5>
+
+                </div>
+                
+              </div>
+
+
+              <div class="card" style="background-color: #f5f5f5;">
+                  <a href="#" data-toggle="collapse" aria-expanded="false">
+                    <div class="card" style="height: 40px; padding-top: 5px;">
+                      <h5 style="margin-left: 10px;">CAP TABLE <button type="button" data-toggle="collapse" class="btn btn-sm dropdown-toggle btn-primary" aria-expanded="false" style="margin-left: 92%; margin-top: -20px; height: 20px;width: 10px; padding-left: 0px; border-radius: 100%;">
+                        <center style="margin-left: 6px; margin-top: -4px;"><span class="caret" ></span></center>
+                        </button></h5>
+                    </div>
+                  </a>
+                
+                <div class="card-body" style="background-color: #f5f5f5;">
+                   <div class="table-responsive">
+                      <table class="table table-hover">
+                       <thead>
+                              <tr>
+                              <th>User</th>
+                              <th>Ownership</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr style="background-color: white;">
+                                <td >sample@sample.com</td>
+                                <td >35.5%</td>
+                              </tr>
+                              <tr style="background-color: white;">
+                                <td>sample@sample.com</td>
+                                <td>25.5%</td>
+                              </tr>
+                              <tr style="background-color: white;">
+                                <td>sample@sample.com</td>
+                                <td>29%</td>
+                              </tr>
+                              <%@project_users.each do |project_user|%>
+                              <tr style="background-color: white;">
+                                <td><%=project_user.email%></td>
+                                <td><%=project_user.ownership_percentage%></td>
+                              </tr>
+                            <%end%>
+                            </tbody>
+                      </table>
+                     </div>
+                </div>
+              </div>
+              <span>
+              <h5>
+              <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> Comments
+              <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> Views
+              <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> Likes</h5>
+              </span>
+
+            </div>
         </div>
         <%end%>
       </div>
-
-
     </div>
 </div>

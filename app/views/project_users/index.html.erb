@@ -1,26 +1,122 @@
 <div class="row">
-	<!-- loop start -->
+	<!-- loop start --><%@projects.each do |project|%>
 	<div class="col-xs-12">
 		<div class="card card-index relative-div">
-			<header class="card-heading border-bottom">
-				<!-- project title -->
+			<header class="card-heading card-dashboard border-bottom">
+				<!-- project title --><%=project.title%><h2>Enkidu Dashboard &nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;</h2>
+				<!-- balance amount --> <h5 style="margin-top: -25px; margin-left: 555px; color: #595959; font-family: 'Lato', sans-serif;">AVAILABLE BALANCE: <span style="font-size: 17px;"><b>100 ENK</b></span></h5>
 			</header>
-		<nav class="btn-fab-group apply-btn-index" style="	position:absolute ;
-	right: 10px;
-	top: 22px;">
-			<button class="btn btn-primary btn-fab fab-menu " data-fab="down">
-                <i class="zmdi zmdi-plus"></i>
-				<div class="ripple-container"></div>
+		<nav class="btn-fab-group apply-btn-index " style="	position:absolute; right: 10px; top: 25px;">
+			<button class="btn btn-default fab-menu btn-round resolution-btn" data-fab="down" style="background-color: #512DA8; width: 180px; height: 40px;">
+                Resolutions
+                <i class="zmdi zmdi-plus" style="padding-bottom: 1px;"></i>
 			</button>
 			<ul class="nav-sub">
-				<li style="transform: translateY(48px);"> <a href="javascript:void(0)" data-toggle="tooltip" data-placement="left" title="" class="btn btn-danger btn-fab btn-fab-sm" data-original-title="Delete"><i class="zmdi zmdi-delete"></i></a></li>
-				<li style="transform: translateY(96px);"> <a href="javascript:void(0)" data-toggle="tooltip" data-placement="right" title="" class="btn btn-warning btn-fab btn-fab-sm" data-original-title="Attachment"><i class="zmdi zmdi-attachment"></i></a></li>
-				<li style="transform: translateY(144px);"> <a href="javascript:void(0)" data-toggle="tooltip" data-placement="left" title="" class="btn btn-green btn-fab btn-fab-sm" data-original-title="Check All"><i class="zmdi zmdi-check-all"></i></a></li>
-				<li style="transform: translateY(192px);"> <a href="javascript:void(0)" data-toggle="tooltip" data-placement="right" title="" class="btn btn-info btn-fab btn-fab-sm" data-original-title="Edit"><i class="zmdi zmdi-edit"></i></a></li>
+				<li style="transform: translateY(10px);">
+				 <button type="button" class="btn btn-sm btn-primary btn-round" data-placement="right" data-toggle="tooltip" data-target="#myModal" data-original-title="Add Collaborator" i>
+				 	<i class="zmdi zmdi-plus"></i>
+              	</button>
+              	</li>
+				<li style="transform: translateY(10px);">
+				<button type="button" class="btn btn-sm btn-primary btn-round " data-placement="right" data-toggle="tooltip" data-target="#myModal" data-original-title="Remove Collaborator" i>
+					<i class="zmdi zmdi-delete"></i>
+              	</button>
+              	 </li>
+				<li style="transform: translateY(10px);">
+				<button type="button" class="btn btn-sm btn-primary btn-round " data-placement="right" data-toggle="tooltip" data-target="#myModal" data-original-title="Dilute" i>
+					<i class="zmdi zmdi-eyedropper"></i>
+              	</button>
+              	 </li>
 			</ul>
          </nav>
-			
+         <div class="row">
+         	<div class="col-xs-10">
+         <div class="card-body" >
+                   <div class="table-responsive"> Cap Table:
+                      <table class="table table-hover">
+                       <thead>
+                              <tr>
+                              <th>User</th>
+                              <th>Ownership</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr style="background-color: white;">
+                                <td >sample@sample.com</td>
+                                <td >35.5%</td>
+                              </tr>
+                              <tr style="background-color: white;">
+                                <td>sample@sample.com</td>
+                                <td>25.5%</td>
+                              </tr>
+                              <tr style="background-color: white;">
+                                <td>sample@sample.com</td>
+                                <td>29%</td>
+                              </tr>
+                              <%@project_users.each do |project_user|%>
+                              <tr style="background-color: white;">
+                                <td><%=project_user.email%></td>
+                                <td><%=project_user.ownership_percentage%></td>
+                              </tr>
+                            <%end%>
+                            </tbody>
+                      </table>
+                     </div>
+                </div>
+            </div>
+                </div>
+         <button type="button" class="btn btn-sm btn-primary btn-round " data-toggle="modal" data-target="#Modal-payment" style="margin-left: 24px; margin-bottom: 15px; height: 35px;" i>
+                  Add Payment 
+            </button>
+
 		</div>
+
+			
+
 	</div>
-	<!-- loop end -->
+	<% end %>
 </div>
+
+
+
+
+<div class="modal fade" id="Modal-payment" role="dialog" style="background-color:#263238;">
+          <div class="modal-dialog">
+    <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #512DA8">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Make Payment</h4>
+          </div>
+          <div class="modal-body">
+            <%= form_for :project, class: "form-horizontal"  do |f| %>
+
+             <div class="form-group modal-form-index">
+               <p>
+               <%= f.label :Title ,class: "control-label"%><br>
+               <%= f.text_field :title,:placeholder => "Enter Title" ,class: "form-control" %>
+               </p>
+             </div>
+             <div class="form-group modal-form-index">
+               <p>
+               <%= f.label :Description %><br>
+               <%= f.text_field :description,:placeholder => "Enter Description" ,class: "form-control" %>
+               </p>
+             </div>
+             <div class="form-group modal-form-index">
+               <p>
+               <%= f.label :Leader_allocation %><br>
+               <%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
+               </p>
+             </div>
+              <p>
+              	<button type="button" class="btn btn-sm btn-primary btn-round"  i>
+                  Go to gateway 
+            </button>
+              </p>
+
+              <%end%>
+            </div>
+          </div>
+        </div>
+     </div>
