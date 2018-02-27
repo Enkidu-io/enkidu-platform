@@ -4,6 +4,19 @@ $.fn.modal.Constructor.prototype._enforceFocus = function () {};
 	
 	$("#basic_modal").modal('hide');
 
+	$("#button_comment").on("click",function(){
+
+		if($("#text_area_comment").val()=="" )
+			alert("Comment isn't working. Press back button");
+
+	});
+
+	$("#payment-gateway-button").on("click",function(){
+
+			alert("Gateway under construction");
+
+	});
+
 	// $("#modal-project-index").modal('show');
 
 

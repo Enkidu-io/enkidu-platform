@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-sm-8">
+	<div class="col-sm-10" style="margin-left: 20%;">
 		<div class="card card-red">
 			<header class="card-heading border-bottom">
 				<h2 class="card-title"> <%=@project.title%> Sample Title</h2>
@@ -18,15 +18,15 @@
 						<tbody>
 							<tr>
 								<td>sample@sample.com</td>
-								<td>54.25%</td>
+								<td>35.5%</td>
 							</tr>
 							<tr>
 								<td>sample@sample.com</td>
-								<td>54.25%</td>
+								<td>25.5%</td>
 							</tr>
 							<tr>
 								<td>sample@sample.com</td>
-								<td>54.25%</td>
+								<td>39%</td>
 							</tr>
 							<%@project_users.each do |project_user|%>
 								<tr>
@@ -37,7 +37,14 @@
 						</tbody>
 					</table>
 				</div>
-				Description: Sample Description
+				<!-- <div class="card-footer" >
+					<h5>Description: Your Project description</h5>
+                </div> -->
+				<h5>Description: Your Project description</h5>
+				<div class="card-body" style="display: block; background-color: #f5f5f5;">
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				</div>
+
 			</div>
 			<div class="card-footer text-center">
 				Looking for: <br>
@@ -47,6 +54,40 @@
 				<%@project.tag_list.each do |tag|%>
 				<%end%>
 			</div>
+			<div class="card-footer">
+          	<h5 style="margin-bottom: 0px;"></h5>
+          	<%= form_for :comment do |f| %>
+	          <div class="form-inputs">
+	          	<%= f.text_area(:text, size: '88x4',id: "text_area_comment",placeholder: "Enter your comment ....", style: "border: 1px solid #d3d3d3;") %>
+
+	          </div>
+	          <div class="form-actions">
+	            <%= f.submit "Submit",id: "button_comment", class: 'btn btn-primary btn-sm', style: "background-color:#512dab;" %>
+	          </div>
+	        <% end %>
+	        <div style="margin-top: 24px;">
+		        	<div class="row" style="margin-top: 16px;">
+		        		<div class="col-xs-1" style="text-align: center;">
+		        			<img src="/enkidu.png">
+		        		</div>
+		        		<div class="col-xs-11">
+		        			<span class="text-primary" style="font-weight: bold;font-size: 14px;margin-right: 8px;">Soham SSD</span>
+
+			        			<span class="pull-right">
+			        				
+
+
+			        			</span>
+
+		        			<br>
+		        			<small>1 day ago</small>
+		        			<p class="comment_content" style="font-size: 14px;margin-top: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			        			
+		        		</div>
+		        	</div>
+
+	        </div>
+          </div>
 		</div>
 		
 	</div>

@@ -1,22 +1,22 @@
 <div class="row">
 	<!-- loop start -->
-	<div class="col-xs-12">
+	<div class="col-xs-12" style="margin-left: 13%">
 		<div class="card card-index relative-div">
 			<header class="card-heading card-dashboard border-bottom">
 				<!-- project title -->
 				<h2>Enkidu Dashboard</h2>
 				<!-- balance amount --> 
-				<h5 style="margin-top: -25px; margin-left: 555px; color: #595959; font-family: 'Lato', sans-serif;">
+				<h5 style="margin-top: -25px; margin-left: 52%; color: #595959; font-family: 'Lato', sans-serif;">
 					AVAILABLE BALANCE: 
 					<span style="font-size: 17px;">
 						<b>100 ENK</b>
 					</span>
 				</h5>
 			</header>
-		<nav class="btn-fab-group apply-btn-index " style="	position:absolute; right: 10px; top: 25px;">
-			<button class="btn btn-default fab-menu btn-round resolution-btn" data-fab="down" style="background-color: #512DA8; width: 180px; height: 40px;">
-                Resolutions
-                <i class="zmdi zmdi-plus" style="padding-bottom: 1px;"></i>
+		<nav class="btn-fab-group apply-btn-index " style="	position:absolute; right: 10px; top: 20px;">
+			<button class="btn btn-sm fab-menu btn-round resolution-btn" data-fab="down" style="width: 155px; height: 50px;">
+                <p style="color:white; font-size: 14px; padding-top: 6px;">Resolutions &nbsp;
+                <i class="zmdi zmdi-plus" style="padding-bottom: 3px;"></i></p>
 			</button>
 			<ul class="nav-sub">
 				<li style="transform: translateY(10px);">
@@ -64,7 +64,7 @@
                               </tr>
                               <tr style="background-color: white;">
                                 <td>sample@sample.com</td>
-                                <td>29%</td>
+                                <td>39%</td>
                               </tr>
                               <%@project_users.each do |project_user|%>
                               <tr style="background-color: white;">
@@ -94,29 +94,18 @@
 			<h4 class="modal-title">Make Payment</h4>
 		</div>
 		<div class="modal-body">
-			<%= form_for :project, class: "form-horizontal"  do |f| %>
+			<%= form_for @project, class: "form-horizontal"  do |f| %>
 
 		<div class="form-group modal-form-index">
 			<p>
-				<%= f.label :Title ,class: "control-label"%><br>
-				<%= f.text_field :title,:placeholder => "Enter Title" ,class: "form-control" %>
-			</p>
-		</div>
-		<div class="form-group modal-form-index">
-			<p>
-				<%= f.label :Description %><br>
-				<%= f.text_field :description,:placeholder => "Enter Description" ,class: "form-control" %>
-			</p>
-		</div>
-		<div class="form-group modal-form-index">
-			<p>
-				<%= f.label :Leader_allocation %><br>
-				<%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
+				<%= f.label :Payment_Rate %><br>
+				<%= f.number_field :unallocated_percentage,:placeholder => "Enter payment rate" ,class: "form-control" %>
+				<!-- change this to price rate -->
 			</p>
 		</div>
 		<p>
-			<button type="button" class="btn btn-sm btn-primary btn-round"  i>
-				Go to Gateway
+			<button type="button" id="payment-gateway-button" class="btn btn-sm btn-primary btn-round"  i>
+				Go to Gateway &nbsp;<i class="zmdi zmdi-info" id="payment-gateway-button"></i>
 			</button>
 		</p>
 
@@ -158,7 +147,7 @@
 		</div>
 		<p>
 			<button type="button" class="btn btn-sm btn-primary btn-round"  i>
-			Done
+			Add
 			</button>
 		</p>
 
@@ -188,19 +177,13 @@
 		</div>
 		<div class="form-group modal-form-index">
 			<p>
-				<%= f.label :Description %><br>
-				<%= f.text_field :description,:placeholder => "Enter Description" ,class: "form-control" %>
-			</p>
-		</div>
-		<div class="form-group modal-form-index">
-			<p>
 				<%= f.label :Leader_allocation %><br>
 				<%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
 			</p>
 		</div>
 		<p>
 			<button type="button" class="btn btn-sm btn-primary btn-round"  i>
-			Done
+			Remove
 			</button>
 		</p>
 
