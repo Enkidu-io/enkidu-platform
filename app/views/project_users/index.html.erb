@@ -35,7 +35,7 @@
               	 </li>
 				<li style="transform: translateY(10px);">
 					<span data-toggle="modal" data-target="#Modal-dilute">
-						<button type="button" class="btn btn-sm btn-primary btn-round " data-placement="right" data-toggle="tooltip" data-target="#myModal" data-original-title="Dilute" i>
+						<button type="button" class="btn btn-sm btn-primary btn-round " data-placement="right" data-toggle="tooltip" data-target="#myModal" data-original-title="Vote Dilution" i>
 							<i class="zmdi zmdi-eyedropper"></i>
 		              	</button>
 	              	</span>
@@ -126,22 +126,9 @@
 		</div>
 		<div class="modal-body">
 			<%= form_for :project, class: "form-horizontal"  do |f| %>
-
 		<div class="form-group modal-form-index">
 			<p>
-				<%= f.label :Title ,class: "control-label"%><br>
-				<%= f.text_field :title,:placeholder => "Enter Title" ,class: "form-control" %>
-			</p>
-		</div>
-		<div class="form-group modal-form-index">
-			<p>
-				<%= f.label :Description %><br>
-				<%= f.text_field :description,:placeholder => "Enter Description" ,class: "form-control" %>
-			</p>
-		</div>
-		<div class="form-group modal-form-index">
-			<p>
-				<%= f.label :Leader_allocation %><br>
+				<%= f.label :Add_Collaborator %><br>
 				<%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
 			</p>
 		</div>
