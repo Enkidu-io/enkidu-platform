@@ -10,7 +10,7 @@ class Project < ApplicationRecord
 	attr_accessor :leader_allocation
 	after_commit :create_project_leader, on: :create
 
-	validates_presence_of :title, :description, :unallocated_percentage
+	validates_presence_of :title, :description, :unallocated_percentage, :treasury_percentage
 
 	def is_an_employee?(user_id)
 		self.users.pluck[:id].include?(user_id)

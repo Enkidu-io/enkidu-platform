@@ -6,6 +6,7 @@ class DigitalContract < ApplicationRecord
 
 	validates_presence_of :project_id, :bid_id, :user_signed, :leader_signed
 	validates_presence_of :eth_address, if: proc { user_signed == true }
+	validates :project_id, :uniqueness => { :scope => :bid_id }
 
 	def leader
 		User.find(self.project.leader_id)
