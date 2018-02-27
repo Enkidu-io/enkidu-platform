@@ -5,9 +5,10 @@ class CommentsController < ApplicationController
 	def create
 		comment = Comment.new(comment_params)
 		if comment.save
-			render json: { msg: "Comment success" }, status: 200
+			redirect_to request.referer
 		else
-			render json: { msg: "Failed to add comment.", errors: comment.errors}, status: 400
+			flash[:notice] = "Your comment could not be saved."
+			redirect_to request.referer
 		end
 	end
 
