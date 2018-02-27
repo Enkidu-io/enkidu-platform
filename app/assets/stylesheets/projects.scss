@@ -29,6 +29,11 @@
     border-bottom-left-radius: 4px;
 }
 
+.modal-form-index{
+    margin-top:2px;    
+}
+
+
 @media screen and (min-width: 768px) {
     #adv-search {
         width: 500px;
@@ -41,3 +46,46 @@
         min-width: 500px;
     }
 }
+
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+  margin-top: -5px;
+  margin-left:-10px;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+margin-top:-4px;
+  margin-left: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
