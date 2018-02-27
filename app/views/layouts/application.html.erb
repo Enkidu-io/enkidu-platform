@@ -83,17 +83,13 @@
                   </span>
                 </a>
                 <ul class="dropdown-menu btn-primary dropdown-menu-right">
-                 
+
                   <li>
-                    <%= link_to destroy_user_session_path, :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
-                    <a href="javascript:void(0)"><i class="zmdi zmdi-sign-in"></i> Sign Out</a>
-                    
-                  <% end %>
-                    
+                    <%= link_to "Sign Out",destroy_user_session_path, :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black'%>
                   </li>
                 </ul>
               </li>
-             
+
               <li class="dropdown hidden-xs hidden-sm">
                 <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
                   <span class="badge mini status danger"></span>
@@ -103,23 +99,7 @@
                   <li class="dropdown-menu-header">
                     <h5>NOTIFICATIONS</h5>
                   </li>
-                  <%@notifications.each do |notification|%>
-                    <li>
-                      <div class="card">
-                        <div class="card-body">
-                          <ul class="list-group ">
-                            <li class="list-group-item ">
-                              <span class="pull-left"><img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 "></span>
-                              <div class="list-group-item-body">
-                                <div class="list-group-item-heading"><%=notification.notification_type.notification_content%></div>
-                                <div class="list-group-item-text"><%=notification.notification_description%></div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
-                  <%end%>
+
                   <li class="dropdown-menu-footer">
                     <a href="javascript:void(0)">
                       All notifications
@@ -149,19 +129,20 @@
                 <h1 class="brand-text">Enkidu</h1>
               </a>
             </li>
-            
+
           </ul>
         </div>
         <nav id="app_main-menu-wrapper" class="scrollbar mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: -3px; left: 0px;" dir="ltr">
           <div class="sidebar-inner sidebar-push">
             <ul class="nav nav-pills nav-stacked">
               <li class="sidebar-header">NAVIGATION</li>
-              <li class="active"><a href="index.html"><i class="zmdi zmdi-view-dashboard"></i>Browse Projects</a></li>
+              <li class="active"><a href="<%=root_path%>"><i class="zmdi zmdi-view-dashboard"></i>Browse Projects</a></li>
+
               <li>
                 <a href="<%=project_users_path%>"><span></span><i class="zmdi zmdi-view-quilt"></i>Dashboard</a>
               </li>
               <li><a href="#"><span></span><i class="zmdi zmdi-widgets"></i>Resolution History</a>
-              </li> 
+              </li>
               </ul>
             </div>
           </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 392px; max-height: 619px; top: 2px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div>

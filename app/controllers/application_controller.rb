@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
     end
   end
   def set_notifications
-    @notifications = current_user.notifications
+    # @notifications = current_user.notifications
   end
 end
