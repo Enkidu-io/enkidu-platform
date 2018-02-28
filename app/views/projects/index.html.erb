@@ -1,13 +1,13 @@
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6">
         <div class="input-group" id="adv-search">
             <input type="text" class="form-control" placeholder="Search for snippets" />
             <div class="input-group-btn">
                 <div class="btn-group" role="group">
                     <div class="dropdown dropdown-lg" style="margin-top: 10px;">
                         <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                        <div class="dropdown-menu dropdown-menu-right" role="menu">
-                            <form class="form-horizontal" role="form">
+                        <div class="dropdown-menu dropdown-menu-right form-search" role="menu">
+                            <form class="form-horizontal " role="form">
                                 <div class="form-group">
                                     <label for="filter">Filter by</label>
                                     <br/>
@@ -59,7 +59,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6" >
+  <div class="col-md-6" style="padding-left: 30px;">
       <div class="relative-div">
         <%@projects.each do |project|%>
         <div class="card card-index">
