@@ -3,9 +3,9 @@
 		<div class="card card-red">
 			<header class="card-heading border-bottom">
 				<h2 class="card-title"> <%=@project.title%> Sample Title</h2>
-				<button type="button" class="btn btn-sm btn-primary btn-round btn-cons vesting-btn-index" data-toggle="modal" data-target="#myModal" i>
+				<!-- <button type="button" class="btn btn-sm btn-primary btn-round btn-cons vesting-btn-index" data-toggle="modal" data-target="#myModal" i>
                   Vesting Details
-              	</button>
+              	</button> -->
 			</header>
 			<div class="card-body border-bottom">
 				Ownership: <%=%>Sample Owner
@@ -31,12 +31,7 @@
 								<td>sample@sample.com</td>
 								<td>39%</td>
 							</tr>
-							<%@project_users.each do |project_user|%>
-								<tr>
-									<td><%=project_user.email%></td>
-									<td><%=project_user.ownership_percentage%></td>
-								</tr>
-							<%end%>
+
 						</tbody>
 					</table>
 				</div>
@@ -58,15 +53,15 @@
 			</div>
 			<div class="card-footer mw-lightGray p-10">
 				<div class="form-group m-5 p-0 p-l-10 is-empty">
-				<div class="input-group">
-				<label class="sr-only">Leave a comment...</label>
-				<input type="text" class="form-control form-rounded input-white" placeholder="Leave a comment..">
-				<span class="input-group-btn">
-				<button type="button" class="btn btn-blue btn-fab animate-fab btn-fab-sm">
-				<i class="zmdi zmdi-mail-send"></i>
-				</button>
-				</span>
-				</div>
+					<div class="input-group">
+						<label class="sr-only">Leave a comment...</label>
+						<input type="text" class="form-control form-rounded input-white" placeholder="Leave a comment..">
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-blue btn-fab animate-fab btn-fab-sm">
+								<i class="zmdi zmdi-mail-send"></i>
+							</button>
+						</span>
+					</div>
 				</div>
 		        <div class="row" style="margin-top: 16px;">
 		        	<div class="col-xs-1" style="text-align: center;">
@@ -79,7 +74,6 @@
 		        		<p class="comment_content" style="font-size: 14px;margin-top: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			        </div>
 		        </div>
-		        
 	        </div>
 		</div>	
 	</div>
@@ -89,9 +83,9 @@
 
 
 
-  <div class="modal fade" id="myModal" role="dialog" style="background-color:#263238;padding-top:140px;">
+<!--   <div class="modal fade" id="myModal" role="dialog" style="background-color:#263238;padding-top:140px;">
     <div class="modal-dialog" style="width: 400px;">
-      <!-- Modal content-->
+       Modal content
       <div class="modal-content">
         <div class="modal-header" style="background-color: white">
           <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
@@ -122,12 +116,7 @@
                                 <td>Total Balance</td>
                                 <td>480.07 ENK</td>
                               </tr>
-                              <%@project_users.each do |project_user|%>
-                              <tr style="background-color: white;">
-                                <td><%=project_user.email%></td>
-                                <td><%=project_user.ownership_percentage%></td>
-                              </tr>
-                            <%end%>
+                              
                             </tbody>
                       </table>
                      </div>
@@ -139,3 +128,4 @@
       </div>
     </div>
   </div>
+ -->

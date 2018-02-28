@@ -13,10 +13,10 @@
 					</span>
 				</h5>
 			</header>
-		<nav class="btn-fab-group" style="position:absolute; right: 10px; top: 20px;">
+		<nav class="btn-fab-group" style="position:absolute; right: 10px; top: 30px;">
 			<button class="btn btn-sm fab-menu btn-round resolution-btn" data-fab="down">
-                <p style="color:white; font-size: 14px; padding-top: 8px;">Resolutions &nbsp;
-                <i class="zmdi zmdi-plus" style="padding-bottom: 2px;"></i></p>
+                <span style="color:#eee; font-size: 14px;">Resolutions &nbsp;</span>
+                <i class="zmdi zmdi-plus" style="color:white; margin-bottom: 3px;"></i>
 			</button>
 			<ul class="nav-sub">
 				<li style="transform: translateY(10px);">
@@ -125,17 +125,21 @@
 			<h4 class="modal-title">Add Collaborator</h4>
 		</div>
 		<div class="modal-body">
-			<%= form_for :project, class: "form-horizontal"  do |f| %>
+			<%= form_for :bid, class: "form-horizontal"  do |f| %>
 		<div class="form-group modal-form-index">
 			<p>
-				<%= f.label :Add_Collaborator %><br>
-				<%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
+				<%= f.label :Email_id %><br>
+				<%= f.email_field :email ,:placeholder => "Enter email id" ,class: "form-control" %>
+			</p>
+		</div>
+		<div class="form-group modal-form-index">
+			<p>
+				<%= f.label :bid_percentage %><br>
+				<%= f.number_field :bid_percentage ,:placeholder => "Enter bid percentage" ,class: "form-control" %>
 			</p>
 		</div>
 		<p>
-			<button type="button" class="btn btn-sm btn-primary btn-round"  i>
-			Add
-			</button>
+			<%= f.submit "Add" , class: "btn btn-primary btn-cons btn-round"%>
 		</p>
 
 		<%end%>
@@ -154,18 +158,12 @@
 			<h4 class="modal-title">Remove Collaborator</h4>
 		</div>
 		<div class="modal-body">
-			<%= form_for :project, class: "form-horizontal"  do |f| %>
+			<%= form_for :bid, class: "form-horizontal"  do |f| %>
 
 		<div class="form-group modal-form-index">
 			<p>
-				<%= f.label :Title ,class: "control-label"%><br>
-				<%= f.text_field :title,:placeholder => "Enter Title" ,class: "form-control" %>
-			</p>
-		</div>
-		<div class="form-group modal-form-index">
-			<p>
-				<%= f.label :Leader_allocation %><br>
-				<%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
+				<%= f.label :Email_id ,class: "control-label"%><br>
+				<%= f.email_field :email,:placeholder => "Enter email id of the collaborator" ,class: "form-control" %>
 			</p>
 		</div>
 		<p>
