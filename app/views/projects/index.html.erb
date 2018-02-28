@@ -1,10 +1,16 @@
 <div class="row">
-    <div class="col-sm-6">
-        <div class="input-group" id="adv-search">
-            <input type="text" class="form-control" placeholder="Search for snippets" />
+    <div class="col-xs-12 col-sm-6">
+      <div class="input-group" id="adv-search">
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group no-margin">
+              <input type="text" class="form-control" placeholder="Search for snippets" />
+            </div>
+          </div>
+          <div class="col-xs-6">
             <div class="input-group-btn">
                 <div class="btn-group" role="group">
-                    <div class="dropdown dropdown-lg" style="margin-top: 10px;">
+                    <div class="dropdown dropdown-lg">
                         <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
                         <div class="dropdown-menu dropdown-menu-right form-search" role="menu">
                             <form class="form-horizontal " role="form">
@@ -33,33 +39,35 @@
                             </form>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-sm btn-success" style="margin-top: 10px;">Search</button>
+                    <button type="button" class="btn btn-sm btn-success">Search</button>
                 </div>
             </div>
-        </div>
+          </div>
+        </div>          
+      </div>
     </div>
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog" style="background-color:#263238;padding-top:140px;">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header" style="background-color: #512DA8">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" >Enkidu</h4>
-        </div>
-        <div class="modal-body">
-          <%= form_for @bid, class: "form-horizontal" do |f| %>
-          <div class="form-group modal-form-index">
-            <%= f.label :bid_percentage, "Enter your bid"%>
-            <%= f.number_field :bid_percentage, :placeholder => "Bid Percentge" ,class: "form-control" %>
+    <div class="modal fade" id="myModal" role="dialog" style="background-color:#263238;">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #512DA8">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" >Enkidu</h4>
           </div>
-          <%= f.submit "Submit" , class: "btn btn-primary btn-round btn-cons"%>
-            <%end%>
+          <div class="modal-body">
+            <%= form_for @bid, class: "form-horizontal" do |f| %>
+            <div class="form-group modal-form-index">
+              <%= f.label :bid_percentage, "Enter your bid"%>
+              <%= f.number_field :bid_percentage, :placeholder => "Bid Percentge" ,class: "form-control" %>
+            </div>
+            <%= f.submit "Submit" , class: "btn btn-primary btn-round btn-cons"%>
+              <%end%>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-6" style="padding-left: 30px;">
+    <div class="col-xs-12 col-sm-6" >
       <div class="relative-div">
         <%@projects.each do |project|%>
         <div class="card card-index">
@@ -84,29 +92,25 @@
 
             </header>
             <div class="card-body">
-                <h4 >About the project</h4>
-                <div class="card" style="margin-top: 20px;">
-                    <div class="card-heading" >
-                      <h5 style="text-align: left; ">PROJECT INFO</h5>
-                    </div>
-                <div class="card-body" style="display: block; background-color: #f5f5f5;">
-                   <h5><%=project.description%> Your Project description</h5>
-
-                </div>
-                
+              <div class="card">
+                  <div class="card-heading" >
+                    <h5 style="text-align:right;">PROJECT INFO</h5>
+                  </div>
+                  <div class="card-body card-grey">
+                     <h5><%=project.description%> Your Project description</h5>
+                  </div>
               </div>
-
-
-              <div class="card" style="background-color: #f5f5f5;">
+              <div class="card card-grey">
                   <a href="#" data-toggle="collapse" aria-expanded="false">
                     <div class="card" style="height: 40px; padding-top: 5px;">
-                      <h5 style="margin-left: 10px;">CAP TABLE <button type="button" data-toggle="collapse" class="btn btn-sm dropdown-toggle btn-primary" aria-expanded="false" style="margin-left: 92%; margin-top: -20px; height: 20px;width: 10px; padding-left: 0px; border-radius: 100%;">
+                      <h5 style="margin-left: 10px;">CAP TABLE 
+                        <button type="button" data-toggle="collapse" class="btn btn-sm dropdown-toggle btn-primary" aria-expanded="false" style="margin-left: 92%; margin-top: -20px; height: 20px;width: 10px; padding-left: 0px; border-radius: 100%;">
                         <center style="margin-left: 6px; margin-top: -4px;"><span class="caret" ></span></center>
                         </button></h5>
                     </div>
                   </a>
                 
-                <div class="card-body" style="background-color: #f5f5f5;">
+                <div class="card-body card-grey">
                    <div class="table-responsive">
                       <table class="table table-hover">
                        <thead>
