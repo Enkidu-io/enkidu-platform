@@ -83,13 +83,10 @@
                   </span>
                 </a>
                 <ul class="dropdown-menu btn-primary dropdown-menu-right">
-                 
                   <li>
-                    <%= link_to destroy_user_session_path, :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
-                    <a href="javascript:void(0)"><i class="zmdi zmdi-sign-in"></i> Sign Out</a>
-                    
-                  <% end %>
-                    
+                    <%= link_to  destroy_user_session_path,:placeholder => "Log out", :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
+                      <i class="zmdi zmdi-sign-in"></i> Sign Out
+                    <%end%>
                   </li>
                 </ul>
               </li>
@@ -149,7 +146,9 @@
                 <h1 class="brand-text">Enkidu</h1>
               </a>
             </li>
+            <li class="menu-icon">
             
+          </li>
           </ul>
         </div>
         <nav id="app_main-menu-wrapper" class="scrollbar mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: -3px; left: 0px;" dir="ltr">
