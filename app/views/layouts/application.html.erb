@@ -89,10 +89,7 @@
                     <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
                     <span class="caret"></span>
                   </span>
-                  <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
-                  <span class="caret"></span>
-                </span>
-              </a>
+                </a>
                           <ul class="dropdown-menu btn-primary dropdown-menu-right">
                               <li>
                                   <%= link_to  destroy_user_session_path,:placeholder => "Log out", :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
@@ -204,7 +201,7 @@
                   </div>
               </div>
               <div id="content" class="container-fluid">
-                  <div class="content-body">
+                  <div class="content-body content">
                       <%=yield%>
                   </div>
               </div>

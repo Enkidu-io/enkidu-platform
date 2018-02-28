@@ -48,3 +48,8 @@
 .hover{
 	cursor: pointer;
 }
+@media (min-width: 768px){
+.content{
+	width: 1080px !important;
+}
+}
