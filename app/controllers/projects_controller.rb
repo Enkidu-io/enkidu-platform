@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
 		@project.unallocated_percentage = (100 - params[:project][:leader_allocation].to_i)
 		@project.tag_list.add(params[:project][:tags], parse: true)
 		if @project.save
-			flash[:notice] = "Project created successfully."
+			flash[:alert] = "Project created successfully."
 			redirect_to projects_path
 		else
 			flash[:notice] = "Could not create project."

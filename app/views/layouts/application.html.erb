@@ -59,32 +59,35 @@
     </div>
     <div id="app_wrapper">
       <header id="app_topnavbar-wrapper">
-          <nav role="navigation" class="navbar topnavbar">
-              <div class="nav-wrapper">
-                  <ul class="nav navbar-nav pull-left left-menu">
-                      <li class="app_menu-open">
-                          <a href="javascript:void(0)" data-toggle-state="app_sidebar-left-open" data-key="leftSideBar">
-                <i class="zmdi zmdi-menu"></i>
-              </a>
-                      </li>
-                  </ul>
-                  <ul class="nav navbar-nav left-menu hidden-xs">
-                      <li>
-                          <%= link_to "Home", root_path %>
-                      </li>
-                      <li class="dropdown dropdown-lg app_menu_launcher hidden-xs">
-                          <a href="javascript:void(0)" class="nav-link" data-toggle="modal" data-target="#Modal" aria-expanded="false">
-                <span>Create Project</span>
-              </a>
-                      </li>
-                  </ul>
-                  <ul class="nav navbar-nav pull-right">
-                      <li class="dropdown avatar-menu">
-                          <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
-                <span class="meta">
-                  <span class="avatar">
-                    <img src="assets/img/profiles/02.jpg" alt="" class="img-circle max-w-35">
+        <nav role="navigation" class="navbar topnavbar">
+          <div class="nav-wrapper">
+            <ul class="nav navbar-nav pull-left left-menu">
+              <li class="app_menu-open">
+                <a href="javascript:void(0)" data-toggle-state="app_sidebar-left-open" data-key="leftSideBar">
+                  <i class="zmdi zmdi-menu"></i>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav left-menu hidden-xs">
+              <li>
+                  <%= link_to "Home", root_path %>
+              </li>
+              <li class="dropdown dropdown-lg app_menu_launcher hidden-xs">
+                <a href="javascript:void(0)" class="nav-link" data-toggle="modal" data-target="#Modal" aria-expanded="false">
+                  <span>Create Project</span>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+              <li class="dropdown avatar-menu">
+                <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
+                  <span class="meta">
+                    <span class="avatar">
+                      <%= image_tag 'img/profiles/02.jpg', class: "img-circle max-w-35"%>
                     <i class="badge mini success status"></i>
+                    </span>
+                    <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
+                    <span class="caret"></span>
                   </span>
                   <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
                   <span class="caret"></span>

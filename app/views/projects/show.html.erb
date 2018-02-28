@@ -39,28 +39,35 @@
 					<button class="btn btn-primary btn-sm btn-round"><%=tag%></button>
 				<%end%>
 			</div>
-			<div class="card-footer mw-lightGray p-10">
+			<div class="card-footer p-10">
+				<div class="row">
 				<div class="form-group m-5 p-0 p-l-10 is-empty">
-					<div class="input-group">
+					<div class="form-group">
+						<div class="col-xs-10">
 						<%=form_for :comment, url: comments_path do |f|%>
 							<%=f.hidden_field :project_id, value: "#{@project.id}"%>
 							<%=f.label "Leave a comment", class: "sr-only"%>
-							<%=f.text_field :comment, class: "form-control form-rounded input-white", placeholder: "Leave a comment.."%>
-							<span class="input-group-btn">
+							<%=f.text_field :comment, class: "form-control form-rounded form-white", placeholder: "Leave a comment.."%>
+						</div>
+						<div class="col-xs-2">
+							<span class="form-group-btn">
 								<%=f.button :submit, class: "btn btn-blue btn-fab animate-fab btn-fab-sm" do%>
 									<i class="zmdi zmdi-mail-send"></i>
 								<%end%>
 							</span>
+						</div>
 						<%end%>
 					</div>
 				</div>
-		        <div class="row" id="comments-div-show" style="margin-top: 16px;">
+				</div>
+				</div>
+		        <div class="row" style="margin-top: 16px;">
 		        	<%@comments.each do |comment|%>
-		        		<div class="col-xs-1" style="text-align: center;">
-			        		<img src="/enkidu.png">
+		        		<div class="col-xs-2" style="text-align: right;">
+			        		<img src="/enkidu.png" class="rounded-circle" style="width:60px; height:60px;">
 			        	</div>
-			        	<div class="col-xs-11">
-			        		<span class="text-primary" style="font-weight: bold;font-size: 14px;margin-right: 8px;"><%=comment.user.email%></span>
+			        	<div class="col-xs-10">
+			        		<span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.email%></span>
 			        		<br>
 			        		<small><%=DateTime.now.day - comment.created_at.day%> days ago</small>
 			        		<p class="comment_content" style="font-size: 14px;margin-top: 5px;"><%=comment.comment%></p>
