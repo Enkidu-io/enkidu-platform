@@ -8306,7 +8306,8 @@ button[data-transition].fullscreen i {
   top: -50px; }
 
 .btn-fab-group .fab-menu {
-  z-index: 70; }
+  z-index: 70;
+  background-color: #512dab; }
 
 .btn-fab-group .fab-menu i {
   -webkit-transition: all 0.5s;
@@ -8314,7 +8315,8 @@ button[data-transition].fullscreen i {
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
-  transition: all 0.5s; }
+  transition: all 0.5s;
+  background-color: #512dab; }
 
 .btn-fab-group .nav-sub {
   list-style: none;
@@ -8358,7 +8360,9 @@ button[data-transition].fullscreen i {
   -moz-transform: rotate(405deg);
   -ms-transform: rotate(405deg);
   -o-transform: rotate(405deg);
-  transform: rotate(405deg); }
+  transform: rotate(405deg); 
+  background-color: #512dab;
+  }
 
 .btn-fab-group.open .nav-sub {
   display: block;
