@@ -14,6 +14,9 @@
  *= require_self
  */
 
+* {
+  font-family: 'Roboto', sans-serif;
+ }
 
  .relative-div{
  position: relative;
@@ -26,9 +29,12 @@
 }
 .card-index{
 	min-height: 170px;
-
 }
 
-* {
-  font-family: 'Roboto', sans-serif;
- }
+.card-grey{
+	background-color: #F5F5F5;
+}
+
+.no-margin{
+	margin: 0 !important;
+}
