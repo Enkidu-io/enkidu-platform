@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Enkidu</title>
-    <%= csrf_meta_tags %>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <title>Enkidu</title>
+      <%= csrf_meta_tags %>
+      <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+      <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="">
-     <div class="modal fade" id="Modal" role="dialog" style="background-color:#263238;">
-          <div class="modal-dialog">
-    <!-- Modal content-->
+  <body>
+    <div class="modal fade" id="Modal" role="dialog" style="background-color:#263238;">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header" style="background-color: #512DA8">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -20,183 +19,194 @@
           </div>
           <div class="modal-body">
             <%= form_for :project, class: "form-horizontal"  do |f| %>
-
-             <div class="form-group modal-form-index">
-               <p>
-               <%= f.label :Title ,class: "control-label"%><br>
-               <%= f.text_field :title,:placeholder => "Enter Title" ,class: "form-control" %>
-               </p>
-             </div>
-             <div class="form-group modal-form-index">
-               <p>
-               <%= f.label :Description %><br>
-               <%= f.text_field :description,:placeholder => "Enter Description" ,class: "form-control" %>
-               </p>
-             </div>
-             <div class="form-group modal-form-index">
-               <p>
-               <%= f.label :Leader_allocation %><br>
-               <%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
-               </p>
-             </div>
-             <div class="form-group modal-form-index">
-               <p>
-               <%= f.label :Treasury_allocation %><br>
-               <%= f.number_field :treasury_percentage,:placeholder => "Treasury percentage" ,class: "form-control" %>
-               </p>
-             </div>
-              <p>
-                <%= f.submit "Submit" , class: "btn btn-primary btn-cons btn-round"%>
-              </p>
-
-              <%end%>
-            </div>
+              <div class="form-group modal-form-index">
+                <p>
+                    <%= f.label :Title ,class: "control-label"%>
+                    <br>
+                    <%= f.text_field :title,:placeholder => "Enter Title" ,class: "form-control" %>
+                </p>
+              </div>
+              <div class="form-group modal-form-index">
+                <p>
+                  <%= f.label :Description %>
+                  <br>
+                  <%= f.text_field :description,:placeholder => "Enter Description" ,class: "form-control" %>
+                </p>
+              </div>
+              <div class="form-group modal-form-index">
+                <p>
+                  <%= f.label :Leader_allocation %>
+                  <br>
+                  <%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
+                </p>
+              </div>
+              <div class="form-group modal-form-index">
+                <p>
+                  <%= f.label :Treasury_allocation %>
+                  <br>
+                  <%= f.number_field :treasury_percentage,:placeholder => "Treasury percentage" ,class: "form-control" %>
+                </p>
+              </div>
+              <div class="form-group modal-form-index">
+                <%=f.label "Looking for"%>
+                <%=f.text_field :tags, class: "form-control", placeholder: "Separate multiple tags by comma"%>
+              </div>
+              <%= f.submit "Submit" , class: "btn btn-primary btn-cons btn-round"%>
+            <%end%>
           </div>
         </div>
-     </div>
-
-
-
-
+      </div>
+    </div>
     <div id="app_wrapper">
       <header id="app_topnavbar-wrapper">
-        <nav role="navigation" class="navbar topnavbar">
-          <div class="nav-wrapper">
-            <ul class="nav navbar-nav pull-left left-menu">
-              <li class="app_menu-open">
-                <a href="javascript:void(0)" data-toggle-state="app_sidebar-left-open" data-key="leftSideBar">
-                  <i class="zmdi zmdi-menu"></i>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav left-menu hidden-xs">
-              <li>
-                  <%= link_to "Home", root_path %>
-              </li>
-              <li class="dropdown dropdown-lg app_menu_launcher hidden-xs">
-                <a href="javascript:void(0)" class="nav-link" data-toggle="modal" data-target="#Modal" aria-expanded="false">
-                  <span>Create Project</span>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav pull-right">
-              <li class="dropdown avatar-menu">
-                <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
-                  <span class="meta">
-                    <span class="avatar">
-                      <img src="assets/img/profiles/02.jpg" alt="" class="img-circle max-w-35">
-                      <i class="badge mini success status"></i>
-                    </span>
-                    <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
-                    <span class="caret"></span>
+          <nav role="navigation" class="navbar topnavbar">
+              <div class="nav-wrapper">
+                  <ul class="nav navbar-nav pull-left left-menu">
+                      <li class="app_menu-open">
+                          <a href="javascript:void(0)" data-toggle-state="app_sidebar-left-open" data-key="leftSideBar">
+                <i class="zmdi zmdi-menu"></i>
+              </a>
+                      </li>
+                  </ul>
+                  <ul class="nav navbar-nav left-menu hidden-xs">
+                      <li>
+                          <%= link_to "Home", root_path %>
+                      </li>
+                      <li class="dropdown dropdown-lg app_menu_launcher hidden-xs">
+                          <a href="javascript:void(0)" class="nav-link" data-toggle="modal" data-target="#Modal" aria-expanded="false">
+                <span>Create Project</span>
+              </a>
+                      </li>
+                  </ul>
+                  <ul class="nav navbar-nav pull-right">
+                      <li class="dropdown avatar-menu">
+                          <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
+                <span class="meta">
+                  <span class="avatar">
+                    <img src="assets/img/profiles/02.jpg" alt="" class="img-circle max-w-35">
+                    <i class="badge mini success status"></i>
                   </span>
-                </a>
-                <ul class="dropdown-menu btn-primary dropdown-menu-right">
-                  <li>
-                    <%= link_to  destroy_user_session_path,:placeholder => "Log out", :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
-                      <i class="zmdi zmdi-sign-in"></i> Sign Out
-                    <%end%>
-                  </li>
-                </ul>
-              </li>
-             
-              <li class="dropdown hidden-xs hidden-sm">
-                <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
-                  <span class="badge mini status danger"></span>
-                  <i class="zmdi zmdi-notifications"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-lg-menu dropdown-menu-right dropdown-alt">
-                  <li class="dropdown-menu-header">
-                    <h5>NOTIFICATIONS</h5>
-                  </li>
-                  <%@notifications.each do |notification|%>
-                    <li>
-                      <div class="card">
-                        <div class="card-body">
-                          <ul class="list-group ">
-                            <li class="list-group-item ">
-                              <span class="pull-left"><img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 "></span>
-                              <div class="list-group-item-body">
-                                <div class="list-group-item-heading"><%=notification.notification_type.notification_content%></div>
-                                <div class="list-group-item-text"><%=notification.notification_description%></div>
-                              </div>
-                            </li>
+                  <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
+                  <span class="caret"></span>
+                </span>
+              </a>
+                          <ul class="dropdown-menu btn-primary dropdown-menu-right">
+                              <li>
+                                  <%= link_to  destroy_user_session_path,:placeholder => "Log out", :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
+                                      <i class="zmdi zmdi-sign-in"></i> Sign Out
+                                      <%end%>
+                              </li>
                           </ul>
-                        </div>
-                      </div>
-                    </li>
-                  <%end%>
-                  <li class="dropdown-menu-footer">
-                    <a href="javascript:void(0)">
-                      All notifications
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <form role="search" action="" class="navbar-form" id="navbar_form">
-            <div class="form-group is-empty">
-              <input type="text" placeholder="Search and press enter..." class="form-control" id="navbar_search" autocomplete="off">
-              <i data-navsearch-close="" class="zmdi zmdi-close close-search"></i>
-            </div>
-            <button type="submit" class="hidden btn btn-default">Submit</button>
-          </form>
-        </nav>
+                      </li>
+                      <li class="dropdown hidden-xs hidden-sm">
+                          <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
+                <span class="badge mini status danger"></span>
+                <i class="zmdi zmdi-notifications"></i>
+              </a>
+                          <ul class="dropdown-menu dropdown-lg-menu dropdown-menu-right dropdown-alt">
+                              <li class="dropdown-menu-header">
+                                  <h5>NOTIFICATIONS</h5>
+                              </li>
+                              <%@notifications.each do |notification|%>
+                                  <li>
+                                      <div class="card">
+                                          <div class="card-body">
+                                              <ul class="list-group ">
+                                                  <li class="list-group-item ">
+                                                      <span class="pull-left"><img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 "></span>
+                                                      <div class="list-group-item-body">
+                                                          <div class="list-group-item-heading">
+                                                              <%=notification.notification_type.notification_content%>
+                                                          </div>
+                                                          <div class="list-group-item-text">
+                                                              <%=notification.notification_description%>
+                                                          </div>
+                                                      </div>
+                                                  </li>
+                                              </ul>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <%end%>
+                                      <li class="dropdown-menu-footer">
+                                          <a href="javascript:void(0)">
+                    All notifications
+                  </a>
+                                      </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+              <form role="search" action="" class="navbar-form" id="navbar_form">
+                  <div class="form-group is-empty">
+                      <input type="text" placeholder="Search and press enter..." class="form-control" id="navbar_search" autocomplete="off">
+                      <i data-navsearch-close="" class="zmdi zmdi-close close-search"></i>
+                  </div>
+                  <button type="submit" class="hidden btn btn-default">Submit</button>
+              </form>
+          </nav>
       </header>
       <aside id="app_sidebar-left">
-        <div id="logo_wrapper">
-          <ul>
-            <li class="logo-icon">
-              <a href="index.html">
-                <div class="logo">
-                  <%=image_tag "img/enkidu.png"%>
-                </div>
-                <h1 class="brand-text">Enkidu</h1>
-              </a>
-            </li>
-            <li class="menu-icon">
-            
-          </li>
-          </ul>
-        </div>
-        <nav id="app_main-menu-wrapper" class="scrollbar mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: -3px; left: 0px;" dir="ltr">
-          <div class="sidebar-inner sidebar-push">
-            <ul class="nav nav-pills nav-stacked">
-              <li class="sidebar-header">NAVIGATION</li>
-              <li class="active"><a href="index.html"><i class="zmdi zmdi-view-dashboard"></i>Browse Projects</a></li>
-              <li>
-                <a href="<%=project_users_path%>"><span></span><i class="zmdi zmdi-view-quilt"></i>Dashboard</a>
-              </li>
-              <li><a href="#"><span></span><i class="zmdi zmdi-widgets"></i>Resolution History</a>
-              </li> 
+          <div id="logo_wrapper">
+              <ul>
+                  <li class="logo-icon">
+                      <a href="index.html">
+                          <div class="logo">
+                              <%=image_tag "img/enkidu.png"%>
+                          </div>
+                          <h1 class="brand-text">Enkidu</h1>
+                      </a>
+                  </li>
+                  <li class="menu-icon">
+                  </li>
               </ul>
-            </div>
-          </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 392px; max-height: 619px; top: 2px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div>
-        </nav>
+          </div>
+          <nav id="app_main-menu-wrapper" class="scrollbar mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible;">
+              <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
+                  <div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: -3px; left: 0px;" dir="ltr">
+                      <div class="sidebar-inner sidebar-push">
+                          <ul class="nav nav-pills nav-stacked">
+                              <li class="sidebar-header">NAVIGATION</li>
+                              <li class="active"><a href="index.html"><i class="zmdi zmdi-view-dashboard"></i>Browse Projects</a></li>
+                              <li>
+                                  <a href="<%=project_users_path%>"><span></span><i class="zmdi zmdi-view-quilt"></i>Dashboard</a>
+                              </li>
+                              <li><a href="#"><span></span><i class="zmdi zmdi-widgets"></i>Resolution History</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;">
+                  <div class="mCSB_draggerContainer">
+                      <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 392px; max-height: 619px; top: 2px;">
+                          <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                      </div>
+                      <div class="mCSB_draggerRail"></div>
+                  </div>
+              </div>
+          </nav>
       </aside>
       <section id="content_outer_wrapper" class="">
-      <div id="content_wrapper" class="rightnav_v2">
-        <div id="header_wrapper" class="header-sm" style="width: 130%; background-color: #512DA8;" >
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-xs-12">
-                <header id="header">
-                  <h1>Dashboard</h1>
-                </header>
+          <div id="content_wrapper" class="rightnav_v2">
+              <div id="header_wrapper" class="header-sm" style="width: 130%; background-color: #512DA8;">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-xs-12">
+                              <header id="header">
+                                  <h1>Dashboard</h1>
+                              </header>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div id="content" class="container-fluid">
-          <div class="content-body">
-            <%=yield%>
-          </div>
-        </div>
+              <div id="content" class="container-fluid">
+                  <div class="content-body">
+                      <%=yield%>
+                  </div>
+              </div>
       </section>
-    </div>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      </div>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

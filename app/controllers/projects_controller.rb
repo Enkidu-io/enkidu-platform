@@ -10,12 +10,14 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@project_users = @project.users
+		@project_users = @project.project_users
+		@comments = @project.comments
 	end
 
 	def create
 		@project = Project.new(project_params)
 		@project.unallocated_percentage = (100 - params[:project][:leader_allocation].to_i)
+		@project.tag_list.add(params[:project][:tags], parse: true)
 		if @project.save
 			flash[:notice] = "Project created successfully."
 			redirect_to projects_path

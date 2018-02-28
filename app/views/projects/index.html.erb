@@ -81,7 +81,7 @@
                   Apply
               </button>
               <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div>
-                <h2><%= project.title%></h2>
+                <%=link_to project_path(project) do%><h2><%= project.title%></h2><%end%>
                 <fieldset class="rating">
                     <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                     <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>

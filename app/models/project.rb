@@ -5,8 +5,10 @@ class Project < ApplicationRecord
 	has_many :bids, dependent: :destroy
 	has_many :digital_contracts, dependent: :destroy
 	has_many :payment_gateways, dependent: :destroy
+	has_many :comments
 	acts_as_taggable_on :tags
 	
+	attr_accessor :tags
 	attr_accessor :leader_allocation
 	after_commit :create_project_leader, on: :create
 
