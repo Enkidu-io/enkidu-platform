@@ -27,6 +27,12 @@
 	right: 10px;
 	top: 57px;
 }
+
+.vesting-btn-index{
+	position:absolute ;
+	right: 10px;
+	top: 30px;
+}
 .card-index{
 	min-height: 170px;
 }
@@ -37,4 +43,8 @@
 
 .no-margin{
 	margin: 0 !important;
+}
+
+body{
+	overflow: auto !important;
 }
