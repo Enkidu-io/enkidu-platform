@@ -10,7 +10,7 @@ class DigitalContractsController < ApplicationController
 			flash[:notice] = "You have successfully signed a contract."
 			redirect_to request.referer
 		else 
-			flash[:notice] = "your attempt in signing this contract has failed."
+			flash[:notice] = "Your attempt in signing this contract has failed."
 			redirect_to request.referer
 		end	
 	end
