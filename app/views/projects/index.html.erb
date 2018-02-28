@@ -1,7 +1,11 @@
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-xs-12 col-md-6">
         <div class="input-group" id="adv-search">
-            <input type="text" class="form-control" placeholder="Search for snippets" />
+          <div class="row">
+          <div class="col-xs-6">
+            <input type="text" class="form-control" placeholder="Search for snippets" style="margin-top: -14px;" />
+          </div>
+          <div class="col-xs-6">
             <div class="input-group-btn">
                 <div class="btn-group" role="group">
                     <div class="dropdown dropdown-lg" style="margin-top: 10px;">
@@ -36,6 +40,8 @@
                     <button type="button" class="btn btn-sm btn-success" style="margin-top: 10px;">Search</button>
                 </div>
             </div>
+          </div>
+          </div>
         </div>
     </div>
   <!-- Modal -->
@@ -59,7 +65,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6" style="padding-left: 30px;">
+  <div class="col-xs-12 col-md-6">
       <div class="relative-div">
         <%@projects.each do |project|%>
         <div class="card card-index">
@@ -68,7 +74,7 @@
                   Apply
               </button>
               <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div>
-                <h2><%=project.title%>Enkidu</h2>
+                <h2>Enkidu</h2>
                 <fieldset class="rating">
                     <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                     <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
@@ -84,23 +90,20 @@
 
             </header>
             <div class="card-body">
-                <h4 >About the project</h4>
                 <div class="card" style="margin-top: 20px;">
                     <div class="card-heading" >
                       <h5 style="text-align: left; ">PROJECT INFO</h5>
                     </div>
                 <div class="card-body" style="display: block; background-color: #f5f5f5;">
                    <h5><%=project.description%> Your Project description</h5>
-
                 </div>
-                
               </div>
 
 
               <div class="card" style="background-color: #f5f5f5;">
                   <a href="#" data-toggle="collapse" aria-expanded="false">
                     <div class="card" style="height: 40px; padding-top: 5px;">
-                      <h5 style="margin-left: 10px;">CAP TABLE <button type="button" data-toggle="collapse" class="btn btn-sm dropdown-toggle btn-primary" aria-expanded="false" style="margin-left: 92%; margin-top: -20px; height: 20px;width: 10px; padding-left: 0px; border-radius: 100%;">
+                      <h5 style="margin-left: 17px; ">CAP TABLE <button type="button" data-toggle="collapse" class="btn btn-sm dropdown-toggle btn-primary" aria-expanded="false" style="margin-left: 92%; margin-top: -20px; height: 20px;width: 10px; padding-left: 0px; border-radius: 100%;">
                         <center style="margin-left: 6px; margin-top: -4px;"><span class="caret" ></span></center>
                         </button></h5>
                     </div>
