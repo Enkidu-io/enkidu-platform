@@ -42,13 +42,16 @@
 			<div class="card-footer mw-lightGray p-10">
 				<div class="form-group m-5 p-0 p-l-10 is-empty">
 					<div class="input-group">
-						<label class="sr-only">Leave a comment</label>
-						<input type="text" class="form-control form-rounded input-white" placeholder="Leave a comment..">
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-blue btn-fab animate-fab btn-fab-sm">
-								<i class="zmdi zmdi-mail-send"></i>
-							</button>
-						</span>
+						<%=form_for :comment, url: comments_path do |f|%>
+							<%=f.label "Leave a comment", class: "sr-only"%>
+							<%=f.text_field :comment, class: "form-control form-rounded input-white", placeholder: "Leave a comment.."%>
+							<%=f.hidden_field :project_id, value: "#{@project.id}"%>
+							<span class="input-group-btn">
+								<%=f.submit class: "btn btn-blue btn-fab animate-fab btn-fab-sm" do%>
+										<i class="zmdi zmdi-mail-send"></i>
+								<%end%>
+							</span>
+						<%end%>
 					</div>
 				</div>
 		        <div class="row" style="margin-top: 16px;">
