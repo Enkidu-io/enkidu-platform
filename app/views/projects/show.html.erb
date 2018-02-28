@@ -2,13 +2,13 @@
 	<div class="col-md-10 col-md-offset-3" >
 		<div class="card card-red">
 			<header class="card-heading border-bottom">
-				<h2 class="card-title"> <%=@project.title%> Sample Title</h2>
-				<!-- <button type="button" class="btn btn-sm btn-primary btn-round btn-cons vesting-btn-index" data-toggle="modal" data-target="#myModal" i>
+				<h2 class="card-title"><%=@project.title%></h2>
+				<button type="button" class="btn btn-sm btn-primary btn-round btn-cons vesting-btn-index" data-toggle="modal" data-target="#myModal" i>
                   Vesting Details
-              	</button> -->
+              	</button>
 			</header>
 			<div class="card-body border-bottom">
-				Ownership: <%=%>Sample Owner
+				Ownership: <%=User.find(@project.ip_ownership_id).email%>
 				<br>
 				<div class="table-responsive">
 					<table class="table">
@@ -19,79 +19,72 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>sample@sample.com</td>
-								<td>35.5%</td>
-							</tr>
-							<tr>
-								<td>sample@sample.com</td>
-								<td>25.5%</td>
-							</tr>
-							<tr>
-								<td>sample@sample.com</td>
-								<td>39%</td>
-							</tr>
-
+							<%@project_users.each do |project_user|%>
+								<tr>
+									<td><%=project_user.user.email%></td>
+									<td><%=project_user.ownership_percentage%></td>
+								</tr>
+							<%end%>
 						</tbody>
 					</table>
 				</div>
-				<!-- <div class="card-footer" >
-					<h5>Description: Your Project description</h5>
-                </div> -->
-				<h5>Description: Your Project description</h5>
+				<h5>Description:</h5>
 				<div class="card-body" style="display: block; background-color: #f5f5f5;">
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<p><%=@project.description%></p>
 				</div>
 			</div>
 			<div class="card-footer text-center">
 				Looking for: <br>
-					<button class="btn btn-primary btn-sm btn-round">Soham</button>
-					<button class="btn btn-primary btn-sm btn-round">Soham</button>
-					<button class="btn btn-primary btn-sm btn-round">Soham</button>
-					<%@project.tag_list.each do |tag|%>
-					<%end%>
+				<%@project.tag_list.each do |tag|%>
+					<button class="btn btn-primary btn-sm btn-round"><%=tag%></button>
+				<%end%>
 			</div>
-			<div class="card-footer mw-lightGray p-10">
+			<div class="card-footer p-10">
+				<div class="row">
 				<div class="form-group m-5 p-0 p-l-10 is-empty">
-					<div class="input-group">
-						<label class="sr-only">Leave a comment...</label>
-						<input type="text" class="form-control form-rounded input-white" placeholder="Leave a comment..">
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-blue btn-fab animate-fab btn-fab-sm">
-								<i class="zmdi zmdi-mail-send"></i>
-							</button>
-						</span>
+					<div class="form-group">
+						<div class="col-xs-10">
+						<%=form_for :comment, url: comments_path do |f|%>
+							<%=f.hidden_field :project_id, value: "#{@project.id}"%>
+							<%=f.label "Leave a comment", class: "sr-only"%>
+							<%=f.text_field :comment, class: "form-control form-rounded form-white", placeholder: "Leave a comment.."%>
+						</div>
+						<div class="col-xs-2">
+							<span class="form-group-btn">
+								<%=f.button :submit, class: "btn btn-blue btn-fab animate-fab btn-fab-sm" do%>
+									<i class="zmdi zmdi-mail-send"></i>
+								<%end%>
+							</span>
+						</div>
+						<%end%>
 					</div>
 				</div>
+				</div>
+				</div>
 		        <div class="row" style="margin-top: 16px;">
-		        	<div class="col-xs-1" style="text-align: center;">
-		        		<img src="/enkidu.png">
-		        	</div>
-		        	<div class="col-xs-11">
-		        		<span class="text-primary" style="font-weight: bold;font-size: 14px;margin-right: 8px;">Soham SSD</span>
-		        		<br>
-		        		<small>1 day ago</small>
-		        		<p class="comment_content" style="font-size: 14px;margin-top: 5px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			        </div>
+		        	<%@comments.each do |comment|%>
+		        		<div class="col-xs-2" style="text-align: right;">
+			        		<img src="/enkidu.png" class="rounded-circle" style="width:60px; height:60px;">
+			        	</div>
+			        	<div class="col-xs-10">
+			        		<span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.email%></span>
+			        		<br>
+			        		<small><%=DateTime.now.day - comment.created_at.day%> days ago</small>
+			        		<p class="comment_content" style="font-size: 14px;margin-top: 5px;"><%=comment.comment%></p>
+				        </div>
+		        	<%end%>
 		        </div>
 	        </div>
 		</div>	
 	</div>
 </div>
-
-
-
-
-
-<!--   <div class="modal fade" id="myModal" role="dialog" style="background-color:#263238;padding-top:140px;">
+  <div class="modal fade" id="myModal" role="dialog" style="background-color:#263238;padding-top:140px;">
     <div class="modal-dialog" style="width: 400px;">
-       Modal content
       <div class="modal-content">
         <div class="modal-header" style="background-color: white">
           <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
           <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div>
           <h2 style="color: black;">Enkidu</h2><h5 style="color:black;">VESTING DETAILS</h5>
-
         </div>
         <div class="modal-body" style="margin-top: -30px;">
           <div class="card-body">
@@ -100,26 +93,31 @@
                    <div class="table-responsive" style="padding-top: 20px;">
                       <table class="table table-hover">
                             <tbody>
-                              <tr style="background-color: white;">
-                                <td >Available Balance</td>
-                                <td >100 ENK</td>
-                              </tr>
-                              <tr style="background-color: white;">
-                                <td>Commitment Period</td>
-                                <td>2 YEARS</td>
-                              </tr>
-                              <tr style="background-color: white;">
-                                <td>Vesting Completed</td>
-                                <td>5 MONTHS</td>
-                              </tr>
-                              <tr style="background-color: white;">
-                                <td>Total Balance</td>
-                                <td>480.07 ENK</td>
-                              </tr>
-                              
+								<tr style="background-color: white;">
+									<td >Available Balance</td>
+									<td >100 ENK</td>
+								</tr>
+								<tr style="background-color: white;">
+									<td>Commitment Period</td>
+									<td>2 YEARS</td>
+								</tr>
+								<tr style="background-color: white;">
+									<td>Vesting Completed</td>
+									<td>5 MONTHS</td>
+								</tr>
+								<tr style="background-color: white;">
+									<td>Total Balance</td>
+									<td>480.07 ENK</td>
+								</tr>
+	                          	<%@project_users.each do |project_user|%>
+	                              <tr style="background-color: white;">
+	                                <td><%=project_user.user.email%></td>
+	                                <td><%=project_user.ownership_percentage%></td>
+	                              </tr>
+	                        	<%end%>
                             </tbody>
-                      </table>
-                     </div>
+                      	</table>
+                 	</div>
                 </div>
               </div>
               <center><button class="btn btn-primary btn-md btn-round">Withdraw</button></center>
@@ -128,4 +126,3 @@
       </div>
     </div>
   </div>
- -->

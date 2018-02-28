@@ -124,40 +124,28 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr style="background-color: white;">
-                                <td >sample@sample.com</td>
-                                <td >35.5%</td>
-                              </tr>
-                              <tr style="background-color: white;">
-                                <td>sample@sample.com</td>
-                                <td>25.5%</td>
-                              </tr>
-                              <tr style="background-color: white;">
-                                <td>sample@sample.com</td>
-                                <td>39%</td>
-                              </tr>
                               <%@project_users.each do |project_user|%>
-                              <tr style="background-color: white;">
-                                <td><%=project_user.email%></td>
-                                <td><%=project_user.ownership_percentage%></td>
-                              </tr>
-                            <%end%>
+                                <tr style="background-color: white;">
+                                  <td><%=project_user.user.email%></td>
+                                  <td><%=project_user.ownership_percentage%></td>
+                                </tr>
+                              <%end%>
                             </tbody>
                       </table>
                      </div>
                 </div>
               </div>
-              <div style="text-align: center;">
-                <div class="row">
-                  <div class="col-xs-4">
-                    <i class="zmdi zmdi-comment-text" ></i> Comments
-                  </div>
-                  <div class="col-xs-4">
-                    <i class="zmdi zmdi-eye"></i> Views
-                  </div>
-                  <div class="col-xs-4">
-                   <i class="zmdi zmdi-favorite"></i> Likes
-                  </div>
+              <div class="row">
+                <div class="col-xs-4" title="View comments">
+                  <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> 30k
+                </div>
+                <div class="col-xs-4" title="View comments">
+                 <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> 50
+                </div>
+                <div class="col-xs-4 hover" title="View comments">
+                  <%=link_to project_path(project, anchor: "comments-div-show") do%>
+                    <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> 10
+                  <%end%>                    
                 </div>
               </div>
             </div>

@@ -5,17 +5,19 @@ class ProjectsController < ApplicationController
 		# Add search functionality
 		@projects = Project.all.order(created_at: :desc)
 		@project = Project.new
-		@project_users = @project.users
+		@project_users = @project.project_users
 		@bid = Bid.new
 	end
 
 	def show
-		@project_users = @project.users 
+		@project_users = @project.project_users
+		@comments = @project.comments
 	end
 
 	def create
 		@project = Project.new(project_params)
 		@project.unallocated_percentage = (100 - params[:project][:leader_allocation].to_i)
+		@project.tag_list.add(params[:project][:tags], parse: true)
 		if @project.save
 			flash[:alert] = "Project created successfully."
 			redirect_to projects_path
