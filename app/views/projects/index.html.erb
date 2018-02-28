@@ -61,6 +61,10 @@
               <%= f.label :bid_percentage, "Enter your bid"%>
               <%= f.number_field :bid_percentage, :placeholder => "Bid Percentge" ,class: "form-control" %>
             </div>
+            <div class="form-group modal-form-index">
+              <%= f.label :vesting_period, "Enter vesting period"%>
+              <%= f.number_field :vesting_period, :placeholder => "Vesting Period" ,class: "form-control" %>
+            </div>
             <%= f.submit "Submit" , class: "btn btn-primary btn-round btn-cons"%>
               <%end%>
           </div>
@@ -69,14 +73,15 @@
     </div>
     <div class="col-xs-12 col-sm-6" >
       <div class="relative-div">
+        <div class="projects-holder">
         <%@projects.each do |project|%>
-        <div class="card card-index">
+        <div class="card card-index" style="background-color: #FAFAFA;"> 
             <header class="card-heading border-bottom">
               <button type="button" class="btn btn-sm btn-primary btn-round btn-cons apply-btn-index" data-toggle="modal" data-target="#myModal" i>
                   Apply
               </button>
               <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div>
-                <h2><%=project.title%>Enkidu</h2>
+                <h2><%= project.title%></h2>
                 <fieldset class="rating">
                     <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                     <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
@@ -94,22 +99,20 @@
             <div class="card-body">
               <div class="card">
                   <div class="card-heading" >
-                    <h5 style="text-align:right;">PROJECT INFO</h5>
+                    <h5 style="text-align:left;">PROJECT INFO</h5>
                   </div>
                   <div class="card-body card-grey">
-                     <h5><%=project.description%> Your Project description</h5>
+                     <h5><%=project.description%></h5>
                   </div>
               </div>
               <div class="card card-grey">
                   <a href="#" data-toggle="collapse" aria-expanded="false">
                     <div class="card" style="height: 40px; padding-top: 5px;">
-                      <h5 style="margin-left: 10px;">CAP TABLE 
-                        <button type="button" data-toggle="collapse" class="btn btn-sm dropdown-toggle btn-primary" aria-expanded="false" style="margin-left: 92%; margin-top: -20px; height: 20px;width: 10px; padding-left: 0px; border-radius: 100%;">
+                      <h5 style="margin-left: 17px; ">CAP TABLE <button type="button" data-toggle="collapse" class="btn btn-sm dropdown-toggle btn-primary" aria-expanded="false" style="margin-left: 92%; margin-top: -20px; height: 20px;width: 10px; padding-left: 0px; border-radius: 100%;">
                         <center style="margin-left: 6px; margin-top: -4px;"><span class="caret" ></span></center>
                         </button></h5>
                     </div>
                   </a>
-                
                 <div class="card-body card-grey">
                    <div class="table-responsive">
                       <table class="table table-hover">
@@ -143,16 +146,21 @@
                      </div>
                 </div>
               </div>
-              <span>
-              <h5>
-              <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> Comments
-              <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> Views
-              <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> Likes</h5>
-              </span>
-
+              <div class="row">
+                <div class="col-xs-4">
+                  <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> Comments
+                </div>
+                <div class="col-xs-4">
+                  <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> Views
+                </div>
+                <div class="col-xs-4">
+                 <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> Likes
+                </div>
+              </div>
             </div>
         </div>
         <%end%>
       </div>
+    </div>
     </div>
 </div>

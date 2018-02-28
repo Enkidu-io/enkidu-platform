@@ -3,7 +3,10 @@
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
 }
-
+.projects-holder{
+  height: 100vh;
+  overflow: auto;
+}
 .dropdown.dropdown-lg .dropdown-menu {
     margin-top: -1px;
     padding: 6px 20px;
