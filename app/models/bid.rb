@@ -14,7 +14,7 @@ class Bid < ApplicationRecord
   def create_bid_details
   	project = self.project
   	project.users.each do |u|
-  		BidDetail.create(bid_id: self.id, user_id: u.id)
+  		BidDetail.create!(bid_id: self.id, user_id: u.id)
   	end
   end
 end

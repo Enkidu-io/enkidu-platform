@@ -61,6 +61,7 @@
                 <%= f.label :bid_percentage, "Enter your bid"%>
                 <%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
                 <%= f.hidden_field :project_id, id: "modal-project-id-index",value: ""%>
+                <%= f.hidden_field :resolution_id, value: "1"%>
               </div>
               <div class="form-group modal-form-index">
                 <%= f.label :vesting_period, "Enter vesting period"%>

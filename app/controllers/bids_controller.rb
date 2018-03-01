@@ -1,6 +1,7 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
   before_action :is_percentage_avail? , only: [:create]
+  before_action :authorized_for_resolution?, only: [:create]
 
   def index
     @bids = current_user.bids
@@ -17,20 +18,15 @@ class BidsController < ApplicationController
           redirect_to request.referer
         end
       else
-        @bid.user_id = current_user.id #initiatiator id?
-        if(request.referer == "/")
-          #initiator id=> current_user, resolution => 1
-          @bid.merge(initiator_id: current_user.id, resolution_id: 1)
-        end
+        @bid.initiater_id = current_user.id
       end
-      if @bid.save
+      if @bid.save!
        flash[:notice] = 'Bid has been successfuly made.'
        redirect_to bids_path
-     else
+      else
        flash[:notice] = 'Could not create a bid.'
        redirect_to request.referer
-     end
-
+      end
   end
 
   # def destroy
@@ -61,7 +57,7 @@ class BidsController < ApplicationController
 
     def is_percentage_avail?
       project = Project.find(params[:bid][:project_id])
-      bid_perc = params[:bid][:bid_percentage]
+      bid_perc = params[:bid][:bid_percentage].to_f
       if project.unallocated_percentage < bid_perc
         flash[:notice] = "Bid could not be created as your demands cannot be met."
         redirect_to request.referer
@@ -73,7 +69,19 @@ class BidsController < ApplicationController
     end
 
     def bid_params
-      params.require(:bid).permit(:bid_percentage, :project_id, :resolution_id)
+      params.require(:bid).permit(:bid_percentage, :project_id, :resolution_id, :vesting_period)
     end
 
+    def authorized_for_resolution?
+      if params[:bid][:resolution_id].to_i == 1 #allow everyone to create a bid with add collaborator
+        return
+      end
+      project = Project.find(params[:bid][:project_id])
+      project_users = project.project_users
+      unless(project_users.find_by(user_id: current_user.id).present?)
+        flash[:notice] = "Bid could not be created as your demands cannot be met."
+        redirect_to request.referer
+        return
+      end
+    end
 end

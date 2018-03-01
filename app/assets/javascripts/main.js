@@ -19,6 +19,6 @@ $(document).ready(function(e){
 	});
 	$(".apply-btn-index").on("click", function(){
 		var project_id = $(this).data("project_id");
-		$("#modal-project-id-index").attr("id", project_id);
+		$("#modal-project-id-index").attr("value", project_id);
 	});
 });
