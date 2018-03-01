@@ -12,22 +12,29 @@ class BidDetail < ApplicationRecord
 	def send_approval_notifications
 		notificationDescription = NotificationDescription.new
 		project_title = self.bid.project.title
-		if(self.bid.user_id.present?)
-			notification_user = Notification.new(user_id: self.user_id, 
-												   notification_type_id: 2,
-												   notification_description: notificationDescription.getDescription(2, 
-											   																	true, 
-											   																	User.find(self.bid.user_id).email, 
-											   																	project_title,
-											   																	self.bid.bid_percentage))
-		else
-			notification_user = Notification.new(user_id: self.user_id, 
-												   notification_type_id: 2,
-												   notification_description: notificationDescription.getDescription(2, 
-											   																	true, 
-											   																	User.find(self.bid.initiater_id).email, 
-											   																	project_title,
-											   																	self.bid.bid_percentage))
+		resolution = self.bid.resolution_id
+		if resolution == 1
+			if(self.bid.user_id.present?)
+				#Added collaborator via dashboard
+				notification_user = Notification.new(user_id: self.user_id, 
+													   notification_type_id: 2,
+													   notification_description: notificationDescription.getDescription(2, 
+												   																	true, 
+												   																	User.find(self.bid.user_id).email, 
+												   																	project_title,
+												   																	self.bid.bid_percentage))
+				
+			else
+				notification_user = Notification.new(user_id: self.user_id, 
+													   notification_type_id: 2,
+													   notification_description: notificationDescription.getDescription(2, 
+												   																	true, 
+												   																	User.find(self.bid.initiater_id).email, 
+												   																	project_title,
+												   																	self.bid.bid_percentage))
+			end
+		elsif resolution == 2
+		elsif resolution == 3
 		end
 		notification_user.save!
 	end
