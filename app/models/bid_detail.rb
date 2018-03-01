@@ -12,11 +12,20 @@ class BidDetail < ApplicationRecord
 	def send_approval_notifications
 		notificationDescription = NotificationDescription.new
 		project_title = self.bid.project.title
-		notification_user = Notification.new(user_id: self.user_id, 
+		if(self.bid.user_id.preent?)
+			notification_user = Notification.new(user_id: self.user_id, 
 												   notification_type_id: 2,
 												   notification_description: notificationDescription.getDescription(2, 
 											   																	true, 
 											   																	self.bid.user.email, 
+											   																	project_title,
+											   																	self.bid.bid_percentage))
+		else
+			notification_user = Notification.new(user_id: self.user_id, 
+												   notification_type_id: 2,
+												   notification_description: notificationDescription.getDescription(2, 
+											   																	true, 
+											   																	User.find(self.bid.initiater_id).email, 
 											   																	project_title,
 											   																	self.bid.bid_percentage))
 		notification_user.save!

@@ -16,8 +16,8 @@ class Bid < ApplicationRecord
   	project.project_users.each do |p_u|
   		BidDetail.create!(bid_id: self.id, user_id: p_u.user_id, approval_percentage: p_u.ownership_percentage)
   	end
-    if(self.user_id.present?)
-      BidDetail.create!(bid_id: self.id, user_id: self.user_id, approval_percentage: p_u.ownership_percentage)
+    if(self.user_id.present?) #add bid details for the guy whose name is added via resolution
+      BidDetail.create!(bid_id: self.id, user_id: self.user_id, approval_percentage: 0.1)
     end
   end
 end
