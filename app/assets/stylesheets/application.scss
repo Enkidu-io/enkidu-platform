@@ -42,7 +42,7 @@
 }
 
 .no-margin{
-	margin: 0 !important;
+	margin-top: 5px !important;
 }
 
 .hover{
@@ -51,5 +51,26 @@
 @media (min-width: 768px){
 .content{
 	width: 1080px !important;
+	// height: 700px !important; 
 }
 }
+
+.bottom_width{
+	padding-bottom: 0px !important;
+}
+
+
+@media (max-device-width: 767px) {
+.bottom_width{
+    padding-bottom: 0px !important;
+     } }
+
+@media (max-device-width: 1024px) {
+.bottom_width {
+    padding-bottom: 0px !important;
+     } }
+
+@media (max-width: 767px) {
+.bottom_width {
+    padding-bottom: 0px !important; 
+  } }

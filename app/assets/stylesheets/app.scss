@@ -3996,7 +3996,8 @@ body.boxed-layout .backdrop {
 #content_outer_wrapper {
   min-height: 100%;
   padding-left: 240px;
-  padding-bottom: 275px; }
+  padding-bottom: 275px;
+   }
 
 #content_outer_wrapper #content_wrapper {
   padding-top: 65px;
@@ -4049,15 +4050,18 @@ body.boxed-layout .backdrop {
 
 @media (max-device-width: 767px) {
   #content_outer_wrapper {
-    padding-bottom: 650px; } }
+    padding-bottom: 650px;
+     } }
 
 @media (max-device-width: 1024px) {
   #content_outer_wrapper {
-    padding-bottom: 650px; } }
+    padding-bottom: 650px;
+     } }
 
 @media (max-width: 767px) {
   #content_outer_wrapper {
-    padding-bottom: 650px; } }
+    padding-bottom: 650px; 
+  } }
 
 .card-overlay #content_type .content-body .card:first-child {
   -webkit-box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
