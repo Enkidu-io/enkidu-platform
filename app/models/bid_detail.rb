@@ -12,12 +12,12 @@ class BidDetail < ApplicationRecord
 	def send_approval_notifications
 		notificationDescription = NotificationDescription.new
 		project_title = self.bid.project.title
-		if(self.bid.user_id.preent?)
+		if(self.bid.user_id.present?)
 			notification_user = Notification.new(user_id: self.user_id, 
 												   notification_type_id: 2,
 												   notification_description: notificationDescription.getDescription(2, 
 											   																	true, 
-											   																	self.bid.user.email, 
+											   																	User.find(self.bid.user_id).email, 
 											   																	project_title,
 											   																	self.bid.bid_percentage))
 		else
@@ -28,6 +28,7 @@ class BidDetail < ApplicationRecord
 											   																	User.find(self.bid.initiater_id).email, 
 											   																	project_title,
 											   																	self.bid.bid_percentage))
+		end
 		notification_user.save!
 	end
 	def create_digital_contract
