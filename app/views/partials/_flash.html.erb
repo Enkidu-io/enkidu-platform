@@ -1,0 +1,15 @@
+<% if notice %>
+  <div id="validation_msgs">
+  	<br>
+	<div class="alert alert-info" role="alert" style="margin: 0px">
+	<%= notice.html_safe %>
+	</div>
+  </div>
+<% elsif alert %>
+  <div id="validation_msgs">
+  	<br>
+	<div class="alert alert-danger" role="alert" style="margin: 0px">
+	   <%= alert.html_safe %>
+	</div>
+  </div>
+<% end %>

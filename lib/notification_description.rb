@@ -1,5 +1,5 @@
 class NotificationDescription
-	def getDescription(type, to_leader, user_email, project_title)
+	def getDescription(type, to_leader, user_email, project_title, bid_amount)
 		if(type == 1)
 			if(to_leader == true)
 				"A smart contract for user #{user_email} is awaiting your approval."
@@ -8,7 +8,7 @@ class NotificationDescription
 			end
 		elsif(type == 2)
 			if(to_leader == true)
-				"Please confirm user #{user_email} to be added to the list of collaborators for project #{project_title}"
+				"Please confirm user #{user_email} to be added to the list of collaborators for project #{project_title}. The bid placed is #{bid_amount}"
 			else
 				"Please confirm you'd like to be added to the list of collaborators for project #{project_title}"
 			end

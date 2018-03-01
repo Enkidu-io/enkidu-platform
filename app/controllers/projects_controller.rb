@@ -7,6 +7,10 @@ class ProjectsController < ApplicationController
 		@project = Project.new
 		@project_users = @project.users
 		@bid = Bid.new
+
+		@search=Project.ransack(params[:q])
+		 @projects = @search.result
+
 	end
 
 	def show

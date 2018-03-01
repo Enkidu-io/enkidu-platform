@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224132122) do
+ActiveRecord::Schema.define(version: 20180228115145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,23 @@ ActiveRecord::Schema.define(version: 20180224132122) do
   end
 
   create_table "bids", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "project_id"
     t.float "bid_percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "resolution_id"
     t.integer "initiater_id"
+    t.jsonb "variables", default: {}, null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_comments_on_project_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "digital_contracts", force: :cascade do |t|
@@ -42,6 +52,15 @@ ActiveRecord::Schema.define(version: 20180224132122) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "bid_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_likes_on_project_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "notification_types", force: :cascade do |t|
@@ -73,6 +92,7 @@ ActiveRecord::Schema.define(version: 20180224132122) do
     t.float "ownership_percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "vesting_period", default: 12
   end
 
   create_table "projects", force: :cascade do |t|
@@ -83,6 +103,18 @@ ActiveRecord::Schema.define(version: 20180224132122) do
     t.datetime "updated_at", null: false
     t.float "unallocated_percentage"
     t.integer "leader_id"
+    t.float "treasury_percentage"
+    t.text "project_intro"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_ratings_on_project_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "resolutions", force: :cascade do |t|
@@ -139,4 +171,10 @@ ActiveRecord::Schema.define(version: 20180224132122) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "projects"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "projects"
+  add_foreign_key "likes", "users"
+  add_foreign_key "ratings", "projects"
+  add_foreign_key "ratings", "users"
 end

@@ -5,6 +5,216 @@
 }
 
 
+@media (max-width: 768px){
+.hide-mobile{
+  display: none;
+}
+}
+
+.card-text {
+    word-wrap: break-word;
+}
+
+
+.projects-holder{
+  height: 80vh;
+  overflow: auto;
+}
+
+.content{
+  overflow: auto;
+}
+
+// @media (min-width: 768px){
+// .input-group.md-form.form-sm.form-1 input{
+//     border: 1px solid #bdbdbd;
+//     border-top-right-radius: 0.25rem;
+//     border-bottom-right-radius: 0.25rem;
+// }
+// .dropdown.dropdown-lg .dropdown-menu {
+//     margin-top: -1px;
+//     padding: 6px 20px;
+// }
+// .input-group-btn .btn-group {
+
+//     display: flex !important;
+// }
+// .btn-group .btn {
+//     border-radius: 0;
+// }
+// .btn-group .btn:last-child {
+//     border-top-right-radius: 4px;
+//     border-bottom-right-radius: 4px;
+// }
+// .btn-group .form-horizontal .btn[type="submit"] {
+//   border-top-left-radius: 4px;
+//   border-bottom-left-radius: 4px;
+// }
+// .form-group .form-control:last-child {
+//     border-top-left-radius: 4px;
+//     border-bottom-left-radius: 4px;
+// }
+
+// .modal-form-index{
+//     margin-top:2px;
+// }
+
+// }
+
+@media screen and (min-width: 768px) {
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}
+
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+/****** Style Star Rating Widget *****/
+
+
+#left-img{
+margin-left: 120px;
+margin-top: 60px;
+
+
+}
+#right-img{
+margin-left: 420px;
+margin-top: -100px;
+
+
+}
+
+
+.rating {
+  border: none;
+  float: left;
+  margin-top: -5px;
+  margin-left:-10px;
+}
+.rating-left {
+  border: none;
+  float: left;
+  margin-top: 15px;
+  margin-left:100px;
+}
+.rating-right {
+  border: none;
+  float: left;
+  margin-top: -28px;
+  margin-left:400px;
+}
+
+
+.rating > input { display: none; }
+.rating > label:before {
+margin-top:-4px;
+  margin-left: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+
+
+
+
+
+
+
+.rating-left > input { display: none; }
+.rating-left > label:before {
+margin-top:-4px;
+  margin-left: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating-left > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating-left > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating-left > input:checked ~ label, /* show gold star when clicked */
+.rating-left:not(:checked) > label:hover, /* hover current star */
+.rating-left:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating-left > input:checked + label:hover, /* hover current star when changing rating */
+.rating-left > input:checked ~ label:hover,
+.rating-left > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating-left > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+
+
+
+
+
+
+.rating-right > input { display: none; }
+.rating-right > label:before {
+margin-top:-4px;
+  margin-left: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating-right > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating-right > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating-right > input:checked ~ label, /* show gold star when clicked */
+.rating-right:not(:checked) > label:hover, /* hover current star */
+.rating-right:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating-right > input:checked + label:hover, /* hover current star when changing rating */
+.rating-right > input:checked ~ label:hover,
+.rating-right > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating-right > input:checked ~ label:hover ~ label { color: #FFED85;  }
 .dropdown.dropdown-lg .dropdown-menu {
     margin-top: -1px;
     padding: 6px 20px;
@@ -17,10 +227,12 @@
 
     border-radius: 0;
     margin-left: -1px;
+
 }
 .btn-group .btn:last-child {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+    margin-right: 100px;
 }
 .btn-group .form-horizontal .btn[type="submit"] {
   border-top-left-radius: 4px;

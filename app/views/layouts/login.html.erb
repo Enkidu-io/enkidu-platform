@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>Enkidu</title>
+    <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body id="auth_wrapper" >
+  <div id="login_wrapper">
+    <div class="logo">
+      <img src="/enkidu.png" alt="logo" class="logo-img">
+    </div>
+    <div id="login_content">
+      <h1 class="login-title">
+        Sign In to your account
+      </h1>
+      <div class="login-body">
+        <div class="card-description">
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group">
+    <i class="zmdi zmdi-email"></i>
+    <%= f.label :email %><br />
+    <%= f.email_field :email,autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <i class="zmdi zmdi-lock"></i>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+  </div>
+
+   <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%> 
+
+  <div class="actions">
+    <center><%= f.submit "Log in", class: "btn btn-primary btn-cons" %></center>
+  </div>
+<% end %>
+
+
+  </div>
+      </div>
+      <div class="login-footer p-15">
+        <p>
+         <center> Don't have an account? <%= render "devise/shared/links" %></center>
+        </p>
+      </div>
+      <div id="register_wrapper">
+        <ul class="card-actions icons right-top">
+          <li>
+            <a href="javascript:void(0)" data-toggle="register">
+              <i class="zmdi zmdi-close"></i>
+            </a>
+          </li>
+        </ul>
+        <h1 class="login-title">
+          Create an account
+        </h1>
+        <div class="login-body">
+          <form>
+            <div class="form-group label-floating is-empty">
+              <label class="control-label">Name</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group label-floating is-empty">
+              <label class="control-label">Email</label>
+              <input type="email" class="form-control">
+            </div>
+            <div class="form-group label-floating is-empty">
+              <label class="control-label">Password</label>
+              <input type="password" class="form-control">
+            </div>
+            <div class="form-group label-floating is-empty">
+              <label class="control-label">Confirm Password</label>
+              <input type="password" class="form-control">
+            </div>
+            <div class="checkbox inline-block">
+              <label>
+                <input type="checkbox" class="checkbox-inline" value="">
+                I agree to the <a href="javascript:void(0)">terms of services</a>
+              </label>
+            </div>
+            <a href="javascript:void(0)" class="btn btn-info btn-block m-t-40">Create my account</a>
+          </form>
+        </div>
+        <div class="login-footer p-15">
+          <p>
+            Already have an account? <a href="javascript:void(0)" data-toggle="register">Sign In</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</body>
+</html>

@@ -1,11 +1,26 @@
 class BidDetail < ApplicationRecord
 	belongs_to :bid
 	belongs_to :user
+	after_commit :send_approval_notifications, :on => :create
 	after_commit :create_digital_contract, :on => [:update] 
+	require 'notification_description'
 	
-	validates_presence_of :bid_id, :user_id, :approval_percentage, :has_voted
+	validates_presence_of :bid_id, :user_id, :approval_percentage
 	validates :approval_percentage, numericality: { only_float: true, greater_than: 0.0, less_than: 100.0 }
+	validates :user_id, :uniqueness => { :scope => :bid_id }
 
+	def send_approval_notifications
+		notificationDescription = NotificationDescription.new
+		project_title = self.bid.project.title
+		notification_user = Notification.new(user_id: self.user_id, 
+												   notification_type_id: 2,
+												   notification_description: notificationDescription.getDescription(2, 
+											   																	true, 
+											   																	self.bid.user.email, 
+											   																	project_title,
+											   																	self.bid.bid_percentage))
+		notification_user.save!
+	end
 	def create_digital_contract
 		total_votes_cast = 0
 		approval_weight = 0.0

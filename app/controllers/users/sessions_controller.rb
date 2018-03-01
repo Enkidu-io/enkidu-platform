@@ -2,11 +2,8 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-#   layout 'login_view'
-#   def login_view_params
-#  params.require(:user).permit(:email, :password)
-# end
 
+  layout 'login'
   # GET /resource/sign_in
   # def new
   #   super
