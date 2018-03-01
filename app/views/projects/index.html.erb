@@ -53,20 +53,21 @@
         <div class="modal-content">
           <div class="modal-header" style="background-color: #512DA8">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title" >Enkidu</h4>
+            <h4 class="modal-title">Enkidu</h4>
           </div>
           <div class="modal-body">
             <%= form_for @bid, class: "form-horizontal" do |f| %>
-            <div class="form-group modal-form-index">
-              <%= f.label :bid_percentage, "Enter your bid"%>
-              <%= f.number_field :bid_percentage, :placeholder => "Bid Percentge" ,class: "form-control" %>
-            </div>
-            <div class="form-group modal-form-index">
-              <%= f.label :vesting_period, "Enter vesting period"%>
-              <%= f.number_field :vesting_period, :placeholder => "Vesting Period" ,class: "form-control" %>
-            </div>
-            <%= f.submit "Submit" , class: "btn btn-primary btn-round btn-cons"%>
-              <%end%>
+              <div class="form-group modal-form-index">
+                <%= f.label :bid_percentage, "Enter your bid"%>
+                <%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
+                <%= f.hidden_field :project_id, id: "modal-project-id-index",value: ""%>
+              </div>
+              <div class="form-group modal-form-index">
+                <%= f.label :vesting_period, "Enter vesting period"%>
+                <%= f.number_field :vesting_period, :placeholder => "Vesting Period" ,class: "form-control" %>
+              </div>
+              <%= f.submit "Submit", class: "btn btn-primary btn-round btn-cons"%>
+            <%end%>
           </div>
         </div>
       </div>
@@ -77,8 +78,8 @@
         <%@projects.each do |project|%>
         <div class="card card-index" style="background-color: #FAFAFA;"> 
             <header class="card-heading border-bottom">
-              <button type="button" class="btn btn-sm btn-primary btn-round btn-cons apply-btn-index" data-toggle="modal" data-target="#myModal" i>
-                  Apply
+              <button type="button" class="btn btn-sm btn-primary btn-round btn-cons apply-btn-index" data-toggle="modal" data-project_id="<%=project.id%>" data-target="#myModal" i>
+                Apply
               </button>
               <%= link_to project_path(project) do%>
               <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div>

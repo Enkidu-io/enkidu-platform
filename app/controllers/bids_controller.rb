@@ -17,7 +17,11 @@ class BidsController < ApplicationController
           redirect_to request.referer
         end
       else
-        @bid.user_id = current_user.id
+        @bid.user_id = current_user.id #initiatiator id?
+        if(request.referer == "/")
+          #initiator id=> current_user, resolution => 1
+          @bid.merge(initiator_id: current_user.id, resolution_id: 1)
+        end
       end
       if @bid.save
        flash[:notice] = 'Bid has been successfuly made.'
@@ -69,9 +73,7 @@ class BidsController < ApplicationController
     end
 
     def bid_params
-      params.require(:bid).permit(:bid_percentage, :project_id)
+      params.require(:bid).permit(:bid_percentage, :project_id, :resolution_id)
     end
-
-
 
 end

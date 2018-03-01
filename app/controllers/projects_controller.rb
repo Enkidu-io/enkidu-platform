@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project_users = @project.project_users
-		@comments = @project.comments
+		@comments = @project.comments.order(created_at: :desc)
 	end
 
 	def create
