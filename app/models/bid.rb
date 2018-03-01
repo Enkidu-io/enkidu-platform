@@ -16,5 +16,8 @@ class Bid < ApplicationRecord
   	project.project_users.each do |p_u|
   		BidDetail.create!(bid_id: self.id, user_id: p_u.user_id, approval_percentage: p_u.ownership_percentage)
   	end
+    if(self.user_id.present?)
+      BidDetail.create!(bid_id: self.id, user_id: self.user_id, approval_percentage: p_u.ownership_percentage)
+    end
   end
 end
