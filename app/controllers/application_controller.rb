@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
   def set_notifications
     if current_user.present?
-      @notifications = current_user.notifications
+      @notifications = current_user.notifications.order(created_at: :desc)
     end
   end
 end

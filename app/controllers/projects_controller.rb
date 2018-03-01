@@ -5,13 +5,12 @@ class ProjectsController < ApplicationController
 		# Add search functionality
 		@projects = Project.all.order(created_at: :desc)
 		@project = Project.new
-		@project_users = @project.project_users
 		@bid = Bid.new
 	end
 
 	def show
 		@project_users = @project.project_users
-		@comments = @project.comments
+		@comments = @project.comments.order(created_at: :desc)
 	end
 
 	def create
