@@ -2,7 +2,9 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def testmodals
+  def testmodal
 
   end
+
+
 end
