@@ -76,7 +76,7 @@
       <div class="relative-div">
         <div class="projects-holder">
         <%@projects.each do |project|%>
-        <div class="card card-index" style="background-color: #FAFAFA;"> 
+          <div class="card card-index" style="background-color: #FAFAFA;"> 
             <header class="card-heading border-bottom">
               <button type="button" class="btn btn-sm btn-primary btn-round btn-cons apply-btn-index" data-toggle="modal" data-project_id="<%=project.id%>" data-target="#myModal" i>
                 Apply
@@ -125,12 +125,16 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <%@project_users.each do |project_user|%>
+                              <%project.project_users.each do |project_user|%>
                                 <tr style="background-color: white;">
                                   <td><%=project_user.user.email%></td>
                                   <td><%=project_user.ownership_percentage%></td>
                                 </tr>
                               <%end%>
+                              <tr style="background-color: white;">
+                                <td>Unallocated percentage:</td>
+                                <td><%=project.unallocated_percentage%></td>
+                              </tr>
                             </tbody>
                       </table>
                      </div>

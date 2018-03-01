@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :update, :destroy]
   resources :likes, only: [:create, :destroy]
   get 'welcome/index'
-devise_for :users, controllers: {
+  devise_for :users, controllers: {
         sessions: 'users/sessions',
-        registrations: 'users/registrations'
+        registrations: 'users/registrations'        
       }
 
   resources :projects
