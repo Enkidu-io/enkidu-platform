@@ -17,5 +17,5 @@
 //= require js.storage.min
 //= require vendor
 //= require app.bundle
-
+//= require bootbox.min.js
 //= require_tree .
