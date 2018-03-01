@@ -13,9 +13,10 @@
     <div class="modal fade" id="Modal" role="dialog" style="background-color:#263238;">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header" style="background-color: #512DA8">
+          <div class="modal-header" style="background-color: #512DA8; ">
+            <!-- <div class="circle md md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div> -->
+            <h4 class="modal-title" style="margin-top:7px;"><i class="zmdi zmdi-accounts-alt" style="height: 30px;"></i> Create New Project  </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Create New Project  </h4>
           </div>
           <div class="modal-body">
             <%= form_for :project, class: "form-horizontal"  do |f| %>
@@ -89,10 +90,7 @@
                     <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
                     <span class="caret"></span>
                   </span>
-                  <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
-                  <span class="caret"></span>
-                </span>
-              </a>
+                </a>
                           <ul class="dropdown-menu btn-primary dropdown-menu-right">
                               <li>
                                   <%= link_to  destroy_user_session_path,:placeholder => "Log out", :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
@@ -170,11 +168,13 @@
                       <div class="sidebar-inner sidebar-push">
                           <ul class="nav nav-pills nav-stacked">
                               <li class="sidebar-header">NAVIGATION</li>
-                              <li class="active"><a href="index.html"><i class="zmdi zmdi-view-dashboard"></i>Browse Projects</a></li>
-                              <li>
-                                  <a href="<%=project_users_path%>"><span></span><i class="zmdi zmdi-view-quilt"></i>Dashboard</a>
+                              <li class="active">
+                                <a href="index.html"><i class="zmdi zmdi-search-in-file"></i>Browse Projects</a></li>
+                              <li class="active">
+                                  <a href="<%=project_users_path%>"><span></span><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a>
                               </li>
-                              <li><a href="#"><span></span><i class="zmdi zmdi-widgets"></i>Resolution History</a>
+                              <li class="active">
+                                <a href="#"><span></span><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
                               </li>
                           </ul>
                       </div>
@@ -190,7 +190,7 @@
               </div>
           </nav>
       </aside>
-      <section id="content_outer_wrapper" class="">
+      <section id="content_outer_wrapper" class="bottom_width">
           <div id="content_wrapper" class="rightnav_v2">
               <div id="header_wrapper" class="header-sm" style="width: 130%; background-color: #512DA8;">
                   <div class="container-fluid">
@@ -204,7 +204,7 @@
                   </div>
               </div>
               <div id="content" class="container-fluid">
-                  <div class="content-body">
+                  <div class="content-body content">
                       <%=yield%>
                   </div>
               </div>
