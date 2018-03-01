@@ -2,6 +2,7 @@ class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
   before_action :is_percentage_avail? , only: [:create]
   before_action :authorized_for_resolution?, only: [:create]
+  
 
   def index
     @bids = current_user.bids
