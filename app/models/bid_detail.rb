@@ -9,12 +9,14 @@ class BidDetail < ApplicationRecord
 	validates :user_id, :uniqueness => { :scope => :bid_id }
 
 	def send_approval_notifications
+		project_title = self.bid.project.title
 		notification_user = Notification.new(user_id: self.user_id, 
 												   notification_type_id: 1,
-												   notification_description: NotificationDescription.getDescription(1, 
-											   																	false, 
+												   notification_description: NotificationDescription.getDescription(2, 
+											   																	true, 
 											   																	self.bid.user.email, 
-											   																	project_title))
+											   																	project_title,
+											   																	self.bid.bid_percentage))
 	def create_digital_contract
 		total_votes_cast = 0
 		approval_weight = 0.0
