@@ -132,7 +132,7 @@
                                 </tr>
                               <%end%>
                               <tr style="background-color: white;">
-                                <td>Unallocated percentage:</td>
+                                <td>Unallocated percentage</td>
                                 <td><%=project.unallocated_percentage%></td>
                               </tr>
                             </tbody>
@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-xs-4 hover" title="View comments">
                   <%=link_to project_path(project, anchor: "comments-div-show") do%>
-                    <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> 10
+                    <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> <%=project.comments.count%>
                   <%end%>                    
                 </div>
               </div>

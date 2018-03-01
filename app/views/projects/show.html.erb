@@ -69,7 +69,7 @@
 			        	<div class="col-xs-10">
 			        		<span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.email%></span>
 			        		<br>
-			        		<small><%=DateTime.now.day - comment.created_at.day%> days ago</small>
+			        		<small><%=(Time.zone.now - comment.created_at).to_i / 1.day%> days ago</small>
 			        		<p class="comment_content" style="font-size: 14px;margin-top: 5px;"><%=comment.comment%></p>
 				        </div>
 		        	<%end%>
