@@ -5,7 +5,9 @@ class BidsController < ApplicationController
   
 
   def index
-    @bids = current_user.bids
+    # @bids = current_user.bids
+    @bids =  Bid.where("initiater_id = ?", current_user.id)
+    return
   end
 
   def create
