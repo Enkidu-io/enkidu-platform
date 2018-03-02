@@ -16,6 +16,7 @@ class BidDetail < ApplicationRecord
 		if resolution == 1
 			if(self.bid.user_id.present?)
 				#Added collaborator via dashboard
+				STDOUT.puts "resolution created"
 				notification_description_for_members = notificationDescription.getDescription(2, 
 			   																	true,
 			   																	User.find(self.bid.user_id).email, 
@@ -28,6 +29,7 @@ class BidDetail < ApplicationRecord
 			 	notification_member.save
 			else
 				#Person applied for the bid via index
+				STDOUT.puts "Applied"
 				notification_description_for_members = notificationDescription.getDescription(2,
 																							true,
 																							User.find(self.bid.initiater_id).email,
@@ -37,7 +39,7 @@ class BidDetail < ApplicationRecord
 													   notification_type_id: 2,
 													   notification_description: notification_description_for_members)
 
-				notification_member.save
+				notification_member.save!
 			end
 		elsif resolution == 2
 			notification_description_for_members = notificationDescription.getDescription(3, 

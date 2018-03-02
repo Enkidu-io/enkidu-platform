@@ -9,27 +9,39 @@
 			</header>
 			<div class="card-body border-bottom">
 				Ownership: <%=User.find(@project.ip_ownership_id).email%>
-				<br>
+				<br><br>
 				<div class="table-responsive">
 					<table class="table">
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Ownership</th>
-							</tr>
-						</thead>
-						<tbody>
-							<%@project_users.each do |project_user|%>
-								<tr>
-									<td><%=project_user.user.email%></td>
-									<td><%=project_user.ownership_percentage%></td>
-								</tr>
-							<%end%>
-						</tbody>
+						<thead style="background-color: #512dab;">
+                              <tr>
+                              <th style="color:white; text-align: center;">USER</th>
+                              <th style="color:white; text-align: center;">PAYMENT SPLIT (IN %)</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <%@project_users.each do |project_user|%>
+                                <tr style="background-color: white;">
+                                  <td style="text-align: center;"><%=project_user.user.email%></td>
+                                  <td style="text-align: center;"><%=project_user.ownership_percentage%></td>
+                                </tr>
+                              <%end%>
+                              <tr style="background-color: white;">
+                                <td style="text-align: center;">Treasury </td>
+                                <td style="text-align: center;"><%=@project.treasury_percentage%></td>
+                              </tr>
+                              <tr style="background-color: white;">
+                                <td style="text-align: center;">Unallocated </td>
+                                <td style="text-align: center;"><%=@project.unallocated_percentage%></td>
+                              </tr>
+                              <tr>
+                              <th style="text-align: center;">Total</th>
+                              <th style="text-align: center;">100</th>
+                              </tr>
+                            </tbody>
 					</table>
 				</div>
 				<h5>Description:</h5>
-				<div class="card-body" style="display: block; background-color: #f5f5f5;">
+				<div class="card-body card-text" style="display: block; background-color: #f5f5f5;">
 					<p><%=@project.description%></p>
 				</div>
 			</div>

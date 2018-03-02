@@ -5,7 +5,9 @@ class BidsController < ApplicationController
   
 
   def index
-    @bids = current_user.bids
+    # @bids = current_user.bids
+    @bids =  Bid.where("initiater_id = ?", current_user.id)
+    return
   end
 
   def create
@@ -28,16 +30,6 @@ class BidsController < ApplicationController
        redirect_to request.referer
       end
   end
-
-  # def destroy
-  #   if @bid.destroy
-  #     flash[:notice] = "Bid deleted."
-  #     redirect_to bids_path
-  #   else
-  #     flash[:notice] = "Could not delete this bid."
-  #     redirect_to request.referer
-  #   end
-  # end
 
   def update
 		if @bid.update(params[:bid_percentage].permit(:user_id, :project_id,:resolution_id))

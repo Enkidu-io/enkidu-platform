@@ -58,6 +58,23 @@
         </div>
       </div>
     </div>
+
+    <div id="notificationModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- dialog body -->
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        sadfdsd
+      </div>
+      <!-- dialog buttons -->
+      <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
+    </div>
+  </div>
+</div>
+
+
+
     <div id="app_wrapper">
       <header id="app_topnavbar-wrapper">
         <nav role="navigation" class="navbar topnavbar">
@@ -114,7 +131,7 @@
                                       <div class="card">
                                           <div class="card-body">
                                               <ul class="list-group ">
-                                                  <li class="list-group-item ">
+                                                  <li class="list-group-item" data-toggle="modal" data-target="#notificationModal">
                                                       <span class="pull-left"><img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 "></span>
                                                       <div class="list-group-item-body">
                                                           <div class="list-group-item-heading">
@@ -152,7 +169,7 @@
           <div id="logo_wrapper">
               <ul>
                   <li class="logo-icon">
-                      <a href="index.html">
+                      <a href="/">
                           <div class="logo">
                               <%=image_tag "img/enkidu.png"%>
                           </div>
@@ -170,12 +187,12 @@
                           <ul class="nav nav-pills nav-stacked">
                               <li class="sidebar-header">NAVIGATION</li>
                               <li class="active">
-                                <a href="index.html"><i class="zmdi zmdi-search-in-file"></i>Browse Projects</a></li>
+                                <a href="/"><i class="zmdi zmdi-search-in-file"></i>Browse Projects</a></li>
                               <li class="active">
-                                  <a href="/dashboard"><span></span><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a>
+                                  <a href="/dashboard"><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a>
                               </li>
                               <li class="active">
-                                <a href="#"><span></span><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
+                                <a href="#"><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
                               </li>
                           </ul>
                       </div>

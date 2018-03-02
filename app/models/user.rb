@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :bids
   has_many :bid_details
-  has_many :notifications
+  has_many :notifications 
 
   def has_rated_project?(p_id)
     Rating.where(user_id: self.id, project_id: p_id).first ? true : false

@@ -21,4 +21,44 @@ $(document).ready(function(e){
 		var project_id = $(this).data("project-id");
 		$("#modal-project-id").attr("value", project_id);
 	});
+
+	  $("#file-tab").on("click",function(){
+                var x=$("#file-upload").val();
+                var y=$("#web-url").val();
+                if(y!="" && y!=null)
+                {
+
+                  bootbox.confirm({
+                    title: "Alert!!",
+                    message: "Web Url is already entered.Do you want to add image?",
+                    buttons: {
+                        cancel: {
+                            label: '<i class="fa fa-times"></i> Cancel'
+                        },
+                        confirm: {
+                            label: '<i class="fa fa-check"></i> Confirm'
+                        }
+                    },
+                    callback: function (result) {
+                        if(result==true)
+                        {
+
+                        }
+                        else if(result==false)
+                        {
+                          $("#file-tab").removeClass("active");
+                            $("#tab2FollowUs").removeClass("active");
+                            $("#url-tab").addClass("active");
+                            $("#tab2hellowWorld").addClass("active");
+
+
+
+                        }
+                    }
+                  });
+                }
+              });
+
+
+
 });
