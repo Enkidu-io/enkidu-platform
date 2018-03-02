@@ -18,9 +18,8 @@ class BidsController < ApplicationController
           flash[:notice] = "You do not have enough permissions to perform this function."
           redirect_to request.referer
         end
-      else
-        @bid.initiater_id = current_user.id
       end
+      @bid.initiater_id = current_user.id
       if @bid.save!
        flash[:notice] = 'Bid has been successfuly made.'
        redirect_to bids_path

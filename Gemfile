@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'ransack'
+
 gem 'figaro'
 
 gem 'ransack'

@@ -91,6 +91,7 @@
                     <span class="caret"></span>
                   </span>
                 </a>
+
                           <ul class="dropdown-menu btn-primary dropdown-menu-right">
                               <li>
                                   <%= link_to  destroy_user_session_path,:placeholder => "Log out", :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
@@ -171,7 +172,7 @@
                               <li class="active">
                                 <a href="index.html"><i class="zmdi zmdi-search-in-file"></i>Browse Projects</a></li>
                               <li class="active">
-                                  <a href="<%=project_users_path%>"><span></span><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a>
+                                  <a href="/dashboard"><span></span><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a>
                               </li>
                               <li class="active">
                                 <a href="#"><span></span><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
