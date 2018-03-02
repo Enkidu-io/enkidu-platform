@@ -3,14 +3,12 @@ class ProjectsController < ApplicationController
 
 	def index
 		# Add search functionality
-		@projects = Project.all.order(created_at: :desc)
 		@project = Project.new
 		@project_users = @project.users
 		@bid = Bid.new
 
-		@search=Project.ransack(params[:q])
-	 	@projects = @search.result
-
+		@search = Project.ransack(params[:q])
+		@projects = @search.result.order(created_at: :desc).select { |p| p unless p.has_employee?(current_user.id)  }
 	end
 
 	def show

@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-8 col-md-offset-2">
 <div class="card-body card-grey">
    <div class="table-responsive">
       <table class="table table-hover">
@@ -8,6 +8,7 @@
               <td style="color:white; text-align: center;">PROJECT TITLE</td>
               <td style="color:white; text-align: center;">BID (IN %)</td>
               <td style="color:white; text-align: center;">VESTING PERIOD (in months)</td>
+              <td style="color:white; text-align: center;">CREATED ON</td>
               </tr>
             </thead>
             <tbody>
@@ -25,6 +26,9 @@
                   <td style="text-align: center;">
                   	<% @vesting = bid["variables"]["vesting_period"] %>
                   	<%= @vesting %>
+                  </td>
+                  <td style="text-align: center;">
+                  	<%=bid.created_at.strftime("%d/%m/%y")%>
                   </td>
                 </tr>
               <%end%>
