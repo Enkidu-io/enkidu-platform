@@ -16,27 +16,34 @@ class BidDetail < ApplicationRecord
 		if resolution == 1
 			if(self.bid.user_id.present?)
 				#Added collaborator via dashboard
-				notification_user = Notification.new(user_id: self.user_id, 
-													   notification_type_id: 2,
-													   notification_description: notificationDescription.getDescription(2, 
-												   																	true, 
-												   																	User.find(self.bid.user_id).email, 
-												   																	project_title,
-												   																	self.bid.bid_percentage))
+				notification_description_for_members = notificationDescription.getDescription(2, 
+			   																	true,
+			   																	User.find(self.bid.user_id).email, 
+			   																	project_title,
+			   																	self.bid.bid_percentage)
+				notification_member = Notification.new(user_id: self.user_id, 
+												   notification_type_id: 2,
+												   notification_description: notification_description_for_members)
+
+			 	notification_member.save
 				
 			else
-				notification_user = Notification.new(user_id: self.user_id, 
+				#Person applied for the bid via index
+				notification_description_for_members = notificationDescription.getDescription(2,
+																							true,
+																							User.find(self.bid.initiater_id).email,
+																							project_title,
+																							self.bid.bid_percentage)
+				notification_member = Notification.new(user_id: self.user_id, 
 													   notification_type_id: 2,
-													   notification_description: notificationDescription.getDescription(2, 
-												   																	true, 
-												   																	User.find(self.bid.initiater_id).email, 
-												   																	project_title,
-												   																	self.bid.bid_percentage))
+													   notification_description: notification_description_for_members)
+
+				notification_member.save
 			end
 		elsif resolution == 2
 		elsif resolution == 3
 		end
-		notification_user.save!
+		# notification_user.save!
 	end
 	def create_digital_contract
 		total_votes_cast = 0
