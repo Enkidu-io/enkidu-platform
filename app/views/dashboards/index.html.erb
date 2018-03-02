@@ -152,6 +152,8 @@
 					<p>
 						<%= f.label :Email_id ,class: "control-label"%><br>
 						<%= f.email_field :email,:placeholder => "Enter email id of the collaborator" ,class: "form-control" %>
+						<%= f.hidden_field :project_id, id: "modal-project-id",value: ""%>
+                		<%= f.hidden_field :resolution_id, value: "2"%>
 					</p>
 				</div>
 				<p>
@@ -262,7 +264,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<button class="btn btn-primary btn-cons btn-round "type="button" name="button" style="margin-left:200px;">Sign Contract</button>
+				<button class="btn btn-primary btn-cons btn-round" type="button" name="button" style="margin-left:200px;">Sign Contract</button>
 			</div>
 		</div>
 	</div>

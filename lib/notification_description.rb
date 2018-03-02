@@ -17,7 +17,7 @@ class NotificationDescription
 		elsif(type == 3)
 			#Remove collaborator
 			if(to_member == true)
-				"Please confirm user #{user_email} to be removed from the list of collaborators for project #{project_title}"
+				"Please confirm your vote for removal of user #{user_email} to be removed from the list of collaborators for project #{project_title}"
 			else
 				"Please confirm you'd like to be removed from the list of collaborators for project #{project_title}"
 			end
