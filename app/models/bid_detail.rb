@@ -16,7 +16,6 @@ class BidDetail < ApplicationRecord
 		if resolution == 1
 			if(self.bid.user_id.present?)
 				#Added collaborator via dashboard
-				STDOUT.puts "resolution created"
 				notification_description_for_members = notificationDescription.getDescription(2, 
 			   																	true,
 			   																	User.find(self.bid.user_id).email, 
@@ -29,7 +28,6 @@ class BidDetail < ApplicationRecord
 			 	notification_member.save
 			else
 				#Person applied for the bid via index
-				STDOUT.puts "Applied"
 				notification_description_for_members = notificationDescription.getDescription(2,
 																							true,
 																							User.find(self.bid.initiater_id).email,
@@ -79,16 +77,17 @@ class BidDetail < ApplicationRecord
 			end
 		end
 
+		notificationDescription = NotificationDescription.new
 		project_title = self.bid.project.title
 		if(total_votes_cast == bid_details.count && approval_weight > 50.0)
 			project_leader_id = self.bid.project.leader_id
 			notification_leader = Notification.new(user_id: project_leader_id, 
 												   notification_type_id: 1,
-												   notification_description: getDescription(1, true, self.bid.user.email, project_title))
+												   notification_description: notificationDescription.getDescription(1, true, self.bid.user.email, project_title, self.bid.bid_percentage))
 			notification_leader.save
 			notification_user = Notification.new(user_id: self.bid.user_id, 
 												   notification_type_id: 1,
-												   notification_description: getDescription(1, false, self.bid.user.email, project_title))
+												   notification_description: notificationDescription.getDescription(1, false, self.bid.user.email, project_title, self.bid.bid_percentage))
 			notification_user.save
 			DigitalContract.new(bid_id: self.bid.bid_id, project_id: self.bid.project.id)
 			DigitalContract.save
@@ -96,11 +95,11 @@ class BidDetail < ApplicationRecord
 		if(total_votes_cast == bid_details.count && approval_weight <= 50.0)
 			notification_leader = Notification.new(user_id: project_leader_id,
 												   notification_type_id: 1,
-												   notification_description: getDescription(5, true, self.bid.user.email,project_title))
+												   notification_description: notificationDescription.getDescription(5, true, self.bid.user.email,project_title, self.bid.bid_percentage))
 			notification_leader.save
 			notification_user = Notification.new(user_id: self.bid.user_id, 
 												   notification_type_id: 1,
-												   notification_description: getDescription(5, false, self.bid.user.email ,project_title))
+												   notification_description: notificationDescription.getDescription(5, false, self.bid.user.email ,project_title, self.bid.bid_percentage))
 			notification_user.save
 		end
 	end

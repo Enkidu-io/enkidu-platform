@@ -54,7 +54,7 @@
               <div class="form-group modal-form-index">
                 <%= f.label :bid_percentage, "Enter your bid"%>
                 <%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
-                <%= f.hidden_field :project_id, id: "modal-project-id",value: ""%>
+                <%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
                 <%= f.hidden_field :resolution_id, value: "1"%>
               </div>
               <div class="form-group modal-form-index">
@@ -73,7 +73,7 @@
         <%@projects.each do |project|%>
           <div class="card card-index" style="background-color: #FAFAFA;"> 
             <header class="card-heading border-bottom">
-              <button type="button" class="btn btn-sm btn-primary btn-round btn-cons btn-copy-project-id" data-toggle="modal" data-project-id="<%=project.id%>" data-target="#myModal" i>
+              <button type="button" class="btn btn-sm btn-primary btn-round btn-cons btn-apply-index btn-copy-project-id" data-toggle="modal" data-project-id="<%=project.id%>" data-target="#myModal" i>
                 Apply
               </button>
               <%= link_to project_path(project) do%>
