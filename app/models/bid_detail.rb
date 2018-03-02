@@ -92,7 +92,7 @@ class BidDetail < ApplicationRecord
 			DigitalContract.save
 		end
 		if(total_votes_cast == bid_details.count && approval_weight <= 50.0)
-			notification_leader = Notification.new(user_id: project_leader_id, 
+			notification_leader = Notification.new(user_id: project_leader_id,
 												   notification_type_id: 1,
 												   notification_description: getDescription(5, true, self.bid.user.email,project_title))
 			notification_leader.save
