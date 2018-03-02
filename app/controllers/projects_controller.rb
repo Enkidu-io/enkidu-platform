@@ -9,12 +9,13 @@ class ProjectsController < ApplicationController
 		@bid = Bid.new
 
 		@search=Project.ransack(params[:q])
-		 @projects = @search.result
+	 	@projects = @search.result
 
 	end
 
 	def show
-		@project_users = @project.users
+		@project_users = @project.project_users
+		@comments = @project.comments.order(created_at: :desc)
 	end
 
 	def create
