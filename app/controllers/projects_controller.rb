@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
-		@project.unallocated_percentage = (100 - params[:project][:leader_allocation].to_i - params[:project][:treasury_percentage])
+		@project.unallocated_percentage = (100 - params[:project][:leader_allocation].to_f - params[:project][:treasury_percentage].to_f)
 		@project.tag_list.add(params[:project][:tags], parse: true)
 		if @project.save
 			flash[:notice] = "Project created successfully."
