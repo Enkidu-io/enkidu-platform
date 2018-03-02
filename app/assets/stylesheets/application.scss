@@ -22,10 +22,9 @@
  position: relative;
  }
 
-.apply-btn-index{
-	position:absolute ;
-	right: 10px;
-	top: 57px;
+.btn-copy-project-id{
+float: right;
+top:40px;
 }
 
 .vesting-btn-index{
@@ -57,6 +56,10 @@
 
 .bottom_width{
 	padding-bottom: 0px !important;
+}
+
+#app_topnavbar-wrapper{
+	z-index: 2;
 }
 
 

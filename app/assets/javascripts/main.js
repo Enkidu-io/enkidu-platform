@@ -17,9 +17,9 @@ $(document).ready(function(e){
 		$('.search-panel span#search_concept').text(concept);
 		$('.input-group #search_param').val(param);
 	});
-	$(".apply-btn-index").on("click", function(){
-		var project_id = $(this).data("project_id");
-		$("#modal-project-id-index").attr("value", project_id);
+	$(".btn-copy-project-id").on("click", function(){
+		var project_id = $(this).data("project-id");
+		$("#modal-project-id").attr("value", project_id);
 	});
 
 	  $("#file-tab").on("click",function(){

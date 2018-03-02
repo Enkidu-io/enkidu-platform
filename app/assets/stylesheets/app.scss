@@ -8289,7 +8289,7 @@ button[data-transition].fullscreen i {
 */
 .btn-fab-group {
   position: relative;
-  z-index: 99; }
+ }
 
 .btn-fab-group [data-fab="down"] + .nav-sub li {
   margin: 10px;
@@ -8310,7 +8310,6 @@ button[data-transition].fullscreen i {
   top: -50px; }
 
 .btn-fab-group .fab-menu {
-  z-index: 70;
   background-color: #512dab; }
 
 .btn-fab-group .fab-menu i {
