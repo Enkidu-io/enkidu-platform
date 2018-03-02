@@ -6,7 +6,7 @@
 					<!-- project title -->
 					<h2><%=project.title%></h2>
 					<!-- balance amount -->
-					<h5 style="margin-top: -25px; margin-left: 52%; color: #595959; font-family: 'Lato', sans-serif;">
+					<h5 class="available-balance" style="margin-top: -25px; margin-left: 52%; color: #595959; font-family: 'Lato', sans-serif;">
 					AVAILABLE BALANCE:
 					<span style="font-size: 17px;">
 						<b>93 ENK</b>
@@ -21,7 +21,7 @@
 					<ul class="nav-sub">
 						<li style="transform: translateY(10px);">
 							<span data-toggle="modal" data-target="#Modal-add-collaborator">
-								<button type="button" class="btn btn-sm btn-primary btn-round btn-copy-project-id" data-placement="right" data-toggle="tooltip" data-project-id="<%=project.id%>" data-target="#Modal" data-original-title="Add Collaborator" i>
+								<button type="button" class="btn btn-sm btn-primary btn-round z-transform" data-placement="right" data-toggle="tooltip" data-project-id="<%=project.id%>" data-target="#Modal" data-original-title="Add Collaborator" i>
 								<i class="zmdi zmdi-plus"></i>
 								</button>
 							</span>

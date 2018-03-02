@@ -11,3 +11,20 @@
 	padding-bottom:0px !important;
 }
 
+.z-transform{
+	z-index: -1000px !important;
+}
+
+
+@media (max-width: 768px){
+.available-balance{
+	padding-top: 30px;
+	margin-left: 0px !important; 
+}
+.resolution-btn{
+	bottom:25px;
+}
+.table-responsive{
+	width: 300px !important;
+}
+}
