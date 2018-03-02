@@ -12,7 +12,7 @@ class BidsController < ApplicationController
       @bid = Bid.new(bid_params) 
       if params[:bid][:email].present?
         project = Project.find(params[:bid][:project_id])
-        if project.is_an_employee?(current_user.id)
+        if project.has_employee?(current_user.id)
           @bid.user_id = User.where(email: params[:bid][:email]).first.id
         else
           flash[:notice] = "You do not have enough permissions to perform this function."
@@ -56,11 +56,13 @@ class BidsController < ApplicationController
   private
 
     def is_percentage_avail?
-      project = Project.find(params[:bid][:project_id])
-      bid_perc = params[:bid][:bid_percentage].to_f
-      if project.unallocated_percentage < bid_perc
-        flash[:notice] = "Bid could not be created as your demands cannot be met."
-        redirect_to request.referer
+      if params[:bid][:resolution_id].to_i == 1
+        project = Project.find(params[:bid][:project_id])
+        bid_perc = params[:bid][:bid_percentage].to_f
+        if project.unallocated_percentage < bid_perc
+          flash[:notice] = "Bid could not be created as your demands cannot be met."
+          redirect_to request.referer
+        end
       end
     end
 
