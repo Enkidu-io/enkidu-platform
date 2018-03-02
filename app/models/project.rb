@@ -14,13 +14,12 @@ class Project < ApplicationRecord
 
 	validates_presence_of :title, :description, :unallocated_percentage, :treasury_percentage
 
-	def is_an_employee?(user_id)
-		# self.users.pluck[:id].include?(user_id)
-		true
+	def has_employee?(user_id)
+		self.users.pluck[:id].include?(user_id)
 	end
 
 	def create_project_leader
-		ProjectUser.create!(project_id: self.id, user_id: self.leader_id, ownership_percentage: (100 - self.unallocated_percentage))
+		ProjectUser.create!(project_id: self.id, user_id: self.leader_id, ownership_percentage: (100 - (self.unallocated_percentage + self.treasury_percentage)) )
 	end
 
 end

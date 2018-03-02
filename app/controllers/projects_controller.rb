@@ -5,20 +5,24 @@ class ProjectsController < ApplicationController
 		# Add search functionality
 		@projects = Project.all.order(created_at: :desc)
 		@project = Project.new
+		@project_users = @project.users
 		@bid = Bid.new
+
+		@search=Project.ransack(params[:q])
+		 @projects = @search.result
+
 	end
 
 	def show
-		@project_users = @project.project_users
-		@comments = @project.comments.order(created_at: :desc)
+		@project_users = @project.users
 	end
 
 	def create
 		@project = Project.new(project_params)
-		@project.unallocated_percentage = (100 - params[:project][:leader_allocation].to_i)
+		@project.unallocated_percentage = (100 - params[:project][:leader_allocation].to_f - params[:project][:treasury_percentage].to_f)
 		@project.tag_list.add(params[:project][:tags], parse: true)
 		if @project.save
-			flash[:alert] = "Project created successfully."
+			flash[:notice] = "Project created successfully."
 			redirect_to projects_path
 		else
 			flash[:notice] = "Could not create project."
@@ -44,6 +48,14 @@ class ProjectsController < ApplicationController
 			flash[:notice] = "Failed to delete project"
 			redirect_to request.referer
 		end
+	end
+
+	def test
+		@bid = Bid.new
+		@projects = Project.all.order(created_at: :desc)
+		@project = Project.new
+		@project_users = @project.users
+
 	end
 
 	private
