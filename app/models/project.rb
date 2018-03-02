@@ -15,7 +15,8 @@ class Project < ApplicationRecord
 	validates_presence_of :title, :description, :unallocated_percentage, :treasury_percentage
 
 	def is_an_employee?(user_id)
-		self.users.pluck[:id].include?(user_id)
+		# self.users.pluck[:id].include?(user_id)
+		true
 	end
 
 	def create_project_leader

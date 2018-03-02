@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
 	def index
-		@projects = Project.all
+		@projects = current_user.projects
 	end
 end
