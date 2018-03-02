@@ -3,13 +3,13 @@ class ProjectsController < ApplicationController
 
 	def index
 		# Add search functionality
-		@projects = Project.all.order(created_at: :desc)
+		@projects = Project.all
 		@project = Project.new
 		@project_users = @project.users
 		@bid = Bid.new
 
 		@search=Project.ransack(params[:q])
-		 @projects = @search.result
+		@projects = @search.result.order(created_at: :desc)
 
 	end
 
