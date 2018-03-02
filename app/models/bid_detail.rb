@@ -48,7 +48,18 @@ class BidDetail < ApplicationRecord
 			notification_member = Notification.new(user_id: self.user_id, 
 													   notification_type_id: 3,
 													   notification_description: notification_description_for_members)
+			notification_member.save
 		elsif resolution == 3
+			notification_description_for_members = notificationDescription.getDescription(4, 
+			   																	true,
+			   																	User.find(self.bid.initiater_id ).email, 
+			   																	project_title,
+			   																	0)
+			notification_member = Notification.new(user_id: self.user_id, 
+													   notification_type_id: 4,
+													   notification_description: notification_description_for_members)
+		
+			notification_member.save
 		end
 	end
 	def create_digital_contract

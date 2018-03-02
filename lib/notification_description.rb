@@ -24,7 +24,7 @@ class NotificationDescription
 		elsif(type == 4)
 			#Vote Dilution
 			if(to_member == true)
-				"Please confirm your vote for diluting project #{project_title}"
+				"Please confirm your vote for diluting project #{project_title} for #{bid_amount}"
 			else
 				"Please confirm your vote for diluting project #{project_title}"
 			end
