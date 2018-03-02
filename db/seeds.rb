@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Resolution.create(name: "Add new Collaborator")
-Resolution.create(name: "Remove Collaborator")
-Resolution.create(name: "Dilute")
+# Resolution.create(name: "Add new Collaborator")
+# Resolution.create(name: "Remove Collaborator")
+# Resolution.create(name: "Dilute")
 
 NotificationType.create(notification_content: "Smart Contract")
 NotificationType.create(notification_content: "Add Collaborator")
