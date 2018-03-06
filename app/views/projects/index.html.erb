@@ -144,11 +144,11 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-xs-4" title="View comments">
-                  <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> 30k
+                <div class="col-xs-4" title="Views">
+                  <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> <%= project.view_count %>
                 </div>
-                <div class="col-xs-4" title="View comments">
-                 <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> 50
+                <div class="col-xs-4" title="Likes">
+                 <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> <a href="#" id="like" onclick="sendCheckRequest(event, <%=project.id%>); "> like</a>
                 </div>
                 <div class="col-xs-4 hover" title="View comments">
                   <%=link_to project_path(project, anchor: "comments-div-show") do%>
@@ -163,3 +163,30 @@
     </div>
     </div>
 </div>
+
+<script type="text/javascript">
+  
+  function sendCheckRequest(e, postId){
+    e.preventDefault();
+
+    var img = document.getElementById("like");
+img.src="https://www.spreadshirt.com/image-server/v1/mp/designs/1012418524,width=178,height=178/facebook-like-button-emojis.png";
+return false;
+    console.log("Logged post ID "+postId);
+  $.ajax({
+    url: '../set_likes',
+    type: "GET",
+    data: {'post_id': postId},
+    dataType: "json",
+    // success: function(postId){
+    //  // alert("Success");
+    // },
+    // error: function(data){
+    //  // alert('Failure');
+    //  console.log(data.responseText);
+    // }
+  });
+  // location.reload();
+}
+
+</script>
