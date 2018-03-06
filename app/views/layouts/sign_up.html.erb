@@ -22,12 +22,21 @@
 
                   <div class="form-group">
                     <i class="zmdi zmdi-email"></i>
-                    <%= f.label :email, class: "control-label" %><br />
-                    <%= f.email_field :email, autofocus: true, class: "form-control"%>
+                    <%= f.label :first_name, class: "control-label" %><br />
+                    <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "form-control" %>
                   </div>
 
+                  <div class="form-group">
+                    <i class="zmdi zmdi-email"></i>
+                    <%= f.label :last_name, class: "control-label" %><br />
+                    <%= f.text_field :last_name, autocomplete: "off", class: "form-control" %>
+                  </div>
 
-
+                  <div class="form-group">
+                    <i class="zmdi zmdi-email"></i>
+                    <%= f.label :email, class: "control-label" %><br />
+                    <%= f.email_field :email, autocomplete: "off", class: "form-control"%>
+                  </div>
 
                   <div class="form-group">
                     <i class="zmdi zmdi-lock"></i>
@@ -42,6 +51,24 @@
                     <i class="zmdi zmdi-lock"></i>
                     <%= f.label :password_confirmation %><br />
                     <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control"%>
+                  </div>
+
+                  <div class="form-group">
+                    <i class="zmdi zmdi-email"></i>
+                    <%= f.label :age, class: "control-label" %><br />
+                    <%= f.number_field :last_name, autocomplete: "off", class: "form-control", in: 1..100, step: 1 %>
+                  </div>
+
+                  <div class="form-group">
+                    <i class="zmdi zmdi-email"></i>
+                    <%= f.label :job_profile, class: "control-label" %><br />
+                    <%= f.text_field :job_profile, autocomplete: "off", class: "form-control" %>
+                  </div>
+
+                  <div class="form-group">
+                    <i class="zmdi zmdi-email"></i>
+                    <%= f.label :linkedin_profile, 'LinkedIn URL',class: "control-label" %><br />
+                    <%= f.text_field :linkedin_profile, autocomplete: "off", class: "form-control" %>
                   </div>
 
                   <div class="actions">
