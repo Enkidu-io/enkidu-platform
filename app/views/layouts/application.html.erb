@@ -8,6 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= yield :styles %>
   </head>
   <body>
     <div class="modal fade" id="Modal" role="dialog" style="background-color:#263238;">
@@ -228,5 +229,6 @@
       </section>
       </div>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= yield :scripts %>
   </body>
 </html>
