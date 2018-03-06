@@ -14,6 +14,10 @@ class User < ApplicationRecord
   validates_presence_of :email, :first_name, :last_name, :age, :job_profile
   validates_inclusion_of :age, :in => 1..100
 
+  def full_name
+    first_name+" "+last_name
+  end
+
   def has_rated_project?(p_id)
     Rating.where(user_id: self.id, project_id: p_id).first ? true : false
   end

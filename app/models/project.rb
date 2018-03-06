@@ -6,6 +6,8 @@ class Project < ApplicationRecord
 	has_many :digital_contracts, dependent: :destroy
 	has_many :payment_gateways, dependent: :destroy
 	has_many :comments
+	has_many :likes
+	has_many :comments
 	acts_as_taggable_on :tags
 	
 	attr_accessor :tags
