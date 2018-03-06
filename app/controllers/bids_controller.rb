@@ -11,16 +11,16 @@ class BidsController < ApplicationController
   end
 
   def create
-      @bid = Bid.new(bid_params) 
-      if params[:bid][:email].present?
-        project = Project.find(params[:bid][:project_id])
-        if project.has_employee?(current_user.id)
-          @bid.user_id = User.where(email: params[:bid][:email]).first.id
-        else
-          flash[:notice] = "You do not have enough permissions to perform this function."
-          redirect_to request.referer
+      @bid = Bid.new(bid_params)
+      if project.has_employee?(current_user.id)
+        @bid.user_id = User.where(email: params[:bid][:email]).first.id
+        if params[:bid][:email].present?
+          project = Project.find(params[:bid][:project_id])
         end
-      end
+      else
+        flash[:notice] = "You do not have enough permissions to perform this function."
+        redirect_to request.referer
+      end 
       @bid.initiater_id = current_user.id
       if @bid.save!
        flash[:notice] = 'Bid has been successfuly made.'
