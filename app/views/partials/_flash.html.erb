@@ -1,15 +1,22 @@
-<% if notice %>
-  <div id="validation_msgs">
-  	<br>
-	<div class="alert alert-info" role="alert" style="margin: 0px">
-	<%= notice.html_safe %>
+<% if flash[:success] %>
+	<div class="alert alert-success" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	  		<span aria-hidden="true">×</span>
+		</button>
+		<%= flash[:success].html_safe %>
 	</div>
-  </div>
-<% elsif alert %>
-  <div id="validation_msgs">
-  	<br>
-	<div class="alert alert-danger" role="alert" style="margin: 0px">
-	   <%= alert.html_safe %>
+<% elsif flash[:notice] %>
+	<div class="alert alert-info" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	  		<span aria-hidden="true">×</span>
+		</button>
+		<%= flash[:notice].html_safe %>
 	</div>
-  </div>
+<% elsif flash[:alert] %>
+	<div class="alert alert-danger" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	  		<span aria-hidden="true">×</span>
+		</button>
+		<%= flash[:alert].html_safe %>
+	</div>
 <% end %>
