@@ -1,6 +1,6 @@
 class ResolutionProcessor
 
-	def process(res_id, bid)
+	def self.process(res_id, bid)
 		case res_id
 		when 1
 			# Add collab

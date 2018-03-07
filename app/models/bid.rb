@@ -6,10 +6,13 @@ class Bid < ApplicationRecord
 
   after_commit :create_bid_details, on: :create
 
-  validates_presence_of :bid_percentage, :if => :resolution_not_2
   validates_presence_of :project_id, :resolution_id, :initiater_id
-  validates :bid_percentage, numericality: { only_float: true, greater_than: 0.0, less_than: 100.0 }, :if => :resolution_not_2
-
+  validates_presence_of :bid_percentage, :user_id, :vesting_period, :if => :resolution_id == 1
+  validates_presence_of :user_id, :if => :resolution_id == 2
+  validates_presence_of :bid_percentage, :if => :resolution_id == 3
+  validates :bid_percentage, numericality: { only_float: true, greater_than: 0.0, less_than: 100.0 }, :if => ([1,3].include? :resolution_id)
+  validates :vesting_period, numericality: { only_integer: true, greater_than: 0 }, :if => (:resolution_id == 1)
+  
   store_accessor :variables, :user_id, :bid_percentage, :vesting_period
 
   def create_bid_details
@@ -17,10 +20,5 @@ class Bid < ApplicationRecord
   	project.project_users.each do |p_u|
   		BidDetail.create!(bid_id: self.id, user_id: p_u.user_id, approval_percentage: p_u.ownership_percentage)
   	end
-  end
-  def resolution_not_2
-    unless self.resolution_id == 2
-      true
-    end
   end
 end
