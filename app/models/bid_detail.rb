@@ -21,6 +21,7 @@ class BidDetail < ApplicationRecord
 		# All votes casted?
 		if total_votes_cast == bid_details.count
 			# Majority vote?
+			self.bid.update(active: false)
 			if approval_weight > 50.0
 				DigitalContract.create(bid_id: self.bid.bid_id, project_id: self.bid.project.id)
 				NotificationProcessor.process_digital_contract(self, 1)
