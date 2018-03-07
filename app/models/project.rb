@@ -9,6 +9,7 @@ class Project < ApplicationRecord
 	has_many :likes
 	has_many :comments
 	has_many :views
+	has_many :ratings
 	acts_as_taggable_on :tags
 	
 	attr_accessor :tags

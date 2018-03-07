@@ -1,6 +1,52 @@
 <% content_for :scripts do %>
   <script type="text/javascript">
     var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+   
+
+       $(".ratings-clickable-index").on("click", function(e){
+        console.log(e.target.className);
+    
+
+        var selectedVal = "";
+        var selected = $("input[type='radio'][name='rating']:checked");
+        if (selected.length > 0) {
+        selectedVal = selected.val();
+          alert(selectedVal);
+        }
+
+         
+      var button = $(this);
+      $.ajax({
+        url: "<%= ratings_path %>",
+        type: "POST",
+        dataType: "json",
+        data: {
+          'rating' : {
+            'project_id' : button.parent().data("id"),
+            'rating': selectedVal
+          },
+          'authenticity_token' : AUTH_TOKEN
+        },
+        success: function (data, status, jqXHR) {
+          console.log(data);
+          if(data.rated){
+            button.css({'color':'red'});
+            }
+        },
+        error: function (jqXHR, status, err) {
+          console.log("LIKE FAILED");
+        }
+      })
+    });
+
+
+
+
+
+
+
+
+
     $(".like_btn").click(function(){
       var button = $(this);
       $.ajax({
@@ -116,18 +162,21 @@
               <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div>
                 <h2><%= project.title%></h2>
               <%end%>
-                <fieldset class="rating">
-                    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                </fieldset> 
+            
+
+                <div class="rating" data-id="<%= project.id %>">
+                    <input type="radio" class="ratings-clickable-index" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                    <input type="radio" class="ratings-clickable-index" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                   <input type="radio" class="ratings-clickable-index" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                   <input type="radio" class="ratings-clickable-index" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>         
+                    <input type="radio" class="ratings-clickable-index" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Bad - 1 star"></label>
+                    <%=project.ratings_count%>
+                    <script type="text/javascript">
+                      
+                    </script>
+                   
+                </div>
+
             </header>
             <div class="card-body">
               <div class="card" style="margin-top: 10px;">

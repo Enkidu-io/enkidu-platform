@@ -62,6 +62,18 @@ margin-top: -100px;
 }
 
 
+.rating-new{
+  background: url('/public/star.png') 0 0;
+  width: 16px;
+  height: 16px;
+  display:block;
+}
+.on{
+  
+  background-position: 0 16px;
+}
+
+
 .rating {
   border: none;
   float: left;
