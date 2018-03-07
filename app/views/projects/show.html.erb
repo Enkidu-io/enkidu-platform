@@ -21,9 +21,9 @@
 				<h2 class="card-title"><%=@project.title%>
 				<div class="col-xs-12" style="text-align: left; margin-top: -24px; margin-left: 40px; ">
                   <a href="#" id="like_<%= @project.id %>" class="like_btn" data-id="<%= @project.id %>"
-                    <%= 'style=color:red;' if current_user.has_liked_project?(@project.id) %>>
+                    <%= 'style=color:red;' if current_user.has_liked_project?(@project.id) %>
                       <span>
-                        <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> LIKE
+                        <i class="zmdi zmdi-favorite" style="padding-left: 40%;"></i> <h4 style="margin-top: -22px; margin-left: 275px;">LIKE</h4>
                       </span>
                   </a>
                 </div></h2>
