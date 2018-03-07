@@ -5,6 +5,9 @@ class CommentsController < ApplicationController
 	def create
 		comment = Comment.new(comment_params)
 		if comment.save
+			project = Project.find(params[:project_id])
+			project.increment(:comments_count, by = 1)
+			project.save
 			redirect_to request.referer
 		else
 			flash[:notice] = "Your comment could not be saved."

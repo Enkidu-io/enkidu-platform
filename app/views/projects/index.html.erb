@@ -45,7 +45,7 @@
                   <label for="filter">Filter by</label>
                   <select class="form-control select-order-index">
                       <option value="0" selected>All Projects</option>
-                      <option value="1">Featured</option>
+                      <option value="1">Most liked</option>
                       <option value="2">Most popular</option>
                       <option value="3">Top rated</option>
                       <option value="4">Most commented</option>
@@ -169,7 +169,7 @@
               </div>
               <div class="row">
                 <div class="col-xs-4">
-                  <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> <%= number_to_human project.views.count %>
+                  <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> <%= number_to_human project.views_count %>
                 </div>
                 <div class="col-xs-4">
                   <a href="#" id="like_<%= project.id %>" class="like_btn" data-id="<%= project.id %>"

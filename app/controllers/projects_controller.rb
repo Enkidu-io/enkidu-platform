@@ -6,14 +6,24 @@ class ProjectsController < ApplicationController
 		@project_users = @project.users
 		@bid = Bid.new
 
+		order_params = params[:order]
+		if order_params
+			unless ["likes_count", "views_count", "ratings_count", "comments_count"].include?(order_params)
+				flash[:alert] = "Something went very wrong. Please try again."
+				redirect_to request.referer
+			end
+			order_params = order_params + " desc"
+		end
+		order_projects_by = "created_at desc" unless order_params.present?
 		@search = Project.ransack(params[:q])
-		@projects = @search.result.order(created_at: :desc).select { |p| p unless p.has_employee?(current_user.id)  }
+		@projects = @search.result.order("#{order_params}").select { |p| p unless p.has_employee?(current_user.id)  }
 	end
 
 	def show
 		@project_users = @project.project_users
 		@comments = @project.comments.order(created_at: :desc)
-		View.create(project_id: @project.id, user_id: current_user.id)
+		@project.increment(:views_count, by = 1)
+		@project.save
 	end
 
 	def create

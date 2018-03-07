@@ -1,7 +1,11 @@
+
 class LikesController < ApplicationController
 
 	def create
 		like = Like.where(project_id: params[:like][:project_id], user_id: current_user.id).first
+		project = Project.find(params[:like][:project_id])
+		project.increment(:likes_count, by = 1)
+		project.save
 		if like.nil?
 			like = Like.new(like_params)
 			if like.save

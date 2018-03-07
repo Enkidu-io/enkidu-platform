@@ -22,17 +22,17 @@ $(document).ready(function(e) {
         $(".modal-project-id").attr("value", project_id);
     });
     $(".select-order-index").on("change", function(){
-        var filter_option = $(".select-order-index option:selected").val();
+        var filter_option = parseInt($(".select-order-index option:selected").val());
         var previous_params = window.location.search.substr(1);
         var order_params;
         switch(filter_option){
-            case 1: order_params = "title";
+            case 1: order_params = "likes_count";
             break;
-            case 2: order_params = "views";
+            case 2: order_params = "views_count";
             break;
-            case 3: order_params = "rated";
+            case 3: order_params = "ratings_count";
             break;
-            default: order_params = "commented";
+            default: order_params = "comments_count";
         }
         if(previous_params){
             window.open(window.location + "&order=" + order_params, "_self");
