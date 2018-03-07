@@ -21,5 +21,25 @@ $(document).ready(function(e) {
         var project_id = $(this).data("project-id");
         $(".modal-project-id").attr("value", project_id);
     });
-    
+    $(".select-order-index").on("change", function(){
+        var filter_option = $(".select-order-index option:selected").val();
+        var previous_params = window.location.search.substr(1);
+        var order_params;
+        switch(filter_option){
+            case 1: order_params = "title";
+            break;
+            case 2: order_params = "views";
+            break;
+            case 3: order_params = "rated";
+            break;
+            default: order_params = "commented";
+        }
+        if(previous_params){
+            window.open(window.location + "&order=" + order_params, "_self");
+        }
+        else
+        {
+            window.open(window.location + "?order=" + order_params, "_self");
+        }
+    });
 });
