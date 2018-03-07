@@ -1,0 +1,33 @@
+<% content_for :heading do %>
+<div id="header_wrapper" class="header-sm" style="width: 130%;background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-xs-12">
+                              <header id="header">
+                                  <h1>Notifications</h1>
+                              </header>
+                          </div>
+                      </div>
+                  </div>
+</div>
+<% end %>
+<%@dates.each do |notification|%>
+    <div class="card">
+        <div class="card-body">
+            <ul class="list-group ">
+                <li class="list-group-item" data-toggle="modal" data-target="#notificationModal">
+                    <span class="pull-left"><img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 "></span>
+                    <div class="list-group-item-body">
+                        <div class="list-group-item-heading">
+                            <%=notification.notification_type.notification_content%>
+                        </div>
+                        <div class="list-group-item-text">
+                            <%=notification.notification_description%>
+                        </div>
+                    </div>
+                    <h6 style="text-align: right;"><%= time_ago_in_words(notification.created_at)%> ago</h6>
+                </li>
+            </ul>
+        </div>
+    </div>
+<%end%>

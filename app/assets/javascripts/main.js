@@ -35,6 +35,7 @@ $(document).ready(function(e) {
             default: order_params = "comments_count";
         }
         if(previous_params){
+            
             window.open(window.location + "&order=" + order_params, "_self");
         }
         else

@@ -2,7 +2,6 @@ class DigitalContractsController < ApplicationController
 
 	before_action :set_dc, only: [:update]
 	before_action :if_user_can_access_dc, only: [:update]
-	before_action :get_signing_user, onyl: [:update]
 
 	def update
 		@dc.eth_address = params[:digital_contract][:eth_address]
@@ -28,15 +27,8 @@ class DigitalContractsController < ApplicationController
 			end
 		end
 
-		def get_signing_user
-		end
-
 		def set_dc
 			@dc = DigitalContract.find(params[:id])
-		end
-
-		def digital_contract_params
-			params.require(:digital_contract).permit(:eth_address)
 		end
 
 end
