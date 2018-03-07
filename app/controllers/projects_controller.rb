@@ -2,13 +2,13 @@ class ProjectsController < ApplicationController
 	before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 	def index
-		# Add search functionality
 		@project = Project.new
 		@project_users = @project.users
 		@bid = Bid.new
 
 		@search = Project.ransack(params[:q])
 		@projects = @search.result.order(created_at: :desc).select { |p| p unless p.has_employee?(current_user.id)  }
+		# render json: @search.result
 	end
 
 	def show
