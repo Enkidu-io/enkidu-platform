@@ -9,10 +9,11 @@ class BidsController < ApplicationController
   def create
       @bid = Bid.new(bid_params)
       @bid.initiater_id = current_user.id
+      resolution = params[:bid][:resolution_id].to_i
       status, @bid = BidsProcessor.process(resolution, @bid, params)
-      
+
       # Valid bid
-      if status
+      if status == true
         if @bid.save!
           flash[:notice] = 'Bid has been successfuly made.'
           redirect_to bids_path
@@ -41,14 +42,13 @@ class BidsController < ApplicationController
   def show
   end
 
-  private
 
     def set_bid
         @bid = Bid.find(params[:id])
     end
 
     def bid_params
-      resolution = params[:bid][:resolution_id]
+      resolution = params[:bid][:resolution_id].to_i
       BidsProcessor.params(resolution, params)
     end
 end
