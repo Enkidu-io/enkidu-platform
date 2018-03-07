@@ -5,7 +5,7 @@ class Notification < ApplicationRecord
 
 	def route
 		bid = Bid.find(self.bid_id)
-		case notification_type_id
+		case self.notification_type_id
 
 		when 1
 			dc = DigitalContract.where(bid_id: bid.id).first
