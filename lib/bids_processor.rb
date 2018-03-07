@@ -41,7 +41,7 @@ class BidsProcessor
 				end
         	# Bid by new user
       		else
-      			new_user = User.find(params[:bid][:user_id])
+      			new_user = User.find(bid.initiator_id)
       			# Does user exist?
       			if new_user.nil?
       				return false, "User could not be found."
