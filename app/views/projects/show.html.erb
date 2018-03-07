@@ -21,9 +21,9 @@
 				<h2 class="card-title"><%=@project.title%>
 				<div class="col-xs-12" style="text-align: left; margin-top: -24px; margin-left: 40px; ">
                   <a href="#" id="like_<%= @project.id %>" class="like_btn" data-id="<%= @project.id %>"
-                    <%= 'style=color:red;' if current_user.has_liked_project?(@project.id) %>
+                    <%= 'style=color:red;' if current_user.has_liked_project?(@project.id) %>>
                       <span>
-                        <i class="zmdi zmdi-favorite" style="padding-left: 40%;"></i> <h4 style="margin-top: -22px; margin-left: 275px;">LIKE</h4>
+                        <i class="zmdi zmdi-favorite" style="padding-left: 40%;"></i> <h4 style="margin-top: -22px; margin-left: 275px;"><span class="like_count"><%= number_to_human @project.likes.count %></span> LIKE</h4>
                       </span>
                   </a>
                 </div></h2>
@@ -76,27 +76,6 @@
 				<%end%>
 			</div>
 			<div class="card-footer p-10">
-				<!-- <div class="row">
-                <div class="col-xs-4">
-                  <center><i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> Views <%= number_to_human @project.views.count %></center>
-                </div>
-                <div class="col-xs-4" style="padding-left:6%; ">
-                  <a href="#" id="like_<%= @project.id %>" class="like_btn" data-id="<%= @project.id %>"
-                    <%= 'style=color:red;' if current_user.has_liked_project?(@project.id) %>>
-                      <span>
-                        <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> Likes
-                        <span class="like_count"><%= number_to_human @project.likes.count %></span>
-                      </span>
-                  </a>
-              
-                </div>
-                <div class="col-xs-4 hover" title="View comments">
-                  <%=link_to project_path(@project, anchor: "comments-div-show") do%>
-                    <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> Comments
-                    <span class="comment_count"><%= number_to_human @project.comments.count%></span>
-                  <%end%>                   
-                </div>
-              </div> -->
 				<div class="row">
 				<div class="form-group m-5 p-0 p-l-10 is-empty">
 					<div class="form-group">
