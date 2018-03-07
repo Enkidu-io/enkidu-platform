@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
 		@project_users = @project.project_users
 		@project.increment!(:view_count)
 		@comments = @project.comments.order(created_at: :desc)
+		View.create(project_id: @project.id, user_id: current_user.id)
 	end
 
 	def create

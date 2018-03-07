@@ -439,7 +439,6 @@
 	    });
 	  };
 	}(jQuery, window, document);
-	//# sourceMappingURL=ripples.min.js.map
 
 /***/ },
 /* 3 */

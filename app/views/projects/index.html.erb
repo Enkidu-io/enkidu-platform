@@ -1,5 +1,52 @@
-<div class="row">
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+    $(".like_btn").click(function(){
+      var button = $(this);
+      $.ajax({
+        url: "<%= likes_path %>",
+        type: "POST",
+        dataType: "json",
+        data: {
+          'like' : {
+            'project_id' : button.data("id")
+          },
+          'authenticity_token' : AUTH_TOKEN
+        },
+        success: function (data, status, jqXHR) {
+          console.log(data);
+          if(data.liked){
+            button.css({'color':'red'});
+            var old = parseInt(button.find('span.like_count').text());
+            button.find('span.like_count').text((old+1).toString());
+          }else{
+            button.css({'color':''});
+            var old = parseInt(button.find('span.like_count').text());
+            button.find('span.like_count').text((old-1).toString());
+          }
+        },
+        error: function (jqXHR, status, err) {
+          console.log("LIKE FAILED");
+        }
+      })
+    });
 
+  </script>
+<% end %>
+<% content_for :heading do %>
+<div id="header_wrapper" class="header-sm" style="width: 130%;background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-xs-12">
+                              <header id="header">
+                                  <h1>Home</h1>
+                              </header>
+                          </div>
+                      </div>
+                  </div>
+</div>
+<% end %>
+<div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="input-group" id="adv-search">
         <div class="row">
@@ -45,7 +92,7 @@
       <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-          <div class="modal-header" style="background-color: #512DA8">
+          <div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Enkidu</h4>
           </div>
@@ -54,7 +101,7 @@
               <div class="form-group modal-form-index">
                 <%= f.label :bid_percentage, "Enter your bid"%>
                 <%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
-                <%= f.hidden_field :project_id, id: "modal-project-id",value: ""%>
+                <%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
                 <%= f.hidden_field :resolution_id, value: "1"%>
               </div>
               <div class="form-group modal-form-index">
@@ -73,7 +120,7 @@
         <%@projects.each do |project|%>
           <div class="card card-index" style="background-color: #FAFAFA;"> 
             <header class="card-heading border-bottom">
-              <button type="button" class="btn btn-sm btn-primary btn-round btn-cons btn-copy-project-id" data-toggle="modal" data-project-id="<%=project.id%>" data-target="#myModal" i>
+              <button type="button" class="btn btn-sm btn-primary btn-round btn-cons btn-apply-index btn-copy-project-id" data-toggle="modal" data-project-id="<%=project.id%>" data-target="#myModal" i>
                 Apply
               </button>
               <%= link_to project_path(project) do%>
@@ -113,10 +160,10 @@
                 <div class="card-body card-grey" style="display: none;">
                    <div class="table-responsive">
                       <table class="table table-hover">
-                       <thead style="background-color: #512dab;">
+                       <thead style="background-image: linear-gradient(0deg, #7049ca, #512dab);">
                               <tr>
-                              <th style="color:white; text-align: center;">USER</th>
-                              <th style="color:white; text-align: center;">PAYMENT SPLIT (IN %)</th>
+                              <th style="color:white; text-align: center;">MEMBERS</th>
+                              <th style="color:white; text-align: center;">PAYMENT SPLIT (%)</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -144,15 +191,22 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-xs-4" title="Views">
-                  <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> <%= project.view_count %>
+                <div class="col-xs-4">
+                  <i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> <%= number_to_human project.views.count %>
                 </div>
-                <div class="col-xs-4" title="Likes">
-                 <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> <a href="#" id="like" onclick="sendCheckRequest(event, <%=project.id%>); "> like</a>
+                <div class="col-xs-4">
+                  <a href="#" id="like_<%= project.id %>" class="like_btn" data-id="<%= project.id %>"
+                    <%= 'style=color:red;' if current_user.has_liked_project?(project.id) %>>
+                      <span>
+                        <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> 
+                        <span class="like_count"><%= number_to_human project.likes.count %></span>
+                      </span>
+                  </a>
                 </div>
                 <div class="col-xs-4 hover" title="View comments">
                   <%=link_to project_path(project, anchor: "comments-div-show") do%>
-                    <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> <%=project.comments.count%>
+                    <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> 
+                    <span class="comment_count"><%= number_to_human project.comments.count%></span>
                   <%end%>                    
                 </div>
               </div>

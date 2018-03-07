@@ -8,12 +8,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= yield :styles %>
   </head>
   <body>
     <div class="modal fade" id="Modal" role="dialog" style="background-color:#263238;">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header" style="background-color: #512DA8; ">
+          <div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7); ">
             <!-- <div class="circle md md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div> -->
             <h4 class="modal-title" style="margin-top:7px;"><i class="zmdi zmdi-accounts-alt" style="height: 30px;"></i> Create New Project  </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -102,7 +103,6 @@
                   <span class="meta">
                     <span class="avatar">
                       <%= image_tag 'img/profiles/02.jpg', class: "img-circle max-w-35"%>
-                    <i class="badge mini success status"></i>
                     </span>
                     <span class="name"><%= current_user.first_name%> <%= current_user.last_name%> </span>
                     <span class="caret"></span>
@@ -131,9 +131,11 @@
                                       <div class="card">
                                           <div class="card-body">
                                               <ul class="list-group ">
-                                                  <li class="list-group-item" data-toggle="modal" data-target="#notificationModal">
-                                                      <span class="pull-left"><img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 "></span>
-                                                      <div class="list-group-item-body">
+                                                  <li class="list-group-item" style="height: 60px;">
+                                                      <span class="pull-left">
+                                                        <%= link_to notification_path do%>
+                                                        <img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 "></span>
+                                                      <div class="list-group-item-body" style="margin-top: -30px;">
                                                           <div class="list-group-item-heading">
                                                               <%=notification.notification_type.notification_content%>
                                                           </div>
@@ -141,19 +143,25 @@
                                                               <%=notification.notification_description%>
                                                           </div>
                                                       </div>
-                                                  </li>
+                                                      
+                                                  </li><%end%>
                                               </ul>
                                           </div>
                                       </div>
                                   </li>
                                   <%end%>
                                       <li class="dropdown-menu-footer">
-                                          <a href="javascript:void(0)">
+                                          <a href="/notification">
                     All notifications
                   </a>
                                       </li>
                           </ul>
                       </li>
+                      <li class="last">
+              <a href="javascript:void(0)" data-toggle-state="sidebar-overlay-open" data-key="rightSideBar">
+                <i class="mdi mdi-playlist-plus"></i>
+              <div class="ripple-container"></div></a>
+            </li>
                   </ul>
               </div>
               <form role="search" action="" class="navbar-form" id="navbar_form">
@@ -194,6 +202,9 @@
                               <li class="active">
                                 <a href="#"><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
                               </li>
+                              <li class="active">
+                                <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>Bids</a>
+                              </li>
                           </ul>
                       </div>
                   </div>
@@ -210,8 +221,8 @@
       </aside>
       <section id="content_outer_wrapper" class="bottom_width">
           <div id="content_wrapper" class="rightnav_v2">
-              <div id="header_wrapper" class="header-sm" style="width: 130%; background-color: #512DA8;">
-                  <div class="container-fluid">
+              
+                  <!-- <div class="container-fluid">
                       <div class="row">
                           <div class="col-xs-12">
                               <header id="header">
@@ -219,15 +230,66 @@
                               </header>
                           </div>
                       </div>
-                  </div>
-              </div>
+                  </div> -->
+                  <%= yield :heading%>
+
               <div id="content" class="container-fluid">
                   <div class="content-body content">
+                      <%= render 'partials/flash' %>
                       <%=yield%>
                   </div>
               </div>
       </section>
+      <aside id="app_sidebar-right">
+        <div class="sidebar-inner sidebar-overlay">
+          <div class="tab-pane fade active in" id="sidebar_activity">
+            <div class="sidebar-timeline">
+              <div class="time-item">
+                <div class="item-info">
+                  <small class="text-muted">15 minutes ago</small>
+                  <p><a href="#" class="accent">Mike Jones</a> fixed z-index conflict sidebar.scss</p>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="item-info">
+                  <small class="text-muted">30 minutes ago</small>
+                  <p><a href="javascript:void(0)" class="accent">Hazel  Dean</a> left a comment on product page designs.</p>
+                  <p><em>"Yuccie shoreditch trust fund, artisan tumblr sustainable cronut unicorn blog seitan. "</em></p>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="item-info">
+                  <small class="text-muted">45 minutes ago</small>
+                  <p><a href="javascript:void(0)" class="accent">Molly</a> requested time off for training.</p>
+                  <p><em>"Snackwave church-key cardigan you probably haven't heard of them, asymmetrical microdosing cronut "</em></p>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="item-info">
+                  <small class="text-muted">3 hours ago</small>
+                  <p><a href="javascript:void(0)" class="accent">Frederick  Roy</a> commented your post.</p>
+                  <p><em>"Skateboard dreamcatcher la croix, edison bulb sustainable sriracha vexillologist kombucha master cleanse."</em></p>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="item-info">
+                  <small class="text-muted">1 hour ago</small>
+                  <p><a href="javascript:void(0)" class="accent">Holly Cobb</a> Uploaded 6 new photos.</p>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="item-info">
+                  <small class="text-muted">5 hours ago</small>
+                  <p><a href="javascript:void(0)" class="accent">Neal Stephens</a> setup a meeting with<a href="#" class="text-success"> Jason Kendall</a>.</p>
+                  <p><em>"Authentic aesthetic tattooed, PBR&amp;B squid tote bag schlitz vaporware glossier yr man braid direct trade disrupt poke.  "</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
       </div>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= yield :scripts %>
   </body>
 </html>

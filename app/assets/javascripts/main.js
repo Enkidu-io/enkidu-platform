@@ -19,7 +19,7 @@ $(document).ready(function(e){
 	});
 	$(".btn-copy-project-id").on("click", function(){
 		var project_id = $(this).data("project-id");
-		$("#modal-project-id").attr("value", project_id);
+		$(".modal-project-id").attr("value", project_id);
 	});
 
 	  $("#file-tab").on("click",function(){
