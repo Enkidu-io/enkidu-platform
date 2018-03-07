@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
 
 		@search = Project.ransack(params[:q])
 		@projects = @search.result.order(created_at: :desc).select { |p| p unless p.has_employee?(current_user.id)  }
-		# render json: @search.result
 	end
 
 	def show

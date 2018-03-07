@@ -42,9 +42,8 @@
             <div class="col-xs-12 col-sm-12" style="background-color: white;"">
               <div class="form-group">
                   <i class="zmdi zmdi-filter-list"></i>
-                    <label for="filter">Filter by</label>
-                  <br/>
-                  <select class="form-control">
+                  <label for="filter">Filter by</label>
+                  <select class="form-control select-order-index">
                       <option value="0" selected>All Projects</option>
                       <option value="1">Featured</option>
                       <option value="2">Most popular</option>
@@ -53,20 +52,14 @@
                   </select>
               </div>
               <div class="form-group">
-                  <label for="contain">Project title</label>
-                  <br/>
-                  <input class="form-control" type="text" />
-              </div>
-              <div class="form-group">
                   <label for="contain"><i class="zmdi zmdi-format-underlined"></i> Contains the words</label>
-                  <br/>
-                  <input class="form-control" type="text" />
+                  <%=f.search_field :title_or_description_cont, class: "form-control" %>
               </div>
             </div>
           </div>  
           <div class="row">
             <div class="col-xs-1 col-sm-1">
-              <%=f.submit :Search, class: "btn btn-sm btn-primary"%>
+              <%=f.submit :Search, class: "btn btn-primary"%>
             </div>
           </div>
         <%end%>
