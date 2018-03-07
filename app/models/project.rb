@@ -22,7 +22,7 @@ class Project < ApplicationRecord
 	end
 
 	def has_made_bid?(user_id, res_id)
-		self.bids.where(resolution_id: res_id).where("variables ->> 'user_id' = ?", user_id.to_s).first ? true : false
+		self.bids.where(resolution_id: res_id).where("variables ->> 'user_id' = ?", user_id.to_s).where(active: true).first ? true : false
 	end
 
 	def create_project_leader
