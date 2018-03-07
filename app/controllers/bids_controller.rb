@@ -1,33 +1,28 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
-  before_action :is_percentage_avail? , only: [:create]
-  before_action :authorized_for_resolution?, only: [:create]
-  
 
   def index
-    # @bids = current_user.bids
-    @bids =  Bid.where("initiater_id = ?", current_user.id)
-    return
+    @bids = current_user.bid_details
   end
 
   def create
       @bid = Bid.new(bid_params)
-      if project.has_employee?(current_user.id)
-        @bid.user_id = User.where(email: params[:bid][:email]).first.id
-        if params[:bid][:email].present?
-          project = Project.find(params[:bid][:project_id])
-        end
-      else
-        flash[:notice] = "You do not have enough permissions to perform this function."
-        redirect_to request.referer
-      end 
       @bid.initiater_id = current_user.id
-      if @bid.save!
-       flash[:notice] = 'Bid has been successfuly made.'
-       redirect_to bids_path
+      status, @bid = BidsProcessor.process(resolution, @bid, params)
+      
+      # Valid bid
+      if status
+        if @bid.save!
+          flash[:notice] = 'Bid has been successfuly made.'
+          redirect_to bids_path
+        else
+          flash[:notice] = 'Could not create a bid.'
+          redirect_to request.referer
+        end
+      # Invalid bid 
       else
-       flash[:notice] = 'Could not create a bid.'
-       redirect_to request.referer
+        flash[:alert] = @bid
+        redirect_to request.referer
       end
   end
 
@@ -47,35 +42,12 @@ class BidsController < ApplicationController
 
   private
 
-    def is_percentage_avail?
-      if params[:bid][:resolution_id].to_i == 1
-        project = Project.find(params[:bid][:project_id])
-        bid_perc = params[:bid][:bid_percentage].to_f
-        if project.unallocated_percentage < bid_perc
-          flash[:notice] = "Bid could not be created as your demands cannot be met."
-          redirect_to request.referer
-        end
-      end
-    end
-
     def set_bid
         @bid = Bid.find(params[:id])
     end
 
     def bid_params
-      params.require(:bid).permit(:bid_percentage, :project_id, :resolution_id, :vesting_period)
-    end
-
-    def authorized_for_resolution?
-      if params[:bid][:resolution_id].to_i == 1 #allow everyone to create a bid with add collaborator
-        return
-      end
-      project = Project.find(params[:bid][:project_id])
-      project_users = project.project_users
-      unless(project_users.find_by(user_id: current_user.id).present?)
-        flash[:notice] = "Bid could not be created as your demands cannot be met."
-        redirect_to request.referer
-        return
-      end
+      resolution = params[:bid][:resolution_id]
+      BidsProcessor.params(resolution, params)
     end
 end
