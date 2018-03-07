@@ -106,11 +106,11 @@ ActiveRecord::Schema.define(version: 20180307110257) do
     t.integer "leader_id"
     t.float "treasury_percentage"
     t.text "project_intro"
+    t.integer "view_count", default: 0
     t.integer "likes_count", default: 0
     t.integer "comments_count", default: 0
     t.integer "views_count", default: 0
     t.integer "ratings_count", default: 0
-    t.integer "view_count", default: 0
   end
 
   create_table "ratings", force: :cascade do |t|
