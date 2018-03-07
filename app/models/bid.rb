@@ -15,6 +15,10 @@ class Bid < ApplicationRecord
   
   store_accessor :variables, :user_id, :bid_percentage, :vesting_period
 
+  scope :add_collaborator, -> { where(resolution_id: 1) }
+  scope :remove_collaborator, -> { where(resolution_id: 2) }
+  scope :vote_dilution, -> { where(resolution_id: 3) }
+
   def create_bid_details
   	project = self.project
   	project.project_users.each do |p_u|

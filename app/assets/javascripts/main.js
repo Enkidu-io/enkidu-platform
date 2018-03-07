@@ -49,6 +49,18 @@ $(document).ready(function(e) {
                         "&commit=" + commit + 
                         "&order=" + order_params, "_self");
     });
+    rId = getUrlParameter("resolution_id");
+    if(rId){
+        $("#resolution-list-bids>li.active").removeClass("active");
+        switch(rId){
+            case "1": $("#li-add_c-bids").addClass("active"); 
+            break
+            case "2": $("#li-remove_c-bids").addClass("active");
+            break;
+            default: $("#li-vote_d-bids").addClass("active");
+        }
+    }
+
 });
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
