@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates_inclusion_of :age, :in => 1..100
 
   def full_name
-    first_name+" "+last_name
+    first_name.to_s+" "+last_name.to_s
   end
 
   def has_rated_project?(p_id)

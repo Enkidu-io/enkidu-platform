@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'        
   }
-
+  get 'notification' => 'welcome#set_notifications'
   get 'dashboard' => 'dashboards#index'
 
   # get '/notif/:notification_type_id/bid/:bid_id'

@@ -2,7 +2,8 @@ class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bids = current_user.bid_details
+    # @bids = current_user.bid_details
+     @bids =  Bid.where("initiater_id = ?", current_user.id)
   end
 
   def create

@@ -1,8 +1,32 @@
+<% content_for :heading do %>
+<div id="header_wrapper" class="header-sm" style="width: 130%;background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-xs-12">
+                              <header id="header">
+                                  <h1><%=@project.title%></h1>
+                              </header>
+                          </div>
+                      </div>
+                  </div>
+</div>
+<% end %>
+
+
+
 <div class="row">
 	<div class="col-md-8 col-md-offset-3" >
 		<div class="card card-red">
 			<header class="card-heading border-bottom">
-				<h2 class="card-title"><%=@project.title%></h2>
+				<h2 class="card-title"><%=@project.title%>
+				<div class="col-xs-12" style="text-align: left; margin-top: -24px; margin-left: 40px; ">
+                  <a href="#" id="like_<%= @project.id %>" class="like_btn" data-id="<%= @project.id %>"
+                    <%= 'style=color:red;' if current_user.has_liked_project?(@project.id) %>
+                      <span>
+                        <i class="zmdi zmdi-favorite" style="padding-left: 40%;"></i> <h4 style="margin-top: -22px; margin-left: 275px;">LIKE</h4>
+                      </span>
+                  </a>
+                </div></h2>
 				<button type="button" class="btn btn-sm btn-primary btn-round btn-cons vesting-btn-index" data-toggle="modal" data-target="#myModal" i>
                   Vesting Details
               	</button>
@@ -12,7 +36,7 @@
 				<br><br>
 				<div class="table-responsive">
 					<table class="table">
-						<thead style="background-color: #512dab;">
+						<thead style="background-image: linear-gradient(0deg, #7049ca, #512dab);">
                               <tr>
                               <th style="color:white; text-align: center;">MEMBERS</th>
                               <th style="color:white; text-align: center;">PAYMENT SPLIT (IN %)</th>
@@ -52,6 +76,27 @@
 				<%end%>
 			</div>
 			<div class="card-footer p-10">
+				<!-- <div class="row">
+                <div class="col-xs-4">
+                  <center><i class="zmdi zmdi-eye" style="padding-left: 20%;"></i> Views <%= number_to_human @project.views.count %></center>
+                </div>
+                <div class="col-xs-4" style="padding-left:6%; ">
+                  <a href="#" id="like_<%= @project.id %>" class="like_btn" data-id="<%= @project.id %>"
+                    <%= 'style=color:red;' if current_user.has_liked_project?(@project.id) %>>
+                      <span>
+                        <i class="zmdi zmdi-favorite" style="padding-left: 20%;"></i> Likes
+                        <span class="like_count"><%= number_to_human @project.likes.count %></span>
+                      </span>
+                  </a>
+              
+                </div>
+                <div class="col-xs-4 hover" title="View comments">
+                  <%=link_to project_path(@project, anchor: "comments-div-show") do%>
+                    <i class="zmdi zmdi-comment-text" style="padding-left: 8%;"></i> Comments
+                    <span class="comment_count"><%= number_to_human @project.comments.count%></span>
+                  <%end%>                   
+                </div>
+              </div> -->
 				<div class="row">
 				<div class="form-group m-5 p-0 p-l-10 is-empty">
 					<div class="form-group">
@@ -73,6 +118,7 @@
 				</div>
 				</div>
 				</div>
+				
 		        <div class="row" style="margin-top: 16px;">
 		        	<%@comments.each do |comment|%>
 		        		<div class="col-xs-2" style="text-align: right;">
