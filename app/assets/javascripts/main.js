@@ -21,7 +21,7 @@ $(document).ready(function(e) {
         var project_id = $(this).data("project-id");
         $(".modal-project-id").attr("value", project_id);
     });
-    $(".select-order-index").on("change", function(){
+    $(".select-order-index").on("change", function(e){
         var filter_option = parseInt($(".select-order-index option:selected").val());
         var previous_params = window.location.search.substr(1);
         var order_params;
@@ -34,13 +34,45 @@ $(document).ready(function(e) {
             break;
             default: order_params = "comments_count";
         }
-        if(previous_params){
-            
-            window.open(window.location + "&order=" + order_params, "_self");
-        }
-        else
-        {
-            window.open(window.location + "?order=" + order_params, "_self");
-        }
+        var utf=getUrlParameter("utf8");
+        var q = getUrlParameter("q[title_or_description_cont]");
+        var commit = getUrlParameter("commit");
+        if(utf == null)
+            utf = "";
+        if(q == null)
+            q = "";
+        if(commit == null)
+            commit = "";
+        window.open("/projects?" + 
+                        "utf8=" + utf + 
+                        "&q%5Btitle_or_description_cont%5D=" + q + 
+                        "&commit=" + commit + 
+                        "&order=" + order_params, "_self");
     });
+    rId = getUrlParameter("resolution_id");
+    if(rId){
+        $("#resolution-list-bids>li.active").removeClass("active");
+        switch(rId){
+            case "1": $("#li-add_c-bids").addClass("active"); 
+            break
+            case "2": $("#li-remove_c-bids").addClass("active");
+            break;
+            default: $("#li-vote_d-bids").addClass("active");
+        }
+    }
+
 });
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};

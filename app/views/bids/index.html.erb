@@ -11,7 +11,6 @@
   </div>
 </div>
 <% end %>
-
 <div class="card">
   <div class="card-body">
     <div class="row">
@@ -44,12 +43,12 @@
           <div class="tab-pane fade active in" id="pillnav9">
             <div class="table-responsive">
               <table class="table table-hover">
-                <thead style="background-color: #512dab;">
+                <thead style="background-color: white;">
                   <tr>
-                    <td style="color:white; text-align: center;">BIDDER </td>
-                    <td style="color:white; text-align: center;">PROJECT TITLE</td>
-                    <td style="color:white; text-align: center;">BID (IN %)</td>
-                    <td style="color:white; text-align: center;">VESTING PERIOD (in months)</td>
+                    <td style="text-align: center;">BIDDER </td>
+                    <td style="text-align: center;">PROJECT TITLE</td>
+                    <td style="text-align: center;">BID (IN %)</td>
+                    <td style="3text-align: center;">VESTING PERIOD (in months)</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -57,12 +56,16 @@
                     <%@project = Project.where(id: bid.project_id).first%>
                     <tr style="background-color: white;">
                       <td style="text-align: center">
-                        <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
-                        <%= current_user.full_name%>
-                      </td>
+                        <div class="chip">
+                      <div class="circle-profile-photo" data-name="<%= current_user.full_name%>"><canvas width="32" height="32"></canvas></div><span><%= current_user.full_name%></span>
+                      </div>
+                       </td>
                       <td style="text-align: center">
                         <%= link_to project_path(@project) do%>
-                          <h5 style="margin-top: 10px;"><%= @project.title%></h5>  
+                          <h5 style="margin-top: 10px;"><%= @project.title%></h5> 
+                          <!-- div class="chip">
+                      <div class="circle-profile-photo" data-name="<%= @project.title%>"><canvas width="32" height="32"></canvas></div><span><%= @project.title%></span>
+                      </div>  -->
                         <%end%>
                       </td>
                       <td style="text-align: center;">
@@ -73,6 +76,7 @@
                         <h5 style="margin-top: 10px;"><%= @vesting %></h5>
                       </td>
                     </tr>
+
                   <%end%>
                 </tbody>
               </table>
@@ -81,7 +85,7 @@
           <div class="tab-pane fade" id="pillnav10">
             <div class="table-responsive">
               <table class="table table-hover">
-                <thead style="background-color: #512dab;">
+                <thead style="background-color: white;">
                   <tr>
                     <td style="color:white; text-align: center;">BIDDER </td>
                     <td style="color:white; text-align: center;">PROJECT TITLE</td>
@@ -91,34 +95,34 @@
                 </thead>
                 <tbody>
                   <%@bids.each do |bid|%>
-                    <%@project = Project.where(id: bid.project_id).first%>
-                    <tr style="background-color: white;">
-                      <td style="text-align: center">
-                        <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
-                        <%= current_user.full_name%>
-                      </td>
-                      <td style="text-align: center">
-                        <%= link_to project_path(@project) do%>
-                          <h5 style="margin-top: 10px;"><%= @project.title%></h5>  
-                        <%end%>
-                      </td>
-                      <td style="text-align: center;">
-                        <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
-                      </td>
-                      <td style="text-align: center;">
-                        <% @vesting = bid["variables"]["vesting_period"] %>
-                        <h5 style="margin-top: 10px;"><%= @vesting %></h5>
-                      </td>
-                    </tr>
+                  <%@project = Project.where(id: bid.project_id).first%>
+                  <tr style="background-color: white;">
+                    <td style="text-align: center">
+                      <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
+                      <%= current_user.full_name%>
+                    </td>
+                    <td style="text-align: center">
+                      <%= link_to project_path(@project) do%>
+                      <h5 style="margin-top: 10px;"><%= @project.title%></h5>
+                      <%end%>
+                    </td>
+                    <td style="text-align: center;">
+                      <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
+                    </td>
+                    <td style="text-align: center;">
+                      <% @vesting = bid["variables"]["vesting_period"] %>
+                      <h5 style="margin-top: 10px;"><%= @vesting %></h5>
+                    </td>
+                  </tr>
                   <%end%>
                 </tbody>
               </table>
             </div>
           </div>
-            <div class="tab-pane fade" id="pillnav11">
-             <div class="table-responsive">
+          <div class="tab-pane fade" id="pillnav11">
+            <div class="table-responsive">
               <table class="table table-hover">
-                <thead style="background-color: #512dab;">
+                <thead style="background-color: white;">
                   <tr>
                     <td style="color:white; text-align: center;">BIDDER </td>
                     <td style="color:white; text-align: center;">PROJECT TITLE</td>
@@ -128,33 +132,30 @@
                 </thead>
                 <tbody>
                   <%@bids.each do |bid|%>
-                    <%@project = Project.where(id: bid.project_id).first%>
-                    <tr style="background-color: white;">
-                      <td style="text-align: center">
-                        <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
-                        <%= current_user.full_name%>
-                        <div class="chip">
-                      <div class="circle-profile-photo" data-name="Alease Salvas"><canvas width="32" height="32"></canvas></div><span><%= current_user.full_name%></span>
-                    </div>
-                      </td>
-                      <td style="text-align: center">
-                        <%= link_to project_path(@project) do%>
-                          <h5 style="margin-top: 10px;"><%= @project.title%></h5>  
-                        <%end%>
-                      </td>
-                      <td style="text-align: center;">
-                        <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
-                      </td>
-                      <td style="text-align: center;">
-                        <% @vesting = bid["variables"]["vesting_period"] %>
-                        <h5 style="margin-top: 10px;"><%= @vesting %></h5>
-                      </td>
-                    </tr>
+                  <%@project = Project.where(id: bid.project_id).first%>
+                  <tr style="background-color: white;">
+                    <td style="text-align: center">
+                      <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
+                      <%= current_user.full_name%>
+                    </td>
+                    <td style="text-align: center">
+                      <%= link_to project_path(@project) do%>
+                      <h5 style="margin-top: 10px;"><%= @project.title%></h5>
+                      <%end%>
+                    </td>
+                    <td style="text-align: center;">
+                      <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
+                    </td>
+                    <td style="text-align: center;">
+                      <% @vesting = bid["variables"]["vesting_period"] %>
+                      <h5 style="margin-top: 10px;"><%= @vesting %></h5>
+                    </td>
+                  </tr>
                   <%end%>
                 </tbody>
               </table>
-            </div> 
             </div>
+          </div>
         </div>
       </div>
     </div>

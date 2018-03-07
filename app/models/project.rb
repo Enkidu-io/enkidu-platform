@@ -21,6 +21,10 @@ class Project < ApplicationRecord
 		self.users.pluck(:id).include?(user_id)
 	end
 
+	def has_made_bid?(user_id, res_id)
+		self.bids.where(resolution_id: res_id).where("variables ->> 'user_id' = ?", user_id.to_s).where(active: true).first ? true : false
+	end
+
 	def create_project_leader
 		ProjectUser.create!(project_id: self.id, user_id: self.leader_id, ownership_percentage: (100 - (self.unallocated_percentage + self.treasury_percentage)) )
 	end

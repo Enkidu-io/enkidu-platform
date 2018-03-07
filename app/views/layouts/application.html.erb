@@ -220,25 +220,15 @@
           </nav>
       </aside>
       <section id="content_outer_wrapper" class="bottom_width">
-          <div id="content_wrapper" class="rightnav_v2">
-              
-                  <!-- <div class="container-fluid">
-                      <div class="row">
-                          <div class="col-xs-12">
-                              <header id="header">
-                                  <h1>Dashboard</h1>
-                              </header>
-                          </div>
-                      </div>
-                  </div> -->
-                  <%= yield :heading%>
-
-              <div id="content" class="container-fluid">
-                  <div class="content-body content">
-                      <%= render 'partials/flash' %>
-                      <%=yield%>
-                  </div>
+        <div id="content_wrapper" class="rightnav_v2">
+          <%= yield :heading%>
+          <div id="content" class="container-fluid">
+              <div class="content-body content">
+                  <%= render 'partials/flash' %>
+                  <%=yield%>
               </div>
+          </div>
+        </div>
       </section>
       <aside id="app_sidebar-right">
         <div class="sidebar-inner sidebar-overlay">
