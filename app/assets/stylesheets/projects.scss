@@ -3,7 +3,9 @@
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
 }
-
+.border-bottom{
+  padding-bottom:18px !important;
+}
 
 @media (max-width: 768px){
 .hide-mobile{
@@ -13,6 +15,23 @@
   margin-left: 25px;
 }
 }
+
+
+.tiptext {
+    background:#ccc;
+    border: 1px #333 solid;
+    padding:5px;
+    width:100px;
+}
+.description {
+    display:none;
+    position:absolute;
+    border:1px solid #000;
+    width:400px;
+    height:400px;
+}
+
+
 
 .card-text {
     word-wrap: break-word;
@@ -382,3 +401,48 @@ margin-top:-4px;
 .rating-right > input:checked ~ label:hover,
 .rating-right > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating-right > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+
+
+
+
+.rating-show {
+  border: none;
+  float: left;
+  margin-top: -22px;
+  margin-left: 0px;
+
+}
+
+.rating-show > input { display: none; }
+.rating-show > label:before {
+margin-top:-4px;
+  margin-left: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating-show > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating-show > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating-show > input:checked ~ label, /* show gold star when clicked */
+.rating-show:not(:checked) > label:hover, /* hover current star */
+.rating-show:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating-show > input:checked + label:hover, /* hover current star when changing rating */
+.rating-show > input:checked ~ label:hover,
+.rating-show > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating-show > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+

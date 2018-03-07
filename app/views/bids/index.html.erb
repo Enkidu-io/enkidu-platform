@@ -1,229 +1,164 @@
 <% content_for :heading do %>
 <div id="header_wrapper" class="header-sm" style="width: 130%;background-image: linear-gradient(82deg, #a052a9, #7752a7);">
-                  <div class="container-fluid">
-                      <div class="row">
-                          <div class="col-xs-12">
-                              <header id="header">
-                                  <h1>Bids</h1>
-                              </header>
-                          </div>
-                      </div>
-                  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <header id="header">
+          <h1>Bids</h1>
+        </header>
+      </div>
+    </div>
+  </div>
 </div>
 <% end %>
+
 <div class="card">
-<div class="card-body">
-  <div class="row">
-    <div class="col-sm-3">
-    <ul class="nav nav-pills nav-stacked nav-pills-primary" role="tablist">
-      <li class="active">
-        <a href="#pillnav9" role="tab" data-toggle="tab" aria-expanded="true">
-          Adding Collaborator
-        </a>
-      </li>
-      <li class="">
-        <a href="#pillnav10" role="tab" data-toggle="tab" aria-expanded="false">
-          Removing Collaborator
-        </a>
-      </li>
-      <li class="">
-        <a href="#pillnav11" role="tab" data-toggle="tab" aria-expanded="false">
-          Dilution
-        </a>
-      </li>
-      <!-- <li class="">
-        <a href="#pillnav12" role="tab" data-toggle="tab" aria-expanded="false">
-          Settings
-        </a>
-      </li> -->
-    </ul>
-    </div>
-    <div class="col-sm-9">
-      <div id="pillContent3" class="tab-content m-t-15">
-        <div class="tab-pane fade active in" id="pillnav9">
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead style="background-color: #512dab;">
-                <tr>
-                  <td style="color:white; text-align: center;">BIDDER </td>
-                  <td style="color:white; text-align: center;">PROJECT TITLE</td>
-                  <td style="color:white; text-align: center;">BID (IN %)</td>
-                  <td style="color:white; text-align: center;">VESTING PERIOD (in months)</td>
-                </tr>
-              </thead>
-              <tbody>
-                <%@bids.each do |bid|%>
-                  <%@project = Project.where(id: bid.project_id).first%>
-                  <tr style="background-color: white;">
-                    <td style="text-align: center">
-                      <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
-                      <%= current_user.full_name%>
-                    </td>
-                    <td style="text-align: center">
-                      <%= link_to project_path(@project) do%>
-                        <h5 style="margin-top: 10px;"><%= @project.title%></h5>  
-                      <%end%>
-                    </td>
-                    <td style="text-align: center;">
-                      <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
-                    </td>
-                    <td style="text-align: center;">
-                      <% @vesting = bid["variables"]["vesting_period"] %>
-                      <h5 style="margin-top: 10px;"><%= @vesting %></h5>
-                    </td>
-                  </tr>
-                <%end%>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="pillnav10">
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead style="background-color: #512dab;">
-                <tr>
-                  <td style="color:white; text-align: center;">BIDDER </td>
-                  <td style="color:white; text-align: center;">PROJECT TITLE</td>
-                  <td style="color:white; text-align: center;">BID (IN %)</td>
-                  <td style="color:white; text-align: center;">VESTING PERIOD (in months)</td>
-                </tr>
-              </thead>
-              <tbody>
-                <%@bids.each do |bid|%>
-                  <%@project = Project.where(id: bid.project_id).first%>
-                  <tr style="background-color: white;">
-                    <td style="text-align: center">
-                      <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
-                      <%= current_user.full_name%>
-                    </td>
-                    <td style="text-align: center">
-                      <%= link_to project_path(@project) do%>
-                        <h5 style="margin-top: 10px;"><%= @project.title%></h5>  
-                      <%end%>
-                    </td>
-                    <td style="text-align: center;">
-                      <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
-                    </td>
-                    <td style="text-align: center;">
-                      <% @vesting = bid["variables"]["vesting_period"] %>
-                      <h5 style="margin-top: 10px;"><%= @vesting %></h5>
-                    </td>
-                  </tr>
-                <%end%>
-              </tbody>
-            </table>
-          </div>
-        </div>
-          <div class="tab-pane fade" id="pillnav11">
-           <div class="table-responsive">
-            <table class="table table-hover">
-              <thead style="background-color: #512dab;">
-                <tr>
-                  <td style="color:white; text-align: center;">BIDDER </td>
-                  <td style="color:white; text-align: center;">PROJECT TITLE</td>
-                  <td style="color:white; text-align: center;">BID (IN %)</td>
-                  <td style="color:white; text-align: center;">VESTING PERIOD (in months)</td>
-                </tr>
-              </thead>
-              <tbody>
-                <%@bids.each do |bid|%>
-                  <%@project = Project.where(id: bid.project_id).first%>
-                  <tr style="background-color: white;">
-                    <td style="text-align: center">
-                      <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
-                      <%= current_user.full_name%>
-                    </td>
-                    <td style="text-align: center">
-                      <%= link_to project_path(@project) do%>
-                        <h5 style="margin-top: 10px;"><%= @project.title%></h5>  
-                      <%end%>
-                    </td>
-                    <td style="text-align: center;">
-                      <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
-                    </td>
-                    <td style="text-align: center;">
-                      <% @vesting = bid["variables"]["vesting_period"] %>
-                      <h5 style="margin-top: 10px;"><%= @vesting %></h5>
-                    </td>
-                  </tr>
-                <%end%>
-              </tbody>
-            </table>
-          </div> 
-          </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-3">
+      <ul class="nav nav-pills nav-stacked nav-pills-primary" role="tablist">
+        <li class="active">
+          <a href="#pillnav9" role="tab" data-toggle="tab" aria-expanded="true">
+            Adding Collaborator
+          </a>
+        </li>
+        <li class="">
+          <a href="#pillnav10" role="tab" data-toggle="tab" aria-expanded="false">
+            Removing Collaborator
+          </a>
+        </li>
+        <li class="">
+          <a href="#pillnav11" role="tab" data-toggle="tab" aria-expanded="false">
+            Dilution
+          </a>
+        </li>
+        <!-- <li class="">
+          <a href="#pillnav12" role="tab" data-toggle="tab" aria-expanded="false">
+            Settings
+          </a>
+        </li> -->
+      </ul>
       </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
-
-
-
-
-<!-- 
-<div class="column">
-	<div class="col-md-12">
-    <%@bids.each do |bid|%>
-      <div class="col-md-6">
-        <div class="card-body card-grey" style="background-color: white"> -->
-             <!-- <thead style="background-color: #512dab;">
+      <div class="col-sm-9">
+        <div id="pillContent3" class="tab-content m-t-15">
+          <div class="tab-pane fade active in" id="pillnav9">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead style="background-color: #512dab;">
                   <tr>
-                  <td style="color:white; text-align: center;">PROJECT TITLE</td>
-                  <td style="color:white; text-align: center;">BID (IN %)</td>
-                  <td style="color:white; text-align: center;">VESTING PERIOD (in months)</td>
-                  <td style="color:white; text-align: center;">CREATED ON</td>
+                    <td style="color:white; text-align: center;">BIDDER </td>
+                    <td style="color:white; text-align: center;">PROJECT TITLE</td>
+                    <td style="color:white; text-align: center;">BID (IN %)</td>
+                    <td style="color:white; text-align: center;">VESTING PERIOD (in months)</td>
                   </tr>
-             </thead> -->
-<!--              <center>
-            <div class="col-md-12" style="background-image: linear-gradient(0deg, #7049ca, #512dab);">
-                <div class="col-md-6" >
-                  <%@project = Project.where(id: bid.project_id).first%>
-                  <p style="color:white ; margin-top: 5px;">PROJECT TITLE</p>
-                </div>
-                <div class="col-md-1" style="border-left:1px solid #000;height:43px;"></div>
-              <div class="col-md-5">
-                <%= link_to project_path(@project), :style => "color:black;" do%>
-                  <p style="color:white; margin-top: 5px;">	<%= @project.title%>	</p>
-                <%end%>
-              </div>
+                </thead>
+                <tbody>
+                  <%@bids.each do |bid|%>
+                    <%@project = Project.where(id: bid.project_id).first%>
+                    <tr style="background-color: white;">
+                      <td style="text-align: center">
+                        <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
+                        <%= current_user.full_name%>
+                      </td>
+                      <td style="text-align: center">
+                        <%= link_to project_path(@project) do%>
+                          <h5 style="margin-top: 10px;"><%= @project.title%></h5>  
+                        <%end%>
+                      </td>
+                      <td style="text-align: center;">
+                        <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
+                      </td>
+                      <td style="text-align: center;">
+                        <% @vesting = bid["variables"]["vesting_period"] %>
+                        <h5 style="margin-top: 10px;"><%= @vesting %></h5>
+                      </td>
+                    </tr>
+                  <%end%>
+                </tbody>
+              </table>
             </div>
-
-            <div class="col-md-12" style="background-color: white">
-              <div class="col-md-6">
-               <p style="color:black"> BID (in %)</p>
-              </div>
-              <div class="col-md-1" style="border-left:1px solid #000;height:38px;"></div>
-              <div class="col-md-5" >
-                <p><%=bid.bid_percentage%></p>
-              </div>
+          </div>
+          <div class="tab-pane fade" id="pillnav10">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead style="background-color: #512dab;">
+                  <tr>
+                    <td style="color:white; text-align: center;">BIDDER </td>
+                    <td style="color:white; text-align: center;">PROJECT TITLE</td>
+                    <td style="color:white; text-align: center;">BID (IN %)</td>
+                    <td style="color:white; text-align: center;">VESTING PERIOD (in months)</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%@bids.each do |bid|%>
+                    <%@project = Project.where(id: bid.project_id).first%>
+                    <tr style="background-color: white;">
+                      <td style="text-align: center">
+                        <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
+                        <%= current_user.full_name%>
+                      </td>
+                      <td style="text-align: center">
+                        <%= link_to project_path(@project) do%>
+                          <h5 style="margin-top: 10px;"><%= @project.title%></h5>  
+                        <%end%>
+                      </td>
+                      <td style="text-align: center;">
+                        <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
+                      </td>
+                      <td style="text-align: center;">
+                        <% @vesting = bid["variables"]["vesting_period"] %>
+                        <h5 style="margin-top: 10px;"><%= @vesting %></h5>
+                      </td>
+                    </tr>
+                  <%end%>
+                </tbody>
+              </table>
             </div>
-            <div class="col-md-12" style="background-color: white">
-              <div class="col-md-6">
-              <p style="color:black">VESTING PERIOD (in months)</p>
+          </div>
+            <div class="tab-pane fade" id="pillnav11">
+              <div class="column">
+             <div class="col-md-12">
+              <div class="card" style="margin-top: 10px;">
+                  <table class="table table-hover">
+                <thead style="background-color: #512dab;">
+                  <tr>
+                    <td style="color:white; text-align: center;">BIDDER </td>
+                    <td style="color:white; text-align: center;">PROJECT TITLE</td>
+                    <td style="color:white; text-align: center;">BID (IN %)</td>
+                    <td style="color:white; text-align: center;">VESTING PERIOD (in months)</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%@bids.each do |bid|%>
+                    <%@project = Project.where(id: bid.project_id).first%>
+                    <tr style="background-color: white;">
+                      <td style="text-align: center">
+                        <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
+                        <%= current_user.full_name%>
+                      </td>
+                      <td style="text-align: center">
+                        <%= link_to project_path(@project) do%>
+                          <h5 style="margin-top: 10px;"><%= @project.title%></h5>  
+                        <%end%>
+                      </td>
+                      <td style="text-align: center;">
+                        <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
+                      </td>
+                      <td style="text-align: center;">
+                        <% @vesting = bid["variables"]["vesting_period"] %>
+                        <h5 style="margin-top: 10px;"><%= @vesting %></h5>
+                      </td>
+                    </tr>
+                  <%end%>
+                </tbody>
+              </table>
               </div>
-              <div class="col-md-1" style="border-left:1px solid #000;height:38px;"></div>
-              <div class="col-md-5">
-                <% @vesting = bid["variables"]["vesting_period"] %>
-
-                <p><%= @vesting %></p>
-              </div>
+            </div> 
             </div>
-            <div class="col-md-12" style="background-color: white">
-              <div class="col-md-6">
-               <p style="color:black">CREATED ON</p>
-              </div>
-              <div class="col-md-1" style="border-left:1px solid #000;height:38px;"></div>
-              <div class="col-md-5">
-               <p> <%=bid.created_at.strftime("%d/%m/%y")%></p>
-              </div>
-            </div></center>
+          </div>
         </div>
       </div>
-    <%end%>
+    </div>
   </div>
-</div> -->
-
-
+</div>
 
