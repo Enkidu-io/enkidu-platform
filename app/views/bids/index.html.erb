@@ -116,10 +116,8 @@
             </div>
           </div>
             <div class="tab-pane fade" id="pillnav11">
-              <div class="column">
-             <div class="col-md-12">
-              <div class="card" style="margin-top: 10px;">
-                  <table class="table table-hover">
+             <div class="table-responsive">
+              <table class="table table-hover">
                 <thead style="background-color: #512dab;">
                   <tr>
                     <td style="color:white; text-align: center;">BIDDER </td>
@@ -135,6 +133,9 @@
                       <td style="text-align: center">
                         <img src="assets/img/profiles/10.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
                         <%= current_user.full_name%>
+                        <div class="chip">
+                      <div class="circle-profile-photo" data-name="Alease Salvas"><canvas width="32" height="32"></canvas></div><span><%= current_user.full_name%></span>
+                    </div>
                       </td>
                       <td style="text-align: center">
                         <%= link_to project_path(@project) do%>
@@ -152,10 +153,8 @@
                   <%end%>
                 </tbody>
               </table>
-              </div>
             </div> 
             </div>
-          </div>
         </div>
       </div>
     </div>
