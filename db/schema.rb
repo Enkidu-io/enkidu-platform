@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307110257) do
+ActiveRecord::Schema.define(version: 20180307143236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180307110257) do
     t.integer "resolution_id"
     t.integer "initiater_id"
     t.jsonb "variables", default: {}, null: false
+    t.boolean "active", default: true
   end
 
   create_table "comments", force: :cascade do |t|
