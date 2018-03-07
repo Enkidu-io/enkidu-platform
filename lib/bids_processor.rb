@@ -21,7 +21,7 @@ class BidsProcessor
 		when 1
 			# Initiator already a member of project
 			if project.has_employee?(new_user.id)
-				return false, ""
+				return false, "<b>Insufficient permissions!</b>"
 			# Requested bid percentage more than available 
 			elsif project.unallocated_percentage < bid_perc
 	          	return false, "Bid could not be created as your demands cannot be met."
@@ -29,22 +29,22 @@ class BidsProcessor
 			elsif project.has_employee?(bid.initiator_id)
 				# Email not specified
 				unless params[:bid][:email].present?
-					return false, ""
+					return false, "Email not found."
 				else
 					new_user = User.where(email: params[:bid][:email]).first
 					# No user with email
 					if new_user.nil?
-						return false, ""
+						return false, "User could not be found."
 					end
 	        		bid.user_id = new_user.id
 	        		return true, bid
 				end
         	# Bid by new user
       		else
-      			new_user = User.find(params[:bid][:user_id])
+      			new_user = User.find(bid.initiator_id)
       			# Does user exist?
       			if new_user.nil?
-      				return false, ""
+      				return false, "User could not be found."
       			end
         		bid.user_id = new_user.id
         		return true, bid
@@ -54,14 +54,14 @@ class BidsProcessor
 		when 2
 			# Initiator not a member of project?
 			unless project.has_employee?(bid.initiator_id)
-				return false, ""
+				return false, "<b>Insufficient permissions!</b>"
 			# New user already member?
 			elsif project.has_employee?(params[:bid][:user_id])
-				return false, ""
+				return false, "<b>Invalid request!</b>"
 			else
 				remove_user = User.find(params[:bid][:user_id])
 				if remove_user.nil?
-					return false, ""
+					return false, "User could not be found."
 				end
 				bid.user_id = remove_user.id
         		return true, bid
@@ -72,7 +72,7 @@ class BidsProcessor
 		when 3
 			# Initiator not a member of project?
 			unless project.has_employee?(bid.initiator_id)
-				return false, ""
+				return false, "<b>Insufficient permissions!</b>"
 			else
 				return true, bid
 			end
