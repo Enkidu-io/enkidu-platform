@@ -15,28 +15,23 @@
   <div class="card-body">
     <div class="row">
       <div class="col-sm-3">
-      <ul class="nav nav-pills nav-stacked nav-pills-primary" role="tablist">
-        <li class="active">
-          <a href="#pillnav9" role="tab" data-toggle="tab" aria-expanded="true">
-            Adding Collaborator
-          </a>
-        </li>
-        <li class="">
-          <a href="#pillnav10" role="tab" data-toggle="tab" aria-expanded="false">
-            Removing Collaborator
-          </a>
-        </li>
-        <li class="">
-          <a href="#pillnav11" role="tab" data-toggle="tab" aria-expanded="false">
-            Dilution
-          </a>
-        </li>
-        <!-- <li class="">
-          <a href="#pillnav12" role="tab" data-toggle="tab" aria-expanded="false">
-            Settings
-          </a>
-        </li> -->
-      </ul>
+        <ul class="nav nav-pills nav-stacked nav-pills-primary" id="resolution-list-bids" role="tablist">
+          <li class="active" id="li-add_c-bids">
+            <a href="/bids?resolution_id=1">
+              Adding Collaborator
+            </a>
+          </li>
+          <li id="li-remove_c-bids" class="">
+            <a href="/bids?resolution_id=2">
+              Removing Collaborator
+            </a>
+          </li>
+          <li class="" id="li-vote_d-bids">
+            <a href="/bids?resolution_id=3">
+              Dilution
+            </a>
+          </li>
+        </ul>
       </div>
       <div class="col-sm-9">
         <div id="pillContent3" class="tab-content m-t-15">
@@ -63,9 +58,6 @@
                       <td style="text-align: center">
                         <%= link_to project_path(@project) do%>
                           <h5 style="margin-top: 10px;"><%= @project.title%></h5> 
-                          <!-- div class="chip">
-                      <div class="circle-profile-photo" data-name="<%= @project.title%>"><canvas width="32" height="32"></canvas></div><span><%= @project.title%></span>
-                      </div>  -->
                         <%end%>
                       </td>
                       <td style="text-align: center;">
@@ -76,7 +68,6 @@
                         <h5 style="margin-top: 10px;"><%= @vesting %></h5>
                       </td>
                     </tr>
-
                   <%end%>
                 </tbody>
               </table>
@@ -161,4 +152,3 @@
     </div>
   </div>
 </div>
-
