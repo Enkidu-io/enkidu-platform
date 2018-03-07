@@ -2,8 +2,17 @@ class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @bids = current_user.bid_details
-     @bids =  Bid.where("initiater_id = ?", current_user.id)
+    @bids =  Bid.where("initiater_id = ?", current_user.id)
+    case params[:resolution_id]
+    when "1"
+      @bids = @bids.add_collaborator
+    when "2"
+      @bids = @bids.remove_collaborator
+    when "3"
+      @bids = @bids.vote_dilution
+    else
+      @bids = @bids.add_collaborator
+    end
   end
 
   def create
