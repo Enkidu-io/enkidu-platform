@@ -7,11 +7,11 @@ class Bid < ApplicationRecord
   after_commit :create_bid_details, on: :create
 
   validates_presence_of :project_id, :resolution_id, :initiater_id
-  validates_presence_of :bid_percentage, :user_id, :vesting_period, :if => :resolution_id == 1
-  validates_presence_of :user_id, :if => :resolution_id == 2
-  validates_presence_of :bid_percentage, :if => :resolution_id == 3
-  validates :bid_percentage, numericality: { only_float: true, greater_than: 0.0, less_than: 100.0 }, :if => ([1,3].include? :resolution_id)
-  validates :vesting_period, numericality: { only_integer: true, greater_than: 0 }, :if => (:resolution_id == 1)
+  validates_presence_of :bid_percentage, :user_id, :vesting_period, if: proc { resolution_id == 1 }
+  validates_presence_of :user_id, if: proc { resolution_id == 2 }
+  validates_presence_of :bid_percentage, if: proc { resolution_id == 3 }
+  validates :bid_percentage, numericality: { only_float: true, greater_than: 0.0, less_than: 100.0 }, if: proc { [1,3].include? resolution_id }
+  validates :vesting_period, numericality: { only_integer: true, greater_than: 0 }, if: proc { resolution_id == 1 }
   
   store_accessor :variables, :user_id, :bid_percentage, :vesting_period
 
