@@ -3,7 +3,7 @@ class BidDetail < ApplicationRecord
 	belongs_to :user
 	after_commit :send_approval_notification, :on => :create
 	after_commit :create_log, :on => [:update]
-	after_commit :create_digital_contract, :on => [:update], if: proc { resolution_id == 1 }
+	after_commit :create_digital_contract, :on => [:update], if: proc { self.bid.resolution_id == 1 }
 	
 	validates_presence_of :bid_id, :user_id, :approval_percentage
 	validates :approval_percentage, numericality: { only_float: true, greater_than: 0.0, less_than: 100.0 }
