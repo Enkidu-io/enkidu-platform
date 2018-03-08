@@ -21,9 +21,11 @@ class ResolutionProcessor
 		when 3
 			# Vote dilution
 			project_users = ProjectUser.where(project_id: bid.project_id)
+			total_perc = project_users.sum(&:ownership_percentage)
+			margin = (bid.bid_percentage/total_perc).to_f
 			project_users.each do |project_user|
 				prev_ownership = project_user.ownership_percentage
-				project_user.update!(ownership_percentage: prev_ownership - (bid.bid_percentage * prev_ownership / 100))
+				project_user.update!(ownership_percentage: prev_ownership - (prev_ownership*margin))
 			end
 			prev_unalloc = bid.project.unallocated_percentage
 			bid.project.update!(unallocated_percentage: prev_unalloc + bid.bid_percentage)

@@ -25,7 +25,7 @@
 								<div class="col-md-10 col-sm-offset-1">
 									<div class="form-group is-empty">
 										<%if current_user.id == @dc.new_employee.id%>
-											<%=f.label :eth_address%>
+											<%=f.label :eth_address, 'ETH Address'%>
 											<%=f.text_field :eth_address, class: "form-control input-mask", placeholder: "eg: 0x 00000000000000000", autocomplete: "off", maxlength: "15"%>
 										<%end%>
 									</div>
