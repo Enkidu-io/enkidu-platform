@@ -27,7 +27,7 @@ class BidsController < ApplicationController
           flash[:notice] = 'Bid has been successfuly made.'
           redirect_to bids_path
         else
-          flash[:notice] = 'Could not create a bid.'
+          flash[:alert] = 'Could not create a bid.'
           redirect_to request.referer
         end
       # Invalid bid 
@@ -42,7 +42,7 @@ class BidsController < ApplicationController
       flash[:success]="Bid Updated"
 			redirect_to root_path
 		else
-      flash[:success]="Bid Not Updated"
+      flash[:alert]="Bid Not Updated"
       redirect_to root_path
 		end
 	end

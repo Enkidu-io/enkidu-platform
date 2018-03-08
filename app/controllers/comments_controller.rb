@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 			project.save
 			redirect_to request.referer
 		else
-			flash[:notice] = "Your comment could not be saved."
+			flash[:alert] = "Your comment could not be saved."
 			redirect_to request.referer
 		end
 	end
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
 			flash[:notice] = "Your comment has been updated."
 			redirect_to request.referer
 		else
-			flash[:notice] = "Your comment could not be updated."
+			flash[:alert] = "Your comment could not be updated."
 			# redirect_to request.referer
 			render 'edit'
 		end
@@ -41,7 +41,7 @@ class CommentsController < ApplicationController
 			flash[:notice] = "Your comment has been deleted."
 			redirect_to request.referer
 		else
-			flash[:notice] = "Your comment could not be deleted."
+			flash[:alert] = "Your comment could not be deleted."
 			redirect_to request.referer
 		end
 	end

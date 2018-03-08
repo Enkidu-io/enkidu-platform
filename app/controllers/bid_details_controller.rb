@@ -31,7 +31,7 @@ class BidDetailsController < ApplicationController
 				flash[:notice] = "You do not have enough permissions."
 				redirect_to request.referer
 			elsif @bid_detail.has_voted
-				flash[:notice] = "You have already casted your vote for this particular bid."
+				flash[:alert] = "You have already casted your vote for this particular bid."
 				redirect_to request.referer
 			end
 		end
