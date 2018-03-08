@@ -4,6 +4,8 @@ class Bid < ApplicationRecord
   belongs_to :resolution
   has_many :bid_details, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :digital_contracts, dependent: :destroy
+
 
   after_commit :create_log, on: :create
   after_commit :create_bid_details, on: :create
