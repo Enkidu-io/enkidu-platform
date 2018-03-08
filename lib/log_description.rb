@@ -1,6 +1,5 @@
 class LogDescription
 	def self.get(type, variables)
-
 		case type
 
 		when 'create_bid'
@@ -10,9 +9,9 @@ class LogDescription
 		when 'signed_contract'
 			"Signed Digital Contract with #{variables[:full_name]}"
 		when 'new_member'
-			"Joined team #{variables[:project_name]}"
+			"#{variables[:full_name]} joined team #{variables[:project_name]}"
 		when 'remove_member'
-			"Removed from team #{variables[:project_name]}"
+			"#{variables[:full_name]} was removed from team #{variables[:project_name]}"
 		end
 	end
 end
