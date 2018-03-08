@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
 
-	before_action :set_comment, only: [:update, :destroy]
+	before_action :set_comment, only: [:edit,:update, :destroy]
 
 	def create
+		
 		comment = Comment.new(comment_params)
 		if comment.save
 			project = comment.project
@@ -15,13 +16,23 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	def edit
+		
+			@project = Project.find(params[:id])
+		
+    	@comment = @project.comments.find(params[:id])
+    	render json:@project
+		return
+    end
+
 	def update
 		if @comment.update!(comment: params[:comment][:comment])
 			flash[:notice] = "Your comment has been updated."
 			redirect_to request.referer
 		else
 			flash[:notice] = "Your comment could not be updated."
-			redirect_to request.referer
+			# redirect_to request.referer
+			render 'edit'
 		end
 	end
 

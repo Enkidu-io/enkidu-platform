@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :ratings, only: [:create]
-  resources :comments, only: [:create, :update, :destroy]
+  resources :comments, only: [:create, :update, :destroy,:edit]
   resources :likes, only: [:create]
   resources :projects
   resources :project_users
