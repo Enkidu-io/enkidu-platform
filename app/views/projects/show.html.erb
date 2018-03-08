@@ -116,23 +116,42 @@
       </div>
       <div class="row" style="margin-top: 16px;">
         <%@comments.each do |comment|%>
-        <div class="col-xs-2" style="text-align: right;">
-          <img src="/enkidu.png" class="rounded-circle" style="width:60px; height:60px;">
-        </div>
-        <div class="col-xs-10">
-          <span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.full_name%></span>
-          <br>
-          <small><%= time_ago_in_words(comment.created_at) %> ago. <a href="#">Edit</a></small>
-          <p class="comment_content" style="font-size: 14px;margin-top: 5px;"><%=comment.comment%></p>
-          <%if comment.user_id == current_user.id%>
-            <%=form_for (comment) do |f|%>
-              <%=f.text_field :comment, class: "form-control"%>
-              <%=f.submit "Submit"%>
+          <div class="col-xs-2" style="text-align: right;">
+            <img src="/enkidu.png" class="rounded-circle" style="width:60px; height:60px;">
+          </div>
+          <div class="col-xs-10">
+            <span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.full_name%></span>
+            <br>
+            <small><%= time_ago_in_words(comment.created_at) %> ago. <a href="#;" class="show-form" data-a_id="<%=comment.id%>">Edit</a></small>
+            <div class="comment_content" data-form_id="<%=comment.id%>">
+              <%=comment.comment%></div>
+            <%if comment.user_id == current_user.id%>
+              <div class="no-display form-edit" data-form_id="<%=comment.id%>">
+                <%=form_for (comment) do |f|%>
+                <%=f.text_field :comment, class: "form-control"%>
+                <%=f.submit "Submit", class: "btn btn-primary"%>
+                <button class="btn btn-primary btn-cancel" data-form_id="<%=comment.id%>">Cancel</button>
+              <%end%>
+              </div>
             <%end%>
-          <%end%>
-        </div>
+          </div>
         <%end%>
       </div>
     </div>
   </div>
 </div>
+<% content_for :scripts do%>
+<script type="text/javascript">
+  $(".show-form").on("click", function(){
+    var commentId = $(this).data("a_id");
+    $(".form-edit[data-form_id="+ commentId + "]").removeClass("no-display");
+    $(".comment_content[data-form_id=" + commentId + "]").addClass("no-display");
+  });
+  $(".btn-cancel").on("click", function(e){
+    var commentId = $(this).data("form_id");
+    $(".form-edit[data-form_id="+ commentId + "]").addClass("no-display");
+    $(".comment_content[data-form_id=" + commentId + "]").removeClass("no-display");
+    e.preventDefault();
+  });
+</script>
+<%end%>
