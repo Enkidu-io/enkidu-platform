@@ -1,4 +1,6 @@
 class Notification < ApplicationRecord
+	include Rails.application.routes.url_helpers
+	
 	belongs_to :user
 	belongs_to :notification_type
 
@@ -15,19 +17,19 @@ class Notification < ApplicationRecord
 
 		when 1
 			dc = DigitalContract.where(bid_id: bid.id).first
-			return digital_contract_path(dc)
+			return edit_digital_contract_path(dc)
 
 		when 2
 			bid_detail = BidDetail.where(bid_id: bid.id, user_id: self.user_id).first
-			return bid_detail_path(bid_detail)
+			return edit_bid_detail_path(bid_detail)
 
 		when 3
 			bid_detail = BidDetail.where(bid_id: bid.id, user_id: self.user_id).first
-			return bid_detail_path(bid_detail)
+			return edit_bid_detail_path(bid_detail)
 
 		when 4
 			bid_detail = BidDetail.where(bid_id: bid.id, user_id: self.user_id).first
-			return bid_detail_path(bid_detail)
+			return edit_bid_detail_path(bid_detail)
 
 		end
 	end

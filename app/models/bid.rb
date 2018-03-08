@@ -3,6 +3,7 @@ class Bid < ApplicationRecord
   belongs_to :user, :class_name => 'User', :foreign_key => 'initiater_id'
   belongs_to :resolution
   has_many :bid_details
+  has_many :notifications, dependent: :destroy
 
   after_commit :create_bid_details, on: :create
   before_validation :format_data
