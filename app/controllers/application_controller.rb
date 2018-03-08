@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   def set_data
       @project = Project.new
       @notifications = current_user.notifications.order(created_at: :desc).limit(6)
-      @logs = current_user.logs.order(created_at: :desc)
+      @logs = current_user.logs.where("created_at >= ?", 1.week.ago.utc).order(created_at: :desc)
   end
 end

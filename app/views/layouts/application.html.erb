@@ -223,46 +223,14 @@
         <div class="sidebar-inner sidebar-overlay">
           <div class="tab-pane fade active in" id="sidebar_activity">
             <div class="sidebar-timeline">
+              <% @logs.each do |log| %>
               <div class="time-item">
                 <div class="item-info">
-                  <small class="text-muted">15 minutes ago</small>
-                  <p><a href="#" class="accent">Mike Jones</a> fixed z-index conflict sidebar.scss</p>
+                  <small class="text-muted"><%= time_ago_in_words(log.created_at) %> ago<span class="text-danger"><b>&nbsp;&nbsp;(<%= log.project.title %>)</b></span></small>
+                  <p style="font-weight: bold;"><%= log.content.html_safe %></p>
                 </div>
               </div>
-              <div class="time-item">
-                <div class="item-info">
-                  <small class="text-muted">30 minutes ago</small>
-                  <p><a href="javascript:void(0)" class="accent">Hazel  Dean</a> left a comment on product page designs.</p>
-                  <p><em>"Yuccie shoreditch trust fund, artisan tumblr sustainable cronut unicorn blog seitan. "</em></p>
-                </div>
-              </div>
-              <div class="time-item">
-                <div class="item-info">
-                  <small class="text-muted">45 minutes ago</small>
-                  <p><a href="javascript:void(0)" class="accent">Molly</a> requested time off for training.</p>
-                  <p><em>"Snackwave church-key cardigan you probably haven't heard of them, asymmetrical microdosing cronut "</em></p>
-                </div>
-              </div>
-              <div class="time-item">
-                <div class="item-info">
-                  <small class="text-muted">3 hours ago</small>
-                  <p><a href="javascript:void(0)" class="accent">Frederick  Roy</a> commented your post.</p>
-                  <p><em>"Skateboard dreamcatcher la croix, edison bulb sustainable sriracha vexillologist kombucha master cleanse."</em></p>
-                </div>
-              </div>
-              <div class="time-item">
-                <div class="item-info">
-                  <small class="text-muted">1 hour ago</small>
-                  <p><a href="javascript:void(0)" class="accent">Holly Cobb</a> Uploaded 6 new photos.</p>
-                </div>
-              </div>
-              <div class="time-item">
-                <div class="item-info">
-                  <small class="text-muted">5 hours ago</small>
-                  <p><a href="javascript:void(0)" class="accent">Neal Stephens</a> setup a meeting with<a href="#" class="text-success"> Jason Kendall</a>.</p>
-                  <p><em>"Authentic aesthetic tattooed, PBR&amp;B squid tote bag schlitz vaporware glossier yr man braid direct trade disrupt poke.  "</em></p>
-                </div>
-              </div>
+              <% end %>
             </div>
           </div>
         </div>
