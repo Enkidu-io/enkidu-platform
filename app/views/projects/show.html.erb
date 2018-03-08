@@ -129,6 +129,7 @@
 			        		<br>
 			        		<small><%= time_ago_in_words(comment.created_at) %> ago</small>
 			        		<p class="comment_content" style="font-size: 14px;margin-top: 5px;"><%=comment.comment%></p>
+			        		<p><%=link_to "Edit",edit_comment_path(@project)%></p>
 				        </div>
 		        	<%end%>
 		        </div>

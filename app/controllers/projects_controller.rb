@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+			
 		@project_users = @project.project_users
 		@project.increment!(:view_count)
 		@comments = @project.comments.order(created_at: :desc)
