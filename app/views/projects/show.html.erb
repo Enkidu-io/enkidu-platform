@@ -43,10 +43,6 @@
           <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
           <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
         </fieldset>
-        <!-- VESITNG DETAILS BUTTON -->
-        <!-- <button type="button" class="btn btn-sm btn-primary btn-round btn-cons vesting-btn-index" data-toggle="modal" data-target="#myModal" i>
-        Vesting Details
-        </button> -->
       </header>
       <div class="card-body border-bottom">
         Ownership: <%=User.find(@project.ip_ownership_id).full_name%>
@@ -141,17 +137,17 @@
   </div>
 </div>
 <% content_for :scripts do%>
-<script type="text/javascript">
-  $(".show-form").on("click", function(){
-    var commentId = $(this).data("a_id");
-    $(".form-edit[data-form_id="+ commentId + "]").removeClass("no-display");
-    $(".comment_content[data-form_id=" + commentId + "]").addClass("no-display");
-  });
-  $(".btn-cancel").on("click", function(e){
-    var commentId = $(this).data("form_id");
-    $(".form-edit[data-form_id="+ commentId + "]").addClass("no-display");
-    $(".comment_content[data-form_id=" + commentId + "]").removeClass("no-display");
-    e.preventDefault();
-  });
-</script>
+  <script type="text/javascript">
+    $(".show-form").on("click", function(){
+      var commentId = $(this).data("a_id");
+      $(".form-edit[data-form_id="+ commentId + "]").removeClass("no-display");
+      $(".comment_content[data-form_id=" + commentId + "]").addClass("no-display");
+    });
+    $(".btn-cancel").on("click", function(e){
+      var commentId = $(this).data("form_id");
+      $(".form-edit[data-form_id="+ commentId + "]").addClass("no-display");
+      $(".comment_content[data-form_id=" + commentId + "]").removeClass("no-display");
+      e.preventDefault();
+    });
+  </script>
 <%end%>
