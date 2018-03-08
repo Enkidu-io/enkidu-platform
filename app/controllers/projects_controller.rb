@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
 	before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@project = Project.new
 		@project_users = @project.users
 		@bid = Bid.new
 
@@ -36,7 +35,7 @@ class ProjectsController < ApplicationController
 			flash[:notice] = "Project created successfully."
 			redirect_to projects_path
 		else
-			flash[:notice] = "Could not create project."
+			flash[:alert] = "Could not create project."
 			redirect_to request.referer
 		end
 	end
@@ -46,7 +45,7 @@ class ProjectsController < ApplicationController
 			flash[:notice] = "Updated project"
 			redirect_to @project
 		else
-			flash[:notice] = "Failed to update project"
+			flash[:alert] = "Failed to update project"
 			redirect_to request.referer
 		end
 	end
@@ -56,7 +55,7 @@ class ProjectsController < ApplicationController
 			flash[:notice] = "Deleted project"
 			redirect_to projects_path
 		else
-			flash[:notice] = "Failed to delete project"
+			flash[:alert] = "Failed to delete project"
 			redirect_to request.referer
 		end
 	end

@@ -3,15 +3,15 @@ class LogDescription
 		case type
 
 		when 'create_bid'
-			"Created a Bid - #{variables[:resolution_name]}"
+			"Created a Bid - <b>#{variables[:resolution_name]}</b>"
 		when 'voted_bid'
-			"#{variables[:resolution_name]} - Casted your vote (<b>#{variables[:vote]}</b>)"
+			"<b>#{variables[:resolution_name]}</b> - Casted your vote (<b>#{variables[:vote]}</b>)"
 		when 'signed_contract'
-			"Signed Digital Contract with #{variables[:full_name]}"
+			"<b>Signed Digital Contract</b> with <b>#{variables[:full_name]}</b>"
 		when 'new_member'
-			"#{variables[:full_name]} joined team #{variables[:project_name]}"
+			"<b>#{variables[:full_name]}</b> joined team <b>#{variables[:project_name]}</b>"
 		when 'remove_member'
-			"#{variables[:full_name]} was removed from team #{variables[:project_name]}"
+			"<b>#{variables[:full_name]}</b> was removed from team <b>#{variables[:project_name]}</b>"
 		end
 	end
 end

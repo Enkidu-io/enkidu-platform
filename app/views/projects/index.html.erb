@@ -165,7 +165,7 @@
                       <h5 style="text-align:left; ">PROJECT INFO</h5>
                     </div>
                     <div class="card-body card-grey card-text">
-                       <h5><%=project.description%></h5>
+                       <h5><%=truncate(project.description, length: 100, :omission => '... (more)')%></h5>
                     </div>
                 </div>
                 <div class="card card-grey">

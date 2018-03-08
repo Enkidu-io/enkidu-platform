@@ -16,6 +16,7 @@ class Project < ApplicationRecord
 	attr_accessor :tags
 	attr_accessor :leader_allocation
 	after_commit :create_project_leader, on: :create
+	before_validation :check_percentages, on: :create
 
 	validates_presence_of :title, :description, :unallocated_percentage, :treasury_percentage
 
@@ -29,6 +30,12 @@ class Project < ApplicationRecord
 
 	def create_project_leader
 		ProjectUser.create!(project_id: self.id, user_id: self.leader_id, ownership_percentage: (100 - (self.unallocated_percentage + self.treasury_percentage)) )
+	end
+
+	def check_percentages
+		if self.treasury_percentage.to_f + self.leader_allocation.to_f >= 100.0
+			errors.add(:treasury_percentage, "Your percentages should add up to a maximum of 100.")
+		end
 	end
 
 end
