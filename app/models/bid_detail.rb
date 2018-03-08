@@ -2,6 +2,7 @@ class BidDetail < ApplicationRecord
 	belongs_to :bid
 	belongs_to :user
 	after_commit :send_approval_notification, :on => :create
+	after_commit :create_log, :on => [:update]
 	after_commit :create_digital_contract, :on => [:update], if: proc { resolution_id == 1 }
 	
 	validates_presence_of :bid_id, :user_id, :approval_percentage
@@ -9,6 +10,11 @@ class BidDetail < ApplicationRecord
 	validates :user_id, :uniqueness => { :scope => :bid_id }
 
 	attr_accessor :vote
+
+	def create_log
+		vote = (self.has_voted == true && self.approval_percentage > 0.0) ? 'Yes' : 'No'
+		Log.create(content: LogDescription.get('voted_bid', {'resolution_name': self.bid.resolution.name, 'vote': vote }), user_id: self.user_id, project_id: self.bid.project_id)
+	end
 
 	def send_approval_notification
 		NotificationProcessor.process_resolution(self)

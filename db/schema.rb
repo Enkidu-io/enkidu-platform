@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307143236) do
+ActiveRecord::Schema.define(version: 20180308084723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 20180307143236) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_likes_on_project_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_logs_on_project_id"
+    t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
   create_table "notification_types", force: :cascade do |t|
@@ -192,6 +202,8 @@ ActiveRecord::Schema.define(version: 20180307143236) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "projects"
   add_foreign_key "likes", "users"
+  add_foreign_key "logs", "projects"
+  add_foreign_key "logs", "users"
   add_foreign_key "ratings", "projects"
   add_foreign_key "ratings", "users"
   add_foreign_key "views", "projects"

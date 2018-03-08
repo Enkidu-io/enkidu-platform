@@ -5,6 +5,7 @@ class Bid < ApplicationRecord
   has_many :bid_details
   has_many :notifications, dependent: :destroy
 
+  after_commit :create_log, on: :create
   after_commit :create_bid_details, on: :create
   before_validation :format_data
 
@@ -21,8 +22,12 @@ class Bid < ApplicationRecord
   scope :remove_collaborator, -> {where(resolution_id: 2)}
   scope :vote_dilution,       -> {where(resolution_id: 3)}
 
+  def create_log
+    Log.create(content: LogDescription.get('create_bid', {'resolution_name': self.resolution.name}), user_id: self.initiater_id, project_id: self.project_id)
+  end
+
   def create_bid_details
-  	project = self.project
+    project = self.project
   	project.project_users.each do |p_u|
   		BidDetail.create!(bid_id: self.id, user_id: p_u.user_id, approval_percentage: p_u.ownership_percentage)
   	end
