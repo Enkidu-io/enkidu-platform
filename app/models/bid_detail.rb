@@ -3,7 +3,7 @@ class BidDetail < ApplicationRecord
 	belongs_to :user
 	after_commit :send_approval_notification, :on => :create
 	after_commit :create_log, :on => [:update]
-	after_commit :create_digital_contract, :on => [:update], if: proc { bid.resolution_id == 1 }
+	after_commit :once_voting_done, :on => [:update]
 	
 	validates_presence_of :bid_id, :user_id, :approval_percentage
 	validates :approval_percentage, numericality: { only_float: true, greater_than_or_equal_to: 0.0, less_than_or_equal_to: 100.0 }
@@ -20,7 +20,7 @@ class BidDetail < ApplicationRecord
 		NotificationProcessor.process_resolution(self)
 	end
 
-	def create_digital_contract
+	def once_voting_done
 		bid_details = self.bid.bid_details
 		approval_weight, total_votes_cast = vote_calc(bid_details)
 
@@ -30,8 +30,15 @@ class BidDetail < ApplicationRecord
 			self.bid.update!(active: false)
 			STDOUT.puts "APPROVAL WEIGHT:"+approval_weight.to_s
 			if approval_weight > 50.0
-				DigitalContract.create!(bid_id: self.bid.id, project_id: self.bid.project.id, user_signed: false, leader_signed: false)
-				NotificationProcessor.process_digital_contract(self, 1)
+				case self.bid.resolution_id
+				when 1
+					DigitalContract.create!(bid_id: self.bid.id, project_id: self.bid.project.id, user_signed: false, leader_signed: false)
+					NotificationProcessor.process_digital_contract(self, 1)
+				when 2
+					ResolutionProcessor.process(self.bid.resolution_id, self.bid)
+				when 3
+					ResolutionProcessor.process(self.bid.resolution_id, self.bid)
+				end
 			else
 				# NotificationProcessor.process_digital_contract(self, 5)
 			end

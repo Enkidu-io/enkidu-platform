@@ -11,11 +11,12 @@ class ResolutionProcessor
 			name = user.first_name + user.last_name
 			Log.create(content: LogDescription.get('new_member', {'full_name': name, 'project_name': bid.project.title}), user_id: bid.user_id, project_id: bid.project.id)
 		when 2
-			#Remove collab
+			# Remove collab
 			project_user = ProjectUser.find_by(project_id: bid.project_id, user_id: bid.user_id)
+			add_perc = project_user.ownership_percentage
 			project_user.destroy
 			prev_unalloc = bid.project.unallocated_percentage
-			bid.project.update!(unallocated_percentage: prev_unalloc + bid.bid_percentage)
+			bid.project.update!(unallocated_percentage: prev_unalloc + add_perc)
 			Log.create(content: LogDescription.get('remove_member', {'full_name': name, 'project_name': bid.project.title}), user_id: bid.user_id, project_id: bid.project.id)
 		when 3
 			# Vote dilution

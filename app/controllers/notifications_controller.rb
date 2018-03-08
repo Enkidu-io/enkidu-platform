@@ -8,6 +8,7 @@ class NotificationsController < ApplicationController
 	# User clicks on notification icon
 	def seen
 		current_user.update(last_notified_at: DateTime.now.utc)
+		render json: 'Updated'
 	end
 
 end

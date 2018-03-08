@@ -4,8 +4,16 @@ class DigitalContractsController < ApplicationController
 	before_action :if_user_can_access_dc, only: [:update, :edit]
 
 	def update
-		@dc.eth_address = params[:digital_contract][:eth_address] if current_user.id == @dc.new_employee.id
-		if @dc.save!
+
+		if current_user.id == @dc.new_employee.id && params[:digital_contract][:eth_address].empty?
+			flash[:alert] = "Eth Address is required."
+			redirect_to request.referer
+		else
+			if current_user.id == @dc.new_employee.id
+				@dc.eth_address = params[:digital_contract][:eth_address]
+			end
+			
+			if @dc.save
 			full_name = current_user.id == @dc.leader.id ? @dc.new_employee.full_name : @dc.leader.full_name
 			Log.create(content: LogDescription.get('signed_contract', {'full_name': full_name }), user_id: current_user.id, project_id: @dc.bid.project_id)
 			flash[:notice] = "You have successfully signed a contract."
@@ -14,6 +22,7 @@ class DigitalContractsController < ApplicationController
 			flash[:notice] = "Your attempt in signing this contract has failed."
 			redirect_to request.referer
 		end	
+		end
 	end
 
 	def edit

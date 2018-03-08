@@ -61,11 +61,11 @@
                         <%end%>
                       </td>
                       <td style="text-align: center;">
-                        <h5 style="margin-top: 10px;"><%=bid.bid_percentage%></h5>
+                        <h5 style="margin-top: 10px;"><%=bid.bid_percentage.present? ? bid.bid_percentage : '-' %></h5>
                       </td>
                       <td style="text-align: center;">
                         <% @vesting = bid["variables"]["vesting_period"] %>
-                        <h5 style="margin-top: 10px;"><%= @vesting %></h5>
+                        <h5 style="margin-top: 10px;"><%= @vesting.present? ? @vesting : '-' %></h5>
                       </td>
                     </tr>
                   <%end%>
