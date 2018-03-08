@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   }
   get 'notifications' => 'notifications#index'
   get 'dashboard' => 'dashboards#index'
+  post 'notify/seen' => 'notifications#seen'
 
   root 'projects#index'
   get 'welcome/index'
