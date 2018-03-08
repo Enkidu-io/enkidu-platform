@@ -23,7 +23,7 @@ class BidDetailsController < ApplicationController
 	private
 
 		def if_user_can_access_bid
-			unless current_user.id == @bid_detail.user_id
+			if current_user.id != @bid_detail.user_id
 				flash[:notice] = "You do not have enough permissions."
 				redirect_to request.referer
 			elsif @bid_detail.has_voted

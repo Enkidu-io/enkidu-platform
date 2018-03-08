@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   end
   
   def set_notifications
-      @notifications = current_user.notifications.order(created_at: :desc)
+      @notifications = current_user.notifications.order(created_at: :desc).limit(6)
   end
 end
