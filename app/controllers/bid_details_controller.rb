@@ -1,6 +1,6 @@
 class BidDetailsController < ApplicationController
 
-	before_action :set_bid_detail, only: [:update]
+	before_action :set_bid_detail, only: [:update, :edit]
 	before_action :if_user_can_access_bid, only: [:update]
 
 	def update
@@ -17,7 +17,7 @@ class BidDetailsController < ApplicationController
 	end
 
 	def edit
-
+		# render json:@bid_detail
 	end
 
 	private

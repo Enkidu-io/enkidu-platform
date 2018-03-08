@@ -24,9 +24,9 @@ class DigitalContractsController < ApplicationController
 			unless [@dc.leader.id, @dc.new_employee.id].include?(current_user.id)
 				flash[:notice] = "You do not have enough permissions."
 				redirect_to request.referer
-			elsif current_user.id == @dc.leader.id
+			# elsif current_user.id == @dc.leader.id
 				@dc.leader_signed = true
-			elsif current_user.id == @dc.new_employee.id
+			# elsif current_user.id == @dc.new_employee.id
 				@dc.user_signed = true
 			end
 		end

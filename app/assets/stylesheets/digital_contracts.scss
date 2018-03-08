@@ -1,3 +1,102 @@
 // Place all the styles related to the digital_contracts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.rating-left-dashboard {
+  border: none;
+  float: left;
+  margin-top: 15px;
+  margin-left:340px;
+}
+.rating-right-dashboard {
+  border: none;
+  float: left;
+  margin-top: 15px;
+  margin-left:395px;
+}
+
+
+#left-img-dashboard{
+margin-left: 140px;
+margin-top: 60px;
+
+
+}
+#right-img-dashboard{
+margin-left:635px;
+margin-top: -100px;
+
+
+}
+
+
+
+.rating-left-dashboard > input { display: none; }
+.rating-left-dashboard > label:before {
+margin-top:-4px;
+  margin-left: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating-left-dashboard > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating-left-dashboard > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating-left-dashboard > input:checked ~ label, /* show gold star when clicked */
+.rating-left-dashboard:not(:checked) > label:hover, /* hover current star */
+.rating-left-dashboard:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating-left-dashboard > input:checked + label:hover, /* hover current star when changing rating */
+.rating-left-dashboard > input:checked ~ label:hover,
+.rating-left-dashboard > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating-left-dashboard > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+
+
+
+
+
+
+.rating-right-dashboard > input { display: none; }
+.rating-right-dashboard > label:before {
+margin-top:-4px;
+  margin-left: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating-right-dashboard > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating-right-dashboard > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating-right-dashboard > input:checked ~ label, /* show gold star when clicked */
+.rating-right:not(:checked) > label:hover, /* hover current star */
+.rating-right:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating-right-dashboard > input:checked + label:hover, /* hover current star when changing rating */
+.rating-right-dashboard > input:checked ~ label:hover,
+.rating-right-dashboard > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating-right-dashboard > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+
+

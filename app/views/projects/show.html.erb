@@ -118,15 +118,17 @@
           <div class="col-xs-10">
             <span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.full_name%></span>
             <br>
-            <small><%= time_ago_in_words(comment.created_at) %> ago. <a href="#;" class="show-form" data-a_id="<%=comment.id%>">Edit</a></small>
+            <small><%= time_ago_in_words(comment.created_at) %> ago. 
+              <a href="#;" class="show-form" data-a_id="<%=comment.id%>">Edit</a>
+            </small>
             <div class="comment_content" data-form_id="<%=comment.id%>">
               <%=comment.comment%></div>
             <%if comment.user_id == current_user.id%>
               <div class="no-display form-edit" data-form_id="<%=comment.id%>">
                 <%=form_for (comment) do |f|%>
                 <%=f.text_field :comment, class: "form-control"%>
-                <%=f.submit "Submit", class: "btn btn-primary"%>
-                <button class="btn btn-primary btn-cancel" data-form_id="<%=comment.id%>">Cancel</button>
+                <%=f.submit "Submit", class: "btn btn-primary btn-sm"%>
+                <button class="btn btn-primary btn-cancel btn-sm" data-form_id="<%=comment.id%>">Cancel</button>
               <%end%>
               </div>
             <%end%>
