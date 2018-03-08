@@ -1,188 +1,155 @@
 <% content_for :heading do %>
 <div id="header_wrapper" class="header-sm" style="width: 130%;background-image: linear-gradient(82deg, #a052a9, #7752a7);">
   <div class="container-fluid">
-      <div class="row">
-          <div class="col-xs-12">
-              <header id="header">
-                  <h1><%=@project.title%></h1>
-              </header>
-          </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <header id="header">
+          <h1><%=@project.title%></h1>
+        </header>
       </div>
+    </div>
   </div>
 </div>
 <% end %>
-
 <div class="row">
-	<div class="col-md-8 col-md-offset-3" >
-		<div class="card card-red">
-			<header class="card-heading border-bottom">
-				<h2 class="card-title"><%=@project.title%>
-				<div class="col-xs-12" style="text-align: right; margin-top: -50px; margin-left: 10px; ">
+  <div class="col-md-8 col-md-offset-3" >
+    <div class="card card-red">
+      <header class="card-heading border-bottom">
+        <h2 class="card-title"><%=@project.title%>
+        <div class="col-xs-12" style="text-align: right; margin-top: -50px; margin-left: 10px; ">
           <a href="#" title="<%= number_to_human @project.likes.count %> like" id="like_<%= @project.id %>" class="like_btn vesting-btn-index" data-id="<%= @project.id %>"
             <%= 'style=color:red;' if current_user.has_liked_project?(@project.id) %>>
-              <span>
-                <h1><i class="zmdi zmdi-favorite"></i></h1> 
-                <h5 style="margin-top: -14px; margin-right: 9px;"><span class="like_count"><%= number_to_human @project.likes.count %></span>
-                  </h5>
-              </span>
+            <span>
+              <h1><i class="zmdi zmdi-favorite"></i></h1>
+              <h5 style="margin-top: -14px; margin-right: 9px;"><span class="like_count"><%= number_to_human @project.likes.count %></span>
+              </h5>
+            </span>
           </a>
           <span>
             <h1><i class="zmdi zmdi-eye"></i></h1>
             <h5 style="margin-top: -15px;"><%= number_to_human @project.views_count %></h5>
-          </span>
-                  
-                   
+          </span> 
         </div>
-            	</h2>
-            	<fieldset class="rating-show">
-                    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                </fieldset>
-                <!-- VESITNG DETAILS BUTTON -->
-				<!-- <button type="button" class="btn btn-sm btn-primary btn-round btn-cons vesting-btn-index" data-toggle="modal" data-target="#myModal" i>
-                  Vesting Details
-              	</button> -->
-			</header>
-			<div class="card-body border-bottom">
-				Ownership: <%=User.find(@project.ip_ownership_id).full_name%>
-				<br><br>
-				<div class="table-responsive">
-					<table class="table">
-						<thead style="background-image: linear-gradient(0deg, #7049ca, #512dab);">
-                              <tr>
-                              <th style="color:white; text-align: center;">MEMBERS</th>
-                              <th style="color:white; text-align: center;">PAYMENT SPLIT (IN %)</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <%@project_users.each do |project_user|%>
-                                <tr style="background-color: white;">
-                                  <td style="text-align: center;"><%=project_user.user.email%></td>
-                                  <td style="text-align: center;"><%=project_user.ownership_percentage%></td>
-                                </tr>
-                              <%end%>
-                              <tr style="background-color: white;">
-                                <td style="text-align: center;">Treasury </td>
-                                <td style="text-align: center;"><%=@project.treasury_percentage%></td>
-                              </tr>
-                              <tr style="background-color: white;">
-                                <td style="text-align: center;">Unallocated </td>
-                                <td style="text-align: center;"><%=@project.unallocated_percentage%></td>
-                              </tr>
-                              <tr>
-                              <th style="text-align: center;">Total</th>
-                              <th style="text-align: center;">100</th>
-                              </tr>
-                            </tbody>
-					</table>
-				</div>
-				<h5>Description:</h5>
-				<div class="card-body card-text" style="display: block; background-color: #f5f5f5;">
-					<p><%=@project.description%></p>
-				</div>
-			</div>
-			<div class="card-footer text-center">
-				Looking for: <br>
-				<%@project.tag_list.each do |tag|%>
-					<button class="btn btn-primary btn-sm btn-round"><%=tag%></button>
-				<%end%>
-			</div>
+        </h2>
+        <fieldset class="rating-show">
+          <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+          <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+          <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+          <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+          <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+          <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+          <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+          <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+          <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+          <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+        </fieldset>
+      </header>
+      <div class="card-body border-bottom">
+        Ownership: <%=User.find(@project.ip_ownership_id).full_name%>
+        <br><br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead style="background-image: linear-gradient(0deg, #7049ca, #512dab);">
+              <tr>
+                <th style="color:white; text-align: center;">MEMBERS</th>
+                <th style="color:white; text-align: center;">PAYMENT SPLIT (IN %)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%@project_users.each do |project_user|%>
+              <tr style="background-color: white;">
+                <td style="text-align: center;"><%=project_user.user.email%></td>
+                <td style="text-align: center;"><%=project_user.ownership_percentage%></td>
+              </tr>
+              <%end%>
+              <tr style="background-color: white;">
+                <td style="text-align: center;">Treasury </td>
+                <td style="text-align: center;"><%=@project.treasury_percentage%></td>
+              </tr>
+              <tr style="background-color: white;">
+                <td style="text-align: center;">Unallocated </td>
+                <td style="text-align: center;"><%=@project.unallocated_percentage%></td>
+              </tr>
+              <tr>
+                <th style="text-align: center;">Total</th>
+                <th style="text-align: center;">100</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h5>Description:</h5>
+        <div class="card-body card-text" style="display: block; background-color: #f5f5f5;">
+          <p><%=@project.description%></p>
+        </div>
+      </div>
+      <div class="card-footer text-center">
+        Looking for: <br>
+        <%@project.tag_list.each do |tag|%>
+          <button class="btn btn-primary btn-sm btn-round"><%=tag%></button>
+        <%end%>
+      </div>
       <div class="card-footer p-10">
         <div class="row">
           <div class="form-group m-5 p-0 p-l-10 is-empty">
             <div class="form-group">
-              <div class="col-xs-10">
-                <%=form_for :comment, url: comments_path do |f|%>
-                <%=f.hidden_field :project_id, value: "#{@project.id}"%>
-                <%=f.label "Leave a comment", class: "sr-only"%>
-                <%=f.text_field :comment, class: "form-control form-rounded form-white", placeholder: "Leave a comment.."%>
-              </div>
-              <div class="col-xs-2">
-                <span class="form-group-btn">
-                  <%=f.button :submit, class: "btn btn-blue btn-fab animate-fab btn-fab-sm" do%>
+              <%=form_for :comment, url: comments_path do |f|%>
+                <div class="col-xs-10">
+                  <%=f.hidden_field :project_id, value: "#{@project.id}"%>
+                  <%=f.label "Leave a comment", class: "sr-only"%>
+                  <%=f.text_field :comment, class: "form-control form-rounded form-white", placeholder: "Leave a comment.."%>
+                </div>
+                <div class="col-xs-2">
+                  <span class="form-group-btn">
+                    <%=f.button :submit, class: "btn btn-blue btn-fab animate-fab btn-fab-sm" do%>
                     <i class="zmdi zmdi-mail-send"></i>
-                  <%end%>
-                </span>
-              </div>
-            <%end%>
+                    <%end%>
+                  </span>
+                </div>
+              <%end%>
             </div>
           </div>
         </div>
       </div>
       <div class="row" style="margin-top: 16px;">
-      	<%@comments.each do |comment|%>
-      		<div class="col-xs-2" style="text-align: right;">
-        		<img src="/enkidu.png" class="rounded-circle" style="width:60px; height:60px;">
-        	</div>
-        	<div class="col-xs-10">
-        		<span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.full_name%></span>
-        		<br>
-        		<small><%= time_ago_in_words(comment.created_at) %> ago</small>
-        		<p class="comment_content" style="font-size: 14px;margin-top: 5px;"><%=comment.comment%></p>
-	        </div>
-      	<%end%>
-      </div>
-   </div>
-	</div>	
-</div>
-
-
-
-<!-- VESTING DETAILS -->
-<!-- <div class="modal fade" id="myModal" role="dialog" style="background-color:#263238;padding-top:140px;">
-    <div class="modal-dialog" style="width: 400px;">
-      <div class="modal-content">
-        <div class="modal-header" style="background-color: white">
-          <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
-          <div class="circle lg md-bg-deep-purple-50 m-r-10 pull-left"><img src="/enkidu.png"></div>
-          <h2 style="color: black;">Enkidu</h2><h5 style="color:black;">VESTING DETAILS</h5>
-        </div>
-        <div class="modal-body" style="margin-top: -30px;">
-          <div class="card-body">
-              <div class="card" style="background-color: #f5f5f5;">
-                <div class="card-body" style="background-color: #f5f5f5;">
-                   <div class="table-responsive" style="padding-top: 20px;">
-                      <table class="table table-hover">
-                            <tbody>
-								<tr style="background-color: white;">
-									<td >Available Balance</td>
-									<td >100 ENK</td>
-								</tr>
-								<tr style="background-color: white;">
-									<td>Commitment Period</td>
-									<td>2 YEARS</td>
-								</tr>
-								<tr style="background-color: white;">
-									<td>Vesting Completed</td>
-									<td>5 MONTHS</td>
-								</tr>
-								<tr style="background-color: white;">
-									<td>Total Balance</td>
-									<td>480.07 ENK</td>
-								</tr>
-	                          	<%@project_users.each do |project_user|%>
-	                              <tr style="background-color: white;">
-	                                <td><%=project_user.user.full_name%></td>
-	                                <td><%=project_user.ownership_percentage%></td>
-	                              </tr>
-	                        	<%end%>
-                            </tbody>
-                      	</table>
-                 	</div>
-                </div>
+        <%@comments.each do |comment|%>
+          <div class="col-xs-2" style="text-align: right;">
+            <img src="/enkidu.png" class="rounded-circle" style="width:60px; height:60px;">
+          </div>
+          <div class="col-xs-10">
+            <span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.full_name%></span>
+            <br>
+            <small><%= time_ago_in_words(comment.created_at) %> ago. 
+              <a href="#;" class="show-form" data-a_id="<%=comment.id%>">Edit</a>
+            </small>
+            <div class="comment_content" data-form_id="<%=comment.id%>">
+              <%=comment.comment%></div>
+            <%if comment.user_id == current_user.id%>
+              <div class="no-display form-edit" data-form_id="<%=comment.id%>">
+                <%=form_for (comment) do |f|%>
+                <%=f.text_field :comment, class: "form-control"%>
+                <%=f.submit "Submit", class: "btn btn-primary btn-sm"%>
+                <button class="btn btn-primary btn-cancel btn-sm" data-form_id="<%=comment.id%>">Cancel</button>
+              <%end%>
               </div>
-              <center><button class="btn btn-primary btn-md btn-round">Withdraw</button></center>
-            </div>
-        </div>
+            <%end%>
+          </div>
+        <%end%>
       </div>
     </div>
-</div> -->
-<!-- VESTING DETAILS END -->
+  </div>
+</div>
+<% content_for :scripts do%>
+  <script type="text/javascript">
+    $(".show-form").on("click", function(){
+      var commentId = $(this).data("a_id");
+      $(".form-edit[data-form_id="+ commentId + "]").removeClass("no-display");
+      $(".comment_content[data-form_id=" + commentId + "]").addClass("no-display");
+    });
+    $(".btn-cancel").on("click", function(e){
+      var commentId = $(this).data("form_id");
+      $(".form-edit[data-form_id="+ commentId + "]").addClass("no-display");
+      $(".comment_content[data-form_id=" + commentId + "]").removeClass("no-display");
+      e.preventDefault();
+    });
+  </script>
+<%end%>

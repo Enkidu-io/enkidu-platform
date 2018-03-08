@@ -7,14 +7,16 @@ class ResolutionProcessor
 			ProjectUser.create(project_id: bid.project.id, user_id: bid.user_id, ownership_percentage: bid.bid_percentage, vesting_period: bid.variables["vesting_period"])
 			prev_unalloc = bid.project.unallocated_percentage
 			bid.project.update!(unallocated_percentage: prev_unalloc - bid.bid_percentage)
-
+			user = User.find(bid.user_id)
+			name = user.first_name + user.last_name
+			Log.create(content: LogDescription.get('new_member', {'full_name': name, 'project_name': bid.project.title}), user_id: bid.user_id, project_id: bid.project.id)
 		when 2
 			#Remove collab
 			project_user = ProjectUser.find_by(project_id: bid.project_id, user_id: bid.user_id)
 			project_user.destroy
 			prev_unalloc = bid.project.unallocated_percentage
 			bid.project.update!(unallocated_percentage: prev_unalloc + bid.bid_percentage)
-
+			Log.create(content: LogDescription.get('remove_member', {'full_name': name, 'project_name': bid.project.title}), user_id: bid.user_id, project_id: bid.project.id)
 		when 3
 			# Vote dilution
 			project_users = ProjectUser.where(project_id: bid.project_id)

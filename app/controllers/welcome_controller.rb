@@ -3,7 +3,6 @@ class WelcomeController < ApplicationController
   end
 
   def testmodal
-
   end
 
 end

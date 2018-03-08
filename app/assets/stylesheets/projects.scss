@@ -16,6 +16,11 @@
 }
 }
 
+.comment_content{
+  font-size: 14px;
+  margin-top: 5px; 
+  margin-bottom: 15px;
+}
 
 .tiptext {
     background:#ccc;
@@ -78,6 +83,18 @@ margin-left: 420px;
 margin-top: -100px;
 
 
+}
+
+
+.rating-new{
+  background: url('/public/star.png') 0 0;
+  width: 16px;
+  height: 16px;
+  display:block;
+}
+.on{
+  
+  background-position: 0 16px;
 }
 
 

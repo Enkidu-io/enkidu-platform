@@ -5,10 +5,12 @@ class Project < ApplicationRecord
 	has_many :bids, dependent: :destroy
 	has_many :digital_contracts, dependent: :destroy
 	has_many :payment_gateways, dependent: :destroy
-	has_many :comments
-	has_many :likes
-	has_many :comments
-	has_many :views
+	has_many :comments, dependent: :destroy
+	has_many :likes, dependent: :destroy
+	has_many :comments, dependent: :destroy
+	has_many :views, dependent: :destroy
+	has_many :ratings, dependent: :destroy
+	has_many :logs, dependent: :destroy
 	acts_as_taggable_on :tags
 	
 	attr_accessor :tags

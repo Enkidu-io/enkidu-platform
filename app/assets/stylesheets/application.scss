@@ -57,6 +57,9 @@
 	z-index: 2;
 }
 
+.no-display{
+	display: none !important;
+}
 
 @media (max-device-width: 767px) {
 .bottom_width{
