@@ -28,8 +28,11 @@ class Bid < ApplicationRecord
 
   def create_bid_details
     project = self.project
+    total_bid_perc = project.project_users.sum(&:ownership_percentage)
   	project.project_users.each do |p_u|
-  		BidDetail.create!(bid_id: self.id, user_id: p_u.user_id, approval_percentage: p_u.ownership_percentage)
+      # Calculate percentage only considering project users
+      user_perc = ((p_u.ownership_percentage.to_f/total_bid_perc.to_f).to_f * 100).to_f
+  		BidDetail.create!(bid_id: self.id, user_id: p_u.user_id, approval_percentage: user_perc)
   	end
   end
 
