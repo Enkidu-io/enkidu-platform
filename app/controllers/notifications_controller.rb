@@ -5,4 +5,9 @@ class NotificationsController < ApplicationController
      	@dates = @notifications.group_by{|x| x.created_at.strftime("%Y-%m-%d")} 
 	end
 
+	# User clicks on notification icon
+	def seen
+		current_user.update(last_notified_at: DateTime.now.utc)
+	end
+
 end
