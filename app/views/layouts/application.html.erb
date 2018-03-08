@@ -183,15 +183,15 @@
                       <div class="sidebar-inner sidebar-push">
                           <ul class="nav nav-pills nav-stacked">
                               <li class="sidebar-header">NAVIGATION</li>
-                              <li class="active">
+                              <li class="<%= controller_name.eql?('projects') ? 'active' : '' %>">
                                 <a href="/"><i class="zmdi zmdi-search-in-file"></i>Browse Projects</a></li>
-                              <li >
+                              <li class="<%= controller_name.eql?('dashboards') ? 'active' : '' %>">
                                   <a href="/dashboard"><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a>
                               </li>
-                              <li >
+                              <!-- <li >
                                 <a href="#"><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
-                              </li>
-                              <li >
+                              </li> -->
+                              <li class="<%= controller_name.eql?('bids') ? 'active' : '' %>">
                                 <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>Bids</a>
                               </li>
                           </ul>
