@@ -4,7 +4,7 @@ class DigitalContract < ApplicationRecord
 	belongs_to :project
 	after_commit :check_if_two_way, on: :update
 
-	validates_presence_of :project_id, :bid_id, :user_signed, :leader_signed
+	validates_presence_of :project_id, :bid_id
 	validates_presence_of :eth_address, if: proc { user_signed == true }
 	validates :project_id, :uniqueness => { :scope => :bid_id }
 

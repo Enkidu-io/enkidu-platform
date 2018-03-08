@@ -6,19 +6,17 @@ class BidDetailsController < ApplicationController
 
 	def update
 		vote = params[:vote_data][:vote]
-		puts "The user has selected to vote " + vote
-		if vote == "yes"
-			@bid_detail.vote = true
-		else
-			@bid_detail.vote = false
+		if vote == "no"
+			@bid_detail.approval_percentage = 0.0
 		end
-		own_perc = ProjectUser.where(user_id: current_user.id, project_id: @bid_detail.bid.project.id).first.ownership_percentage
+		
 		@bid_detail.has_voted = true
-		@bid_detail.approval_percentage = @bid_detail.vote == true ? own_perc.to_f : 0.0
 		if @bid_detail.save!
+			flash[:notice] = "You've successfully voted yes."
 			render json: { msg: "Vote success", liked: true }, status: 200
 		else
-			render json: { msg: "Failed to like.", errors: like.errors }, status: 400
+			flash[:alert] = "A vote for that bid could not take place."
+			render json: { msg: "Failed to vote.", errors: @bid_detail.errors }, status: 400
 		end
 	end
 

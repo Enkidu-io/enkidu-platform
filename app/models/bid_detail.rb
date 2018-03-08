@@ -3,10 +3,10 @@ class BidDetail < ApplicationRecord
 	belongs_to :user
 	after_commit :send_approval_notification, :on => :create
 	after_commit :create_log, :on => [:update]
-	after_commit :create_digital_contract, :on => [:update], if: proc { self.bid.resolution_id == 1 }
+	after_commit :create_digital_contract, :on => [:update], if: proc { bid.resolution_id == 1 }
 	
 	validates_presence_of :bid_id, :user_id, :approval_percentage
-	validates :approval_percentage, numericality: { only_float: true, greater_than: 0.0, less_than: 100.0 }
+	validates :approval_percentage, numericality: { only_float: true, greater_than: 0.0, less_than_or_equal_to: 100.0 }
 	validates :user_id, :uniqueness => { :scope => :bid_id }
 
 	attr_accessor :vote
@@ -29,7 +29,7 @@ class BidDetail < ApplicationRecord
 			# Majority vote?
 			self.bid.update(active: false)
 			if approval_weight > 50.0
-				DigitalContract.create(bid_id: self.bid.bid_id, project_id: self.bid.project.id)
+				DigitalContract.create!(bid_id: self.bid.id, project_id: self.bid.project.id, user_signed: false, leader_signed: false)
 				NotificationProcessor.process_digital_contract(self, 1)
 			else
 				NotificationProcessor.process_digital_contract(self, 5)

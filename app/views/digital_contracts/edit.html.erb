@@ -7,7 +7,7 @@
 			<div class="card-body">
 				<div class="circle lg md-bg-deep-purple-50 m-r-9 " id="left-img-dashboard"><img src="assets/img/profiles/11.jpg" class="img-circle profile-mini" alt=""></div>
 				
-				<fieldset class="rating-left" style="margin-left: 115px !important;">
+				<!--fieldset class="rating-left" style="margin-left: 115px !important;">
 					<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
 					<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
 					<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
@@ -35,7 +35,7 @@
 					<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
 					<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 					<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-				</fieldset>
+				</fieldset-->
 				<div class="row">
 					<div class="col-md-10 col-sm-offset-1">
 						<table class="table table-hover" style="margin-top: 50px;">
@@ -66,7 +66,7 @@
 							<div class="form-group is-empty">
 								<%if current_user.id == @dc.new_employee.id%>
 									<%=f.label :eth_address%>
-									<%=f.text_field, class: "form-control input-mask", placeholder: "eg: 0x 00000000000000000", autocomplete: "off", maxlength: "15"%>
+									<%=f.text_field :eth_address, class: "form-control input-mask", placeholder: "eg: 0x 00000000000000000", autocomplete: "off", maxlength: "15"%>
 								<%end%>
 							</div>
 						</div>
