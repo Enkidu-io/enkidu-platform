@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-  before_action :set_notifications, if: :user_signed_in?
+  before_action :set_notifications_and_logs, if: :user_signed_in?
   layout :layout_by_resource
 
   def layout_by_resource
@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def set_notifications
+  def set_notifications_and_logs
       @notifications = current_user.notifications.order(created_at: :desc).limit(6)
+      @logs = current_user.logs.order(created_at: :desc)
   end
 end

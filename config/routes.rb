@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :logs
   resources :ratings, only: [:create]
   resources :comments, only: [:create, :update, :destroy]
   resources :likes, only: [:create]
