@@ -1,6 +1,6 @@
 class DigitalContractsController < ApplicationController
 
-	before_action :set_dc, only: [:update]
+	before_action :set_dc, only: [:update, :edit]
 	before_action :if_user_can_access_dc, only: [:update]
 
 	def update
@@ -17,7 +17,6 @@ class DigitalContractsController < ApplicationController
 	end
 
 	def edit
-
 	end
 
 	private

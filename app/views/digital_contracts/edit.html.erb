@@ -2,7 +2,7 @@
 	<div class="col-md-10 col-sm-offset-2">
 		<div class="card">
 			<header class="card-heading" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
-				<h2 class="card-title" style="color:white"><center>  Digital Contract</center></h2>
+				<h2 class="card-title" style="color:white"><center>Digital Contract</center></h2>
 			</header>
 			<div class="card-body">
 				<div class="circle lg md-bg-deep-purple-50 m-r-9 " id="left-img-dashboard"><img src="assets/img/profiles/11.jpg" class="img-circle profile-mini" alt=""></div>
@@ -61,17 +61,20 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-md-10 col-sm-offset-1">
-						<div class="form-group is-empty">
-							<label>ETH Address</label>
-							<input type="text" class="form-control input-mask" data-mask="000.000.000.000" placeholder="eg: 0x 00000000000000000" autocomplete="off" maxlength="15">
+					<%=form_for @dc do |f|%>
+						<div class="col-md-10 col-sm-offset-1">
+							<div class="form-group is-empty">
+								<%if current_user.id == @dc.new_employee.id%>
+									<%=f.label :eth_address%>
+									<%=f.text_field, class: "form-control input-mask", placeholder: "eg: 0x 00000000000000000", autocomplete: "off", maxlength: "15"%>
+								<%end%>
+							</div>
 						</div>
-					</div>
 				</div>
 			</div>
 			<div class="card-footer border-top" style="text-align: center">
-				<button class="btn btn-primary btn-cons btn-round btn-md" type="button" name="button" >Sign Contract
-				</button>
+				<%=f.submit "Sign Contract", class: "btn btn-primary btn-cons btn-round btn-md"%>
+				<%end%>
 			</div>
 		</div>
 	</div>
