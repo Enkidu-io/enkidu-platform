@@ -3,8 +3,10 @@ class Bid < ApplicationRecord
   belongs_to :user, :class_name => 'User', :foreign_key => 'initiater_id'
   belongs_to :resolution
   has_many :bid_details
+  has_many :notifications, dependent: :destroy
 
   after_commit :create_bid_details, on: :create
+  before_validation :format_data
 
   validates_presence_of :project_id, :resolution_id, :initiater_id
   validates_presence_of :bid_percentage, :user_id, :vesting_period, if: proc { resolution_id == 1 }
@@ -24,5 +26,10 @@ class Bid < ApplicationRecord
   	project.project_users.each do |p_u|
   		BidDetail.create!(bid_id: self.id, user_id: p_u.user_id, approval_percentage: p_u.ownership_percentage)
   	end
+  end
+
+  def format_data
+    self.bid_percentage = self.bid_percentage.to_f if self.bid_percentage.present?
+    self.vesting_period = self.vesting_period.to_i if self.vesting_period.present?
   end
 end
