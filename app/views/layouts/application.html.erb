@@ -131,11 +131,11 @@
                           <div class="card">
                             <div class="card-body">
                               <ul class="list-group ">
-                                <%= link_to notification.route do%>
                                   <li class="list-group-item" style="height: 60px;">
                                     <span class="pull-left">
                                       <img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
                                     </span>
+                                    <%= link_to notification.route do%>
                                     <div class="list-group-item-body" style="margin-top: -30px;">
                                       <div class="list-group-item-heading">
                                         <%=notification.notification_type.notification_content%>
@@ -144,15 +144,15 @@
                                           <%=notification.notification_description%>
                                       </div>
                                     </div>
+                                    <%end%>
                                   </li>
-                                <% end %>
                               </ul>
                             </div>
                           </div>
                         </li>
                       <%end%>
                     <li class="dropdown-menu-footer">
-                      <a href="/notification">
+                      <a href="/notifications">
                         All notifications
                       </a>
                     </li>
