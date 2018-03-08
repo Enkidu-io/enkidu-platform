@@ -101,9 +101,13 @@
                   </li>
                 </ul>
               </li>
-              <li class="dropdown hidden-xs hidden-sm">
-                <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
-                <span class="badge mini status danger"></span>
+              <li class="dropdown hidden-xs hidden-sm" id="notif-dropdown">
+                <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false" id="notif-btn">
+                <% if @notifications.count > 0 && current_user.last_notified_at < @notifications.first.created_at %>
+                  <span id="notif-status" class="badge mini status danger"></span>
+                <% else %>
+                  <span id="notif-status" class=""></span>
+                <% end %>
                 <i class="zmdi zmdi-notifications"></i>
                 </a>
                   <ul class="dropdown-menu dropdown-lg-menu dropdown-menu-right dropdown-alt">
@@ -265,6 +269,34 @@
       </aside>
       </div>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <script type="text/javascript">
+          var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+          $(document).ready(function(){
+            $("#notif-btn").click(function(){
+              if(! $("#notif-dropdown").hasClass("open")){
+                console.log("CLICKED");
+                notifSpan = $(this).find("#notif-status");
+                notifSpan.attr('class', '');
+                $.ajax({
+                  url: "<%= notify_seen_path %>",
+                  type: "POST",
+                  dataType: "json",
+                  data: {
+                    'authenticity_token' : AUTH_TOKEN
+                  },
+                  success: function (data, status, jqXHR) {
+                    console.log("NOTIFY SEEN SUCCESS");
+                    
+                  },
+                  error: function (jqXHR, status, err) {
+                    console.log("NOTIFY SEEN FAILED");
+                  }
+                })
+              }
+            });
+          });
+
+      </script>
       <%= yield :scripts %>
   </body>
 </html>

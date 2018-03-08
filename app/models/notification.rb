@@ -3,6 +3,7 @@ class Notification < ApplicationRecord
 	
 	belongs_to :user
 	belongs_to :notification_type
+	belongs_to :bid
 
 	validates_presence_of :user_id, :notification_type_id, :notification_description, :bid_id
 
