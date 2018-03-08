@@ -60,22 +60,6 @@
       </div>
     </div>
 
-    <div id="notificationModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- dialog body -->
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        sadfdsd
-      </div>
-      <!-- dialog buttons -->
-      <div class="modal-footer"><button type="button" class="btn btn-primary">YES</button></div>
-      <div class="modal-footer"><button type="button" class="btn btn-primary">NO</button></div>
-    </div>
-  </div>
-</div>
-
-
 
     <div id="app_wrapper">
       <header id="app_topnavbar-wrapper">
@@ -136,7 +120,7 @@
                                       <img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
                                     </span>
                                     <%= link_to notification.route do%>
-                                    <div class="list-group-item-body" style="margin-top: -30px;">
+                                    <div class="list-group-item-body" style="margin-top: -40px;">
                                       <div class="list-group-item-heading">
                                         <%=notification.notification_type.notification_content%>
                                       </div>
@@ -197,13 +181,13 @@
                               <li class="sidebar-header">NAVIGATION</li>
                               <li class="active">
                                 <a href="/"><i class="zmdi zmdi-search-in-file"></i>Browse Projects</a></li>
-                              <li class="active">
+                              <li >
                                   <a href="/dashboard"><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a>
                               </li>
-                              <li class="active">
+                              <li >
                                 <a href="#"><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
                               </li>
-                              <li class="active">
+                              <li >
                                 <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>Bids</a>
                               </li>
                           </ul>
