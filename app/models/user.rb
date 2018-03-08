@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :bid_details
   has_many :notifications 
   has_many :logs, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :views, dependent: :destroy
 
   before_validation :format_data, on: :create
 
