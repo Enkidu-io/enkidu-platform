@@ -102,8 +102,8 @@
                 </ul>
               </li>
               <li class="dropdown hidden-xs hidden-sm">
-                <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
-                <span class="badge mini status danger"></span>
+                <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false" id="notif-btn">
+                <span id="notif-status" class="badge mini status danger"></span>
                 <i class="zmdi zmdi-notifications"></i>
                 </a>
                   <ul class="dropdown-menu dropdown-lg-menu dropdown-menu-right dropdown-alt">
@@ -265,6 +265,17 @@
       </aside>
       </div>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <script type="text/javascript">
+          
+          $(document).ready(function(){
+            $("#notif-btn").click(function(){
+              console.log("CLICKED");
+              notifSpan = $(this).find("#notif-status");
+              notifSpan.attr('class', '');
+            });
+          });
+
+      </script>
       <%= yield :scripts %>
   </body>
 </html>

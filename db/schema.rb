@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308084723) do
+ActiveRecord::Schema.define(version: 20180308135645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,11 +117,11 @@ ActiveRecord::Schema.define(version: 20180308084723) do
     t.integer "leader_id"
     t.float "treasury_percentage"
     t.text "project_intro"
+    t.integer "view_count", default: 0
     t.integer "likes_count", default: 0
     t.integer "comments_count", default: 0
     t.integer "views_count", default: 0
     t.integer "ratings_count", default: 0
-    t.integer "view_count", default: 0
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20180308084723) do
     t.integer "age"
     t.date "dob"
     t.string "country"
+    t.datetime "last_notified_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
