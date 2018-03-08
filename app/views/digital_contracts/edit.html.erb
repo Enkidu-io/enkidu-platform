@@ -4,31 +4,39 @@
 			<header class="card-heading" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
 				<h2 class="card-title" style="color:white"><center>Digital Contract</center></h2>
 			</header>
-			<div class="card-body">
+			<div class="card-body" style="text-align: center;">
 				<div class="row">
 					<div class="col-xs-4">
 						<%=image_tag "img/profiles/blank_profile.svg", class: "img-circle profile-mini img-center", height: "100px", width: "100px"%>
+						<p><%= @dc.leader.full_name %></p>
 					</div>
 					<div class="col-xs-4">
 						<img src="/Arrows-01.png" alt="" width="130px" height="100px" class="img-center"></img>
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-4" style="text-align: center;">
 						<%=image_tag "img/profiles/blank_profile.svg", class: "img-circle profile-mini img-center", height: "100px", width: "100px"%>
+						<p><%= @dc.new_employee.full_name %></p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-10 col-sm-offset-1">
 						<div class="form-group is-empty">
-							<label>ETH Address</label>
-							<input type="text" class="form-control input-mask" data-mask="000.000.000.000" placeholder="eg: 0x 00000000000000000" autocomplete="off" maxlength="15">
+							<%=form_for @dc do |f|%>
+								<div class="col-md-10 col-sm-offset-1">
+									<div class="form-group is-empty">
+										<%if current_user.id == @dc.new_employee.id%>
+											<%=f.label :eth_address, 'ETH Address'%>
+											<%=f.text_field :eth_address, class: "form-control input-mask", placeholder: "eg: 0x 00000000000000000", autocomplete: "off", maxlength: "15"%>
+										<%end%>
+									</div>
+									<div class="form-group" style="text-align: center;">
+										<%=f.submit "Sign Contract", class: "btn btn-primary btn-cons btn-round btn-md"%>
+									</div>
+								</div>
+							<%end%>
 						</div>
 					</div>
 				</div>
-				
-			</div>
-			<div class="card-footer border-top" style="text-align: center">
-				<button class="btn btn-primary btn-cons btn-round btn-md" type="button" name="button" >Sign Contract
-				</button>
 			</div>
 		</div>
 	</div>

@@ -6,13 +6,13 @@ class BidDetailsController < ApplicationController
 
 	def update
 		vote = params[:vote_data][:vote]
-		if vote == "no"
+		if vote != "yes"
 			@bid_detail.approval_percentage = 0.0
 		end
 		
 		@bid_detail.has_voted = true
 		if @bid_detail.save!
-			flash[:notice] = "You've successfully voted yes."
+			flash[:notice] = "You've successfully voted "+vote
 			render json: { msg: "Vote success", liked: true }, status: 200
 		else
 			flash[:alert] = "A vote for that bid could not take place."

@@ -34,7 +34,7 @@
 				<h5 class="available-balance" style="margin-top: -25px; margin-left: 52%; color: #595959; font-family: 'Lato', sans-serif;">
 				AVAILABLE BALANCE:
 				<span style="font-size: 17px;">
-					<b>93 ENK</b>
+					<b>100 ENK</b>
 				</span>
 				</h5>
 			</header>
@@ -82,16 +82,16 @@
 									<%project.project_users.each do |project_user|%>
 									<tr style="background-color: white;">
 										<td><%=project_user.user.email%></td>
-										<td><%=project_user.ownership_percentage%></td>
+										<td><%=project_user.ownership_percentage.round(2)%></td>
 									</tr>
 									<%end%>
 									<tr style="background-color: white">
 										<td>Treasury</td>
-										<td><%=project.treasury_percentage%></td>
+										<td><%=project.treasury_percentage.round(2)%></td>
 									</tr>
 									<tr style="background-color: white;">
 										<td>Unallocated percentage</td>
-										<td><%=project.unallocated_percentage%></td>
+										<td><%=project.unallocated_percentage.round(2)%></td>
 									</tr>
 								</tbody>
 							</table>

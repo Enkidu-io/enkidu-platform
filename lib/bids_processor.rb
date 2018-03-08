@@ -62,7 +62,7 @@ class BidsProcessor
 			elsif project.has_employee?(params[:bid][:user_id].to_i)
 				return false, "<b>Invalid request!</b>"
 			else
-				remove_user = User.find(params[:bid][:user_id].to_i)
+				remove_user = User.where(email: params[:bid][:email]).first
 				if remove_user.nil?
 					return false, "User could not be found."
 				end
