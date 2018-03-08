@@ -1,7 +1,7 @@
 class BidDetailsController < ApplicationController
 
 	before_action :set_bid_detail, only: [:update, :edit]
-	before_action :if_user_can_access_bid?, only: [:update]
+	before_action :if_user_can_access_bid?, only: [:update, :edit]
 	before_action :configure_params, only: [:update]
 
 	def update
