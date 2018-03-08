@@ -16,6 +16,10 @@ class BidDetailsController < ApplicationController
 		end
 	end
 
+	def edit
+
+	end
+
 	private
 
 		def if_user_can_access_bid

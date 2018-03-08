@@ -108,56 +108,56 @@
                     <span class="caret"></span>
                   </span>
                 </a>
-
-                          <ul class="dropdown-menu btn-primary dropdown-menu-right">
-                              <li>
-                                  <%= link_to  destroy_user_session_path,:placeholder => "Log out", :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
-                                      <i class="zmdi zmdi-sign-in"></i> Sign Out
-                                      <%end%>
-                              </li>
-                          </ul>
-                      </li>
-                      <li class="dropdown hidden-xs hidden-sm">
-                          <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
+                <ul class="dropdown-menu btn-primary dropdown-menu-right">
+                  <li>
+                    <%= link_to  destroy_user_session_path,:placeholder => "Log out", :method => :delete, class: 'clearfix bg-master-lighter dropdown-item', style: 'color:black' do %>
+                      <i class="zmdi zmdi-sign-in"></i> Sign Out
+                    <%end%>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs hidden-sm">
+                <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="false">
                 <span class="badge mini status danger"></span>
                 <i class="zmdi zmdi-notifications"></i>
-              </a>
-                          <ul class="dropdown-menu dropdown-lg-menu dropdown-menu-right dropdown-alt">
-                              <li class="dropdown-menu-header">
-                                  <h5>NOTIFICATIONS</h5>
-                              </li>
-                              <%@notifications.each do |notification|%>
-                                  <li>
-                                      <div class="card">
-                                          <div class="card-body">
-                                              <ul class="list-group ">
-                                                  <li class="list-group-item" style="height: 60px;">
-                                                      <span class="pull-left">
-                                                        <%= link_to notification_path do%>
-                                                        <img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 "></span>
-                                                      <div class="list-group-item-body" style="margin-top: -30px;">
-                                                          <div class="list-group-item-heading">
-                                                              <%=notification.notification_type.notification_content%>
-                                                          </div>
-                                                          <div class="list-group-item-text">
-                                                              <%=notification.notification_description%>
-                                                          </div>
-                                                      </div>
-                                                      
-                                                  </li><%end%>
-                                              </ul>
-                                          </div>
+                </a>
+                  <ul class="dropdown-menu dropdown-lg-menu dropdown-menu-right dropdown-alt">
+                    <li class="dropdown-menu-header">
+                      <h5>NOTIFICATIONS</h5>
+                    </li>
+                      <%@notifications.each do |notification|%>
+                        <li>
+                          <div class="card">
+                            <div class="card-body">
+                              <ul class="list-group ">
+                                <%= link_to notification.route do%>
+                                  <li class="list-group-item" style="height: 60px;">
+                                    <span class="pull-left">
+                                      <img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 ">
+                                    </span>
+                                    <div class="list-group-item-body" style="margin-top: -30px;">
+                                      <div class="list-group-item-heading">
+                                        <%=notification.notification_type.notification_content%>
                                       </div>
+                                      <div class="list-group-item-text">
+                                          <%=notification.notification_description%>
+                                      </div>
+                                    </div>
                                   </li>
-                                  <%end%>
-                                      <li class="dropdown-menu-footer">
-                                          <a href="/notification">
-                    All notifications
-                  </a>
-                                      </li>
-                          </ul>
-                      </li>
-                      <li class="last">
+                                <% end %>
+                              </ul>
+                            </div>
+                          </div>
+                        </li>
+                      <%end%>
+                    <li class="dropdown-menu-footer">
+                      <a href="/notification">
+                        All notifications
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="last">
               <a href="javascript:void(0)" data-toggle-state="sidebar-overlay-open" data-key="rightSideBar">
                 <i class="mdi mdi-playlist-plus"></i>
               <div class="ripple-container"></div></a>
