@@ -12,103 +12,104 @@
 </div>
 <% end %>
 <div class="row">
-	<%@projects.each do |project|%>
-	<div class="col-xs-12 col-sm-11 col-sm-offset-1" >
-		<div class="card card-index">
-			<header class="card-heading card-dashboard border-bottom">
-				<%= link_to project_path(project) do%>
-				<h1><%=project.title%></h1>
-				<%end%>
-				<!--fieldset class="rating-dashboard" >
-					<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-					<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-					<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-					<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-					<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-					<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-				</fieldset-->
-				<h5 class="available-balance" style="margin-top: -25px; margin-left: 52%; color: #595959; font-family: 'Lato', sans-serif;">
-				AVAILABLE BALANCE:
-				<span style="font-size: 17px;">
-					<b>100 ENK</b>
-				</span>
-				</h5>
-			</header>
-			<nav class="btn-fab-group">
-				<button class="btn btn-sm fab-menu btn-round resolution-btn" data-fab="down">
-				<span style="color:#eee; font-size: 14px;">Resolutions &nbsp;</span>
-				<i class="zmdi zmdi-plus" style="color:white; margin-bottom: 3px;"></i>
-				</button>
-				<ul class="nav-sub">
-					<li style="transform: translateY(10px);">
-						<span data-toggle="modal" data-target="#Modal-add-collaborator">
-							<button type="button" class="btn btn-sm btn-primary btn-round z-transform btn-copy-project-id" data-placement="right" data-toggle="tooltip" data-project-id="<%=project.id%>" data-target="#Modal" data-original-title="Add Collaborator" i>
-							<i class="zmdi zmdi-plus"></i>
-							</button>
-						</span>
-					</li>
-					<li style="transform: translateY(10px);">
-						<span data-toggle="modal" data-target="#Modal-remove-collaborator">
-							<button type="button" class="btn btn-sm btn-primary btn-round btn-copy-project-id" data-placement="left" data-toggle="tooltip" data-target="#myModal" data-project-id="<%=project.id%>" data-original-title="Remove Collaborator" i>
-							<i class="zmdi zmdi-delete"></i>
-							</button>
-						</span>
-					</li>
-					<li style="transform: translateY(10px);">
-						<span data-toggle="modal" data-target="#Modal-dilute">
-							<button type="button" class="btn btn-sm btn-primary btn-round btn-copy-project-id" data-placement="right" data-toggle="tooltip" data-target="#myModal" data-project-id="<%=project.id%>" data-original-title="Vote Dilution" i>
-							<i class="zmdi zmdi-eyedropper"></i>
-							</button>
-						</span>
-					</li>
-				</ul>
-			</nav>
-			<div class="row">
-				<div class="col-xs-10">
-					<div class="card-body" >
-						<div class=""> Cap Table:
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th>User</th>
-										<th>Ownership</th>
-									</tr>
-								</thead>
-								<tbody>
-									<%project.project_users.each do |project_user|%>
-									<tr style="background-color: white;">
-										<td><%=project_user.user.email%></td>
-										<td><%=project_user.ownership_percentage.round(2)%></td>
-									</tr>
-									<%end%>
-									<tr style="background-color: white">
-										<td>Treasury</td>
-										<td><%=project.treasury_percentage.round(2)%></td>
-									</tr>
-									<tr style="background-color: white;">
-										<td>Unallocated percentage</td>
-										<td><%=project.unallocated_percentage.round(2)%></td>
-									</tr>
-								</tbody>
-							</table>
+  <div class="col-xs-12">
+  	<%@projects.each do |project|%>
+		<div class="col-xs-12 col-sm-6" >
+			<div class="card card-index">
+				<header class="card-heading card-dashboard border-bottom">
+					<%= link_to project_path(project) do%>
+						<h1><%=project.title%></h1>
+					<%end%>
+						<!--fieldset class="rating-dashboard" >
+							<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+							<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+							<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+							<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+							<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+							<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+							<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+							<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+							<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+							<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+					</fieldset-->
+					<h5 class="available-balance" style="margin-top: -25px; margin-left: 52%; color: #595959; font-family: 'Lato', sans-serif;">
+					AVAILABLE BALANCE:
+					<span style="font-size: 17px;">
+						<b>100 ENK</b>
+					</span>
+					</h5>
+				</header>
+				<nav class="btn-fab-group">
+					<button class="btn btn-sm fab-menu btn-round resolution-btn" data-fab="down">
+					<span style="color:#eee; font-size: 14px;">Resolutions &nbsp;</span>
+					<i class="zmdi zmdi-plus" style="color:white; margin-bottom: 3px;"></i>
+					</button>
+					<ul class="nav-sub">
+						<li style="transform: translateY(10px);">
+							<span data-toggle="modal" data-target="#Modal-add-collaborator">
+								<button type="button" class="btn btn-sm btn-primary btn-round z-transform btn-copy-project-id" data-placement="right" data-toggle="tooltip" data-project-id="<%=project.id%>" data-target="#Modal" data-original-title="Add Collaborator" i>
+								<i class="zmdi zmdi-plus"></i>
+								</button>
+							</span>
+						</li>
+						<li style="transform: translateY(10px);">
+							<span data-toggle="modal" data-target="#Modal-remove-collaborator">
+								<button type="button" class="btn btn-sm btn-primary btn-round btn-copy-project-id" data-placement="left" data-toggle="tooltip" data-target="#myModal" data-project-id="<%=project.id%>" data-original-title="Remove Collaborator" i>
+								<i class="zmdi zmdi-delete"></i>
+								</button>
+							</span>
+						</li>
+						<li style="transform: translateY(10px);">
+							<span data-toggle="modal" data-target="#Modal-dilute">
+								<button type="button" class="btn btn-sm btn-primary btn-round btn-copy-project-id" data-placement="right" data-toggle="tooltip" data-target="#myModal" data-project-id="<%=project.id%>" data-original-title="Vote Dilution" i>
+								<i class="zmdi zmdi-eyedropper"></i>
+								</button>
+							</span>
+						</li>
+					</ul>
+				</nav>
+				<div class="row">
+					<div class="col-xs-10">
+						<div class="card-body">
+							<div class=""> Cap Table:
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>User</th>
+											<th>Ownership</th>
+										</tr>
+									</thead>
+									<tbody>
+										<%project.project_users.each do |project_user|%>
+										<tr style="background-color: white;">
+											<td><%=project_user.user.email%></td>
+											<td><%=project_user.ownership_percentage.round(2)%></td>
+										</tr>
+										<%end%>
+										<tr style="background-color: white">
+											<td>Treasury</td>
+											<td><%=project.treasury_percentage.round(2)%></td>
+										</tr>
+										<tr style="background-color: white;">
+											<td>Unallocated percentage</td>
+											<td><%=project.unallocated_percentage.round(2)%></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
+				<!--button type="button" class="btn btn-md btn-primary btn-round " data-toggle="modal" data-target="#Modal-payment">
+					Add Payment Gateway
+				</button-->
 			</div>
-			<button type="button" class="btn btn-sm btn-primary btn-round " data-toggle="modal" data-target="#Modal-payment" style="margin-left: 24px; margin-bottom: 15px; height: 35px; " i>
-			Add Payment Gateway
-			</button>
 		</div>
-	</div>
 	<%end%>
+  </div>
 </div>
 <div class="modal fade" id="Modal-payment" role="dialog" style="background-color:#263238;">
 	<div class="modal-dialog">
-		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -135,7 +136,6 @@
 </div>
 <div class="modal fade" id="Modal-add-collaborator" role="dialog" style="background-color:#263238;">
 	<div class="modal-dialog">
-		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -143,78 +143,78 @@
 			</div>
 			<div class="modal-body">
 				<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
-				<div class="form-group modal-form-index">
+					<div class="form-group modal-form-index">
+						<p>
+							<%= f.label :Email_id %><br>
+							<%= f.email_field :email ,:placeholder => "Enter email id" ,class: "form-control" %>
+						</p>
+					</div>
+					<div class="form-group modal-form-index">
+						<%= f.label :bid_percentage, "Enter your bid"%>
+						<%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
+						<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
+						<%= f.hidden_field :resolution_id, value: "1"%>
+					</div>
+					<div class="form-group modal-form-index">
+						<%= f.label :vesting_period, "Enter vesting period"%>
+						<%= f.number_field :vesting_period, :placeholder => "Vesting Period" ,class: "form-control" %>
+					</div>
 					<p>
-						<%= f.label :Email_id %><br>
-						<%= f.email_field :email ,:placeholder => "Enter email id" ,class: "form-control" %>
+						<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
 					</p>
-				</div>
-				<div class="form-group modal-form-index">
-					<%= f.label :bid_percentage, "Enter your bid"%>
-					<%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
-					<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
-					<%= f.hidden_field :resolution_id, value: "1"%>
-				</div>
-				<div class="form-group modal-form-index">
-					<%= f.label :vesting_period, "Enter vesting period"%>
-					<%= f.number_field :vesting_period, :placeholder => "Vesting Period" ,class: "form-control" %>
-				</div>
-				<p>
-					<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
-				</p>
 				<%end%>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="modal fade" id="Modal-remove-collaborator" role="dialog" style="background-color:#263238;">
-	<div class="modal-dialog">
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Remove Collaborator</h4>
-			</div>
-			<div class="modal-body">
-				<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
-				<div class="form-group modal-form-index">
-					<p>
-						<%= f.label :Email_id ,class: "control-label"%><br>
-						<%= f.email_field :email,:placeholder => "Enter email id of the collaborator" ,class: "form-control" %>
-						<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
-						<%= f.hidden_field :resolution_id, value: "2"%>
-					</p>
-				</div>
+<div class="modal-dialog">
+	<!-- Modal content-->
+	<div class="modal-content">
+		<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Remove Collaborator</h4>
+		</div>
+		<div class="modal-body">
+			<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
+			<div class="form-group modal-form-index">
 				<p>
-					<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
+					<%= f.label :Email_id ,class: "control-label"%><br>
+					<%= f.email_field :email,:placeholder => "Enter email id of the collaborator" ,class: "form-control" %>
+					<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
+					<%= f.hidden_field :resolution_id, value: "2"%>
 				</p>
-				<%end%>
 			</div>
+			<p>
+				<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
+			</p>
+			<%end%>
 		</div>
 	</div>
 </div>
+</div>
 <div class="modal fade" id="Modal-dilute" role="dialog" style="background-color:#263238;">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">DILUTE</h4>
-			</div>
-			<div class="modal-body">
-				<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
-				<div class="form-group modal-form-index">
-					<p>
-						<%= f.label :bid_percentage %><br>
-						<%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
-						<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
-						<%= f.hidden_field :resolution_id, value: "3"%>
-					</p>
-				</div>
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">DILUTE</h4>
+		</div>
+		<div class="modal-body">
+			<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
+			<div class="form-group modal-form-index">
 				<p>
-					<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
+					<%= f.label :bid_percentage %><br>
+					<%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
+					<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
+					<%= f.hidden_field :resolution_id, value: "3"%>
 				</p>
-				<%end%>
 			</div>
+			<p>
+				<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
+			</p>
+			<%end%>
 		</div>
 	</div>
+</div>
 </div>
