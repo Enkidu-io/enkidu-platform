@@ -100,7 +100,6 @@
                       <tr style="background-color: white;">
                         <td style="text-align: center">
                           <% name_for = bid.user_id.nil? ? '-' : User.find(bid.user_id).full_name  %>
-                          <%= name_for %>
                           <% if name_for == '-' %>
                             <h5 style="margin-top: 10px;"></h5> 
                           <% else %>
