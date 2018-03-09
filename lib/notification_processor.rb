@@ -6,6 +6,7 @@ class NotificationProcessor
 		resolution = bid.resolution_id
 
 		case resolution
+			
 		# Add Collaborator
 		when 1
 			variables = { full_name: User.find(bid.user_id).full_name, title: project.title, bid_percentage: bid.bid_percentage}
