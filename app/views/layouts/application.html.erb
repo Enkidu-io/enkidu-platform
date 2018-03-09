@@ -25,33 +25,33 @@
                 <p>
                     <%= f.label :Title ,class: "control-label"%>
                     <br>
-                    <%= f.text_field :title,:placeholder => "Enter Title" ,class: "form-control" %>
+                    <%= f.text_field :title,:placeholder => "Enter title of your project" ,class: "form-control" %>
                 </p>
               </div>
               <div class="form-group modal-form-index">
                 <p>
                   <%= f.label :Description %>
                   <br>
-                  <%= f.text_field :description,:placeholder => "Enter Description" ,class: "form-control" %>
+                  <%= f.text_field :description,:placeholder => "Enter a description of your project" ,class: "form-control" %>
                 </p>
               </div>
               <div class="form-group modal-form-index">
                 <p>
                   <%= f.label :Leader_allocation %>
                   <br>
-                  <%= f.number_field :leader_allocation,:placeholder => "Leader allocation" ,class: "form-control" %>
+                  <%= f.number_field :leader_allocation,:placeholder => "Enter your percentage of stake for this project." ,class: "form-control" %>
                 </p>
               </div>
               <div class="form-group modal-form-index">
                 <p>
                   <%= f.label :Treasury_allocation %>
                   <br>
-                  <%= f.number_field :treasury_percentage,:placeholder => "Treasury percentage" ,class: "form-control" %>
+                  <%= f.number_field :treasury_percentage,:placeholder => "Enter treasury percentage for this project." ,class: "form-control" %>
                 </p>
               </div>
               <div class="form-group modal-form-index">
                 <%=f.label "Looking for"%>
-                <%=f.text_field :tags, class: "form-control", placeholder: "Separate multiple tags by comma"%>
+                <%=f.text_field :tags, class: "form-control", placeholder: "Enter tags for this project. Separate multiple tags by comma"%>
               </div>
               <%= f.submit "Submit" , class: "btn btn-primary btn-cons btn-round"%>
             <%end%>
@@ -217,6 +217,7 @@
           <div id="content" class="container-fluid">
               <div class="content-body content">
                   <%= render 'partials/flash' %>
+                  <%= render 'partials/notifs' %>
                   <%=yield%>
               </div>
           </div>
