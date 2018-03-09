@@ -110,10 +110,10 @@
           </div>
         </div>
       </div>
-      <div class="row" style="margin-top: 16px;">
+      <div class="row">
         <%@comments.each do |comment|%>
           <div class="col-xs-2" style="text-align: right;">
-            <img src="/enkidu.png" class="rounded-circle" style="width:60px; height:60px;">
+            <img src="/enkidu.png" class="rounded-circle hide-mobile" style="width:60px; height:60px;">
           </div>
           <div class="col-xs-10">
             <span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.full_name%></span>

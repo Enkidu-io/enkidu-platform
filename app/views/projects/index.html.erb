@@ -239,32 +239,5 @@
         <% end %>
       </div>
     </div>
-    </div>
+  </div>
 </div>
-
-<script type="text/javascript">
-  
-  function sendCheckRequest(e, postId){
-    e.preventDefault();
-
-    var img = document.getElementById("like");
-img.src="https://www.spreadshirt.com/image-server/v1/mp/designs/1012418524,width=178,height=178/facebook-like-button-emojis.png";
-return false;
-    console.log("Logged post ID "+postId);
-  $.ajax({
-    url: '../set_likes',
-    type: "GET",
-    data: {'post_id': postId},
-    dataType: "json",
-    // success: function(postId){
-    //  // alert("Success");
-    // },
-    // error: function(data){
-    //  // alert('Failure');
-    //  console.log(data.responseText);
-    // }
-  });
-  // location.reload();
-}
-
-</script>
