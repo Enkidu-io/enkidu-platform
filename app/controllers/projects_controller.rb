@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
 		end
 		order_projects_by = "created_at desc" unless order_params.present?
 		@search = Project.ransack(params[:q])
-		@projects = @search.result.order("#{order_params}").select { |p| p unless p.has_employee?(current_user.id)  }
+		@projects = @search.result.order("#{order_projects_by}").select { |p| p unless p.has_employee?(current_user.id)  }
 	end
 
 	def show

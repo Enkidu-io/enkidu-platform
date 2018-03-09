@@ -40,10 +40,18 @@
   height: 350px;
 }
 
-.card-text {
-    word-wrap: break-word;
+.card-index-heading{
+  height: 100px;
 }
 
+.card-text {
+  word-wrap: break-word;
+}
+
+.card-project-info{
+  height: 100px;
+  overflow: auto;
+}
 
 .projects-holder{
   height: 80vh;
@@ -51,6 +59,8 @@
 
 .btn-apply-index{
   float: right;
+  position: relative;
+  bottom: 28px;
 }
 
 
