@@ -19,6 +19,7 @@ class Project < ApplicationRecord
 	before_validation :check_percentages, on: :create
 
 	validates_presence_of :title, :description, :unallocated_percentage, :treasury_percentage
+	validates_uniqueness_of :title
 
 	def has_employee?(user_id)
 		self.users.pluck(:id).include?(user_id)
