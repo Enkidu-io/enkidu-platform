@@ -6,6 +6,7 @@ class NotificationProcessor
 		resolution = bid.resolution_id
 
 		case resolution
+		# Add Collaborator
 		when 1
 			variables = { full_name: User.find(bid.user_id).full_name, title: project.title, bid_percentage: bid.bid_percentage}
 			description = NotificationDescription.getDescription(
@@ -14,14 +15,18 @@ class NotificationProcessor
 			Notification.create(user_id: bid_detail.user_id, notification_type_id: 2,
 				notification_description: description, bid_id: bid.id)
 
+		# Remove Collaborator
 		when 2
 			variables = { full_name: User.find(bid.user_id ).full_name, title: project.title }
+			# Notify which type of member?
+			voted_out_member = (bid_detail.user_id != bid.user_id)
 			description = NotificationDescription.getDescription(
-				3, true, variables)
+				3, voted_out_member, variables)
 			
 			Notification.create(user_id: bid_detail.user_id, notification_type_id: 3,
 					notification_description: description, bid_id: bid.id)
 		
+		# Vote Dilution
 		when 3
 			variables = { full_name: User.find(bid.initiater_id ).full_name, title: project.title }
 			description = NotificationDescription.getDescription(
