@@ -15,6 +15,10 @@ class BidsController < ApplicationController
     end
   end
 
+  def history
+    @bids =  Bid.where("variables ->> 'user_id' = ?", current_user.id.to_s)
+  end
+
   def create
       @bid = Bid.new(bid_params)
       @bid.initiater_id = current_user.id

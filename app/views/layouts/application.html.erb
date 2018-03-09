@@ -194,8 +194,8 @@
                               <li class="<%= controller_name.eql?('bids') ? 'active' : '' %>">
                                 <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>Resolution History</a>
                               </li>
-                              <li class="<%= controller_name.eql?('bids') ? 'active' : '' %>">
-                                <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>My Bid History</a>
+                              <li class="<%= controller_name.eql?('bids') && action_name.eql?('history') ? 'active' : '' %>">
+                                <a href="<%=bid_history_path%>"><i class="zmdi zmdi-border-color"></i>My Bid History</a>
                               </li>
                           </ul>
                       </div>
