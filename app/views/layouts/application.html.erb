@@ -186,13 +186,16 @@
                               <li class="<%= controller_name.eql?('projects') ? 'active' : '' %>">
                                 <a href="/"><i class="zmdi zmdi-search-in-file"></i>Browse Projects</a></li>
                               <li class="<%= controller_name.eql?('dashboards') ? 'active' : '' %>">
-                                  <a href="/dashboard"><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a>
+                                  <a href="/dashboard"><i class="zmdi zmdi-view-dashboard"></i>My Teams</a>
                               </li>
                               <!-- <li >
                                 <a href="#"><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
                               </li> -->
-                              <li class="<%= controller_name.eql?('bids') ? 'active' : '' %>">
-                                <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>Bids</a>
+                              <li class="<%= controller_name.eql?('bids') && !action_name.eql?('history') ? 'active' : '' %>">
+                                <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>Resolution History</a>
+                              </li>
+                              <li class="<%= controller_name.eql?('bids') && action_name.eql?('history') ? 'active' : '' %>">
+                                <a href="<%=bid_history_path%>"><i class="zmdi zmdi-border-color"></i>My Bid History</a>
                               </li>
                           </ul>
                       </div>
@@ -223,13 +226,17 @@
         <div class="sidebar-inner sidebar-overlay">
           <div class="tab-pane fade active in" id="sidebar_activity">
             <div class="sidebar-timeline">
-              <% @logs.each do |log| %>
-              <div class="time-item">
-                <div class="item-info">
-                  <small class="text-muted"><%= time_ago_in_words(log.created_at) %> ago<span class="text-danger"><b>&nbsp;&nbsp;(<%= log.project.title %>)</b></span></small>
-                  <p style="font-weight: bold;"><%= log.content.html_safe %></p>
+              <% if @logs.count > 0 %>
+                <% @logs.each do |log| %>
+                <div class="time-item">
+                  <div class="item-info">
+                    <small class="text-muted"><%= time_ago_in_words(log.created_at) %> ago<span class="text-danger"><b>&nbsp;&nbsp;(<%= log.project.title %>)</b></span></small>
+                    <p style="font-weight: bold;"><%= log.content.html_safe %></p>
+                  </div>
                 </div>
-              </div>
+                <% end %>
+              <% else %>
+                <h5>No logs added yet.</h5>
               <% end %>
             </div>
           </div>
