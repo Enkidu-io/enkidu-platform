@@ -36,7 +36,9 @@
     height:400px;
 }
 
-
+.card-index{
+  height: 350px;
+}
 
 .card-text {
     word-wrap: break-word;
@@ -45,17 +47,12 @@
 
 .projects-holder{
   height: 80vh;
-  overflow: auto;
 }
 
 .btn-apply-index{
-float: right;
-top:42px;
+  float: right;
 }
 
-.content{
-  overflow: auto;
-}
 
 @media screen and (min-width: 768px) {
     .dropdown.dropdown-lg {
@@ -262,7 +259,6 @@ margin-top:-4px;
 
 @media screen and (min-width: 768px) {
     #adv-search {
-        width: 500px;
         margin: 0 auto;
     }
     .dropdown.dropdown-lg {
