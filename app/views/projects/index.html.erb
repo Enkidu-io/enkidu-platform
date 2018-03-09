@@ -134,7 +134,7 @@ console.log("LIKE FAILED");
         <div class="row">
           <%@projects.each do |project|%>
             <div class="col-xs-12 col-sm-4">
-              <div class="card card-index" style="background-color: #FAFAFA;">
+              <div class="card card-index">
                 <header class="card-heading card-index-heading border-bottom">
                   <%= link_to project_path(project) do%>
                     <h4 class="project-title-index"><%=truncate(project.title, length: 40)%></h4>
@@ -154,7 +154,7 @@ console.log("LIKE FAILED");
                 </header>
                 <div class="card-body card-text card-project-info">
                   <div>
-                    <img class="img-center" height=100px width="100px" src="/enkidu.png">
+                    <img class="img-center" height=100px src="/enkidu.png">
                   </div>
                   <h5 class="project-description-index"><%=truncate(project.description, length: 100)%></h5>
                   <div class="relative-div">

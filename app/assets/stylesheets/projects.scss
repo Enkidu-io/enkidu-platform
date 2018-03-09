@@ -8,12 +8,12 @@
 }
 
 @media (max-width: 768px){
-.hide-mobile{
-  display: none;
-}
-.form-position{
-  margin-left: 25px;
-}
+  .hide-mobile{
+    display: none;
+  }
+  .form-position{
+    margin-left: 25px;
+  }
 }
 
 .comment_content{
@@ -41,11 +41,7 @@
 
 .card-index{
   height: 350px;
-  border-radius: 10px;
-}
-
-.card-index-heading{
-  height: 100px;
+  border-radius: 5px;
 }
 
 .card-text {

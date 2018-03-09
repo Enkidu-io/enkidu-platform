@@ -44,7 +44,7 @@
           <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
         </fieldset-->
       </header>
-      <div class="card-body border-bottom">
+      <div class="card-body">
         <h5 style="text-transform: uppercase;"><span style="font-weight: bolder;">Ownership:</span> <%=User.find(@project.ip_ownership_id).full_name%></h5>
 
         <div class="table-responsive">
@@ -83,9 +83,9 @@
         </div>
         <h5 style="font-weight: bolder;">RESOLUTIONS:</h5>
         <div class="col-sm-12">
-          <div id="pillContent3" class="tab-content m-t-15">
-            <div class="tab-pane fade active in" id="pillnav9">
-              <div class="table-responsive">
+          <div>
+            <div>
+              <div>
                 <table class="table table-hover">
                   <thead style="background-color: white;">
                     <tr>
@@ -103,7 +103,7 @@
                           <% if name_for == '-' %>
                             <h5 style="margin-top: 10px;"></h5> 
                           <% else %>
-                            <div class="chip">
+                          <div class="chip">
                           <div class="circle-profile-photo" data-name="<%= name_for %>"><canvas width="32" height="32"></canvas></div><span><%= name_for %></span>
                           </div>
                           <% end %>
