@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.btn-fab-group{
+  float: right;
+  position: relative;
+  bottom: 30px;
+  right: 20px;
+}
+
 .resolution-btn{
 	background-color: #512DA8;
 }
@@ -15,22 +22,16 @@
 	z-index: -1000px !important;
 }
 
+.available-balance{
+  display: none;
+}
 
 @media (max-width: 768px){
-.available-balance{
-	padding-top: 30px;
-	margin-left: 0px !important; 
+  .available-balance{
+  	padding-top: 30px;
+  	margin-left: 0px !important; 
+  }
 }
-.resolution-btn{
-	bottom:25px;
-}
-.table-responsive{
-	width: 300px !important;
-}
-}
-
-
-
 
 .rating-dashboard {
   border: none;

@@ -13,11 +13,11 @@
 <% end %>
 <div class="row">
 	<%@projects.each do |project|%>
-	<div class="col-xs-11 col-xs-offset-1" >
+	<div class="col-xs-12 col-sm-11 col-sm-offset-1" >
 		<div class="card card-index">
 			<header class="card-heading card-dashboard border-bottom">
 				<%= link_to project_path(project) do%>
-				<h2><%=project.title%></h2>
+				<h1><%=project.title%></h1>
 				<%end%>
 				<!--fieldset class="rating-dashboard" >
 					<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -38,7 +38,7 @@
 				</span>
 				</h5>
 			</header>
-			<nav class="btn-fab-group" style="position:absolute; right: 10px; top: 38px;">
+			<nav class="btn-fab-group">
 				<button class="btn btn-sm fab-menu btn-round resolution-btn" data-fab="down">
 				<span style="color:#eee; font-size: 14px;">Resolutions &nbsp;</span>
 				<i class="zmdi zmdi-plus" style="color:white; margin-bottom: 3px;"></i>
@@ -70,7 +70,7 @@
 			<div class="row">
 				<div class="col-xs-10">
 					<div class="card-body" >
-						<div class="table-responsive"> Cap Table:
+						<div class=""> Cap Table:
 							<table class="table table-hover">
 								<thead>
 									<tr>
