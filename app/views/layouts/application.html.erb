@@ -191,7 +191,7 @@
                               <!-- <li >
                                 <a href="#"><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
                               </li> -->
-                              <li class="<%= controller_name.eql?('bids') ? 'active' : '' %>">
+                              <li class="<%= controller_name.eql?('bids') && !action_name.eql?('history') ? 'active' : '' %>">
                                 <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>Resolution History</a>
                               </li>
                               <li class="<%= controller_name.eql?('bids') && action_name.eql?('history') ? 'active' : '' %>">

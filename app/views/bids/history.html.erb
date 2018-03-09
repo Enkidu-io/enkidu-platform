@@ -1,0 +1,78 @@
+<% content_for :heading do %>
+<div id="header_wrapper" class="header-sm" style="width: 130%;background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <header id="header">
+          <h1>Bid History</h1>
+        </header>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+    	<div class="row">
+    		<div class="col-md-12 col-sm-12">
+    			<div class="card">
+ 					<div class="card-body">
+				        <div id="pillContent3" class="tab-content m-t-15">
+				          	<div class="tab-pane fade active in" id="pillnav9">
+				            	<% if @bids.count > 0 %>
+					            	<div class="table-responsive">
+					             		<table class="table table-hover">
+					                		<thead style="background-color: white;">
+					                  			<tr>
+								                    <td style="text-align: center;">BID FOR</td>
+								                    <td style="text-align: center;">PROJECT TITLE</td>
+								                    <td style="text-align: center;">BID(%)</td>
+								                    <td style="text-align: center;">VESTING PERIOD(m)</td>
+								                    <td style="text-align: center;">STATUS</td>
+					                  			</tr>
+					                		</thead>
+					                		<tbody>
+							                  <%@bids.each do |bid|%>
+							                    <%@project = Project.where(id: bid.project_id).first%>
+							                    <tr style="background-color: white;">
+							                       <td style="text-align: center;">
+							                        <%if bid.user_id.nil? %>
+							                          -
+							                        <%else%>
+							                        	<% name = User.find(bid.user_id).full_name %>
+								                        <div class="chip">
+								                      		<div class="circle-profile-photo" data-name="<%= name %>"><canvas width="32" height="32"></canvas></div><span><%= name %></span>
+								                      	</div>
+							                        <%end%>
+							                       </td>
+							                      <td style="text-align: center">
+							                        <%= link_to project_path(@project) do%>
+							                          <h5 style="margin-top: 10px;"><%= @project.title%></h5> 
+							                        <%end%>
+							                      </td>
+							                      <td style="text-align: center;">
+							                        <h5 style="margin-top: 10px;"><%=bid.bid_percentage.present? ? bid.bid_percentage : '-' %></h5>
+							                      </td>
+							                      <td style="text-align: center;">
+							                        <% @vesting = bid["variables"]["vesting_period"] %>
+							                        <h5 style="margin-top: 10px;"><%= @vesting.present? ? @vesting : '-' %></h5>
+							                      </td>
+							                      <td style="text-align: center;">
+							                        <%if bid.active == true%>
+							                          <h5 class="text-warning" style="margin-top: 10px">Pending</h5>
+							                        <%else%>
+							                          <h5 class="text-success" style="margin-top: 10px">Resolved</h5>
+							                        <%end%>
+							                      </td>
+							                    </tr>
+							                  <%end%>
+					                		</tbody>
+					              		</table>
+					            	</div>
+					            <% else %>
+					            	<h5>You have not made any bids yet.</h5>
+					            <% end %>
+				          	</div>
+				      	</div>
+		  			</div>
+    			</div>
+    		</div>
+    	</div>
