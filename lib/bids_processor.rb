@@ -55,17 +55,16 @@ class BidsProcessor
 
 		# Remove Collaborator
 		when 2
+			remove_user = User.where(email: params[:bid][:email]).first
+			if remove_user.nil?
+				return false, "User could not be found."
 			# Initiator not a member of project?
-			if !project.has_employee?(bid.initiater_id)
+			elsif !project.has_employee?(bid.initiater_id)
 				return false, "<b>Insufficient permissions!</b>"
 			# New user already member?
-			elsif project.has_employee?(params[:bid][:user_id].to_i)
+			elsif project.has_employee?(remove_user.id)
 				return false, "<b>Invalid request!</b>"
 			else
-				remove_user = User.where(email: params[:bid][:email]).first
-				if remove_user.nil?
-					return false, "User could not be found."
-				end
 				bid.user_id = remove_user.id
         		return true, bid
 			end
