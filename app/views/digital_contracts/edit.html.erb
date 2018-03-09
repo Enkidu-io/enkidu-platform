@@ -8,14 +8,14 @@
 				<div class="row">
 					<div class="col-xs-4">
 						<%=image_tag "img/profiles/blank_profile.svg", class: "img-circle profile-mini img-center", height: "100px", width: "100px"%>
-						<p><%= @dc.leader.full_name %></p>
+						<p class="p-dc-name"><%= @dc.leader.full_name %></p>
 					</div>
 					<div class="col-xs-4">
 						<img src="/Arrows-01.png" alt="" width="130px" height="100px" class="img-center"></img>
 					</div>
 					<div class="col-xs-4" style="text-align: center;">
 						<%=image_tag "img/profiles/blank_profile.svg", class: "img-circle profile-mini img-center", height: "100px", width: "100px"%>
-						<p><%= @dc.new_employee.full_name %></p>
+						<p class="p-dc-name"><%= @dc.new_employee.full_name %></p>
 					</div>
 				</div>
 				<div class="row">
