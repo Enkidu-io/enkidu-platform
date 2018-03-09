@@ -186,13 +186,16 @@
                               <li class="<%= controller_name.eql?('projects') ? 'active' : '' %>">
                                 <a href="/"><i class="zmdi zmdi-search-in-file"></i>Browse Projects</a></li>
                               <li class="<%= controller_name.eql?('dashboards') ? 'active' : '' %>">
-                                  <a href="/dashboard"><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a>
+                                  <a href="/dashboard"><i class="zmdi zmdi-view-dashboard"></i>My Teams</a>
                               </li>
                               <!-- <li >
                                 <a href="#"><i class="zmdi zmdi-time-restore"></i>Resolution History</a>
                               </li> -->
                               <li class="<%= controller_name.eql?('bids') ? 'active' : '' %>">
                                 <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>Resolution History</a>
+                              </li>
+                              <li class="<%= controller_name.eql?('bids') ? 'active' : '' %>">
+                                <a href="<%=bids_path%>"><i class="zmdi zmdi-border-color"></i>My Bid History</a>
                               </li>
                           </ul>
                       </div>
