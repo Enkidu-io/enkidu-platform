@@ -31,8 +31,6 @@ gem 'ransack'
 
 gem 'figaro'
 
-gem 'ransack'
-
 gem 'simple_form'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
