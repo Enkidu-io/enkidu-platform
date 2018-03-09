@@ -1,0 +1,40 @@
+<% content_for :heading do %>
+<div id="header_wrapper" class="header-sm" style="width: 130%;background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <header id="header">
+          <h1>Home</h1>
+        </header>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+	<div class="col-md-6" style="text-align: center;">
+		<%=image_tag "build_dig_team.png", class: "img-circle profile-mini img-center", height: "300px" %>
+		<%= link_to projects_path do %>
+			<h3>BUILD YOUR DIGITAL TEAM</h3>
+		<% end %>
+	</div>
+	<div class="col-md-6" style="text-align: center;">
+		<%=image_tag "digi_contract.png", class: "img-circle profile-mini img-center", height: "300px"%>
+		<%= link_to dashboard_path do %>
+			<h3>INSTANT PAYMENT SPLIT AND SMART CONTRACTS</h3>
+		<% end %>
+	</div>
+	<div class="col-md-6" style="text-align: center;">
+		<%=image_tag "resolutions.png", class: "img-circle profile-mini img-center", height: "300px"%>
+		<%= link_to bids_path do %>
+			<h3>RESOLUTIONS</h3>
+		<% end %>
+	</div>
+	<div class="col-md-6" style="text-align: center;">
+		<%=image_tag "smartvesting.png", class: "img-circle profile-mini img-center", height: "300px"%>
+		<%= link_to projects_path do %>
+			<h3>SMART VESTING</h3>
+		<% end %>
+	</div>
+</div>

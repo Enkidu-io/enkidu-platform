@@ -145,45 +145,45 @@
 				<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
 					<div class="form-group modal-form-index">
 						<p>
-							<%= f.label :Email_id %><br>
-							<%= f.email_field :email ,:placeholder => "Enter email id" ,class: "form-control" %>
-						</p>
-					</div>
-					<div class="form-group modal-form-index">
-						<%= f.label :bid_percentage, "Enter your bid"%>
-						<%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
-						<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
-						<%= f.hidden_field :resolution_id, value: "1"%>
-					</div>
-					<div class="form-group modal-form-index">
-						<%= f.label :vesting_period, "Enter vesting period"%>
-						<%= f.number_field :vesting_period, :placeholder => "Vesting Period" ,class: "form-control" %>
-					</div>
-					<p>
-						<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
+						<%= f.label :Email_id %><br>
+						<%= f.email_field :email ,:placeholder => "Enter email id of user you want to add." ,class: "form-control" %>
 					</p>
+				</div>
+				<div class="form-group modal-form-index">
+					<%= f.label :bid_percentage, "Enter your bid"%>
+					<%= f.number_field :bid_percentage, :placeholder => "Enter percentage to allocate to the new collaborator.", class: "form-control" %>
+					<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
+					<%= f.hidden_field :resolution_id, value: "1"%>
+				</div>
+				<div class="form-group modal-form-index">
+					<%= f.label :vesting_period, "Enter vesting period"%>
+					<%= f.number_field :vesting_period, :placeholder => "Enter Vesting Period for the new collaborator." ,class: "form-control" %>
+				</div>
+				<p>
+					<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
+				</p>
 				<%end%>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="modal fade" id="Modal-remove-collaborator" role="dialog" style="background-color:#263238;">
-<div class="modal-dialog">
-	<!-- Modal content-->
-	<div class="modal-content">
-		<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">Remove Collaborator</h4>
-		</div>
-		<div class="modal-body">
-			<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
-			<div class="form-group modal-form-index">
-				<p>
-					<%= f.label :Email_id ,class: "control-label"%><br>
-					<%= f.email_field :email,:placeholder => "Enter email id of the collaborator" ,class: "form-control" %>
-					<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
-					<%= f.hidden_field :resolution_id, value: "2"%>
-				</p>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Remove Collaborator</h4>
+			</div>
+			<div class="modal-body">
+				<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
+				<div class="form-group modal-form-index">
+					<p>
+						<%= f.label :Email_id ,class: "control-label"%><br>
+						<%= f.email_field :email,:placeholder => "Enter email id of collaborator you want to remove." ,class: "form-control" %>
+						<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
+						<%= f.hidden_field :resolution_id, value: "2"%>
+					</p>
+				</div>
 			</div>
 			<p>
 				<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
@@ -194,21 +194,22 @@
 </div>
 </div>
 <div class="modal fade" id="Modal-dilute" role="dialog" style="background-color:#263238;">
-<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">DILUTE</h4>
-		</div>
-		<div class="modal-body">
-			<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
-			<div class="form-group modal-form-index">
-				<p>
-					<%= f.label :bid_percentage %><br>
-					<%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
-					<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
-					<%= f.hidden_field :resolution_id, value: "3"%>
-				</p>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">DILUTE</h4>
+			</div>
+			<div class="modal-body">
+				<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
+				<div class="form-group modal-form-index">
+					<p>
+						<%= f.label :bid_percentage %><br>
+						<%= f.number_field :bid_percentage, :placeholder => "Enter dilution percentage.", class: "form-control" %>
+						<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
+						<%= f.hidden_field :resolution_id, value: "3"%>
+					</p>
+				</div>
 			</div>
 			<p>
 				<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>

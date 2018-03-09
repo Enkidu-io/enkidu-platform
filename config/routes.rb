@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboards#index'
   post 'notify/seen' => 'notifications#seen'
   get 'bid/history' => 'bids#history'
+  get 'home' => 'welcome#home'
 
   root 'projects#index'
   get 'welcome/index'
