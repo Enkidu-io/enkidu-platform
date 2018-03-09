@@ -69,7 +69,6 @@
                           -
                           <%end%>
                         <%end%>
-                      </div>
                        </td>
                       <td style="text-align: center">
                         <%= link_to project_path(@project) do%>
@@ -85,9 +84,9 @@
                       </td>
                       <td>
                         <%if bid.active == true%>
-                          <h5 style="margin-top: 10px">Pending</h5>
+                          <h5 class="text-warning" style="margin-top: 10px">Pending</h5>
                         <%else%>
-                          <h5 style="margin-top: 10px">Executed</h5>
+                          <h5 class="text-success" style="margin-top: 10px">Executed</h5>
                         <%end%>
                       </td>
                     </tr>
