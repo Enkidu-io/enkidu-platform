@@ -36,26 +36,33 @@
     height:400px;
 }
 
-
-
-.card-text {
-    word-wrap: break-word;
+.card-index{
+  height: 350px;
 }
 
+.card-index-heading{
+  height: 100px;
+}
+
+.card-text {
+  word-wrap: break-word;
+}
+
+.card-project-info{
+  height: 100px;
+  overflow: auto;
+}
 
 .projects-holder{
   height: 80vh;
-  overflow: auto;
 }
 
 .btn-apply-index{
-float: right;
-top:42px;
+  float: right;
+  position: relative;
+  bottom: 28px;
 }
 
-.content{
-  overflow: auto;
-}
 
 @media screen and (min-width: 768px) {
     .dropdown.dropdown-lg {
@@ -262,7 +269,6 @@ margin-top:-4px;
 
 @media screen and (min-width: 768px) {
     #adv-search {
-        width: 500px;
         margin: 0 auto;
     }
     .dropdown.dropdown-lg {
