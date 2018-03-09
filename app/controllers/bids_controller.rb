@@ -2,7 +2,8 @@ class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bids =  Bid.where("initiater_id = ?", current_user.id)
+    project_ids = current_user.projects.ids
+    @bids = Bid.where(project_id: project_ids)
     case params[:resolution_id]
     when "1"
       @bids = @bids.add_collaborator
