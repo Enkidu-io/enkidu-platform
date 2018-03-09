@@ -79,10 +79,10 @@
 <% end %>
 <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <div class="input-group" id="adv-search">
+      <div class="" id="adv-search">
         <%=search_form_for @search, class: "form-horizontal" do |f|%>
           <div class="row">
-            <div class="col-xs-12" style="background-color: white;"">
+            <div class="col-xs-12">
               <div class="form-group">
                   <i class="zmdi zmdi-filter-list"></i>
                   <label for="filter">Filter by</label>
@@ -90,7 +90,7 @@
                       <option value="0" selected>All Projects</option>
                       <option value="1">Most liked</option>
                       <option value="2">Most popular</option>
-                      <option value="3">Top rated</option>
+                      <!--option value="3">Top rated</option-->
                       <option value="4">Most commented</option>
                   </select>
               </div>
@@ -98,7 +98,7 @@
                   <label for="contain"><i class="zmdi zmdi-format-underlined"></i> Contains the words</label>
                   <%=f.search_field :title_or_description_cont, class: "form-control" %>
               </div>
-              <%=f.submit :Search, class: "btn btn-primary btn-block"%>
+              <%=f.submit :Search, class: "btn btn-primary", style: "float:right"%>
             </div>
           </div>
         <%end%>
