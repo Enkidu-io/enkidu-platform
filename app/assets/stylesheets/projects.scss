@@ -6,6 +6,11 @@
 .border-bottom{
   padding-bottom:18px !important;
 }
+.project-image{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%; 
+}
 
 @media (max-width: 768px){
   .hide-mobile{

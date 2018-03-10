@@ -159,14 +159,14 @@
                   <div class="card-body card-text card-project-info">
                     <div>
                       <% if project.img_url.present? %>
-                        <img src="<%=project.img_url %>" class="img-center" style="height: 100px;">
+                        <img src="<%=project.img_url %>" class="img-center project-image">
                       <% else %>
-                        <%= image_tag 'img/enkidu.png', class: "img-center", height: "100px" %>
+                        <%= image_tag 'img/enkidu.png', class: "img-center project-image"%>
                       <% end %>
                     </div>
                     <h5 class="project-description-index"><%=truncate(project.description, length: 100)%></h5>
                     <div class="relative-div">
-                      <div class="row" style="position: relative; top: 20px">
+                      <div class="row">
                         <div class="col-xs-4">
                           <i class="zmdi zmdi-eye"></i> <%= number_to_human project.views_count %>
                         </div>
