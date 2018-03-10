@@ -1,8 +1,8 @@
 <% if @notifications.count > 0 && current_user.last_notified_at < @notifications.first.created_at %>
 	<% new_notifs = @notifications.where('? < created_at', current_user.last_notified_at).count %>
-	<div class="alert alert-info" role="alert">
+	<div class="alert alert-info" role="alert" id="notif-alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	  		<span aria-hidden="true">×</span>
+	  		<span id="close-notif-alert" aria-hidden="true">×</span>
 		</button>
 		You have <%= new_notifs %> new notification(s).
 	</div>

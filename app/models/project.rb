@@ -14,11 +14,11 @@ class Project < ApplicationRecord
 	acts_as_taggable_on :tags
 	
 	attr_accessor :tags
-	attr_accessor :leader_allocation
+	attr_accessor :leader_allocation, :img_upload
 	after_commit :create_project_leader, on: :create
 	before_validation :check_percentages, on: :create
 
-	validates_presence_of :title, :description, :unallocated_percentage, :treasury_percentage
+	validates_presence_of :title, :description, :unallocated_percentage, :treasury_percentage, :img_url
 	validates_uniqueness_of :title
 
 	def has_employee?(user_id)
