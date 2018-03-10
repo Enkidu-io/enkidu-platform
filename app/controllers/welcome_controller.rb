@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   
   def home
-  	flash[:notice] = "This app is an Alpha and is undergoing changes everyday."
+  	flash[:warning] = "This app is an Alpha and is undergoing changes everyday. If you find something broken or missing, please check back again in a day or two."
   end
 
   def index
