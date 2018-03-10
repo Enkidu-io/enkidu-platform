@@ -28,9 +28,14 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
+		@project.unallocated_percentage = (100 - params[:project][:leader_allocation].to_f - params[:project][:treasury_percentage].to_f)
+		@project.tag_list.add(params[:project][:tags], parse: true)
 		# Upload File
 		@file = params[:project][:img_upload]
-		if @file.nil? ||  !(@file.content_type != 'image/jpeg' || @file.content_type != 'image/png' ||  @file.content_type != 'image/x-icon')
+		if !@project.valid?
+			flash[:alert] = "Please fill in all details to create a project."
+			redirect_to root_path
+		elsif @file.nil? ||  !(@file.content_type != 'image/jpeg' || @file.content_type != 'image/png' ||  @file.content_type != 'image/x-icon')
 			flash[:alert] = "Image of type jpeg/png needs to be uploaded."
 			redirect_to root_path
 		elsif (@file.size.to_f)/1024/1024 > 5.0
@@ -39,8 +44,6 @@ class ProjectsController < ApplicationController
 		else
 			doc = S3Store.new(@file).store
 			@project.img_url = doc.url;
-			@project.unallocated_percentage = (100 - params[:project][:leader_allocation].to_f - params[:project][:treasury_percentage].to_f)
-			@project.tag_list.add(params[:project][:tags], parse: true)
 			if @project.save
 				flash[:notice] = "Project created successfully."
 				redirect_to projects_path

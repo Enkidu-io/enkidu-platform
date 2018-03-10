@@ -18,7 +18,7 @@ class Project < ApplicationRecord
 	after_commit :create_project_leader, on: :create
 	before_validation :check_percentages, on: :create
 
-	validates_presence_of :title, :description, :unallocated_percentage, :treasury_percentage, :img_url
+	validates_presence_of :title, :description, :unallocated_percentage, :treasury_percentage
 	validates_uniqueness_of :title
 
 	def has_employee?(user_id)
