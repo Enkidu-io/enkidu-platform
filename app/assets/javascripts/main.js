@@ -1,4 +1,9 @@
 $(document).ready(function(e) {
+    $(window).on("load", function(){
+        $("#loading-div").hide();
+        $("#body-wrapper").removeClass("no-display");
+    });
+    
     $.fn.modal.Constructor.prototype._enforceFocus = function() {};
     $("#basic_modal").modal('hide');
     $("#button_comment").on("click", function() {

@@ -69,6 +69,14 @@
 	display: none !important;
 }
 
+#loading-div{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: image-url('img/puff-loader.svg') no-repeat center center;
+	background-color: #FFF;
+}
+
 @media (max-device-width: 767px) {
 .bottom_width{
     padding-bottom: 0px !important;
