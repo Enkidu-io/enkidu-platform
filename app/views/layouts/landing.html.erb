@@ -18,13 +18,14 @@
   <%= yield %>
   <div class="hero-section centered">
     <div data-collapse="medium" data-animation="default" data-duration="400" class="navigation-bar w-nav">
-      <div class="w-container"><a href="index.html" class="brand-link w-nav-brand">
+      <div class="w-container">
 
         <!-- <img src="images/enkidu_logo.png" width="70" srcset="images/enkidu_logo-p-500.png 500w, images/enkidu_logo-p-800.png 800w, images/enkidu_logo.png 1024w" sizes="70px" class="image"> -->
 
+        <%= link_to root_path, class: "brand-link2 w-nav-brand" do %>
         <%= image_tag('enkidu_logo.png', sizes: "70px", width: "70", class: "image") %>
 
-        <h1 class="brand-text">ENKIDU[ALPHA 0.2]</h1></a>
+        <h1 class="brand-text">ENKIDU[ALPHA 0.2]</h1><% end %>
         <nav role="navigation" class="navigation-menu w-nav-menu"><a href="index.html" class="navigation-link w-nav-link">Home</a><a href="#features" class="navigation-link w-nav-link">FEATURES</a><a href="#start" class="navigation-link w-nav-link">STARTING A PROJECT</a><a href="https://enkidu.io" target="_blank" class="navigation-link w-nav-link">INVEST IN THE ICO</a></nav>
         <div class="hamburger-button w-nav-button">
           <div class="w-icon-nav-menu"></div>
