@@ -29,6 +29,8 @@ gem 'devise'
 
 gem 'ransack'
 
+gem 'aws-sdk-v1'
+
 gem 'figaro'
 
 gem 'simple_form'

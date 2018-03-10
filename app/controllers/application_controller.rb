@@ -17,4 +17,13 @@ class ApplicationController < ActionController::Base
       @notifications = current_user.notifications.order(created_at: :desc).limit(6)
       @logs = current_user.logs.where("created_at >= ?", 1.week.ago.utc).order(created_at: :desc)
   end
+
+  def after_sign_in_path_for(resource)
+    STDOUT.puts "AFTER SIGNIN"
+    # if resource.admin?
+    #   rails_admin_path
+    # else
+      home_path
+    # end
+  end
 end

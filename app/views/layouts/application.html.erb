@@ -53,6 +53,10 @@
                 <%=f.label "Looking for"%>
                 <%=f.text_field :tags, class: "form-control", placeholder: "Enter tags for this project. Separate multiple tags by comma"%>
               </div>
+              <div class="form-group modal-form-index">
+                  <%= f.label :img_upload, "Upload Image", class: 'btn btn-primary btn-sm' %>
+                  <%= f.file_field :img_upload %>
+              </div>
               <%= f.submit "Submit" , class: "btn btn-primary btn-cons btn-round"%>
             <%end%>
           </div>
@@ -255,6 +259,7 @@
                 console.log("CLICKED");
                 notifSpan = $(this).find("#notif-status");
                 notifSpan.attr('class', '');
+                $("#notif-alert").hide();
                 $.ajax({
                   url: "<%= notify_seen_path %>",
                   type: "POST",
