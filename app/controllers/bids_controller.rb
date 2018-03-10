@@ -3,7 +3,7 @@ class BidsController < ApplicationController
 
   def index
     project_ids = current_user.projects.ids
-    @bids = Bid.where(project_id: project_ids)
+    @bids = Bid.where(project_id: project_ids).add_collaborator
     case params[:resolution_id]
     when "1"
       @bids = @bids.add_collaborator

@@ -58,9 +58,6 @@
                       </div>
                        </td>
                        <td style="text-align: center;">
-                        <%if bid.user_id == bid.initiater_id%>
-                          -
-                        <%else%>
                           <%if bid.user_id.present? %>
                           <div class="chip">
                             <span><%=User.find(bid.user_id).full_name%></span>
@@ -68,7 +65,6 @@
                           <%else%>
                           -
                           <%end%>
-                        <%end%>
                        </td>
                       <td style="text-align: center">
                         <%= link_to project_path(@project) do%>
