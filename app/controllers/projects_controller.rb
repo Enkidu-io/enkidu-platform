@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
 	before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@project_users = @project.users
 		@bid = Bid.new
 
 		order_params = params[:order]
