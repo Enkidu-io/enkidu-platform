@@ -1,66 +1,68 @@
 <% content_for :scripts do %>
 <script type="text/javascript">
-var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
-$(".ratings-clickable-index").on("click", function(e){
-console.log(e.target.className);
-var selectedVal = "";
-var selected = $("input[type='radio'][name='rating']:checked");
-if (selected.length > 0) {
-selectedVal = selected.val();
-}
-var button = $(this);
-$.ajax({
-url: "<%= ratings_path %>",
-type: "POST",
-dataType: "json",
-data: {
-'rating' : {
-'project_id' : button.parent().data("id"),
-'rating': selectedVal
-},
-'authenticity_token' : AUTH_TOKEN
-},
-success: function (data, status, jqXHR) {
-console.log(data);
-if(data.rated){
-button.css({'color':'red'});
-}
-},
-error: function (jqXHR, status, err) {
-console.log("LIKE FAILED");
-}
-})
+  var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
+  $(".ratings-clickable-index").on("click", function(e){
+    console.log(e.target.className);
+    var selectedVal = "";
+    var selected = $("input[type='radio'][name='rating']:checked");
+    if (selected.length > 0) {
+      selectedVal = selected.val();
+    }
+    var button = $(this);
+    $.ajax({
+      url: "<%= ratings_path %>",
+      type: "POST",
+      dataType: "json",
+      data: {
+        'rating' : {
+        'project_id' : button.parent().data("id"),
+        'rating': selectedVal
+      },
+      'authenticity_token' : AUTH_TOKEN
+      },
+      success: function (data, status, jqXHR) {
+        console.log(data);
+        if(data.rated){
+          button.css({'color':'red'});
+        }
+      },
+      error: function (jqXHR, status, err) {
+        console.log("LIKE FAILED");
+      }
+    })
 });
-$(".like_btn").click(function(){
-var button = $(this);
-$.ajax({
-url: "<%= likes_path %>",
-type: "POST",
-dataType: "json",
-data: {
-'like' : {
-'project_id' : button.data("id")
-},
-'authenticity_token' : AUTH_TOKEN
-},
-success: function (data, status, jqXHR) {
-console.log(data);
-if(data.liked){
-button.css({'color':'red'});
-var old = parseInt(button.find('span.like_count').text());
-button.find('span.like_count').text((old+1).toString());
-}else{
-button.css({'color':''});
-var old = parseInt(button.find('span.like_count').text());
-button.find('span.like_count').text((old-1).toString());
-}
-},
-error: function (jqXHR, status, err) {
-console.log("LIKE FAILED");
-}
-})
+
+  $(".like_btn").click(function(){
+  var button = $(this);
+  $.ajax({
+    url: "<%= likes_path %>",
+    type: "POST",
+    dataType: "json",
+    data: {
+      'like' : {
+      'project_id' : button.data("id")
+    },
+    'authenticity_token' : AUTH_TOKEN
+    },
+    success: function (data, status, jqXHR) {
+      console.log(data);
+      if(data.liked){
+        button.css({'color':'red'});
+        var old = parseInt(button.find('span.like_count').text());
+        button.find('span.like_count').text((old+1).toString());
+      }else{
+        button.css({'color':''});
+        var old = parseInt(button.find('span.like_count').text());
+        button.find('span.like_count').text((old-1).toString());
+      }
+    },
+    error: function (jqXHR, status, err) {
+      console.log("LIKE FAILED");
+    }
+  })
 });
 </script>
+
 <% end %>
 
 <% content_for :heading do %>
@@ -159,7 +161,7 @@ console.log("LIKE FAILED");
                       <% if project.img_url.present? %>
                         <img src="<%=project.img_url %>" class="img-center" style="height: 100px;">
                       <% else %>
-                        <%= image_tag 'img/enkidu.png', class: "img-center", height: "100px" %>
+                        <img src="enkidu.png" class="img-center" style="height: 100px;">
                       <% end %>
                     </div>
                     <h5 class="project-description-index"><%=truncate(project.description, length: 100)%></h5>
