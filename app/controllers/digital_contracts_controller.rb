@@ -17,7 +17,7 @@ class DigitalContractsController < ApplicationController
 			full_name = current_user.id == @dc.leader.id ? @dc.new_employee.full_name : @dc.leader.full_name
 			Log.create(content: LogDescription.get('signed_contract', {'full_name': full_name }), user_id: current_user.id, project_id: @dc.bid.project_id)
 			flash[:notice] = "You have successfully signed a contract."
-			redirect_to root_path
+			redirect_to dashboard_path
 		else 
 			flash[:alert] = "Your attempt in signing this contract has failed."
 			redirect_to request.referer
@@ -37,13 +37,13 @@ class DigitalContractsController < ApplicationController
 			elsif current_user.id == @dc.leader.id
 				if @dc.leader_signed == true
 					flash[:alert] = "You've already signed the contract"
-					redirect_to root_path
+					redirect_to dashboard_path
 				end
 				@dc.leader_signed = true
 			elsif current_user.id == @dc.new_employee.id
 				if @dc.user_signed == true
 					flash[:alert] = "You've already signed the contract"
-					redirect_to root_path
+					redirect_to dashboard_path
 				end
 				@dc.user_signed = true
 			end

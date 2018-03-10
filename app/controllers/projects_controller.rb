@@ -35,19 +35,19 @@ class ProjectsController < ApplicationController
 		@file = params[:project][:img_upload]
 		if !@project.valid?
 			flash[:alert] = "Please fill in all details to create a project."
-			redirect_to root_path
+			redirect_to home_path
 		elsif @file.nil? ||  !(@file.content_type != 'image/jpeg' || @file.content_type != 'image/png' ||  @file.content_type != 'image/x-icon')
 			flash[:alert] = "Image of type jpeg/png needs to be uploaded."
-			redirect_to root_path
+			redirect_to home_path
 		elsif (@file.size.to_f)/1024/1024 > 5.0
 			flash[:alert] = "Image file size should not exceed 5MB."
-			redirect_to root_path
+			redirect_to home_path
 		else
 			doc = S3Store.new(@file).store
 			@project.img_url = doc.url;
 			if @project.save
 				flash[:notice] = "Project created successfully."
-				redirect_to projects_path
+				redirect_to dashboard_path
 			else
 				flash[:alert] = "Could not create project."
 				redirect_to request.referer

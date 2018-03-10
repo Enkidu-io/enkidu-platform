@@ -81,11 +81,13 @@
                 <li>
                     <%= link_to "Home", root_path %>
                 </li>
+                <% unless controller_name == "projects" && action_name == "show" %>
                 <li class="dropdown dropdown-lg app_menu_launcher hidden-xs">
                   <a href="javascript:void(0)" class="nav-link" style="background-color: #20B2AA; border-radius: 3px; " data-toggle="modal" data-target="#Modal" aria-expanded="false">
                     <span style=" color: white;">+ Create Team</span>
                   </a>
                 </li>
+                <% end %>
               </ul>
               <ul class="nav navbar-nav pull-right">
                 <li class="dropdown avatar-menu">

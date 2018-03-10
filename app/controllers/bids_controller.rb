@@ -45,10 +45,10 @@ class BidsController < ApplicationController
   def update
 		if @bid.update(params[:bid_percentage].permit(:user_id, :project_id,:resolution_id))
       flash[:success]="Bid Updated"
-			redirect_to root_path
+			redirect_to dashboard_path
 		else
       flash[:alert]="Bid Not Updated"
-      redirect_to root_path
+      redirect_to dashboard_path
 		end
 	end
 
