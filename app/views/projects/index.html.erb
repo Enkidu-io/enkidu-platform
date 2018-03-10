@@ -158,7 +158,7 @@
                   </header>
                   <div class="card-body card-text card-project-info">
                     <div>
-                      <% if project.img_url.present? %>
+                      <% if project.img_url.empty? %>
                         <img src="<%=project.img_url %>" class="img-center" style="height: 100px;">
                       <% else %>
                         <%= image_tag 'img/enkidu.png', class: "img-center", height: "100px" %>
