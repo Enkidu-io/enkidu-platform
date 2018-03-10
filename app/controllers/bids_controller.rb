@@ -3,16 +3,16 @@ class BidsController < ApplicationController
 
   def index
     project_ids = current_user.projects.ids
-    @bids = Bid.where(project_id: project_ids).add_collaborator
+    @bids = Bid.where(project_id: project_ids)
     case params[:resolution_id]
     when "1"
-      @bids = @bids.add_collaborator
+      @bids = @bids.add_collaborator.order(created_at: :desc)
     when "2"
-      @bids = @bids.remove_collaborator
+      @bids = @bids.remove_collaborator.order(created_at: :desc)
     when "3"
-      @bids = @bids.vote_dilution
+      @bids = @bids.vote_dilution.order(created_at: :desc)
     else
-      @bids = @bids.add_collaborator
+      @bids = @bids.add_collaborator.order(created_at: :desc)
     end
   end
 

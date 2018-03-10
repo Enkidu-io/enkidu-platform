@@ -171,7 +171,7 @@
                           <i class="zmdi zmdi-eye"></i> <%= number_to_human project.views_count %>
                         </div>
                         <div class="col-xs-4">
-                          <a href="#" id="like_<%= project.id %>" class="like_btn" data-id="<%= project.id %>"
+                          <a href="javascript:void(0)" id="like_<%= project.id %>" class="like_btn" data-id="<%= project.id %>"
                             <%= 'style=color:red;' if current_user.has_liked_project?(project.id) %>>
                             <span>
                               <i class="zmdi zmdi-favorite"></i>

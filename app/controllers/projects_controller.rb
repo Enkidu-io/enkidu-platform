@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
 				redirect_to request.referer
 			end
 			order_params = order_params + " desc"
+			order_projects_by = order_params
 		end
 		order_projects_by = "created_at desc" unless order_params.present?
 		@search = Project.ransack(params[:q])
