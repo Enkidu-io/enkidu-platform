@@ -81,6 +81,7 @@
         <div class="card-body card-text" style="display: block; background-color: #f5f5f5;">
           <p><%=@project.description%></p>
         </div>
+        <% if @project.has_employee?(current_user.id) %>
         <h5 style="font-weight: bolder;">RESOLUTIONS:</h5>
         <div class="col-sm-12">
           <div>
@@ -126,11 +127,12 @@
             </div>
           </div>
         </div>
+        <% end %>
       </div>
       <div class="card-footer text-center">
         Looking for: <br>
         <%@project.tag_list.each do |tag|%>
-          <button class="btn btn-primary btn-sm btn-round"><%=tag%></button>
+          <button class="btn btn-xs btn-round" style="border: 1px solid black;"><%=tag%></button>
         <%end%>
       </div>
       <div class="card-footer p-10">
