@@ -161,7 +161,7 @@
                       <% if project.img_url.present? %>
                         <img src="<%=project.img_url %>" class="img-center" style="height: 100px;">
                       <% else %>
-                        <img src="enkidu.png" class="img-center" style="height: 100px;">
+                        <%= image_tag 'img/enkidu.png', class: "img-center", height: "100px" %>
                       <% end %>
                     </div>
                     <h5 class="project-description-index"><%=truncate(project.description, length: 100)%></h5>
