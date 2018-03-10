@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   get 'bid/history' => 'bids#history'
   get 'home' => 'welcome#home'
 
-  root 'projects#index'
-  get 'welcome/index'
+  # root 'projects#index'
+  root 'welcome#index'
 end

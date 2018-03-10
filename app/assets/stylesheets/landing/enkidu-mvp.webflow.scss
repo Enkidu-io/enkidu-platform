@@ -1,0 +1,758 @@
+body {
+  background-color: #edeff2;
+  font-family: 'Open Sans', sans-serif;
+  color: #6a859c;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+h1 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 700;
+}
+
+h2 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #676770;
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 300;
+  text-align: center;
+}
+
+h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #676770;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+}
+
+h4 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+h5 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: #676770;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+h6 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 300;
+}
+
+.button {
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 12px 30px;
+  border-radius: 4px;
+  background-color: #56bb93;
+  -webkit-transition: background-color 300ms ease;
+  transition: background-color 300ms ease;
+  font-family: 'Fort foundry rift demi', sans-serif;
+  color: #fff;
+  font-size: 30px;
+  line-height: 21px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #2e9dff;
+}
+
+.button.w--current {
+  background-color: #2e80b6;
+}
+
+.button.full-width {
+  display: block;
+  width: 100%;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.button.tab {
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: #92a0ad;
+}
+
+.button.tab:hover {
+  background-color: #2e80b6;
+}
+
+.button.tab.w--current {
+  background-color: #2e80b6;
+}
+
+.navigation-link {
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  font-family: 'Fort foundry rift', sans-serif;
+  color: #fff;
+  font-size: 20px;
+}
+
+.navigation-link:hover {
+  color: #f39fec;
+}
+
+.navigation-link.w--current {
+  -webkit-transition-property: none;
+  transition-property: none;
+  color: #fff;
+}
+
+.navigation-bar {
+  margin-bottom: 109px;
+  background-color: hsla(0, 0%, 100%, 0);
+}
+
+.brand-text {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: 'Fort foundry rift soft demi', sans-serif;
+  color: #fff;
+  font-size: 30px;
+  line-height: 25px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.brand-link {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.section {
+  position: relative;
+  padding: 80px 10px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.section.accent {
+  background-color: #192024;
+}
+
+.white-box {
+  margin-top: 25px;
+  padding: 15px 20px;
+  border: 1px none #dcebf7;
+  border-radius: 5px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.white-box.transparent {
+  border-style: none;
+  background-color: transparent;
+}
+
+.white-box.wb_2 {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.hero-section {
+  padding-top: 242px;
+  padding-bottom: 242px;
+}
+
+.hero-section.centered {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-bottom: 4px solid #69b9ff;
+  background-image: -webkit-linear-gradient(270deg, rgba(120, 41, 194, .78), rgba(59, 25, 70, .79)), image-url('photo-1457305237443-44c3d5a30b89.jpeg');
+  background-image: linear-gradient(180deg, rgba(120, 41, 194, .78), rgba(59, 25, 70, .79)), image-url('photo-1457305237443-44c3d5a30b89.jpeg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+  text-align: center;
+}
+
+.hero-heading {
+  margin-bottom: 30px;
+  font-family: 'Fort foundry rift demi', sans-serif;
+  color: #fff;
+  font-size: 120px;
+  line-height: 100px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.hero-heading.gg {
+  padding-right: 20px;
+  padding-left: 20px;
+  text-align: center;
+}
+
+.hero-heading.gg.spacong {
+  line-height: 115px;
+}
+
+.hero-subheading {
+  margin-bottom: 40px;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 24px;
+  line-height: 25px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-transform: none;
+}
+
+.hero-subheading.hh3 {
+  font-family: 'Fort foundry rift demi', sans-serif;
+  color: #fff;
+  font-size: 30px;
+}
+
+.hollow-button {
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px 30px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  -webkit-transition: background-color 300ms ease, border 300ms ease, color 300ms ease;
+  transition: background-color 300ms ease, border 300ms ease, color 300ms ease;
+  color: #fff;
+  line-height: 21px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.hollow-button:hover {
+  border-color: #2e9dff;
+  color: #2e9dff;
+}
+
+.hollow-button.all-caps {
+  font-family: 'Fort foundry rift demi', sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.section-heading.centered {
+  font-family: 'Fort foundry rift demi', sans-serif;
+  color: #4d4d4d;
+  font-size: 100px;
+  line-height: 90px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.section-heading.centered.white {
+  color: #fff;
+}
+
+.section-subheading.center {
+  margin-top: 24px;
+  color: #6d6d6d;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.section-subheading.center.off-white {
+  padding-bottom: 0px;
+  color: #e8e8e8;
+}
+
+.section-title-group {
+  margin-bottom: 60px;
+}
+
+.form-field {
+  height: 45px;
+  margin-bottom: 17px;
+  border: 0px solid #000;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(64, 64, 71, .3);
+}
+
+.form-field.text-area {
+  height: 110px;
+}
+
+.footer {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.footer.center {
+  border-top: 1px solid #dbdbdb;
+  background-color: #202020;
+  text-align: center;
+}
+
+.footer-text {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #9e9e9e;
+  font-size: 16px;
+}
+
+.grid-image {
+  display: block;
+  width: 35%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  background-color: #69b9ff;
+  box-shadow: 0 0 0 1px #2e9dff;
+}
+
+.info-icon {
+  float: left;
+}
+
+.footer-link {
+  display: block;
+  margin-bottom: 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d5d5e0;
+  color: #668cad;
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: rgba(0, 140, 255, .84);
+}
+
+.footer-link.with-icon {
+  margin-left: 30px;
+}
+
+.tab-menu {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.tabs-wrapper {
+  text-align: center;
+}
+
+.fullwidth-image {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.white-text {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.form {
+  margin-top: 40px;
+}
+
+.image {
+  margin-top: -14px;
+}
+
+.explnr {
+  margin-top: 57px;
+}
+
+.text-block {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .17), rgba(0, 0, 0, .17));
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .17), rgba(0, 0, 0, .17));
+  font-family: 'Fort foundry rift', sans-serif;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.text-block.tt0 {
+  padding-right: 20px;
+  padding-left: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.heading {
+  margin-top: 21px;
+  color: #636363;
+  font-weight: 600;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+}
+
+.heading.head_left {
+  margin-top: 15px;
+  font-family: 'Fort foundry rift demi', sans-serif;
+  text-align: left;
+}
+
+.heading.h-left {
+  color: #3a3a3a;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.paragraph {
+  margin-top: 20px;
+  color: #8b8b8b;
+  font-size: 18px;
+}
+
+.paragraph.p_left {
+  color: #242424;
+  text-align: left;
+}
+
+.paragraph-2 {
+  margin-top: 20px;
+  color: #8b8b8b;
+  font-size: 18px;
+}
+
+.paragraph-3 {
+  margin-top: 20px;
+  color: #8b8b8b;
+  font-size: 18px;
+}
+
+.image-2 {
+  margin-top: 55px;
+  padding-top: 0px;
+}
+
+.row_7 {
+  margin-top: 63px;
+  margin-bottom: 44px;
+}
+
+.sec_divider {
+  padding-top: 50px;
+  padding-right: 0px;
+  padding-left: 0px;
+  background-image: -webkit-linear-gradient(270deg, rgba(163, 37, 187, .42), rgba(175, 59, 190, .32)), image-url('photo-1496680392913-a0417ec1a0ad.jpeg');
+  background-image: linear-gradient(180deg, rgba(163, 37, 187, .42), rgba(175, 59, 190, .32)), image-url('photo-1496680392913-a0417ec1a0ad.jpeg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+}
+
+.sec_divider.sec_div_2 {
+  background-image: -webkit-linear-gradient(270deg, rgba(163, 37, 187, .42), rgba(175, 59, 190, .32)), image-url('photo-1518546305927-5a555bb7020d.jpeg');
+  background-image: linear-gradient(180deg, rgba(163, 37, 187, .42), rgba(175, 59, 190, .32)), image-url('photo-1518546305927-5a555bb7020d.jpeg');
+}
+
+.a {
+  color: #fff;
+}
+
+.link {
+  color: #fff;
+}
+
+.paragraph-4 {
+  color: #050505;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.link-2 {
+  color: #4d4d4d;
+}
+
+html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, 50px);
+  -ms-transform: translate(0px, 50px);
+  transform: translate(0px, 50px);
+}
+
+html.w-mod-js *[data-ix="fade-in-left-scroll-in"] {
+  opacity: 0;
+  -webkit-transform: translate(-50px, 0px);
+  -ms-transform: translate(-50px, 0px);
+  transform: translate(-50px, 0px);
+}
+
+html.w-mod-js *[data-ix="fade-in-right-scroll-in"] {
+  opacity: 0;
+  -webkit-transform: translate(50px, 0px);
+  -ms-transform: translate(50px, 0px);
+  transform: translate(50px, 0px);
+}
+
+html.w-mod-js *[data-ix="fade-in-top-scroll-in"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, -50px);
+  -ms-transform: translate(0px, -50px);
+  transform: translate(0px, -50px);
+}
+
+html.w-mod-js *[data-ix="fade-in-bottom-scroll-in"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, 50px);
+  -ms-transform: translate(0px, 50px);
+  transform: translate(0px, 50px);
+}
+
+html.w-mod-js *[data-ix="bounce-in-scroll-in"] {
+  opacity: 0;
+  -webkit-transform: scale(0.6000000000000001, 0.6000000000000001);
+  -ms-transform: scale(0.6000000000000001, 0.6000000000000001);
+  transform: scale(0.6000000000000001, 0.6000000000000001);
+}
+
+html.w-mod-js *[data-ix="scale-on-scroll"] {
+  opacity: 0;
+  -webkit-transform: scale(0.01, 0.01);
+  -ms-transform: scale(0.01, 0.01);
+  transform: scale(0.01, 0.01);
+}
+
+@media (max-width: 991px) {
+  .navigation-link {
+    color: hsla(0, 0%, 100%, .52);
+  }
+  .navigation-link.w--current {
+    color: #fff;
+  }
+  .hamburger-button.w--open {
+    background-color: #3b99d9;
+  }
+  .navigation-menu {
+    background-color: #3b99d9;
+  }
+  .hero-section.centered {
+    padding-top: 144px;
+    padding-bottom: 0px;
+  }
+  .grid-image {
+    width: 50%;
+    padding: 15px;
+  }
+  .text-block {
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 767px) {
+  .button.full-width {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .button.tab {
+    font-size: 12px;
+  }
+  .white-box {
+    margin-bottom: 30px;
+  }
+  .hero-section.centered {
+    padding-top: 119px;
+    padding-bottom: 0px;
+  }
+  .hero-heading {
+    margin-bottom: 15px;
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .hero-subheading {
+    font-size: 18px;
+  }
+  .form-field.text-area {
+    display: block;
+  }
+  .grid-image {
+    width: 20%;
+    padding: 20px;
+  }
+  .spc {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 479px) {
+  .button {
+    margin-bottom: 25px;
+  }
+  .hero-section.centered {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .section-subheading.center {
+    line-height: 30px;
+  }
+  .grid-image {
+    width: 35%;
+  }
+}
+
+@font-face {
+  font-family: 'Fort foundry rift demi';
+  src: url(font-path('Fort-Foundry---Rift-Demi-Italic.otf')) format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Fort foundry rift';
+  src: url(font-path('Fort-Foundry---Rift-Italic.otf')) format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Fort foundry rift';
+  src: url(font-path('Fort-Foundry---Rift-Light-Italic.otf')) format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Fort foundry rift';
+  src: url(font-path('Fort-Foundry---Rift-Medium-Italic.otf')) format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Fort foundry riftsoft';
+  src: url(font-path('Fort-Foundry---RiftSoft-Regular.otf')) format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fort foundry rift soft';
+  src: url(font-path('Fort-Foundry---Rift-Soft-Bold-Italic.otf')) format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Fort foundry rift soft demi';
+  src: url(font-path('Fort-Foundry---Rift-Soft-Demi-Italic.otf')) format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Fort foundry rift soft';
+  src: url(font-path('Fort-Foundry---Rift-Soft-Italic.otf')) format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Fort foundry rift soft';
+  src: url(font-path('Fort-Foundry---Rift-Soft-Light-Italic.otf')) format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Fort foundry rift soft';
+  src: url(font-path('Fort-Foundry---Rift-Soft-Medium-Italic.otf')) format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Fort foundry rift';
+  src: url(font-path('Fort-Foundry---Rift-Bold.otf')) format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fort foundry rift demi';
+  src: url(font-path('Fort-Foundry---Rift-Demi.otf')) format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fort foundry rift';
+  src: url(font-path('Fort-Foundry---Rift-Light.otf')) format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fort foundry rift';
+  src: url(font-path('Fort-Foundry---Rift-Medium.otf')) format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fort foundry rift';
+  src: url(font-path('Fort-Foundry---Rift-Regular.otf')) format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fort foundry riftsoft';
+  src: url(font-path('Fort-Foundry---RiftSoft-Bold.otf')) format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fort foundry riftsoft demi';
+  src: url(font-path('Fort-Foundry---RiftSoft-Demi.otf')) format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fort foundry riftsoft';
+  src: url(font-path('Fort-Foundry---RiftSoft-Light.otf')) format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fort foundry riftsoft';
+  src: url(font-path('Fort-Foundry---RiftSoft-Medium.otf')) format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}

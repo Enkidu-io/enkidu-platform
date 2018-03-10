@@ -14,8 +14,8 @@
 // require turbolinks
 //= require jquery
 //= require modernizr
-//= require js.storage.min
-//= require vendor
-//= require app.bundle
-//= require bootbox.min.js
-//= require_tree .
+//= require ../../../app/assets/javascripts/app/js.storage.min
+//= require ../../../app/assets/javascripts/app/vendor
+//= require ../../../app/assets/javascripts/app/app.bundle
+//= require ../../../app/assets/javascripts/app/bootbox.min.js
+//= require_tree ../../../app/assets/javascripts/app
