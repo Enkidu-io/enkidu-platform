@@ -27,12 +27,12 @@ class BidDetail < ApplicationRecord
 		# All votes casted?
 		if total_votes_cast == bid_details.count
 			# Majority vote?
-			self.bid.update!(active: false)
+			self.bid.update(active: false)
 			STDOUT.puts "APPROVAL WEIGHT:"+approval_weight.to_s
 			if approval_weight > 50.0
 				case self.bid.resolution_id
 				when 1
-					DigitalContract.create!(bid_id: self.bid.id, project_id: self.bid.project.id, user_signed: false, leader_signed: false)
+					DigitalContract.create(bid_id: self.bid.id, project_id: self.bid.project.id, user_signed: false, leader_signed: false)
 					NotificationProcessor.process_digital_contract(self, 1)
 				when 2
 					ResolutionProcessor.process(self.bid.resolution_id, self.bid)

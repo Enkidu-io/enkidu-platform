@@ -11,7 +11,7 @@ class BidDetailsController < ApplicationController
 		end
 		
 		@bid_detail.has_voted = true
-		if @bid_detail.save!
+		if @bid_detail.save
 			flash[:notice] = "You've successfully voted "+vote
 			render json: { msg: "Vote success", liked: true }, status: 200
 		else

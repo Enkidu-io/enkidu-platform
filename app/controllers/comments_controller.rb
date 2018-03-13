@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     end
 
 	def update
-		if @comment.update!(comment: params[:comment][:comment])
+		if @comment.update(comment: params[:comment][:comment])
 			flash[:notice] = "Your comment has been updated."
 			redirect_to request.referer
 		else

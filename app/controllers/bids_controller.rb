@@ -28,7 +28,7 @@ class BidsController < ApplicationController
 
       # Valid bid
       if status == true
-        if @bid.save!
+        if @bid.save
           flash[:notice] = 'Bid has been successfuly made.'
           redirect_to bids_path
         else

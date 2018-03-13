@@ -30,7 +30,7 @@ class Project < ApplicationRecord
 	end
 
 	def create_project_leader
-		ProjectUser.create!(project_id: self.id, user_id: self.leader_id, ownership_percentage: (100 - (self.unallocated_percentage + self.treasury_percentage)) )
+		ProjectUser.create(project_id: self.id, user_id: self.leader_id, ownership_percentage: (100 - (self.unallocated_percentage + self.treasury_percentage)) )
 	end
 
 	def check_percentages
