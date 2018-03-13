@@ -117,7 +117,7 @@
           <%= form_for @bid, class: "form-horizontal" do |f| %>
           <div class="form-group modal-form-index">
             <%= f.label :bid_percentage, "Enter your bid"%>
-            <%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control" %>
+            <%= f.number_field :bid_percentage, :placeholder => "Bid Percentage", class: "form-control", step: :any %>
             <%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
             <%= f.hidden_field :resolution_id, value: 1 %>
           </div>

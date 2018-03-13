@@ -120,7 +120,7 @@
 				<div class="form-group modal-form-index">
 					<p>
 						<%= f.label :Payment_Rate %><br>
-						<%= f.number_field :unallocated_percentage,:placeholder => "Enter payment rate" ,class: "form-control" %>
+						<%= f.number_field :unallocated_percentage,:placeholder => "Enter payment rate" ,class: "form-control", step: :any %>
 						<!-- change this to price rate -->
 					</p>
 				</div>
@@ -151,7 +151,7 @@
 				</div>
 				<div class="form-group modal-form-index">
 					<%= f.label :bid_percentage, "Enter your bid"%>
-					<%= f.number_field :bid_percentage, :placeholder => "Enter percentage to allocate to the new collaborator.", class: "form-control" %>
+					<%= f.number_field :bid_percentage, :placeholder => "Enter percentage to allocate to the new collaborator.", class: "form-control", step: :any %>
 					<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
 					<%= f.hidden_field :resolution_id, value: "1"%>
 				</div>
@@ -205,7 +205,7 @@
 				<div class="form-group modal-form-index">
 					<p>
 						<%= f.label :bid_percentage %><br>
-						<%= f.number_field :bid_percentage, :placeholder => "Enter dilution percentage.", class: "form-control" %>
+						<%= f.number_field :bid_percentage, :placeholder => "Enter dilution percentage.", class: "form-control", step: :any %>
 						<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
 						<%= f.hidden_field :resolution_id, value: "3"%>
 					</p>
