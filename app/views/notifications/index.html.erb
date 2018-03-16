@@ -19,7 +19,7 @@
                 <% notifs.each do |notif| %>
                   <%= link_to Notification.find(notif['id']).route do %>
                     <li class="list-group-item" data-toggle="modal" data-target="#notificationModal">
-                      <span class="pull-left"><img src="assets/img/profiles/11.jpg" alt="" class="img-circle max-w-40 m-r-10 "></span>
+                      <span class="pull-left"><img src="assets/img/profiles/blank_profile.svg" alt="" class="img-circle max-w-40 m-r-10 "></span>
                       <div class="list-group-item-body">
                           <div class="list-group-item-heading">
                               <%=notif.notification_type.notification_content%>
