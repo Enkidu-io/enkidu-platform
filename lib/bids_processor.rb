@@ -21,7 +21,8 @@ class BidsProcessor
 		when 1
 			# Requested bid percentage more than available 
 			if project.unallocated_percentage < bid_perc
-	          	return false, "Bid could not be created as your demands cannot be met."
+				NotificationProcessor.process_bid_overflow(bid) 
+				return false, "Bid could not be created as your demands cannot be met."
 			# Added from dashboard
 			elsif project.has_employee?(bid.initiater_id)
 				# Email not specified

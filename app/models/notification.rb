@@ -3,16 +3,25 @@ class Notification < ApplicationRecord
 	
 	belongs_to :user
 	belongs_to :notification_type
-	belongs_to :bid
-
-	validates_presence_of :user_id, :notification_type_id, :notification_description, :bid_id
-
+	belongs_to :bid , optional: -> { notification_5? }
+	validates_presence_of :user_id, :notification_type_id, :notification_description
 
 	def group_by_criteria
-  		created_at.to_date.to_s(:db)
-  	end
+		created_at.to_date.to_s(:db)
+	end
+
+	def notification_5
+		byebug
+		if self.notification_type_id == 5
+			return true
+		end
+		return false
+	end
   	
 	def route
+		if self.notification_type_id == 5
+			return home_path
+		end
 		bid = Bid.find(self.bid_id)
 		case self.notification_type_id
 

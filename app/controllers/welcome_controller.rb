@@ -9,5 +9,4 @@ class WelcomeController < ApplicationController
 
   def testmodal
   end
-
 end

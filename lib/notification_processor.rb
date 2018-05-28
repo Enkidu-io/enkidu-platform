@@ -53,4 +53,14 @@ class NotificationProcessor
 		Notification.create(user_id: bid.user_id, notification_type_id: 1,
 		    notification_description: description, bid_id: bid.id)
 	end
+
+	def self.process_bid_overflow(bid)
+		variables = { full_name: bid.user.full_name, perc: bid.bid_percentage.to_f }
+		#Notify all the members of the project
+		description = NotificationDescription.getDescription(6, true, variables)
+
+		bid.project.users.each do |u|
+			Notification.create!(user_id: u.id, notification_type_id: 5, notification_description: description, bid_id: bid.id)
+		end
+	end
 end

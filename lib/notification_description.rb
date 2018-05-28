@@ -35,6 +35,11 @@ class NotificationDescription
 			else
 				"Vote for Smart Contract for adding you to #{variables[:title]} failed."
 			end
+		elsif(type == 6)
+			#User bidding more than the unallocated percentage
+			if(to_member == true)
+				"#{variables[:full_name]} tried to bid in your team for #{variables[:perc]}%"
+			end
 		end
 	end
 end
