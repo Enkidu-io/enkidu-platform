@@ -28,7 +28,7 @@
               <footer class="card-footer border-top">
                 <div class="row row p-t-10 p-b-10">
                   <div class="col-xs-4"><span class=""><%= @bid_detail.bid.user.email%></span><span>Email</span></div>
-                  <div class="col-xs-4"><span class=""><%= @bid_detail.bid.user.age%></span><span>Age</span></div>
+                  <div class="col-xs-4"><span class=""><%= distance_of_time_in_words_to_now(@bid_detail.bid.user.dob) %></span><span>Age</span></div>
                   <div class="col-xs-4"><span class=""><a href="<%= @bid_detail.bid.user.linkedin_profile %>"><i class="zmdi zmdi-linkedin"></i></a></span><span>Linkedin</span></div>
                 </div>
               </footer>
