@@ -23,5 +23,3 @@ class RatingsController < ApplicationController
 			params.require(:rating).permit(:project_id, :rating).merge(user_id: current_user.id)
 		end
 end
-
-
