@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :job_profile, :linkedin_profile)
+    params.require(:user).permit(:email, :password, :password_confirmation, :dob, :first_name, :last_name, :job_profile, :linkedin_profile)
   end
   # GET /resource/sign_up
   # def new

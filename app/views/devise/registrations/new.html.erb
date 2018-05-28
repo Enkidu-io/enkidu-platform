@@ -38,6 +38,12 @@
                   </div>
 
                   <div class="form-group">
+                    <i class="zmdi zmdi-email"></i>
+                    <%= f.label :dob, class: "control-label" %><br />
+                    <%= f.date_field :dob, class: "form-control"%>
+                  </div>
+
+                  <div class="form-group">
                     <i class="zmdi zmdi-lock"></i>
                     <%= f.label :password %>
                     <% if @minimum_password_length %>
