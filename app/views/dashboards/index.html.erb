@@ -20,18 +20,18 @@
 					<%= link_to project_path(project) do%>
 						<h1><%=project.title%></h1>
 					<%end%>
-						<!--fieldset class="rating-dashboard" >
-							<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-							<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-							<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-							<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-							<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-							<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-							<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-							<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-							<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-							<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-					</fieldset-->
+					<!--fieldset class="rating-dashboard" >
+						<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+						<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+						<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+						<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+						<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+						<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+						<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+						<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+						<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+						<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+					</fieldset>-->
 					<h5 class="available-balance" style="margin-top: -25px; margin-left: 52%; color: #595959; font-family: 'Lato', sans-serif;">
 					AVAILABLE BALANCE:
 					<span style="font-size: 17px;">
@@ -66,6 +66,15 @@
 								</button>
 							</span>
 						</li>
+						<%if project.unallocated_percentage.to_i <= 0 %>
+							<li style="transform: translateY(10px);">
+								<span data-toggle="modal" data-target="#Modal-dilute">
+									<button type="button" class="btn btn-sm btn-primary btn-round btn-copy-project-id" data-placement="right" data-toggle="tooltip" data-target="#myModal" data-project-id="<%=project.id%>" data-original-title="Vote Dilution" i>
+									<i class="zmdi zmdi-eyedropper"></i>
+									</button>
+								</span>
+							</li>
+						<% end %>
 					</ul>
 				</nav>
 				<div class="row">
