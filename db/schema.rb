@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310202026) do
+ActiveRecord::Schema.define(version: 20180529125446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,12 +117,13 @@ ActiveRecord::Schema.define(version: 20180310202026) do
     t.integer "leader_id"
     t.float "treasury_percentage"
     t.text "project_intro"
+    t.integer "view_count", default: 0
     t.integer "likes_count", default: 0
     t.integer "comments_count", default: 0
     t.integer "views_count", default: 0
     t.integer "ratings_count", default: 0
-    t.integer "view_count", default: 0
     t.string "img_url"
+    t.boolean "complete", default: false
   end
 
   create_table "ratings", force: :cascade do |t|

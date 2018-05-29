@@ -29,6 +29,10 @@ class ResolutionProcessor
 			end
 			prev_unalloc = bid.project.unallocated_percentage
 			bid.project.update(unallocated_percentage: prev_unalloc + bid.bid_percentage)
+		when 4
+			#Complete Team
+			project = Project.find(bid.project_id)
+			project.update!(complete: true)
 		end			
 	end
 

@@ -40,6 +40,11 @@ class NotificationDescription
 			if(to_member == true)
 				"#{variables[:full_name]} tried to bid in your team for #{variables[:perc]}%"
 			end
+		elsif type == 7
+			# Complete team notification
+			if(to_member == true)
+				"Vote for Complete Team to update your team status as Complete"
+			end
 		end
 	end
 end

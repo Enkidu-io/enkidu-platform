@@ -68,9 +68,9 @@
 						</li>
 						<%if project.unallocated_percentage.to_i <= 0 %>
 							<li style="transform: translateY(10px);">
-								<span data-toggle="modal" data-target="#Modal-dilute">
-									<button type="button" class="btn btn-sm btn-primary btn-round btn-copy-project-id" data-placement="right" data-toggle="tooltip" data-target="#myModal" data-project-id="<%=project.id%>" data-original-title="Vote Dilution" i>
-									<i class="zmdi zmdi-eyedropper"></i>
+								<span data-toggle="modal" data-target="#Modal-complete">
+									<button type="button" class="btn btn-sm btn-primary btn-round btn-copy-project-id" data-placement="right" data-toggle="tooltip" data-target="#myModal" data-project-id="<%=project.id%>" data-original-title="Complete Team" i>
+									<i class="zmdi zmdi-close-circle"></i>
 									</button>
 								</span>
 							</li>
@@ -222,6 +222,29 @@
 			</div>
 			<p>
 				<%= f.submit "Submit", class: "btn btn-primary btn-cons btn-round"%>
+			</p>
+			<%end%>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="Modal-complete" role="dialog" style="background-color:#263238;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background-image: linear-gradient(82deg, #a052a9, #7752a7);">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Complete Team</h4>
+			</div>
+			<div class="modal-body">
+				<%= form_for :bid, url: "bids", class: "form-horizontal"  do |f| %>
+				<div class="form-group modal-form-index">
+					<p>
+						<%= f.hidden_field :project_id, class: "modal-project-id",value: ""%>
+						<%= f.hidden_field :resolution_id, value: "4"%>
+					</p>
+				</div>
+			</div>
+			<p>
+				<%= f.submit "Are you sure?", class: "btn btn-primary btn-cons btn-round"%>
 			</p>
 			<%end%>
 		</div>

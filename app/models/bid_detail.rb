@@ -38,6 +38,8 @@ class BidDetail < ApplicationRecord
 					ResolutionProcessor.process(self.bid.resolution_id, self.bid)
 				when 3
 					ResolutionProcessor.process(self.bid.resolution_id, self.bid)
+				when 4
+					ResolutionProcessor.process(self.bid.resolution_id, self.bid)
 				end
 			else
 				# NotificationProcessor.process_digital_contract(self, 5)

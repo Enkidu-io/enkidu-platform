@@ -21,25 +21,25 @@ class BidsController < ApplicationController
   end
 
   def create
-      @bid = Bid.new(bid_params)
-      @bid.initiater_id = current_user.id
-      resolution = params[:bid][:resolution_id].to_i
-      status, @bid = BidsProcessor.process(resolution, @bid, params)
+    @bid = Bid.new(bid_params)
+    @bid.initiater_id = current_user.id
+    resolution = params[:bid][:resolution_id].to_i
+    status, @bid = BidsProcessor.process(resolution, @bid, params)
 
-      # Valid bid
-      if status == true
-        if @bid.save
-          flash[:notice] = 'Bid has been successfuly made.'
-          redirect_to bids_path
-        else
-          flash[:alert] = 'Could not create a bid.'
-          redirect_to request.referer
-        end
-      # Invalid bid 
+    # Valid bid
+    if status == true
+      if @bid.save
+        flash[:notice] = 'Bid has been successfuly made.'
+        redirect_to bids_path
       else
-        flash[:alert] = @bid
+        flash[:alert] = 'Could not create a bid.'
         redirect_to request.referer
       end
+    # Invalid bid 
+    else
+      flash[:alert] = @bid
+      redirect_to request.referer
+    end
   end
 
   def update

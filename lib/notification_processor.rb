@@ -30,11 +30,16 @@ class NotificationProcessor
 		# Vote Dilution
 		when 3
 			variables = { full_name: User.find(bid.initiater_id ).full_name, title: project.title }
-			description = NotificationDescription.getDescription(
-				4, true, variables)
+			description = NotificationDescription.getDescription(4, true, variables)
 			
-			Notification.create(user_id: bid_detail.user_id, notification_type_id: 4,
-				   notification_description: description, bid_id: bid.id)
+			Notification.create(user_id: bid_detail.user_id, notification_type_id: 4, 
+				notification_description: description, bid_id: bid.id)
+		# Complete team
+		when 4
+			variables = {full_name: User.find(bid.initiater_id ).full_name, title: project.title }
+			description = NotificationDescription.getDescription(7, true, variables)
+			
+			Notification.create(user_id: bid_detail.user_id, notification_type_id: 6, notification_description: description, bid_id: bid.id)
 		end
 	end
 

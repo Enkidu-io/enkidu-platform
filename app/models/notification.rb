@@ -40,7 +40,9 @@ class Notification < ApplicationRecord
 		when 4
 			bid_detail = BidDetail.where(bid_id: bid.id, user_id: self.user_id).first
 			return edit_bid_detail_path(bid_detail)
-
+		when 6
+			bid_detail = BidDetail.where(bid_id: bid.id, user_id: self.user_id).first
+			return edit_bid_detail_path(bid_detail)
 		end
 	end
 

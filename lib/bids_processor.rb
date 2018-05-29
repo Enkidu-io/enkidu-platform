@@ -8,6 +8,8 @@ class BidsProcessor
 			return params.require(:bid).permit(:project_id, :resolution_id)
 		when 3
 			return params.require(:bid).permit(:bid_percentage, :project_id, :resolution_id)
+		when 4
+			return params.require(:bid).permit(:project_id, :resolution_id)
 		end
 	end
 
@@ -70,16 +72,20 @@ class BidsProcessor
         		return true, bid
 			end
 
-
 		# Dilution
 		when 3
 			# Initiator not a member of project?
-			unless project.has_employee?(bid.initiater_id)
-				return false, "<b>Insufficient permissions!</b>"
-			else
+			if project.has_employee?(bid.initiater_id)
 				return true, bid
+			else
+				return false, "<b>Insufficient permissions!</b>"
 			end
-
+		when 4
+			if project.has_employee?(bid.initiater_id)
+				return true, bid
+			else
+				return false, "<b>Insufficient permissions!</b>"
+			end
 		end
 	end
 end
