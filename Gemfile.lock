@@ -56,6 +56,9 @@ GEM
     bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.3)
+    bullet (5.7.5)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11.0)
     byebug (10.0.0)
     capybara (2.18.0)
       addressable
@@ -66,7 +69,6 @@ GEM
       xpath (>= 2.0, < 4.0)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
-    choice (0.2.0)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -141,11 +143,6 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-erd (1.5.2)
-      activerecord (>= 3.2)
-      activesupport (>= 3.2)
-      choice (~> 0.2.0)
-      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     railties (5.1.5)
@@ -167,7 +164,6 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
-    ruby-graphviz (1.2.3)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.5)
@@ -209,6 +205,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.11.0)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -230,6 +227,7 @@ DEPENDENCIES
   acts-as-taggable-on!
   aws-sdk-v1
   bootstrap-will_paginate
+  bullet
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
@@ -242,7 +240,6 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)
   rails (~> 5.1.5)
-  rails-erd
   ransack
   sass-rails (~> 5.0)
   selenium-webdriver

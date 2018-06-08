@@ -18,6 +18,7 @@
 			<div class="card card-dashboard">
 				<header class="card-heading card-dashboard border-bottom">
 					<%= link_to project_path(project) do%>
+						<%#= byebug %>
 						<h1><%=project.title%></h1>
 					<%end%>
 					<!--fieldset class="rating-dashboard" >
@@ -66,7 +67,7 @@
 								</button>
 							</span>
 						</li>
-						<%if project.unallocated_percentage.to_i <= 0 %>
+						<%if project.unallocated_percentage <= 0.0 %>
 							<li style="transform: translateY(10px);">
 								<span data-toggle="modal" data-target="#Modal-complete">
 									<button type="button" class="btn btn-sm btn-primary btn-round btn-copy-project-id" data-placement="right" data-toggle="tooltip" data-target="#myModal" data-project-id="<%=project.id%>" data-original-title="Complete Team" i>
