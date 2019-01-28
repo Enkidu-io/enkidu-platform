@@ -924,7 +924,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 400; }
 
 h1 {
@@ -945,7 +945,7 @@ hr {
   margin-bottom: 10px; }
 
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Poppins", sans-serif; }
+  font-family: 'Nunito', sans-serif; }
 
 .h1 .small,
 .h1 small,
@@ -3038,7 +3038,7 @@ address {
   width: 100%; }
 
 #app_main-menu-wrapper .nav-pills > li > a i {
-  width: 25px;
+  margin-right: 24px;
   font-size: 1.4em;
   vertical-align: text-top;
   display: inline-block; }
@@ -3498,7 +3498,19 @@ address {
   margin-bottom: 0; }
 
 #app_topnavbar-wrapper .navbar-nav.left-menu {
-  padding-left: 240px; }
+  padding-left: 240px;
+  > li{
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    .nav-link{
+      border-radius: 3px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
 
 #app_topnavbar-wrapper .navbar-nav.left-menu .app_menu-open {
   display: none; }
@@ -3545,7 +3557,6 @@ address {
 #app_topnavbar-wrapper .navbar-nav > li > a {
   position: relative;
   max-height: 65px;
-  min-height: 65px;
   text-align: center; }
 
 #app_topnavbar-wrapper .navbar-nav > li > a .badge.danger {
@@ -5026,7 +5037,7 @@ body.boxed-layout .backdrop {
   background: #28bebd; }
 
 #content_wrapper.rightnav_v2 {
-  margin-right: 250px;
+  
   -webkit-transition: all 150ms linear;
   -khtml-transition: all 150ms linear;
   -moz-transition: all 150ms linear;
@@ -5452,11 +5463,12 @@ body.boxed-layout .backdrop {
   height: 70px; }
 
 #header_wrapper.header-sm #header h1 {
+  font-family: 'Nunito', sans-serif;
   padding: 0 0 0 5px;
-  line-height: 0;
   font-size: 1.5em;
+  font-weight: 700;
   display: inline-block;
-  margin: 15px 0 0 0; }
+  margin: 0; }
 
 #header_wrapper.header-sm #header .breadcrumb {
   padding: 8px 15px 8px 10px;
@@ -11387,7 +11399,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   text-decoration: underline; }
 
 .swal2-modal .swal2-title {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 1.25em;
   margin: 0;
   font-weight: 400;

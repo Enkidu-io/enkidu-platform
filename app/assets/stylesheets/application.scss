@@ -15,7 +15,7 @@
  */
 
 * {
-  font-family: 'Roboto', sans-serif;
+	font-family: 'Nunito', sans-serif;
  }
 
  .relative-div{
@@ -49,6 +49,11 @@
 }
 .hover{
 	cursor: pointer;
+}
+.content-body{
+	&.content{
+		width: 100% !important;
+	}
 }
 @media (min-width: 768px){
 .content{

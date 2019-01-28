@@ -83,7 +83,7 @@
   <div class="col-xs-12 col-sm-3">
     <div class="" id="adv-search">
       <%=search_form_for @search, class: "form-horizontal" do |f|%>
-      <div class="row">
+      <div class="row filter-wrapper">
         <div class="col-xs-12">
           <div class="form-group">
             <i class="zmdi zmdi-filter-list"></i>
@@ -100,7 +100,7 @@
             <label for="contain"><i class="zmdi zmdi-format-underlined"></i> Contains the words</label>
             <%=f.search_field :title_or_description_cont, class: "form-control" %>
           </div>
-          <%=f.submit :Search, class: "btn btn-block", style: "float:right; background-color: #20B2AA; color: white;"%>
+          <%=f.submit :Search, class: "btn btn-block", style: "float:right; background-color: #00acc1; color: white;margin:0;"%>
         </div>
       </div>
       <%end%>
@@ -131,7 +131,7 @@
       </div>
     </div>
   </div>
-  <div class="col-xs-12 col-sm-9" >
+  <div class="col-xs-12 col-sm-9" style="margin-top: 20px;">
     <div class="relative-div">
       <div class="projects-holder">
         <% if @projects.count > 0 %>

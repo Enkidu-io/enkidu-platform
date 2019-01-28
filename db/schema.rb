@@ -117,11 +117,11 @@ ActiveRecord::Schema.define(version: 20180310202026) do
     t.integer "leader_id"
     t.float "treasury_percentage"
     t.text "project_intro"
+    t.integer "view_count", default: 0
     t.integer "likes_count", default: 0
     t.integer "comments_count", default: 0
     t.integer "views_count", default: 0
     t.integer "ratings_count", default: 0
-    t.integer "view_count", default: 0
     t.string "img_url"
   end
 
