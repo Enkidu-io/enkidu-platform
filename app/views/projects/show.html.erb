@@ -12,25 +12,25 @@
 </div>
 <% end %>
 <div class="row">
-  <div class="col-md-8 col-md-offset-3" >
-    <div class="card card-red">
+  <div class="container" style="width: 90%;">
+    <div class="card card-red detail-card">
       <header class="card-heading border-bottom">
-        <h2 class="card-title"><%=@project.title%>
-        <div class="col-xs-12" style="text-align: right; margin-top: -50px; margin-left: 10px; ">
-          <a href="#" title="<%= number_to_human @project.likes.count %> like" id="like_<%= @project.id %>" class="like_btn vesting-btn-index" data-id="<%= @project.id %>"
+        <h2 class="card-title"><%=@project.title%></h2>
+        <div class="right-section">
+          <a href="#" title="<%= number_to_human @project.likes.count %> like" id="like_<%= @project.id %>" class="like_btn" data-id="<%= @project.id %>"
             <%= 'style=color:red;' if current_user.has_liked_project?(@project.id) %>>
             <span>
-              <h5 style="margin-top: 35px;"><i class="zmdi zmdi-favorite"></i>
+              <h5 style="margin-top: 0;"><i class="zmdi zmdi-favorite"></i>
               <span class="like_count"><%= number_to_human @project.likes.count %></span>
               </h5>
             </span>
           </a>
-          <span>
-            <h5 style="margin-top: 35px;"><i class="zmdi zmdi-eye"></i>
+          <span class="count">
+            <h5 style="margin-top: 0;"><i class="zmdi zmdi-eye"></i>
             <%= number_to_human @project.views_count %></h5>
           </span> 
         </div>
-        </h2>
+        
         <!--fieldset class="rating-show">
           <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
           <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
@@ -45,10 +45,10 @@
         </fieldset-->
       </header>
       <div class="card-body">
-        <h5 style="text-transform: uppercase;"><span style="font-weight: bolder;">Ownership:</span> <%=User.find(@project.ip_ownership_id).full_name%></h5>
+        <h5 style="text-transform: uppercase;"><span style="font-weight: bolder;">Ownership :</span> <%=User.find(@project.ip_ownership_id).full_name%></h5>
 
         <div class="table-responsive">
-          <table class="table">
+          <table class="table table-bordered">
             <thead style="background-image: linear-gradient(0deg, #7049ca, #512dab);">
               <tr>
                 <th style="color:white; text-align: center;">MEMBERS</th>
@@ -77,62 +77,55 @@
             </tbody>
           </table>
         </div>
-        <h5 style="font-weight: bolder;">DESCRIPTION:</h5>
-        <div class="card-body card-text" style="display: block; background-color: #f5f5f5;">
-          <p><%=@project.description%></p>
-        </div>
+        <h5 style="font-weight: bolder;">DESCRIPTION :</h5>
+        <p class="description-text"><%=@project.description%></p>
+        
         <% if @project.has_employee?(current_user.id) %>
-        <h5 style="font-weight: bolder;">RESOLUTIONS:</h5>
-        <div class="col-sm-12">
-          <div>
-            <div>
-              <div>
-                <table class="table table-hover">
-                  <thead style="background-color: white;">
-                    <tr>
-                      <td style="text-align: center;">BID FOR</td>
-                      <td style="text-align: center;">BID (IN %)</td>
-                      <td style="text-align: center;">VESTING PERIOD (in months)</td>
-                      <td style="text-align: center;">TYPE</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <%@project.bids.where(active: true).each do |bid|%>
-                      <tr style="background-color: white;">
-                        <td style="text-align: center">
-                          <% name_for = bid.user_id.nil? ? '-' : User.find(bid.user_id).full_name  %>
-                          <% if name_for == '-' %>
-                            <h5 style="margin-top: 10px;"></h5> 
-                          <% else %>
-                          <div class="chip">
-                          <div class="circle-profile-photo" data-name="<%= name_for %>"><canvas width="32" height="32"></canvas></div><span><%= name_for %></span>
-                          </div>
-                          <% end %>
-                        </td>
-                        <td style="text-align: center;">
-                          <h5 style="margin-top: 10px;"><%=bid.bid_percentage.present? ? bid.bid_percentage : '-' %></h5>
-                        </td>
-                        <td style="text-align: center;">
-                          <% @vesting = bid["variables"]["vesting_period"] %>
-                          <h5 style="margin-top: 10px;"><%= @vesting.present? ? @vesting : '-' %></h5>
-                        </td>
-                        <td style="text-align: center;">
-                          <h5><%= bid.resolution.name %></h5>
-                        </td>
-                      </tr>
-                    <%end%>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+        <h5 style="font-weight: bolder;">RESOLUTIONS :</h5>
+        <div class="col-sm-12" style="padding:0;">
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th style="text-align: center;">BID FOR</th>
+                <th style="text-align: center;">BID (IN %)</th>
+                <th style="text-align: center;">VESTING PERIOD (in months)</th>
+                <th style="text-align: center;">TYPE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%@project.bids.where(active: true).each do |bid|%>
+                <tr style="background-color: white;">
+                  <td style="text-align: center">
+                    <% name_for = bid.user_id.nil? ? '-' : User.find(bid.user_id).full_name  %>
+                    <% if name_for == '-' %>
+                      <h5 style="margin-top: 10px;"></h5> 
+                    <% else %>
+                    <div class="chip">
+                    <div class="circle-profile-photo" data-name="<%= name_for %>"><canvas width="32" height="32"></canvas></div><span><%= name_for %></span>
+                    </div>
+                    <% end %>
+                  </td>
+                  <td style="text-align: center;">
+                    <h5 style="margin-top: 10px;"><%=bid.bid_percentage.present? ? bid.bid_percentage : '-' %></h5>
+                  </td>
+                  <td style="text-align: center;">
+                    <% @vesting = bid["variables"]["vesting_period"] %>
+                    <h5 style="margin-top: 10px;"><%= @vesting.present? ? @vesting : '-' %></h5>
+                  </td>
+                  <td style="text-align: center;">
+                    <h5><%= bid.resolution.name %></h5>
+                  </td>
+                </tr>
+              <%end%>
+            </tbody>
+          </table>
         </div>
         <% end %>
       </div>
       <div class="card-footer text-center">
-        Looking for: <br>
+        <p style="color: #000;font-size: 16px;">Looking for :</p>
         <%@project.tag_list.each do |tag|%>
-          <button class="btn btn-xs btn-round" style="border: 1px solid black;"><%=tag%></button>
+          <button class="btn btn-xs btn-round" style="border: 1px solid black;margin-top: 5px;background-color: #512dab;color: #fff;padding: 6px 10px;"><%=tag%></button>
         <%end%>
       </div>
       <div class="card-footer p-10">
@@ -157,13 +150,13 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" style="margin:0;">
         <%@comments.each do |comment|%>
-          <div class="col-xs-2" style="text-align: right;">
+          <div class="col-xs-1" style="text-align: right;">
             <img src="/enkidu.png" class="rounded-circle hide-mobile" style="width:60px; height:60px;">
           </div>
-          <div class="col-xs-10">
-            <span class="text-primary" style="font-weight: bold;font-size: 14px;"><%=comment.user.full_name%></span>
+          <div class="col-xs-11">
+            <span class="text-primary" style="font-weight: bold;font-size: 14px;color: #512dab;"><%=comment.user.full_name%></span>
             <br>
             <small><%= time_ago_in_words(comment.created_at) %> ago. 
               <a href="#;" class="show-form" data-a_id="<%=comment.id%>">Edit</a>

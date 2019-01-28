@@ -137,40 +137,23 @@
         <% if @projects.count > 0 %>
         <div class="row">
           <%@projects.each do |project|%>
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-12 col-sm-4 project-card">
               <%= link_to project_path(project) do%>
                 <div class="card card-index">
-                  <header class="card-heading card-index-heading">
-                      <h4 class="project-title-index"><%=truncate(project.title, length: 40)%></h4>
-                    
-                    <!--div class="rating" data-id="">
-                    <input type="radio" class="ratings-clickable-index" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                    <input type="radio" class="ratings-clickable-index" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                    <input type="radio" class="ratings-clickable-index" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                    <input type="radio" class="ratings-clickable-index" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                    <input type="radio" class="ratings-clickable-index" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Bad - 1 star"></label>
-                    <%=project.ratings_count%>
-                    <script type="text/javascript">
-                    
-                    </script>
-                    
-                  </div-->
-                  </header>
                   <div class="card-body card-text card-project-info">
-                    <div>
+                    <div class="image">
                       <% if project.img_url.present? %>
                         <img src="<%=project.img_url %>" class="img-center project-image">
                       <% else %>
                         <%= image_tag 'img/enkidu.png', class: "img-center project-image"%>
                       <% end %>
                     </div>
+                    <h4 class="project-title-index"><%=truncate(project.title, length: 40)%></h4>
                     <h5 class="project-description-index"><%=truncate(project.description, length: 100)%></h5>
-                    <div class="relative-div">
-                      <div class="row">
-                        <div class="col-xs-4">
-                          <i class="zmdi zmdi-eye"></i> <%= number_to_human project.views_count %>
-                        </div>
-                        <div class="col-xs-4">
+                    <div class="relative-div card-footer">
+                      <div class="row no-gutters footer-wrapper">
+                        <div class="left-wrapper">
+                          <p><i class="zmdi zmdi-eye"></i> <%= number_to_human project.views_count %></p>
                           <a href="javascript:void(0)" id="like_<%= project.id %>" class="like_btn" data-id="<%= project.id %>"
                             <%= 'style=color:red;' if current_user.has_liked_project?(project.id) %>>
                             <span>
@@ -179,8 +162,8 @@
                             </span>
                           </a>
                         </div>
-                        <div class="col-xs-4" title="Apply for collaborating to this project.">
-                          <button type="button" class="btn btn-sm btn-primary btn-apply-index btn-copy-project-id" data-toggle="modal" data-project-id="<%=project.id%>" data-target="#myModal" i>
+                        <div class="right-wrapper" title="Apply for collaborating to this project.">
+                          <button type="button" class="btn btn-sm btn-primary btn-copy-project-id" data-toggle="modal" data-project-id="<%=project.id%>" data-target="#myModal" i>
                             Apply
                           </button>
                         </div>
